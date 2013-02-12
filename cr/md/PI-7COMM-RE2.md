@@ -14,12 +14,14 @@
 ## Plan & Organisation du dossier OSEO
 
 1. Présentation
+
 	a. Besoins : Fabio, relu par Baptiste
 	b. Description de la Solution : Xiao Yu, relu par Paul
 
 	c. Technique : Paul, relu par Fabio
 
 2. Marketing
+
 	a. Marché : Baptiste, relu par Guillaume
 
 	b. Plan marketing : Guillaume, relu par Paul
@@ -27,6 +29,7 @@
 	c. Besoins financiers : Guillaume, relu par Fabio
 
 3. Prévisonnel
+
 	a. Management de projet : Paul, relu par Baptiste
 
 	b. Licence : Fabio, relu par Guillaume
@@ -34,6 +37,7 @@
 	c. Evolutions futures : Baptiste, relu par Paul
 
 4. Annexe
+	
 	a. Liste des fonctionnalités à développer : Xiao Yu
 
 	b. Découpage en lots : Xiao Yu
