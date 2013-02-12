@@ -1,0 +1,3 @@
+#!/bin/bash
+
+gimli -file $1 -outputdir ../pdf -stylesheet css/style.css
