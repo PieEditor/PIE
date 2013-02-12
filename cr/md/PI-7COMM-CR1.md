@@ -13,13 +13,13 @@ D'un point de vue pratique, l'équipe avait pensé à plusieurs cas d'utilisatio
 - la création de communautés sur invitation ou soumises à l'approbation des membres existants, certainement payantes ;
 - la création de communautés privées, dans le cadre par exemple d'une entreprise ou association.
 
-L'équipe a convenu avec ses encadrants que les réseaux sociaux actuels et les outils utilisés (tels les mails) ont actuellement atteint leurs limites et que la création d'une alternative était légitime. Il a été de plus remarqué que de nombreux sites internet suivent la règle des 90/9/1 : sur 100 utilisateurs, seul 1 contribue à la création d'information, tandis que 9 la partagent et la commente. Une immense majorité ne fait que consommer le contenu. Enfin, il a été noté qu'une hiérarchie complexe d'utilisateurs (simples membres, modérateurs, administrateurs, etc.) pouvait entraîner des disparités entre les prérogatives de ces derniers.
+L'équipe a convenu avec ses encadrants que les réseaux sociaux actuels et les outils utilisés (tels les mails) ont actuellement atteint leurs limites et que la création d'une alternative était légitime. Il a été de plus remarqué que de nombreux sites internet suivent la règle des 100/10/1 : sur 100 utilisateurs, seul 1 contribue à la création d'information, tandis que 10 la partagent et la commentent. Une immense majorité ne fait que consommer le contenu. Enfin, il a été noté qu'une hiérarchie complexe d'utilisateurs (simples membres, modérateurs, administrateurs, etc.) pouvait entraîner des disparités entre les prérogatives de ces derniers.
 
 Les problèmes suivants ont été soulevés :
 
-- modération des contenus : la communauté s'autogère-t-elle ? Faut-il un administrateur ? Comment gérer les contenus abusifs ou non pertinents ?
-- quel public est ciblé par le produit ?
-- suite au retour des encadrants, le problème majeur du projet est la présence d'une réelle innovation, et non d'une amélioration des outils existants.
+- *modération des contenus* : la communauté s'autogère-t-elle ? Faut-il un administrateur ? Comment gérer les contenus abusifs ou non pertinents ?
+- quel *public est ciblé* par le produit ?
+- suite au retour des encadrants, le *problème majeur* du projet est la présence d'une réelle innovation, et non d'une amélioration des outils existants.
 
 Les points suivant seront à corriger et travailler d'ici la prochaine session :
 
