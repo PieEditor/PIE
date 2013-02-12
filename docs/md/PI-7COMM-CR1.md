@@ -1,6 +1,6 @@
 # CR Séance 1 - Groupe 7-COMM - 11/02/13
 
-Présents :
+La réunion s'est tenue de 11h00 à 12h05. Étaient présents :
 
 - *Encadrants* : Claude Guédat, Isabelle Augé-Blum
 - *Groupe projet* : Paul Mougel (Chef de projet), Guillaume Burel, Baptiste Metge, Fabio Guigou, Xiao Yu Feng
@@ -19,6 +19,7 @@ Les problèmes suivants ont été soulevés :
 
 - modération des contenus : la communauté s'autogère-t-elle ? Faut-il un administrateur ? Comment gérer les contenus abusifs ou non pertinents ?
 - quel public est ciblé par le produit ?
+- suite au retour des encadrants, le problème majeur du projet est la présence d'une réelle innovation, et non d'une amélioration des outils existants.
 
 Les points suivant seront à corriger et travailler d'ici la prochaine session :
 
