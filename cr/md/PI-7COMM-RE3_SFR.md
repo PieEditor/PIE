@@ -16,4 +16,21 @@
 
 ### Les questions à ce poser 
 
-1.
+1. Créer un nouveau site / réseau ne fait-il pas que rajouter du bruit ?
+2. Le faire pour qui ? Pour faire une start-up ou pour l'ajouter à un réseau déjà en place ?
+3. Partir sur une API ou tout recoder ?
+4. Créer qqch totalement à part ou se **greffer** à un réseau ?
+5. Choisir un support spécifique et persistant ou volatile ?
+6. Qu'est ce que l'on vise dans notre "amélioration de la société" ?
+
+### Les pistes et idées possibles 
+
+1. Faire un FB régionnal ou un Twitter INSA ? Quel intérêt ? 
+2. middleware entre réseaux sociaux ?
+3. Apps à droit d'accès FB ?
+4. lifeshare ( st Etienne ) , Scoopit, Instagram, StackOverflow...
+5. Aller voir si l'API stackoverflow est ouverte. Possibilité de trouver une brèche à partir de StackOverflow car c'est quand même très orienté geek
+6. FB = bordel et flem | StackOverflow = good SNR => entre les deux rien ?
+
+
+ 
