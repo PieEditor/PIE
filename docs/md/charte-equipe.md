@@ -28,5 +28,5 @@ L'outil principal de communication interne est l'e-mail. L'ensemble des document
 
 En accord avec la philosophie de cet outil, les documents sont rédigés en format *Markdown* (texte brut incorporant le minimum de symboles pour créer une structuration simple). De cette manière, assembler un document complet à partir des différentes parties rédigées par les membres de l'équipe se réduit à une simple opération de copier-coller, sans préoccupation de format de fichier, de plateforme ou de mise en page ; un PDF peut ensuite être généré automatiquement pour créer le rendu final.
 
-Durant la phase de réalisation du projet, l'ensemble du code sera déposé sur le dépôt Git. Les tâches à réaliser ainsi que les problèmes à résoudre seront inscrits sur l'interface de gestion des problèmes (*issues*) du projet.
+Durant la phase de réalisation du projet, l'ensemble du code sera déposé sur le dépôt Git. Les tâches à réaliser ainsi que les problèmes à résoudre seront inscrits sur l'interface de gestion des problèmes *(issues)* du projet.
 
