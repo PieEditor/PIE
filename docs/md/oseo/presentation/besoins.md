@@ -53,3 +53,5 @@ Permettre l'élaboration collaborative de document | Remplacer l' email ?
 * Envoyer des messages d'urgence par SMS
 * Etre utilisable sur un Smartphone
 * Avoir un emploi du temps | diagramme Gannt pour manager l'élaboration à temps du document ( avec des notifications de rappels ... )
+
+
