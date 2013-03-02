@@ -19,3 +19,37 @@ De tels outils apportent des solutions à certains problèmes, mais ne sont pas 
 ## Analyse fonctionnelle
 
 *Ou pourquoi notre solution va mettre une pétée aux susnommés.*
+
+### Fonction principale 
+Permettre l'élaboration collaborative de document | Remplacer l' email ?
+
+### Fonctions contraintes 
+
+* Capitaliser sur les discussions en les intégrant de manière forte aux documents
+* Echanger des messages instantanés entres collaborateurs
+* Echanger des messages asynchrones entres collaborateurs
+* Appartenir à plusieurs communotés d'étidion de documents
+* Commenter une partie ( paragraphe, ligne ) d'un document
+* Rédiger un résumé d'une discussion
+* Quitter une discussion|post
+* Inviter une personne à une discussion
+* Etre notifié de l'activité sur les posts où l'on intervient
+* Lier des contenus à un document : documents similaires, site web, vidéo youtube...
+* Système de versionnage 
+* Passer une discussion sous forme de forum ( la partager )
+* Appeler ses collaborteurs par voIP
+* POuvoir faire l'interconnection entre email et post sur la communotés
+
+
+### Fontions complémentaires 
+
+* Mettre un marque page repère sur les document
+* "Skyper" les collaborateurs en ligne
+* Avoir un mode "zen" d'écriture
+* Historique des dernières conversations lu
+* Valoriser les posts à forte activité| évolution
+* Sauvegarde automatique 
+* Utiliser Teamviewer
+* Envoyer des messages d'urgence par SMS
+* Etre utilisable sur un Smartphone
+* Avoir un emploi du temps | diagramme Gannt pour manager l'élaboration à temps du document ( avec des notifications de rappels ... )
