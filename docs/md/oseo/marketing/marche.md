@@ -28,6 +28,8 @@ Il est également interressant de noter que certains outils qui n'était au dép
 ## 	Opinions 
 *Ce que les gens pensent*
 
+( montre la validité du produit que l'on veut proposer )
+
 Evidemment les outils d'aujourd'hui ont fortement améliorer les méthodes de travai collaboratives et permis de grandes avancé en termes d'efficasité. Messagerie électronique, élaboration de documents sur google docs, vidéo conférence... Tout ces outils sont appréciés. Cependant, il semblerait qu'ils y ai un manque de cohérence et practicité entre ces derniers. Support trop variés, nombre d'email excessif... Il faudrait être constamment sur sa messagerie électronique, Facebooket twitter tout en ayant son téléphone en poche ! Par exemple, j'ai eu un problème à la sauvegarde d'un document et par messagerie instantanée avec mon chef. Le lendemain, les deux autres membres de mon équipe ont le même problème et mon chef se retrouve à leurs expliquer à nouveau un par un comment résoudre leur problème. Il aurait été tellement plus simple de péréniser ma discussion de la veille, avec mon chef, sous la forme d'un forum et la partager...
 
 * L'idée de réseau social d'entreprise apparait de plus en plus
@@ -37,6 +39,12 @@ Evidemment les outils d'aujourd'hui ont fortement améliorer les méthodes de tr
 * Problème de rapport signal à bruit
 * faible 1% rule (Internet culture) | loi des 1/10/100 pour la l'apport de contenu sur le Web
 * outils trop variés
+
+## Concurrents potentiels 
+
+* google docs
+* Etherpad
+* réseau sociaux
 
 
 
