@@ -37,7 +37,6 @@ Permettre l'élaboration collaborative de document | Remplacer l' email ?
 * Lier des contenus à un document : documents similaires, site web, vidéo youtube...
 * Système de versionnage 
 * Passer une discussion sous forme de forum ( la partager )
-* Appeler ses collaborteurs par voIP
 * POuvoir faire l'interconnection entre email et post sur la communotés
 
 
@@ -53,5 +52,6 @@ Permettre l'élaboration collaborative de document | Remplacer l' email ?
 * Envoyer des messages d'urgence par SMS
 * Etre utilisable sur un Smartphone
 * Avoir un emploi du temps | diagramme Gannt pour manager l'élaboration à temps du document ( avec des notifications de rappels ... )
+* Appeler ses collaborteurs par voIP
 
 
