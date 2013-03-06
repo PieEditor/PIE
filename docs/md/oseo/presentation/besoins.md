@@ -28,7 +28,7 @@ Permettre l'élaboration collaborative de document | Remplacer l' email ?
 * Capitaliser sur les discussions en les intégrant de manière forte aux documents
 * Echanger des messages instantanés entres collaborateurs
 * Echanger des messages asynchrones entres collaborateurs
-* Appartenir à plusieurs communotés d'étidion de documents
+* Appartenir à plusieurs communautés d'étidion de documents
 * Commenter une partie ( paragraphe, ligne ) d'un document
 * Rédiger un résumé d'une discussion
 * Quitter une discussion|post
@@ -37,12 +37,12 @@ Permettre l'élaboration collaborative de document | Remplacer l' email ?
 * Lier des contenus à un document : documents similaires, site web, vidéo youtube...
 * Système de versionnage 
 * Passer une discussion sous forme de forum ( la partager )
-* POuvoir faire l'interconnection entre email et post sur la communotés
+* Pouvoir faire l'interconnection entre email et post sur la communotés
 
 
 ### Fontions complémentaires 
 
-* Mettre un marque page repère sur les document
+* Mettre un marque page repère sur les documents
 * "Skyper" les collaborateurs en ligne
 * Avoir un mode "zen" d'écriture
 * Historique des dernières conversations lu
