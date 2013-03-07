@@ -60,13 +60,13 @@ Evidemment les outils d'aujourd'hui ont fortement améliorer les méthodes de tr
 5. **gestion des connaissances**=>  capitaliser sur les savoirs
 
 
-**DISTIC** : http://fr.wikipedia.org/wiki/Distic
-**coworking** : http://fr.wikipedia.org/wiki/Coworking
-**Web 3.0** : "Le but principal du Web sémantique est d'orienter l'évolution du Web pour permettre aux utilisateurs sans intermédiaires de trouver, partager et combiner l'information plus facilement." 
-**Processus collaboratif pair à pair** : "The first requirement to facilitate the emergence of peer-to-peer processes is the existence of a technological infrastructure that enables distributed access to 'fixed' capital." http://en.wikipedia.org/wiki/Social_peer-to-peer_processes#Infrastructure_for_social_P2P_processes.The second requirement is alternative information and communication systems which allow for autonomous communication between cooperating agents.The third requirement is the existence of a 'software' infrastructure for autonomous global cooperation.The fourth requirement is a legal infrastructure that enables the creation of use-value and protects it from private appropriation." 
-**groupware** is application software designed to help people involved in a common task achieve goals.
-**Crowdsourcing** practice of obtaining needed services, ideas, or content by soliciting contributions from a large group of people, and especially from an online community, rather than from traditional employees or suppliers.
-**Document management system** http://en.wikipedia.org/wiki/Document_management_system
+* **DISTIC** : http://fr.wikipedia.org/wiki/Distic
+* **coworking** : http://fr.wikipedia.org/wiki/Coworking
+* **Web 3.0** : "Le but principal du Web sémantique est d'orienter l'évolution du Web pour permettre aux utilisateurs sans intermédiaires de trouver, partager et combiner l'information plus facilement." 
+* **Processus collaboratif pair à pair** : "The first requirement to facilitate the emergence of peer-to-peer processes is the existence of a technological infrastructure that enables distributed access to 'fixed' capital." http://en.wikipedia.org/wiki/Social_peer-to-peer_processes#Infrastructure_for_social_P2P_processes.The second requirement is alternative information and communication systems which allow for autonomous communication between cooperating agents.The third requirement is the existence of a 'software' infrastructure for autonomous global cooperation.The fourth requirement is a legal infrastructure that enables the creation of use-value and protects it from private appropriation." 
+* **groupware** is application software designed to help people involved in a common task achieve goals.
+* **Crowdsourcing** practice of obtaining needed services, ideas, or content by soliciting contributions from a large group of people, and especially from an online community, rather than from traditional employees or suppliers.
+* **Document management system** http://en.wikipedia.org/wiki/Document_management_system
 
 
 ### Qui sont les acheteurs et les consommateurs ?
