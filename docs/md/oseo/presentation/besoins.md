@@ -38,6 +38,8 @@ Permettre l'élaboration collaborative de document | Remplacer l' email ?
 * Système de versionnage 
 * Passer une discussion sous forme de forum ( la partager )
 * Pouvoir faire l'interconnection entre email et post sur la communotés
+* Définir lorsqu'un document doit être terminé
+* 
 
 
 ### Fontions complémentaires 

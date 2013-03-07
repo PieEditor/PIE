@@ -7,7 +7,6 @@
 Le monde d'aujourd'hui est de plus en plus marqué par l'évolution des méthodes de travail résultant de l'essort des technologies. Le travailleur solitaire n'a plus sa place dans le monde globalisé qui est le notre. Un bon travail d'équipe est devenu essentiel pour surmonter la concurrence planétaire. D'où l'apparition en masse d'outils  de travail collaboratifs. Ces outils visent essentielment à améliorer la communication au sein d'un groupe de travail. De part nature l'homme transmet sont savoir en le communicant. De nos jours, l'homme à besoin de la technologie pour l'aider à partager du savoir et en recueillir. Ceci explique l'apparition en masse d'outils de travail collaboratifs sur le Web.
 
 
-
 Internet a jouer un rôle majeur dans la création et diffusion de données et les possibilités qu'il offre sont variés : blogs, wikis, site web...
 ## Comportements
 *Ce que les gens font*
@@ -45,6 +44,81 @@ Evidemment les outils d'aujourd'hui ont fortement améliorer les méthodes de tr
 * google docs
 * Etherpad
 * réseau sociaux
+
+--------------Broullions fait en répondant aux questions du site apce conseiller sur moodle--------------
+##Tendances du marchés, de ces acteurs et opportunitées de lancement
+
+### Quelles sont les grandes tendances du marché ?
+
+
+* travail collaboratifs sur **wikipédia** : travail où collaborent de nombreuses personnes **grâce aux technologies de l'information et de la communication**. Les outils nouveaux permettent de **maximiser la créativité et l'efficience** d'un groupe associé à **des projets d’envergure** même si elles sont très **dispersées dans l'espace et le temps**. 
+* **périmètre** : 
+1. **Environnement bureautique** => partager l'information 
+2. **gestion documentaire** => harmoniser la gestion des différentes versions de documents
+3. **gestion de projet** => gantt, debut et fin d'un travail	
+4. **gestion des relations sociales** => valoriser les relations entre collaborateurs mais aussi avec l’externe et l’écosystème des entreprises.
+5. **gestion des connaissances**=>  capitaliser sur les savoirs
+
+
+**DISTIC** : http://fr.wikipedia.org/wiki/Distic
+**coworking** : http://fr.wikipedia.org/wiki/Coworking
+**Web 3.0** : "Le but principal du Web sémantique est d'orienter l'évolution du Web pour permettre aux utilisateurs sans intermédiaires de trouver, partager et combiner l'information plus facilement." 
+**Processus collaboratif pair à pair** : "The first requirement to facilitate the emergence of peer-to-peer processes is the existence of a technological infrastructure that enables distributed access to 'fixed' capital." http://en.wikipedia.org/wiki/Social_peer-to-peer_processes#Infrastructure_for_social_P2P_processes.The second requirement is alternative information and communication systems which allow for autonomous communication between cooperating agents.The third requirement is the existence of a 'software' infrastructure for autonomous global cooperation.The fourth requirement is a legal infrastructure that enables the creation of use-value and protects it from private appropriation." 
+**groupware** is application software designed to help people involved in a common task achieve goals.
+**Crowdsourcing** practice of obtaining needed services, ideas, or content by soliciting contributions from a large group of people, and especially from an online community, rather than from traditional employees or suppliers.
+**Document management system** http://en.wikipedia.org/wiki/Document_management_system
+
+
+### Qui sont les acheteurs et les consommateurs ?
+* entreprise
+* étudiants
+* n'importe qui
+* associations
+
+
+### Qui sont les concurrents ?
+http://en.wikipedia.org/wiki/Collaborative_real-time_editor
+
+###  Quel est l'environnement de mon marché ?
+"Dans l'entreprise, le travail collaboratif s'appuie sur des solutions « synchrones » (les réunions « audio » ou « visio » à distance, les web conférences, le chat électronique ...) ou « asynchrones » (le partage de documents ou la rédaction collaborative de documents)." (Wikipédia) => tapé au millieu ?
+
+### Quelles sont les contraintes de mon marché et les clefs de succès ?
+
+### Y-a-t-il, oui ou non, une opportunité pour que mon projet réussisse ?
+#### Oui
+* **Enjeux de la gestion de la connaissance** : http://fr.wikipedia.org/wiki/Management_de_la_connaissance#Enjeux_de_la_gestion_de_la_connaissance
+* resultat **sondage**
+* mail Atos 
+
+
+#### Non
+* Beaucoup de conccurents potentiels
+* Migration sur notre outils pouvant être difficile
+
+## Hypothèses sur le chiffre d'affaire
+?????????????
+
+
+
+##  Faire les meilleurs choix pour atteindre ses objectifs
+* **trois facteurs interrésant** : la proximité, l'intimité et la permissivité18. Le facteur de la proximité doit rapprocher les individus. L'intimité leur permet de rester maîtres de leur accessibilité aux autres. Enfin, la permissivité (permission, en anglais) signifie que la possibilité d'interagir en dehors de relations de travail structurées est non seulement permise, mais encouragée (  Anne-Laure Fayard et John Weeks, de Harvard )
+* **rejoint la stratégie marketing**
+
+
+##  Apporter des éléments concrets qui serviront à établir le budget prévisionnel
+???????????????
+
+### Quel sera le coût de fabrication ou de production du produit par exemple ?
+??????????????
+
+###  Quel seront les coûts de commercialisation ?
+????????????,??
+
+### Ou encore, quel sera le coût de la promotion ou de la communication ?
+?????????????
+
+
+
 
 
 
