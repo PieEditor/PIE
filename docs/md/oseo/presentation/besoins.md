@@ -4,7 +4,7 @@
 
 Notre projet cherche à apporter une solution au problème de l'édition collaborative de documents. Il existe en effet peu d'outils, à l'heure actuelle, permettant à plusieurs rédacteurs de produire efficacement un document de bout en bout, c'est-à-dire du brouillon à la version imprimable. Dans la majorité des cas, l'e-mail est utilisé de manière exhaustive, soit pour échanger des idées, soit pour faire circuler des fragments de document ou des versions différentes du document complet. Cette approche présente un certain nombre de problèmes qui rendent la tâche pénible et limitent fortement la productivité.
 
-En premier lieu, l'e-mail n'a pas été conçu pour être utilisé comme outil de conversation au sein d'un groupe. Il s'agit d'un moyen de communication asynchrone, si bien que les délais entre une question et une réponse dans une conversation par mail se mesurent le plus souvent en heures. De plus, il est difficile de gérer correctement les listes de destinataires. Les listes de diffusion possèdent un caractère fortement intrusif, et inversement refuser de les utiliser risque de priver certains membres du groupe d'une partie de l'information.
+En premier lieu, l'e-mail n'a pas été conçu pour être utilisé comme outil de conversation au sein d'un groupe. Il s'agit d'un moyen de communication asynchrone, si bien que les délais entre une question et une réponse dans une conversation par mail se mesurent le plus souvent en heures. De plus, les *mailing lists* génèrent des volumes de mails ingérables pour garantir que toute l'information soit à disposition de tous les participants, alors que renoncer à les utiliser risque de conduire à une exclusion involontaire de certains d'entre eux.
 
 Par ailleurs, l'utilisation de la pièce jointe pour transporter des fichiers de texte riche soulève de nouvelles difficultés. D'une part, le contrôle de version est impossible, si bien que la dernière version des différentes parties du document a de fortes chances de se trouver dispersée dans plusieurs fichiers, du fait que les différents rédacteurs travaillent sur des fichiers différents. D'autre part, des problèmes de format peuvent ralentir considérablement la mise en commun de diverses parties d'un document. Si la compatibilité entre les formats de Microsoft Office et LibreOffice est presque totale, il n'en demeure pas moins que tenter de réunir des paragraphes possédant une mise en page différente, des marges différentes, des polices de caractère différentes (les ensembles des typographies Windows et Linux sont pratiquement disjoints) et éventuellement des titres ou listes à puces automatiques est une tâche longue, difficile et ingrate.
 
@@ -14,46 +14,24 @@ Bien entendu, des outils alternatifs et mieux adaptés existent depuis longtemps
 
 Toutefois, le besoin de convergence entre éditeurs de documents et outils de discussion s'est déjà fait sentir, et plusieurs solutions ont été proposées. Nous pouvons citer, parmi les plus populaires, Google Docs et EtherPad. Le premier fonctionne uniquement dans un navigateur Web et propose une gestion de versions, des fonctionnalités de mise en page avancées et un système de commentaires permettant d'annoter un document en cours de rédaction. Le second utilise un client installé sur la machine et propose un système d'édition basique et un espace de discussion instantanée. Il en existe également des versions utilisable directement dans le navigateur.
 
-De tels outils apportent des solutions à certains problèmes, mais ne sont pas assez complets pour faire disparaître l'e-mail de la chaîne de production. En particulier, ils ne permettent pas de pérenniser une discussion afin de s'en servir comme base pour la rédaction d'un document. Ainsi, conserver la trace d'un *brainstorming* nécessite soit un envoi de mails groupés, soit l'édition d'un document séparé ; aucune de ces deux options n'apparaît comme satisfaisante. Par ailleurs, l'éditeur est basé sur le paradigme WYSIWYG (What You See Is What You Get), c'est-à-dire sur l'apparence du document plutôt que sur sa structure. Pour assurer une meilleure interopérabilité, un système de rédaction basé sur la structure (WYSIWYM, What You See Is What You Mean) est préférable. Les langages les plus célèbres utilisant ce paradigme sont LaTeX et Markdown.
+De tels outils apportent des solutions à certains problèmes, mais ne sont pas assez complets pour faire disparaître l'e-mail de la chaîne de production. Google Docs ne possède pas de plateforme de discussion, bien qu'il propose un puissant système d'édition et des fonctionnalités d'annotation. EtherPad, quant à lui, ne propose aucune pérennisation des échanges instantanés et demeure un éditeur assez pauvre ; en particulier, il ne peut pas exporter un document et ne gère pas les droits d'accès : n'importe qui possédant l'URL du document peut le lire et l'éditer. Aucun logiciel ne propose actuellement la convergence entre discussion instantanée, nécessaire pour sa rapidité, et messagerie "asynchrone" de type forum, indispensable pour sauvegarder le contenu important de la conversation.
+
+**Enfin, l'immense majorité des éditeurs actuels est basés sur le paradigme WYSIWYG (What You See Is What You Get), c'est-à-dire sur l'apparence du document plutôt que sur sa structure. Le problème de ces éditeurs est la tentation pour la plupart des utilisateurs de ne pas utiliser de styles, ce qui rend l'intégration de plusieurs parties de document écrites par des rédacteurs différents extrêmement pénible. Pour assurer une meilleure interopérabilité, un système de rédaction basé sur la structure (WYSIWYM, What You See Is What You Mean) est préférable : l'utilisateur est forcé de décrire le document de manière structurelle, ce qui supprime automatiquement ce travers. Les langages les plus répandus utilisant ce paradigme sont LaTeX et Markdown.**
 
 ## Analyse fonctionnelle
 
-*Ou pourquoi notre solution va mettre une pétée aux susnommés.*
-
 ### Fonction principale 
-Permettre l'élaboration collaborative de document | Remplacer l' email ?
+
+Le but de notre produit est de fournir un outil d'édition collaborative de documents simple d'utilisation, ne nécessitant ni l'installation d'un client, ni la gestion de mises à jour. Il permet à plusieurs rédacteurs de travailler sur un même document tout en discutant en temps réel et en conservant une trace des conversations pertinentes afin d'y faire référence plus tard en cas de besoin.
 
 ### Fonctions contraintes 
 
-* Capitaliser sur les discussions en les intégrant de manière forte aux documents
-* Echanger des messages instantanés entres collaborateurs
-* Echanger des messages asynchrones entres collaborateurs
-* Appartenir à plusieurs communautés d'étidion de documents
-* Commenter une partie ( paragraphe, ligne ) d'un document
-* Rédiger un résumé d'une discussion
-* Quitter une discussion|post
-* Inviter une personne à une discussion
-* Etre notifié de l'activité sur les posts où l'on intervient
-* Lier des contenus à un document : documents similaires, site web, vidéo youtube...
-* Système de versionnage 
-* Passer une discussion sous forme de forum ( la partager )
-* Pouvoir faire l'interconnection entre email et post sur la communotés
-* Définir lorsqu'un document doit être terminé
-* 
+* Rédiger un document et pouvoir l'exporter dans un format de fichier compatible avec les standards actuels tels que PDF ou Microsoft Office Open XML
+* Permettre à plusieurs rédacteurs de le faire en même temps, chacun pouvant observer les modifications des autres
+* Réagir instantanément à une modification et entamer la discussion avec celui qui l'a apportée, ou au contraire solliciter l'avis d'autres rédacteurs sur un point précis
+* Lorsqu'un désaccord apparaît, pouvoir enregistrer la conversation afin de garder trace du problème et de la manière dont il a été résolu
 
+### Fonctions complémentaires
 
-### Fontions complémentaires 
-
-* Mettre un marque page repère sur les documents
-* "Skyper" les collaborateurs en ligne
-* Avoir un mode "zen" d'écriture
-* Historique des dernières conversations lu
-* Valoriser les posts à forte activité| évolution
-* Sauvegarde automatique 
-* Utiliser Teamviewer
-* Envoyer des messages d'urgence par SMS
-* Etre utilisable sur un Smartphone
-* Avoir un emploi du temps | diagramme Gannt pour manager l'élaboration à temps du document ( avec des notifications de rappels ... )
-* Appeler ses collaborteurs par voIP
-
-
+* Annoter un document pour mettre en lumière les ressources extérieures ou les conversations enregistrées par le passé qui peuvent être utiles à la rédaction d'un passage précis
+* Converser de manière transparente avec des personnes n'utilisant pas cet outil, par exemple par l'envoi d'e-mail
