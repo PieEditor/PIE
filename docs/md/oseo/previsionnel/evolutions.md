@@ -1,6 +1,55 @@
-﻿## Développement futur
+# Evolution of project
+ 
 
-* En ce moment, nous visons principalement à l'utilisation de type "Intranet", pourtant cela pourra évoluer à une application "Internet". 
-* Des nouvelles fonctionalités pourront être ajoutées:
-** VoIP: Possiblité de contact plus direct
-** Plug-in Facebook/Twitter
+## Essential functionalities
+### Editing
+* Create a document
+* Modify a document
+* Save
+* Delete
+
+### Seperation
+### Bonus
+* Layout setting
+* Export as a pdf
+
+### Permanence of data
+### Collaborate in editing
+* Discussion enabled
+* Multiple authors enabled
+
+### Categorization
+### Clean user interface
+### Simple options
+### Usage
+* Easy to maintain
+* No client-end application
+
+## Short-term evolutions
+
+### Export to cloud
+### Better usage of the data
+* Set up hypertext links
+* Versioning
+
+### Collaboration
+* Annotations
+* Evolution notification
+* Real-time modification display
+* Author listing
+
+### Summarization
+* summary generation
+* content promotion
+
+### Bootcamp
+### Auto-Save
+
+## long-term evolution
+### Migration from intranet to internet
+### Mobile platforms
+### Alway Collaborating
+* VoIP call/conferencing
+* Social network collaboration
+
+### Search
