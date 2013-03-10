@@ -45,10 +45,10 @@
 ### Bootcamp
 ### Auto-Save
 
-## long-term evolution
+## Long-term evolution
 ### Migration from intranet to internet
 ### Mobile platforms
-### Alway Collaborating
+### Always Collaborating
 * VoIP call/conferencing
 * Social network collaboration
 
