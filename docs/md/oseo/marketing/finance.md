@@ -16,9 +16,9 @@
 
 ## Commercialisation
 
-La commercialisation de notre produit, et ainsi la création de valeur, est une dimension très importante de notre projet dans la mesure ou elle permettra de valider le travail de notre équipe. Les orientations ou les choix techniques devront donc être pris et affinés en adéquation avec nos objectifs de création de valeur.
-Les différents services proposés par notre société s'inspirent sur ce qui a fait la réussite de nombreux acteurs de l'informatique, et plus particulièrement du web.
-Enfin, nos offres correspondents aux segments de marché visé et placent les intérêts de nos clients en haut lieu.
+La commercialisation de notre produit, et ainsi la création de valeur, est une dimension très importante de notre projet dans la mesure où elle permettra de valider le travail de notre équipe. Les orientations ou les choix techniques devront donc être pris et affinés en adéquation avec nos objectifs.
+Les différents services proposés par notre société s'inspirent sur ce qui a fait et continue de faire la réussite de nombreux acteurs de l'informatique, et plus particulièrement du web.
+Enfin, nos offres correspondents aux segments de marché visés et placent les intérêts de nos clients en haut lieu.
 
 ### Version basique
 
@@ -26,7 +26,7 @@ Une version gratuite en ligne sera proposée pour permettre à l'ensemble des ut
 
 La version basique cible les leaders d'opinion qui souhaitent bâtir une communauté bâtie autour du même centre d'intérêt à haut SNR.
 
-La publicité sera source de revenus compensant les frais d'hébergement alloués. Aussi, cette version possède un aspect marketing important et sera un vecteur fort du flux des utilisateurs de la plateforme.
+La publicité sera source de revenus compensant les frais d'hébergement alloués. Aussi, cette version fera office de produit d'appel en donnant un aperçu suffisamment large des possibilités données par le produit. 
 
 ### Version premium
 
@@ -37,14 +37,13 @@ Le tarif sera également fonction du nombre d'utilisateurs concernés.
 
 #### Étudiants
 
-Les étudiants pourront quant à eux bénéficier de cette version gratuitement dans le cadre de notre engagement fort en faveur de l'éducation. Leurs projets scolaires pourraient ainsi être réalisés à l'aide de notre produit. Aussi, ils seront eux aussi à l'avenir un vecteur fort de l'adoption de Communities.
+Les étudiants pourront quant à eux bénéficier de cette version gratuitement dans le cadre de notre engagement fort en faveur de l'éducation. Leurs projets scolaires pourraient ainsi être réalisés à l'aide de notre produit. Cette version constituera un vecteur marketing très important en exploitant les techniques dites de l'appât et du hameçon: l'objectif est de sensibiliser, convaincre et fidéliser cette clientèle qui deviendra les décideurs de demain.
 
 ### Version entreprise
-s
+
 Les grandes entreprises sont ici visées par cette version, reprenant l'ensemble des fonctionnalités premium.
 Cette version se démarque par l'installation de la plateforme au sein des infrastructures du client en collaboration avec ses équipes IT. Un support avancé sera offert pour l'intégration du produit avec les serveurs d'authentification ou de collaboration en place.
 
 Cette version sera également soumise à une dîme.
 
 Notre objectif est de toucher tous les créateurs de contenus à forte valeur ajoutée en leur proposant des offres adaptées à leur besoin pour leur faciliter la création de valeur.
-
