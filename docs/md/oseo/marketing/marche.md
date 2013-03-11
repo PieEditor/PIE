@@ -2,29 +2,65 @@
 
 
 ## Premières Constatations
-*se que les gens sont*
+*Ce que les gens sont*
 
-Le monde d'aujourd'hui est de plus en plus marqué par l'évolution des méthodes de travail résultant de l'essort des technologies. Le travailleur solitaire n'a plus sa place dans le monde globalisé qui est le notre. Un bon travail d'équipe est devenu essentiel pour surmonter la concurrence planétaire. D'où l'apparition en masse d'outils  de travail collaboratifs. Ces outils visent essentielment à améliorer la communication au sein d'un groupe de travail. De part nature l'homme transmet sont savoir en le communicant. De nos jours, l'homme à besoin de la technologie pour l'aider à partager du savoir et en recueillir. Ceci explique l'apparition en masse d'outils de travail collaboratifs sur le Web.
+	Le monde d'aujourd'hui est de plus en plus marqué par l'évolution des méthodes de travail résultant de l'essort des technologies. Un bon travail d'équipe est devenu essentiel pour surmonter la concurrence planétaire. D'où l'apparition en masse d'outils  de travail collaboratifs. Ces outils visent essentielment à améliorer la communication au sein d'un groupe de travail. De nos jours, l'homme à besoin de la technologie pour l'aider à partager du savoir et en recueillir. Internet a jouer un rôle majeur dans la création et diffusion de données et les possibilités qu'il offre sont variés : blogs, wikis, site web...
 
+	Avant de se lancer dans le monde des outils de collaboration, une définition sur le travail en groupe s'impose. Un **travail collaboratif** peut se définir ainsi (*wikipédia* et *internaute*) : Mode de travail non hiérarchisé dans lequel des personnes mettent en commun leur créativité et leurs compétences afin d'atteindre un objectif commun. Aujourd'hui cela est possible **grâce aux technologies de l'information et de la communication**. Les outils nouveaux permettent de **maximiser la créativité et l'efficience** d'un groupe associé à **des projets d’envergure** même si elles sont très **dispersées dans l'espace et le temps**. Les domaines suivants font un appel important à de tel outils :
+1. **Environnement bureautique** => partager l'information 
+2. **gestion documentaire** => harmoniser la gestion des différentes versions de documents
+3. **gestion de projet** => gantt, debut et fin d'un travail	
+4. **gestion des relations sociales** => valoriser les relations entre collaborateurs mais aussi avec l’externe et l’écosystème des entreprises.
+5. **gestion des connaissances**=>  capitaliser sur les savoirs
 
-Internet a jouer un rôle majeur dans la création et diffusion de données et les possibilités qu'il offre sont variés : blogs, wikis, site web...
-## Comportements
+## Comportements, acteurs et opignions
 *Ce que les gens font*
 
-Chaque utilisateur du Web utilise aujourd'hui des outils de travail collaboratifs divers et variés. Certains proposent un moyen direct de communication : téléphones, messageries instantannées, vidéo conférence... Et d'autres moyens eux sont asynchrone : email, sms, posts, forums... 
-Pour le travail collaboratif sur un même produit étant amené à évoluer fortement au cours du temps, on observe l'utilisation d'outils permettant le versionning et le partage de document : gitHub, svn, dropbox... 
-Il est également interressant de noter que certains outils qui n'était au départ pas réellement destinés à faciliter le travail collaboratifs ont évolué vers dans cette directive. Par exemple Facebook sert aujourd'hui beaucoup au travail d'équipe. Son point fort est la très forte présence de ses utilisateurs. Envoyer un message par Facebook plutôt que par e-mail standard a des chances d'être lu par son ou ses destinataires plus rapidement. De plus, Facebook est devenu un réel outil d'organisation d'événements. Allant de la soirée d'anniverssaire à des projets de plus grandes envergures. Il est également devenu pratiquement incontournable pour n'importe quelle entreprise d'avoir sa page de présentation Facebook.
+### Comportements
+
+#### Quelles sont les grandes tendances du marché ?
+
+	Chaque utilisateur du Web utilise aujourd'hui des outils de travail collaboratifs divers et variés. Certains proposent un moyen direct de communication : téléphones, messageries instantannées, vidéo conférence... Et d'autres moyens eux sont asynchrone : email, sms, posts, forums... Les entreprises d'aujourd'hui utilise presque tous un intranet. Pour le travail collaboratif sur un même produit étant amené à évoluer fortement au cours du temps, on observe l'utilisation d'outils permettant le versionning et le partage de document : gitHub, svn, dropbox... 
+	Il est également interressant de noter que certains outils qui n'était au départ pas réellement destinés à faciliter le travail collaboratifs ont évolué vers dans cette directive. Par exemple Facebook sert aujourd'hui beaucoup au travail d'équipe. Son point fort est la très forte présence de ses utilisateurs sur le réseau. Facebook est devenu un réel outil d'organisation d'événements. Allant de la soirée d'anniverssaire à des projets de plus grandes envergures. 
+	Les outils comme le téléphone et l'email sont de toute évidence connu de tous, mais interressont nous à d'autres outils plus spécifiques.
+
+##### Gestionnaires de versionning et partage de document :
+	Ils sont en place sur le marché depuis quelques années déjà, mais leurs ouverture au grand public est plus rescente. Des outils dropbox le prouve. Ce dernier permet très facilement le partage de fichier. ( voir pour des stats )
+
+On pourra également noter que l'aspect social apparait dans le gestionnaire de versions Github ou Microsoft Sharepoint, avec une page de profile présentant rapidement qui vous êtes et les projets auquel vous avez contribué. ( graph Paul dans les mails )
 
 
-* Les entreprises d'aujourd'hui utilise presque tous un intranet
-* L'e-mail est devenu un outil incontournable
-* Les réseau sociaux sont de plus en plus présent dans la vie de tous
-* Apparition d'outils pour la création de documents collaborative : google docs , etherpad ( temps réel ) | wikipédia 
+* présenter un peu plus Microsoft Sharepoint peut être
 
 
+##### outils pour la création de documents collaborative : 
+google docs , etherpad ( temps réel ) | wikipédia 
+
+##### nouveau concepts émergents :
+* **coworking** http://fr.wikipedia.org/wiki/Coworking
+
+* **Processus collaboratif pair à pair** : "The first requirement to facilitate the emergence of peer-to-peer processes is the existence of a technological infrastructure that enables distributed access to 'fixed' capital." http://en.wikipedia.org/wiki/Social_peer-to-peer_processes#Infrastructure_for_social_P2P_processes.The second requirement is alternative information and communication systems which allow for autonomous communication between cooperating agents.The third requirement is the existence of a 'software' infrastructure for autonomous global cooperation.The fourth requirement is a legal infrastructure that enables the creation of use-value and protects it from private appropriation." 
+* **groupware** is application software designed to help people involved in a common task achieve goals.
+* **Crowdsourcing** practice of obtaining needed services, ideas, or content by soliciting contributions from a large group of people, and especially from an online community, rather than from traditional employees or suppliers.
+* **Document management system** http://en.wikipedia.org/wiki/Document_management_system
+
+### acteurs
+
+#### Qui sont les acheteurs et les consommateurs ?
+* entreprise
+* étudiants
+* n'importe qui
+* associations
 
 
-## 	Opinions 
+#### Qui sont les concurrents ?
+http://en.wikipedia.org/wiki/Collaborative_real-time_editor
+
+* google docs
+* Etherpad
+* réseau sociaux
+
+### Opinions 
 *Ce que les gens pensent*
 
 ( montre la validité du produit que l'on veut proposer )
@@ -39,47 +75,9 @@ Evidemment les outils d'aujourd'hui ont fortement améliorer les méthodes de tr
 * faible 1% rule (Internet culture) | loi des 1/10/100 pour la l'apport de contenu sur le Web
 * outils trop variés
 
-## Concurrents potentiels 
-
-* google docs
-* Etherpad
-* réseau sociaux
-
---------------Broullions fait en répondant aux questions du site apce conseiller sur moodle--------------
-##Tendances du marchés, de ces acteurs et opportunitées de lancement
-
-### Quelles sont les grandes tendances du marché ?
-
-
-* travail collaboratifs sur **wikipédia** : travail où collaborent de nombreuses personnes **grâce aux technologies de l'information et de la communication**. Les outils nouveaux permettent de **maximiser la créativité et l'efficience** d'un groupe associé à **des projets d’envergure** même si elles sont très **dispersées dans l'espace et le temps**. 
-* **périmètre** : 
-1. **Environnement bureautique** => partager l'information 
-2. **gestion documentaire** => harmoniser la gestion des différentes versions de documents
-3. **gestion de projet** => gantt, debut et fin d'un travail	
-4. **gestion des relations sociales** => valoriser les relations entre collaborateurs mais aussi avec l’externe et l’écosystème des entreprises.
-5. **gestion des connaissances**=>  capitaliser sur les savoirs
-
-
-* **DISTIC** : http://fr.wikipedia.org/wiki/Distic
-* **coworking** : http://fr.wikipedia.org/wiki/Coworking
 * **Web 3.0** : "Le but principal du Web sémantique est d'orienter l'évolution du Web pour permettre aux utilisateurs sans intermédiaires de trouver, partager et combiner l'information plus facilement." 
-* **Processus collaboratif pair à pair** : "The first requirement to facilitate the emergence of peer-to-peer processes is the existence of a technological infrastructure that enables distributed access to 'fixed' capital." http://en.wikipedia.org/wiki/Social_peer-to-peer_processes#Infrastructure_for_social_P2P_processes.The second requirement is alternative information and communication systems which allow for autonomous communication between cooperating agents.The third requirement is the existence of a 'software' infrastructure for autonomous global cooperation.The fourth requirement is a legal infrastructure that enables the creation of use-value and protects it from private appropriation." 
-* **groupware** is application software designed to help people involved in a common task achieve goals.
-* **Crowdsourcing** practice of obtaining needed services, ideas, or content by soliciting contributions from a large group of people, and especially from an online community, rather than from traditional employees or suppliers.
-* **Document management system** http://en.wikipedia.org/wiki/Document_management_system
-* **Github stats** 
-* ** Microsoft Sharepoint**
 
-
-### Qui sont les acheteurs et les consommateurs ?
-* entreprise
-* étudiants
-* n'importe qui
-* associations
-
-
-### Qui sont les concurrents ?
-http://en.wikipedia.org/wiki/Collaborative_real-time_editor
+##  Opportunités de lancement 
 
 ###  Quel est l'environnement de mon marché ?
 "Dans l'entreprise, le travail collaboratif s'appuie sur des solutions « synchrones » (les réunions « audio » ou « visio » à distance, les web conférences, le chat électronique ...) ou « asynchrones » (le partage de documents ou la rédaction collaborative de documents)." (Wikipédia) => tapé au millieu ?
@@ -96,6 +94,15 @@ http://en.wikipedia.org/wiki/Collaborative_real-time_editor
 #### Non
 * Beaucoup de conccurents potentiels
 * Migration sur notre outils pouvant être difficile
+
+
+--------------Broullions fait en répondant aux questions du site apce conseiller sur moodle--------------
+
+
+
+
+
+
 
 ## Hypothèses sur le chiffre d'affaire
 ?????????????
