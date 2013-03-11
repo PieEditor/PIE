@@ -67,6 +67,8 @@ Evidemment les outils d'aujourd'hui ont fortement améliorer les méthodes de tr
 * **groupware** is application software designed to help people involved in a common task achieve goals.
 * **Crowdsourcing** practice of obtaining needed services, ideas, or content by soliciting contributions from a large group of people, and especially from an online community, rather than from traditional employees or suppliers.
 * **Document management system** http://en.wikipedia.org/wiki/Document_management_system
+* **Github stats** 
+* ** Microsoft Sharepoint**
 
 
 ### Qui sont les acheteurs et les consommateurs ?
