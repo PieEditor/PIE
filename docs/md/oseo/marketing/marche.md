@@ -6,12 +6,13 @@
 
 Le monde d'aujourd'hui est de plus en plus marqué par l'évolution des méthodes de travail résultant de l'essort des technologies. Un bon travail d'équipe est devenu essentiel pour surmonter la concurrence planétaire. D'où l'apparition en masse d'outils  de travail collaboratifs. Ces outils visent essentielment à améliorer la communication au sein d'un groupe de travail. De nos jours, l'homme à besoin de la technologie pour l'aider à partager du savoir et en recueillir. Internet a jouer un rôle majeur dans la création et diffusion de données et les possibilités qu'il offre sont variés : blogs, wikis, site web...
 
-Avant de se lancer dans le monde des outils de collaboration, une définition sur le travail en groupe s'impose. Un **travail collaboratif** peut se définir ainsi (*wikipédia* et *internaute*) : Mode de travail non hiérarchisé dans lequel des personnes mettent en commun leur créativité et leurs compétences afin d'atteindre un objectif commun. Aujourd'hui cela est possible **grâce aux technologies de l'information et de la communication**. Les outils nouveaux permettent de **maximiser la créativité et l'efficience** d'un groupe associé à **des projets d’envergure** même si elles sont très **dispersées dans l'espace et le temps**. Les domaines suivants font un appel important à de tel outils :
-1. **Environnement bureautique** => partager l'information 
-2. **gestion documentaire** => harmoniser la gestion des différentes versions de documents
-3. **gestion de projet** => gantt, debut et fin d'un travail	
-4. **gestion des relations sociales** => valoriser les relations entre collaborateurs mais aussi avec l’externe et l’écosystème des entreprises.
-5. **gestion des connaissances**=>  capitaliser sur les savoirs
+Avant de se lancer dans le monde des outils de collaboration, une définition sur le travail en groupe s'impose. Un **travail collaboratif** peut se définir ainsi (*wikipédia* et *internaute*) : Mode de travail non hiérarchisé dans lequel des personnes mettent en commun leur créativité et leurs compétences afin d'atteindre un objectif commun. Aujourd'hui cela est possible grâce aux technologies de l'information et de la communication. Les outils nouveaux permettent de maximiser la créativité et l'efficience d'un groupe associé à des projets d’envergure même si elles sont très dispersées dans l'espace et le temps. Les domaines suivants font un appel important à de tel outils :
+
+1. Environnement bureautique : afin de mieux partager l'information.
+2. Gestion documentaire : pour harmoniser la gestion des différentes versions de documents.
+3. Gestion de projet : pour manager le déroulement d'un projet.	
+4. Gestion des relations sociales : pour valoriser les relations entre collaborateurs et avec l’externe.
+5. Gestion des connaissances : pour capitaliser sur les savoirs.
 
 ## Comportements, acteurs et opignions
 *Ce que les gens font*
@@ -28,7 +29,7 @@ Il est également interressant de noter que certains outils qui n'était au dép
 Ils sont en place sur le marché depuis quelques années déjà, mais leurs ouverture au grand public est plus rescente. Des outils dropbox le prouve. Ce dernier permet très facilement le partage de fichier. ( voir pour des stats )
 
 On pourra également noter que l'aspect social apparait dans le gestionnaire de versions Github ou Microsoft Sharepoint, avec une page de profile présentant rapidement qui vous êtes et les projets auquel vous avez contribué. ( graph Paul dans les mails )
-
+![ évolution du nombre de dépôt sur Github ](../../../ressources/githubEvolutionDepot.pdf)
 
 * présenter un peu plus Microsoft Sharepoint peut être
 
@@ -100,6 +101,7 @@ Evidemment les outils d'aujourd'hui ont fortement améliorer les méthodes de tr
 
 
 
+# paul à dit
 
 
 
