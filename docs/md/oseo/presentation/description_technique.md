@@ -1,6 +1,10 @@
 # Description technique
 Réaliser un outil tel que décrit précédemment nécessite l'utilisation d'un ensemble de technologies logicielles ainsi qu'une plateforme matérielle gérant l'hébergement de la solution.
 
+![](../../../ressources/architecture.svg)
+
+Architecture choisie.
+
 ## Architecture logicielle
 Notre outil sera composé de deux parties principales : le *front-end* et le *back-end*, basés intégralement sur des technologies libres, accélérant ainsi notablement la conception de l'outil tout en diminuant les coûts de développement.
 
