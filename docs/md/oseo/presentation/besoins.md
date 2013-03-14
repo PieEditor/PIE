@@ -26,7 +26,7 @@ L'approche structurelle de l'écriture de documents présente deux avantages, do
 
 Le but de notre produit est de fournir un outil d'édition collaborative de documents simple d'utilisation, ne nécessitant ni l'installation d'un client, ni la gestion de mises à jour. Il permet à plusieurs rédacteurs de travailler sur un même document tout en discutant en temps réel et en conservant une trace des conversations pertinentes afin d'y faire référence plus tard en cas de besoin.
 
-![](../../../ressources/analyse-fonctionnelle.svg)
+![](../../ressources/analyse-fonctionnelle.svg)
 
 Diagramme d'analyse fonctionnelle. Vert : fonctions contraintes. Blanc : fonctions complémentaires
 
