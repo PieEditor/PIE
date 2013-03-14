@@ -19,6 +19,7 @@ Cet apport personnel déterminera la part de chacun dans le capital de l'entrepr
 Les banques sont un partenaire naturel des entrepreneurs pour l'accompagnement financier de leurs idées. Des banques d'investissement existent aussi dans le savoir-faire est justement celui-là.
 Leur aide se fera en fonction de la confiance qu'elles ont en notre produit, notre business model et notre investissement.
 Leur taux d'intérêts peuvent cependant être non négligeables et il est très difficile de les convaincre à s'impliquer dans notre projet.
+Il faut aussi distringuer le crédit syndiqué fourni par une association d'établissements bancaires aux levées de fonds auprès d'investisseurs qui, eux, entrent dans le capital de l'entreprise
 
 ### Fonds d'investissement public
 
@@ -43,27 +44,67 @@ Le crowd-funding est à la mode... **blabla** fédérer communauté... **blabla*
 
 ## Besoins
 
-La création d'une start-up dans le domaine de l'ingénieurie logicielle implique des besoins bien particuliers, qui seront chiffrés après notre campagne de financement.
+La création d'une start-up dans le domaine de l'ingénieurie logicielle implique des besoins bien particuliers, qui seront chiffrés après notre campagne de financement et adaptés en conséquence.
 
 ### Ressources humaines
 
-employés (ingénieurs, secrétaires, marketeux, stagiaires, ...)
+Les femmes et les hommes qui composent nos équipes constituent la force et le caractère de notre entreprise. Ils sont indispensables dans le développement et la commercialisation d'un produit de qualité et nous souhaitons donner une dimension sociale très importante à notre entreprise.
 
-### Organisation
+La création d'une start-up dans le domaine de l'ingénieurie logicielle implique des besoins bien particuliers, qui seront chiffrés définitivement après notre campagne de financement et adaptés en fonction des fonds levés.
 
-frais d'organisation: dépôt de code (github pro), systèmes de build
+Nous avons établi un partnariat avec le département Télécommunications, Services & Usages de l'INSA de Lyon pour l'incubation durant cinq mois de notre projet. Il en découle des économies importantes en termes de salaires et d'infrastructures.
+Cependant, ce partenariat ne constitue qu'un soutien temporaire et nous devons par conséquent étudier nos besoins en financement après cette période d'incubation.
 
-### Ressources physiques
+#### Ressources humaines
 
-ressources physiques: serveurs, bureaux, hébergement
+Les femmes et les hommes qui composent nos équipes constituent la force et le caractère de notre entreprise. Ils sont indispensables dans le développement et la commercialisation d'un produit de qualité et nous souhaitons donner une dimension sociale très importante à notre entreprise.
 
-### Campagnes marketing
+Durant les premiers mois, le coût de 5 ingénieurs est pris en charge par l'INSA. Ils devront donc prendre des responsabilités transversales en sus de la conception du produit.
 
-marketing: lier avec plan marketing/budget ?
+Ensuite, nous estimons à un chef deux projet et deux ingénieurs logiciels à temps plein les ressources nécessaires au déroulement du projet. Ils seront épaulés par deux stagiaires.
+Aussi, un commercial sera intégré à nos équipes pour démarcher des sociétés, organiser des conférences et participer aux salons d'entreprise. Une chargée de communication qui prendra également en charge le secrétariat sera elle aussi intégrée. Elle s'occupera quant à elle de la création des supports promotionnels, de la visibilité de nos produit sur l'Internet et participera également aux salons d'entreprise.
+
++-------------------------+----------+------------------+----------+
+|        Référence        | Quantité | Prix unitaire HT | Total HT |
++-------------------------+----------+------------------+----------+
+| Chef de projet          |     1800 |               30 |    54000 |
+| Ingénieurs logiciels    |     3600 |               30 |   108000 |
+| Commercial              |     1800 |               25 |    45000 |
+| Chargé de communication |     1800 |               20 |    36000 |
+| Stagiaires              |     3600 |               10 |    36000 |
++-------------------------+----------+------------------+----------+
+|                         |          |                  |   234000 |
++-------------------------+----------+------------------+----------+
+
+#### Ressources physiques et organisation
+
+Dans l'intention de permettre à nos équipes de travailler dans des conditions optimales, des bureaux sont nécessaires. Ils devront proposer un open-space, une salle de conférence et un espace de détente. Des bureaux individuels ne semblent pas nécessaire étant donné le faible nombre d'employés composant l'entreprise mais aussi pour limiter la distribution des pouvoirs.
+Des équipements informatiques sont indispensables considérant le monde numérique d'aujourd'hui et le secteur d'activité dans lequel nous opèrons. Ainsi, un ordinateur sera affecté à chacun des employés qui en fera la demande et ils pourront demander tout équipement nécessaire à leur activité (serveurs, écrans, périphériques, pièces détachées...) ; aussi, nous accorderons le droit à nos équipes d'utiliser leur propre matériel s'ils le désirent.
+Les fournitures de bureau standard seront enfin en libre accès.
+
+Une connexion à Internet est aussi nécessaire pour pouvoir donner accès à nos équipes aux ressources du réseau des réseaux.
+
+Pour la version en ligne de notre produit, nous ferons appel à un prestataire de stockage dans le cloud. Cette solution représente l'avantage d'être flexibilité et s'adaptera ainsi à la croissance de l'utilisation du produit. Aussi, la maintenance est nulle et le tarif est très avantageux.
+
++---------------------------+----------------+
+|         Référence         | Coût annuel HT |
++---------------------------+----------------+
+| Bureaux                   |          36000 |
+| Matériel informatique     |          10000 |
+| Fournitures de bureau     |            200 |
+| Connexion à internet      |            600 |
+| Abonnements téléphoniques |           1500 |
++---------------------------+----------------+
+|                           |          48300 |
++---------------------------+----------------+
+
+Tous ces coûts ne représentent rien les cinq premiers mois grâce à notre partenariat.
+
+#### Marketing
+
+TODO
 
 ## Commercialisation
-
-**intégrer business canvas, lier avec af**
 
 La commercialisation de notre produit, et ainsi la création de valeur, est une dimension très importante de notre projet dans la mesure où elle permettra de valider le travail de notre équipe. Les orientations ou les choix techniques devront donc être pris et affinés en adéquation avec nos objectifs.
 Les différents services proposés par notre société s'inspirent sur ce qui a fait et continue de faire la réussite de nombreux acteurs de l'informatique, et plus particulièrement du web.
@@ -96,5 +137,9 @@ Les grandes entreprises sont ici visées par cette version, reprenant l'ensemble
 Cette version se démarque par l'installation de la plateforme au sein des infrastructures du client en collaboration avec ses équipes IT. Un support avancé sera offert pour l'intégration du produit avec les serveurs d'authentification ou de collaboration en place.
 
 Cette version sera également soumise à une dîme.
+
+### Support
+
+### Formations
 
 Notre objectif est de toucher tous les créateurs de contenus à forte valeur ajoutée en leur proposant des offres adaptées à leur besoin pour leur faciliter la création de valeur.

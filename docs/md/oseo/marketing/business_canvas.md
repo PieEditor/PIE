@@ -2,7 +2,7 @@
 * Amazon - hébergeur cloud
 * Réseaux sociaux (optionnel)
 
-## Ressources
+## Ressources: intégré partiellement
 * hébergement
 * ressources humaines - ingénieurs
 * Locaux
@@ -10,7 +10,7 @@
 
 ## Activités
 
-## Structure de coûts
+## Structure de coûts: intégré partiellement
 * Développement
 * Propriété intellectuelle
 * Cache légal
@@ -26,7 +26,7 @@
 * Automatique
 * Communauté open-source = co-création de valeur
 
-## Canaux de distribution
+## Canaux de distribution: intégré
 * Site web
 * Participation des conférences/salons
 * Démarchage
@@ -35,7 +35,7 @@
 * Lien avec réseaux sociaux
 * Version gratuite université
 
-## Flux de revenu
+## Flux de revenu: intégré
 * Formations
 * Publicité(version gratuite)
 * Frais d'installation + maintenance
