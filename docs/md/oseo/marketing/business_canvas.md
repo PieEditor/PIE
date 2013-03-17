@@ -1,8 +1,8 @@
-﻿## Partenaires clé
+﻿## Partenaires clé: intégré
 * Amazon - hébergeur cloud
 * Réseaux sociaux (optionnel)
 
-## Ressources: intégré partiellement
+## Ressources: intégré
 * hébergement
 * ressources humaines - ingénieurs
 * Locaux
@@ -10,7 +10,7 @@
 
 ## Activités
 
-## Structure de coûts: intégré partiellement
+## Structure de coûts: intégré
 * Développement
 * Propriété intellectuelle
 * Cache légal
@@ -43,7 +43,7 @@
 * Option export
 * Abonnement mensuel hébergement
 
-## Segments clientèle
+## Segments clientèle: intégré
 * PRO - CAC40
 * PRO - PME/Association
 * Etudiants

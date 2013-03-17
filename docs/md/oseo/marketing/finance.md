@@ -45,14 +45,7 @@ Le crowd-funding est à la mode... **blabla** fédérer communauté... **blabla*
 ## Besoins
 
 La création d'une start-up dans le domaine de l'ingénieurie logicielle implique des besoins bien particuliers, qui seront chiffrés après notre campagne de financement et adaptés en conséquence.
-
-### Ressources humaines
-
-Les femmes et les hommes qui composent nos équipes constituent la force et le caractère de notre entreprise. Ils sont indispensables dans le développement et la commercialisation d'un produit de qualité et nous souhaitons donner une dimension sociale très importante à notre entreprise.
-
-La création d'une start-up dans le domaine de l'ingénieurie logicielle implique des besoins bien particuliers, qui seront chiffrés définitivement après notre campagne de financement et adaptés en fonction des fonds levés.
-
-Nous avons établi un partnariat avec le département Télécommunications, Services & Usages de l'INSA de Lyon pour l'incubation durant cinq mois de notre projet. Il en découle des économies importantes en termes de salaires et d'infrastructures.
+Nous avons établi un partenariat avec le département *Télécommunications, Services & Usages* de l'INSA de Lyon pour l'incubation durant cinq mois de notre projet. Il en découle des économies importantes en termes de salaires et d'infrastructures.
 Cependant, ce partenariat ne constitue qu'un soutien temporaire et nous devons par conséquent étudier nos besoins en financement après cette période d'incubation.
 
 #### Ressources humaines
@@ -61,8 +54,8 @@ Les femmes et les hommes qui composent nos équipes constituent la force et le c
 
 Durant les premiers mois, le coût de 5 ingénieurs est pris en charge par l'INSA. Ils devront donc prendre des responsabilités transversales en sus de la conception du produit.
 
-Ensuite, nous estimons à un chef deux projet et deux ingénieurs logiciels à temps plein les ressources nécessaires au déroulement du projet. Ils seront épaulés par deux stagiaires.
-Aussi, un commercial sera intégré à nos équipes pour démarcher des sociétés, organiser des conférences et participer aux salons d'entreprise. Une chargée de communication qui prendra également en charge le secrétariat sera elle aussi intégrée. Elle s'occupera quant à elle de la création des supports promotionnels, de la visibilité de nos produit sur l'Internet et participera également aux salons d'entreprise.
+Ensuite, nous estimons à un chef de projet et deux ingénieurs logiciels à temps plein les ressources nécessaires au déroulement du projet. Ils seront épaulés par deux stagiaires.
+Aussi, un commercial sera intégré à nos équipes pour démarcher des sociétés, organiser des conférences et participer aux salons d'entreprise. Un chargé de communication qui prendra également en charge le secrétariat sera lui aussi intégré. Il s'occupera quant à lui de la création des supports promotionnels, de la visibilité de nos produit sur l'Internet et participera également aux salons d'entreprise.
 
 +-------------------------+----------+------------------+----------+
 |        Référence        | Quantité | Prix unitaire HT | Total HT |
@@ -76,6 +69,11 @@ Aussi, un commercial sera intégré à nos équipes pour démarcher des sociét�
 |                         |          |                  |   234000 |
 +-------------------------+----------+------------------+----------+
 
+Dans un premier temps, le chargé de communication et un développeur seront affectés au support des utilisateurs mais il sera de bon ton d'engager dès que nos ressources nous le permettront un responsable Q&A ainsi qu'un Community Manager pour décharger les précédents collaborateurs de ce travail qui doit placer le client au centre de nos préoccupations.
+
+Nous souhaitons de plus nous appuyer sur des fondations solides pour le développement de notre produit. Ainsi, nous utiliserons des bibliothèques et des solutions logicielles standard et éprouvées ; nous privilégierons aussi des bibliothèques *open-source* ce qui nous permettra de bénéficier de leur communauté d'utilisateurs, leur réactivité et leur coût négligeable.
+L'emphase sera alors placée sur les fonctionnalités du logiciel et leur bénéfice surles utilisateurs plus que sur des considérations technico-techniques.
+
 #### Ressources physiques et organisation
 
 Dans l'intention de permettre à nos équipes de travailler dans des conditions optimales, des bureaux sont nécessaires. Ils devront proposer un open-space, une salle de conférence et un espace de détente. Des bureaux individuels ne semblent pas nécessaire étant donné le faible nombre d'employés composant l'entreprise mais aussi pour limiter la distribution des pouvoirs.
@@ -84,7 +82,7 @@ Les fournitures de bureau standard seront enfin en libre accès.
 
 Une connexion à Internet est aussi nécessaire pour pouvoir donner accès à nos équipes aux ressources du réseau des réseaux.
 
-Pour la version en ligne de notre produit, nous ferons appel à un prestataire de stockage dans le cloud. Cette solution représente l'avantage d'être flexibilité et s'adaptera ainsi à la croissance de l'utilisation du produit. Aussi, la maintenance est nulle et le tarif est très avantageux.
+Pour la version en ligne de notre produit, nous ferons appel à un prestataire de stockage dans le cloud. Cette solution représente l'avantage d'être flexible et s'adaptera ainsi à la croissance de l'utilisation du produit. De plus, cela offre le confort d'une maintenance externalisée et et de tarifs avantageux. Amazon Web Services est un acteur majeur du stockage et de l'hébergement dans le cloud et reconnu par tous par sa fiabilité, sa fiabilité et son support. 
 
 +---------------------------+----------------+
 |         Référence         | Coût annuel HT |
@@ -100,9 +98,25 @@ Pour la version en ligne de notre produit, nous ferons appel à un prestataire d
 
 Tous ces coûts ne représentent rien les cinq premiers mois grâce à notre partenariat.
 
+Des actions auprès de l'Institut National de la Propriété Intellectuelle sont aussi à mener pour protéger notre marque, notre logo et notre produit. Si notre activité prend une dimension internationale importante, ces mêmes actions devront être portées auprès des bureaux de propriété intellectuelle étrangers, où nous devrons aussi déposer nos savoir-faire dans le cas où les brevets logiciels seraient reconnus.
+
 #### Marketing
 
-TODO
+Le marketing, bien qu'espoir de retombées économiques, a un coût qu'il faut prendre en compte.
+Il se traduit par la création et l'hébergement d'un site web, la création de vidéos ou de supports de présentation.
+Ces actions seront menées après la période d'incubation, dès lors que nous aurons un produit à la hauteur des attentes du client.
+
++----------------+---------+
+|   Référence    | Prix HT |
++----------------+---------+
+| Hébergement    |     100 |
+| Nom de domaine |      15 |
+| Vidéos         |    2000 |
+| Flyers         |    1000 |
+| Présentations  |     500 |
++----------------+---------+
+|                |    3615 |
++----------------+---------+
 
 ## Commercialisation
 
@@ -113,12 +127,9 @@ Enfin, nos offres correspondents aux segments de marché visés et placent les i
 ### Version basique
 
 Une version gratuite en ligne sera proposée pour permettre à l'ensemble des utilisateurs de connaître notre produit, ses caractéristiques et ses atouts. Elle sera dotée des fonctionnalités standards telles que la discussion (en temps réel ou pérenne) ou l'édition de documents qui font la force et l'intérêt de notre produit. Cependant, cette version sera amputée de l'édition collaborative ou la gestion fine des permissions.
-
 La version basique cible les leaders d'opinion qui souhaitent bâtir une communauté bâtie autour du même centre d'intérêt à haut SNR.
-
 La publicité sera source de revenus compensant les frais d'hébergement alloués. Aussi, cette version fera office de produit d'appel en donnant un aperçu suffisamment large des possibilités données par le produit. 
-
-**monétiser chaque utilisateur, paragraphe sur pub**
+Il en effet essentiel de monétiser chaque utilisateur et qu'une hausse de la base d'utilisateurs entraîne mécaniquement une hausse de nos revenus, que ce soit par une augmentation des souscriptions à nos services payants ou par des revenus publicitaires plus importants.
 
 ### Version premium
 
@@ -140,6 +151,11 @@ Cette version sera également soumise à une dîme.
 
 ### Support
 
-### Formations
+Le support constitue un atout majeur dans le domaine de l'ingénieurie logicielle. Des équipes de support courtoises et performantes rassurent le client et influent grandement dans le processus de vente d'un produit ou d'un service.
+Il est en effet essentiel pour un client, en particulier une grande entreprise dont le logiciel en question est un élément essentiel de son *workflow*, d'avoir un interlocuteur en cas de difficulté lors de l'utilisation du logiciel ou si il est victime d'un mauvais comportement du logiciel - aussi appelé bug. Ce dernier cas est très intéressant pour l'accroissement de la qualité du logiciel et il est de ce fait très important que le problème soit remonté aux développeurs.
+
+Dans le cadre de la version gratuite, ce support se fera principalement par mail par nos équipes, mais nous metterons aussi en place un forum et un salon de discussions pour permettre une entraide par la communauté. Lors de la souscription à l'un de nos services, le client aura quant à lui un accès par téléphone au support et aura la garantie d'une réponse sous deux jours ouvrés.
+
+En sus de l'argument de vente et de l'éliminiation de potentiels *bugs*, le support peut être générateur direct de ressources et nous proposerons des contrats de support personnalisés, offrant une priorisation des recours au support, une garantie de temps de rétablissement, des formations ou l'implémentation de fonctionnalités.
 
 Notre objectif est de toucher tous les créateurs de contenus à forte valeur ajoutée en leur proposant des offres adaptées à leur besoin pour leur faciliter la création de valeur.

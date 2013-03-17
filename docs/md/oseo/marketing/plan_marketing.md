@@ -49,8 +49,8 @@ C'est une composante très essentielle de l'image de marque d'une entreprise, o�
 #### Publicité
 
 La publicité est historiquement le canal de communication privilégié des entreprises. Elle permet de toucher un très grand nombre de personnes dans le cadre de médias de masse en broadcast (télévision, radio, presse écrite) mais également de cibler son public à l'aide de publicité contextuelles.
-C'est cette dernière approche qui est retenue: nous achèterons des mots clés pour apparaître dans les résultats des moteurs de recherche ou sur les sites en relation avec notre activité. Il sera également intéressant de mener des campagnes "chocs" de visibilité sur les sites dédiés aux professionnels en "habillant" les-dits sites avec nos couleurs et nos publicités.
-Enfin, les possibilités de mise en avant de nos applications sur les boutiques d'applications - aussi appelées stores ou markets * devront être étudiées.
+C'est cette dernière approche qui est retenue: nous achèterons des mots clés pour apparaître dans les résultats des moteurs de recherche ou sur les sites en relation avec notre activité. Des articles sponsorisés seront aussi achetés, nous permettant de tirer partie de la crédibilité qu'on su construire certains blogueurs.
+Enfin, les possibilités de mise en avant de nos applications sur les boutiques d'applications - aussi appelées *stores* ou *markets* - devront être étudiées.
 
 #### Conférences et salons professionnels
 
@@ -79,9 +79,5 @@ Nous préférons en effet privilégier les clients qui nous restent fidèles ou 
 
 # A AFFINER:
 
- * intégrer le business canvas.
  * intégrer l'analyse fonctionnelle
- * intégrer coût du marketing
- * ajouter paragraphe pub/ monétisation
- * ajouter paragraphes sur le support / les formations
  * relire !!!
