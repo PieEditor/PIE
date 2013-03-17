@@ -29,6 +29,8 @@ L'offre gratuite leur sera accessible mais il leur sera rapidement plus conforta
 
 ## Plan marketing
 
+Notre plan marketing aura pour objectif d'optimiser notre usage des canaux de communication pour mettre en relation nos services avec nos segments clientèle.
+
 ### Canaux de communication
 
 Le marketing de notre produit, pour être efficace étant donné notre segment marketing, doit emprunter de nombreux canaux de communication. Le nombre de ces derniers montrera aussi l'importance que vous l'entreprise à la promotion de son produit et sa proximité avec ses clients.
@@ -75,7 +77,7 @@ Elle aura ainsi pour vocation de pousser les leaders d'opinion à souscrire un a
 
 Un autre moyen d'attirer les clients est la mise en place de promotions à l'occasion de divers évènements - noêl, anniversaire de la société, soldes - lors desquels le coût de l'abonnement sera réduit pour une période temporelle définie.
 Cependant, étants confiants en la qualité de notre produit et sa réponse à un réel besoin, ce genre d'actions sera mené avec parcimonie.
-Nous préférons en effet privilégier les clients qui nous restent fidèles ou qui représentent un poids financier important, en consentant à des remises commerciales.
+Nous préférons en effet privilégier les clients qui nous restent fidèles ou qui représentent un poids financier important en consentant à des remises commerciales.
 
 # A AFFINER:
 
