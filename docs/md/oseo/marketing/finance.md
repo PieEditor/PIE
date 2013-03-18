@@ -59,17 +59,7 @@ Durant les premiers mois, le coût de 5 ingénieurs est pris en charge par l'INS
 Ensuite, nous estimons à un chef de projet et deux ingénieurs logiciels à temps plein les ressources nécessaires au déroulement du projet. Ils seront épaulés par deux stagiaires.
 En outre, un commercial sera intégré à nos équipes pour démarcher des sociétés, organiser des conférences et participer aux salons d'entreprise. Un chargé de communication qui prendra également en charge le secrétariat sera lui aussi intégré. Il s'occupera quant à lui de la création des supports promotionnels, de la visibilité de nos produit sur l'Internet et participera également aux salons d'entreprise.
 
-+-------------------------+--------+------------------+----------+
-|        Référence        | Heures | Prix unitaire HT | Total HT |
-+-------------------------+--------+------------------+----------+
-| Chef de projet          |   1800 |               30 |    54000 |
-| Ingénieurs logiciels    |   3600 |               30 |   108000 |
-| Commercial              |    900 |               25 |    22500 |
-| Chargé de communication |    900 |               20 |    18000 |
-| Stagiaires              |   3600 |               10 |    36000 |
-+-------------------------+--------+------------------+----------+
-|                         |        |                  |   238500 |
-+-------------------------+--------+------------------+----------+
+<table><tbody><tr><th>Référence</th><th>Heures</th><th>Prix unitaire HT</th><th>Total HT</th></tr><tr><td>Chef de projet</td><td>1800</td><td>30</td><td>54000</td></tr><tr><td>Ingénieurs logiciels</td><td>3600</td><td>30</td><td>108000</td></tr><tr><td>Commercial</td><td>900</td><td>25</td><td>22500</td></tr><tr><td>Chargé de communication</td><td>900</td><td>20</td><td>18000</td></tr><tr><td>Stagiaires</td><td>3600</td><td>10</td><td>36000</td></tr><tr><td> </td><td> </td><td> </td><td>238500</td></tr></tbody></table>
 
 Dans un premier temps, le chargé de communication et un développeur seront affectés au support des utilisateurs mais il sera de bon ton d'engager dès que nos ressources nous le permettront un responsable qualité ainsi qu'un *Community Manager* pour décharger les précédents collaborateurs de ce travail qui doit placer le client au centre de nos préoccupations.
 
@@ -86,17 +76,7 @@ Une connexion à Internet est aussi indispensable pour la conduite de notre acti
 
 Pour la version en ligne de notre produit, nous ferons appel à un prestataire de stockage dans le *cloud*. Cette solution représente l'avantage d'être flexible et s'adaptera ainsi à la croissance de l'utilisation du produit. De plus, cela offre le confort d'une maintenance externalisée et et de tarifs avantageux. Amazon Web Services est un acteur majeur du stockage et de l'hébergement dans le cloud et reconnu par tous par sa fiabilité, sa fiabilité et son support. 
 
-+-------------------------------+----------------+
-|           Référence           | Coût annuel HT |
-+-------------------------------+----------------+
-| Bureaux                       |          36000 |
-| Matériel informatique         |          10000 |
-| Fournitures de bureau         |            200 |
-| Connexion à Internet          |            600 |
-| Abonnements téléphonie mobile |           1500 |
-+-------------------------------+----------------+
-|                               |          48300 |
-+-------------------------------+----------------+
+<table><tbody><tr><th>Référence</th><th>Coût annuel HT</th></tr><tr><td>Bureaux</td><td>36000</td></tr><tr><td>Matériel informatique</td><td>10000</td></tr><tr><td>Fournitures de bureau</td><td>200</td></tr><tr><td>Connexion à Internet</td><td>600</td></tr><tr><td>Abonnements téléphonie mobile</td><td>1500</td></tr><tr><td> </td><td>48300</td></tr></tbody></table>
 
 Tous ces coûts seront nuls au cours des cinq premiers mois grâce à notre partenariat.
 
@@ -107,18 +87,9 @@ Des actions auprès de l'Institut National de la Propriété Intellectuelle sont
 Le marketing, bien qu'espoir de retombées économiques, a un coût qu'il faut prendre en compte.
 Il se traduit par la création et l'hébergement d'un site web, la création de vidéos ou de supports de présentation.
 Ces actions seront menées après la période d'incubation, dès lors que nous aurons un produit à la hauteur des attentes du client.
+La participation aux conférences et salons d'entreprises représente également un coût, justifié par l'occasion de rencontrer directement les professionnels constituant l'un de nos segments clientèle et de procéder à un aperçu des bénéfices qu'ils pourraient tirer de l'utilisation de notre produit. Ce type d'évènement concède un retour sur investissement très important et permet d'établir une proximité fort avec les professionnels et de donner une visibilité importante sur notre marque et nos solutions.
 
-+----------------+---------+
-|   Référence    | Prix HT |
-+----------------+---------+
-| Hébergement    |    1000 |
-| Nom de domaine |      15 |
-| Vidéos         |    2000 |
-| Flyers         |    1000 |
-| Présentations  |     500 |
-+----------------+---------+
-|                |    4515 |
-+----------------+---------+
+<table><tbody><tr><th>Référence</th><th>Prix HT</th></tr><tr><td>Hébergement</td><td>1000</td></tr><tr><td>Nom de domaine</td><td>15</td></tr><tr><td>Vidéos</td><td>2000</td></tr><tr><td>Flyers</td><td>1000</td></tr><tr><td>Présentations</td><td>500</td></tr><tr><td>Conférences</td><td>10000</td></tr><tr><td> </td><td>14515</td></tr></tbody></table>
 
 ## Commercialisation
 
