@@ -7,7 +7,7 @@ Notre équipe est composée de futurs ingénieurs de l’INSA de Lyon, du de�
 Voici les différents membres de l'équipe :
 
 - Guillaume Burel ;
-- Xaio Yu Feng ;
+- Xiao Yu Feng ;
 - Fabio Guigou ;
 - Baptiste Metge ;
 - Paul Mougel : chef de projet.
