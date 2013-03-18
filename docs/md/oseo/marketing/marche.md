@@ -29,7 +29,7 @@ On pourra également noter que l'aspect social a pris de l'importance. Par exemp
 
 Le succès rencontré est fulgurant, comme le montre le graphique suivant représentant l'évolution du nombre de dépôts Github au cours de ces dernières années :
 
-![ évolution du nombre de dépôt sur Github ](../../ressources/githubEvolutionDepot.png)
+![ évolution du nombre de dépôt sur Github ](../../../ressources/githubEvolutionDepot.png)
 
 ### Éditeurs collaboratifs
 
@@ -56,9 +56,6 @@ Nous avons également profiter de ce sondage pour mettre en évidence les format
 
 Il est également intéressant de remarquer l'émergence de nouveaux modes de collaboration, qui soulignent bien notre entrée dans l'ère du travail à plusieurs. Le *coworking*, par exemple, est un nouveau terme désignant un type d'organisation du travail qui regroupe deux notions : un espace de travail partagé, mais aussi un réseau de travailleurs encourageant l'échange et l'ouverture. Similaires aux *cafés philos*, ces espaces publics de travail sont de plus en plus nombreux à apparaître dans les grandes villes du monde. La notion de *crowdsourcing* désigne quant à elle une pratique consistant à réunir un grand groupe de personnes intéréssées par un même sujet dans acteurs avec planle but de trouver une solution à un problème.
 
-
-*fusionner cette partie avec "plan_marketing.md/Segments clientèle" et enrichir concepts émergents*
-
 ##  Opportunités de lancement
 
 ### Points sensibles 
@@ -69,7 +66,7 @@ Comme montré si dessus, il y a beaucoup de conccurents potentiels et ils sont d
 
 Pouvoir péréniser les discussions et utilisé différents support sur un même outil est une idée innovante qui, suite à notre étude de marché, nous semble répondre à un besoin réel. Notre outil, permettrait non seulement de limiter le nombre de mails mais aussi de décider de ne plus suivre la production d'un document qui ne nous intéresse plus. Notre objectif est de faire resortir les informations de valeur, ce qui est un point crucial pour le monde actuel. Dans la culture de l'internet on parle de la "loi des 1 pourcent" ou du "principe 90-9-1" qui gouverne l'apport d'informations sur la toile. Celle-ci stipule que seul 1 pourcent des utilisateurs du web contribuent à créer de l'information, 9 pourcents contribuent par leurs remarques et leurs commentaires à la bonnification de cette information et que les 90 restants ne font que profiter de l'information créée mais sans en créer eux même. Notre outil aurait pour but de donner plus de pouvoir aux créateurs et de faciliter la contribution à la création d'information en ligne afin d'amener les personnes à mieux et plus produire ensemble ! 
 
-![ 1 percent rule ](../../ressources/1PercentRule.png)
+![ 1 percent rule ](../../../ressources/1PercentRule.png)
 
 On parle également aujourd'hui du "Web 3.0" ou du "Web sémantique" dont le but principal viserait à orienter l'évolution du Web pour permettre aux utilisateurs sans intermédiaires de trouver, partager et combiner l'information plus facilement. C'est dans cette direction que notre outil veut servir ses utilisateurs.
 
