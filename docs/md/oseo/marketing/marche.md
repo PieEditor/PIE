@@ -1,6 +1,8 @@
 # Etude du marché 
 
-Le monde d'aujourd'hui est de plus en plus marqué par l'évolution des méthodes de travail résultant de l'essor des technologies. Cette évolution tend à mener vers un travail de plus en plus collaboratif. Le travailleur solitaire n'a plus sa place dans le monde globalisé qui est le nôtre. Un bon travail d'équipe est devenu essentiel pour surmonter la concurrence planétaire, d'où l'apparition de nombreux outils de travail collaboratif. Ces outils visent à améliorer la communication au sein d'un groupe de travail. De par nature l'homme transmet ce qu'il sait en le communiquant. De nos jours, il utilise la technologie afin non seulement de partager son savoir mais également de le pérenniser et de l'enrichir par une mise en commun des connaissances mondiales. 
+Le monde d'aujourd'hui est de plus en plus marqué par l'évolution des méthodes de travail résultant de l'essor des technologies. Cette évolution tend à mener vers un travail de plus en plus collaboratif. Le travailleur solitaire n'a plus sa place dans le monde globalisé qui est le nôtre. Un bon travail d'équipe est devenu essentiel pour surmonter la concurrence planétaire, d'où l'apparition de nombreux outils de travail collaboratif. Ces outils visent à améliorer la communication au sein d'un groupe de travail. 
+
+De par nature l'homme transmet ce qu'il sait en le communiquant. De nos jours, il utilise la technologie afin non seulement de partager son savoir mais également de le pérenniser et de l'enrichir par une mise en commun des connaissances mondiales. 
 
 Le **travail collaboratif** peut être défini comme un mode de travail non hiérarchisé dans lequel des personnes mettent en commun leur créativité et leurs compétences afin d'atteindre un même objectif. Aujourd'hui, les travaux en collaboration s'appuient de plus en plus sur les technologies de l'information et de la communication. Les nouveaux outils permettent d'optimiser l'efficacité d'un groupe de personnes travaillant ensemble sur des projets même si elles sont très dispersées dans l'espace et le temps. Les domaines suivants nécessitent fortement de tels outils.
 
@@ -13,7 +15,7 @@ Le **travail collaboratif** peut être défini comme un mode de travail non hié
 
 Chaque utilisateur du Web utilise aujourd'hui des outils de travail collaboratif divers et variés. Certains proposent un moyen direct de communication : par téléphone, par messagerie instantanée, par vidéo conférence... D'autres moyens sont eux asynchrones : e-mail, SMS, forums... Selon l'INSEE, 45% des sociétés françaises étaient dotées d'un intranet début 2010. De plus, concernant le travail collaboratif sur un même produit amené à beaucoup évoluer dans le temps, on remarque l'utilisation d'outils permettant le versioning et le partage de documents. Il est également intéressant de noter que certains outils qui à l'origine n'étaient pas destinés à faciliter le travail collaboratif ont évolué en ce sens. Par exemple, Facebook est devenu un organisateur d'événement.
 
-Un sondage réalisé auprès de 117 personnes nous a permis de mettre en évidence la grande variété d'outils utilisé pour les travaux collaboratifs.
+Un sondage réalisé auprès de 113 personnes nous a permis de mettre en évidence la grande variété d'outils utilisé pour les travaux collaboratifs.
 
 ![ Sondage : quels outils de collaborations utilisez vous ? ](../../../ressources/sondageOutils.png)
 
@@ -60,15 +62,18 @@ Il est également intéressant de remarquer l'émergence de nouveaux modes de co
 
 ### Points sensibles 
 
-Comme montré si dessus, il y a beaucoup de conccurents potentiels et ils sont d'envergures. De plus, la migration sur notre outil peut être difficile pour les sociétés dont les employés peuvent être réfractaire au changement. Enfin, notre outil, tout comme une communauté, prend d'autant plus de valeur que son nombre d'utilisateur est grand. Le décollage de ce dernier peut donc être un peu fastidieu au départ.
+Comme montré ci-dessus, il y a beaucoup de concurents potentiels et ils sont d'envergures. De plus, la migration sur notre outil peut être difficile pour les sociétés dont les employés peuvent être réfractaire au changement. Enfin, notre outil, tout comme une communauté, prend d'autant plus de valeur que son nombre d'utilisateur est grand. Le décollage de ce dernier peut donc être un peu fastidieux au départ.
 
 ### Points forts
 
-Pouvoir péréniser les discussions et utilisé différents support sur un même outil est une idée innovante qui, suite à notre étude de marché, nous semble répondre à un besoin réel. Notre outil, permettrait non seulement de limiter le nombre de mails mais aussi de décider de ne plus suivre la production d'un document qui ne nous intéresse plus. Notre objectif est de faire resortir les informations de valeur, ce qui est un point crucial pour le monde actuel. Dans la culture de l'internet on parle de la "loi des 1 pourcent" ou du "principe 90-9-1" qui gouverne l'apport d'informations sur la toile. Celle-ci stipule que seul 1 pourcent des utilisateurs du web contribuent à créer de l'information, 9 pourcents contribuent par leurs remarques et leurs commentaires à la bonnification de cette information et que les 90 restants ne font que profiter de l'information créée mais sans en créer eux même. Notre outil aurait pour but de donner plus de pouvoir aux créateurs et de faciliter la contribution à la création d'information en ligne afin d'amener les personnes à mieux et plus produire ensemble ! 
+Pouvoir péréniser les discussions et utilisé différents support sur un même outil est une idée innovante qui, suite à notre étude de marché, nous semble répondre à un besoin réel. Notre objectif est de faire resortir les informations de valeur, ce qui est un point crucial pour le monde actuel. 
+
+On parle également aujourd'hui du "Web 3.0" ou du "Web sémantique" dont le but principal viserait à orienter l'évolution du Web pour permettre aux utilisateurs sans intermédiaires de trouver, partager et combiner l'information plus facilement. C'est dans cette direction que notre outil veut servir ses utilisateurs.
+
+Dans la culture de l'internet on parle de la "loi des 1 pourcent" ou du "principe 90-9-1" qui gouverne l'apport d'informations sur la toile. Celle-ci stipule que seul 1 pourcent des utilisateurs du web contribuent à créer de l'information, 9 pourcents contribuent par leurs remarques et leurs commentaires à la bonnification de cette information et que les 90 restants ne font que profiter de l'information créée mais sans en créer eux même. Notre outil aurait pour but de donner plus de pouvoir aux créateurs et de faciliter la contribution à la création d'information en ligne afin d'amener les personnes à mieux et plus produire ensemble ! 
 
 ![ 1 percent rule ](../../../ressources/1PercentRule.png)
 
-On parle également aujourd'hui du "Web 3.0" ou du "Web sémantique" dont le but principal viserait à orienter l'évolution du Web pour permettre aux utilisateurs sans intermédiaires de trouver, partager et combiner l'information plus facilement. C'est dans cette direction que notre outil veut servir ses utilisateurs.
 
 
 
