@@ -1,4 +1,4 @@
-# Plan marketing
+# Marketing mix
 
 Pour optimiser la création de valeur et les investissements réalisés sur nos produits, il est primordial d'adopter un plan marketing.
 Les segments clientèle doivent être identifiés et les actions de vente adaptées.

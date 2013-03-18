@@ -1,7 +1,7 @@
 # Description technique
 Réaliser un outil tel que décrit précédemment nécessite l'utilisation d'un ensemble de technologies logicielles ainsi qu'une plateforme matérielle gérant l'hébergement de la solution.
 
-![](../../../ressources/architecture.svg)
+![](../../ressources/architecture.svg)
 
 Architecture choisie.
 
