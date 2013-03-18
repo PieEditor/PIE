@@ -1,45 +1,48 @@
 # Etude du marché 
 
-Le monde d'aujourd'hui est de plus en plus marqué par l'évolution des méthodes de travail résultant de l'essort des technologies. Cette évolution tant à mener vers un travail de plus en plus collaboratif. Le travailleur solitaire n'a plus sa place dans le monde globalisé qui est le notre. Un bon travail d'équipe est devenu essentiel pour surmonter la concurrence planétaire. D'où l'apparition de nombreux outils de travail collaboratif. Ces outils visent à améliorer la communication au sein d'un groupe de travail. De part nature l'homme transmet sont savoir en le communicant.  De nos jours, il utilise de la technologie afin non seulement de partager son savoir mais également de le péréniser et de l'enrichir par une mise en commun des connaissances mondiales. 
+Le monde d'aujourd'hui est de plus en plus marqué par l'évolution des méthodes de travail résultant de l'essor des technologies. Cette évolution tend à mener vers un travail de plus en plus collaboratif. Le travailleur solitaire n'a plus sa place dans le monde globalisé qui est le nôtre. Un bon travail d'équipe est devenu essentiel pour surmonter la concurrence planétaire, d'où l'apparition de nombreux outils de travail collaboratif. Ces outils visent à améliorer la communication au sein d'un groupe de travail. De par nature l'homme transmet ce qu'il sait en le communiquant. De nos jours, il utilise la technologie afin non seulement de partager son savoir mais également de le pérenniser et de l'enrichir par une mise en commun des connaissances mondiales. 
 
-Avant de se lancer dans le monde des outils de collaboration, il est nécessaire de définir le travail en groupe. Un **travail collaboratif** peut se définir ainsi (*wikipédia* et *internaute*) : Mode de travail non hiérarchisé dans lequel des personnes mettent en commun leur créativité et leurs compétences afin d'atteindre un même objectif. Aujourd'hui, les travaux en collaboration s'appuient de plus en plus sur les technologies de l'information et de la communication. Les nouveaux outils permettent d'optimiser l'efficacité d'un groupe de personnes travaillant ensemble sur des projets même si elles sont très dispersées dans l'espace et le temps. Les domaines suivants nécessitent fortement de tels outils :
+Le **travail collaboratif** peut être défini comme un mode de travail non hiérarchisé dans lequel des personnes mettent en commun leur créativité et leurs compétences afin d'atteindre un même objectif. Aujourd'hui, les travaux en collaboration s'appuient de plus en plus sur les technologies de l'information et de la communication. Les nouveaux outils permettent d'optimiser l'efficacité d'un groupe de personnes travaillant ensemble sur des projets même si elles sont très dispersées dans l'espace et le temps. Les domaines suivants nécessitent fortement de tels outils.
 
-1. Gestion documentaire : pour harmoniser le travail sur différentes versions de documents.
-2. Gestion de projet : pour manager le déroulement d'un projet.	
-3. Gestion des relations sociales : pour valoriser les relations internes et externes à une organisation.
-4. Gestion des connaissances : pour capitaliser les savoirs et mieux partager les informations.
+ * Gestion documentaire : pour harmoniser le travail sur différentes versions de documents
+ * Gestion de projet : pour manager le déroulement d'un projet	
+ * Gestion des relations sociales : pour valoriser les relations internes et externes à une organisation
+ * Gestion des connaissances : pour capitaliser les savoirs et mieux partager les informations
 
 ## Comportements
 
-Chaque utilisateur du Web utilise aujourd'hui des outils de travail collaboratif divers et variés. Certains proposent un moyen direct de communication : par téléphone, par messagerie instantannée, par vidéo conférence... Et d'autres moyens eux sont asynchrones : email, sms, posts, forums... Selon l'INSEE, début 2010, 45% des sociétés françaises était doté d'un intranet. De plus, concernant le travail collaboratif sur un même produit amené à beaucoup évoluer dans le temps, on remarque l'utilisation d'outils permettant le versionning et le partage de documents. Il est également intéressant de noter que certains outils qui à l'origine n'étaient pas destinés à faciliter le travail collaboratif ont évolué en ce sens. Par exemple, Facebook est devenu un organisateur d'événement.
+Chaque utilisateur du Web utilise aujourd'hui des outils de travail collaboratif divers et variés. Certains proposent un moyen direct de communication : par téléphone, par messagerie instantanée, par vidéo conférence... D'autres moyens sont eux asynchrones : e-mail, SMS, forums... Selon l'INSEE, 45% des sociétés françaises étaient dotées d'un intranet début 2010. De plus, concernant le travail collaboratif sur un même produit amené à beaucoup évoluer dans le temps, on remarque l'utilisation d'outils permettant le versioning et le partage de documents. Il est également intéressant de noter que certains outils qui à l'origine n'étaient pas destinés à faciliter le travail collaboratif ont évolué en ce sens. Par exemple, Facebook est devenu un organisateur d'événement.
 
-Voyons plus en détails les grandes catégories d'outils de travail en collaboration :
+Nous analysons maintenant les grandes catégories d'outils de travail en collaboration.
 
-### Gestionnaires de versionning et outils de partage de documents :
+### Gestionnaires de versionning et outils de partage de documents
 
-Ils sont en place sur le marché depuis quelques années déjà, mais leurs ouverture au grand public est plus récente. Dropbox en est un des exemples les plus connus car il a su s'imposer dans les entreprise, mais également chez l'utilisateur lambda en démysthifiant les complexités du partage. Comme le blog de Dropbox l'indique, cet outil est utilisé par les professionels de plus de 2 millions d'entreprises et par les particuliers avec plus de 50 millons de comptes ouverts depuis 2007.
+Ils sont en place sur le marché depuis quelques années déjà, mais leur ouverture au grand public est plus récente. Dropbox est un des exemples les plus connus car il a su s'imposer dans les entreprises, mais également chez l'utilisateur *lambda* en démystifiant la complexité inhérente au partage. Comme le blog de Dropbox l'indique, cet outil est utilisé par les professionels de plus de 2 millions d'entreprises et par les particuliers avec plus de 50 millons de comptes ouverts depuis 2007.
 
 On pourra également noter que l'aspect social a pris de l'importance. Par exemple, Github et Microsoft Sharepoint proposent une page de profil présentant rapidement l'identité de l'utilisateur et les projets auxquels il a contribué. L'interaction entre les divers utilisateurs est de plus en plus mise en avant afin de les rapprocher en raison d'un intérêt commun.
 
 Le succès rencontré est fulgurant, comme le montre le graphique suivant représentant l'évolution du nombre de dépôts Github au cours de ces dernières années :
 
-![ évolution du nombre de dépôt sur Github de Zach Holman ](../../../ressources/githubEvolutionDepot.png)
+![ évolution du nombre de dépôt sur Github ](../../../ressources/githubEvolutionDepot.png)
 
 
-### Editeur collaboratifs :
+### Éditeurs collaboratifs
 
-Ces outils se concentrent sur l'édition de documents en groupe visant à partager des savoirs et capitaliser ces derniers. On distingue deux catégories d'outils.
+Ces outils se concentrent sur l'édition de documents en groupe visant à partager des savoirs et capitaliser sur ces derniers. On distingue deux catégories d'outils :
 
-* Les outils fonctionnant en temps réel tels que GoogleDocs et EtherPad sont de plus en plus utilisés par les entreprises. 
-* Les outils asynchrones comme Wikipédia qui compte aujourd'hui 18.5 millions d'utilisateurs et qui a permis de générer environ 29 millions de pages wiki en travail collaboratif.
+* Les outils fonctionnant en temps réel tels que GoogleDocs et EtherPad, qui sont de plus en plus utilisés par les entreprises
+* Les outils asynchrones, comme Wikipédia qui compte aujourd'hui 18,5 millions d'utilisateurs et qui a permis de générer environ 29 millions de pages wiki en travail collaboratif
 
-Ces outils sont particulièrement utilent dans les milieux professionels et étudiants.
+Ces outils sont particulièrement utiles dans les milieux professionels et étudiants.
 
-Balancer le sondage ici ???
+#### Sondage
 
-### Nouveaux concepts émergents :
+### Nouveaux concepts émergents
 
-Il est également intéressant de remarquer l'émergence de nouvelles manières originales de collaborer qui soulignent bien notre entrée dans l'ère du travail à plusieurs. Le "coworking", par exemple est un nouveau terme désignant un type d'organisation du travail qui regroupe deux notions : un espace de travail partagé, mais aussi un réseau de travailleurs encourageant l'échange et l'ouverture. Similaire au communément nommé "cafés philos", ces espaces publics de travail sont de plus en plus nombreux à apparaitre dans les grandes villes du monde. Quand à elle la notion de "Crowndsourcing" désigne une pratique consistant à réunir un grand groupe de personnes intéréssées par un même sujet dans le but de trouver une solution à un problème.
+Il est également intéressant de remarquer l'émergence de nouveaux modes de collaboration, qui soulignent bien notre entrée dans l'ère du travail à plusieurs. Le *coworking*, par exemple, est un nouveau terme désignant un type d'organisation du travail qui regroupe deux notions : un espace de travail partagé, mais aussi un réseau de travailleurs encourageant l'échange et l'ouverture. Similaires aux *cafés philos*, ces espaces publics de travail sont de plus en plus nombreux à apparaître dans les grandes villes du monde. La notion de *crowdsourcing* désigne quant à elle une pratique consistant à réunir un grand groupe de personnes intéréssées par un même sujet dans acteurs avec planle but de trouver une solution à un problème.
+
+
+*fusionner cette partie avec "plan_marketing.md/Segments clientèle" et enrichir concepts émergents*
 
 ## Acteurs
 

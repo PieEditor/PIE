@@ -8,16 +8,16 @@ Les segments clientèle doivent être identifiés et les actions de vente adapt�
 Nous avons étudié en détail les segments de clientèles que nous visons, en fonction desquels les services et canaux de communications sont adaptés.
 L'étude de marché nous permet de cibler ces trois segments:
 
-### Petites et moyennes entreprises
+### Petites et moyennes structures
 
-Le travail d'équipe est bien souvent fondamental dans ces structures et la rédaction collaborative de documents, autant que la circulation et l'échange de l'information y sont laborieuses.
-Aussi, les e-mails y sont omniprésents et constituent plus une charge qu'un réel bénéfice pour le salarié.
-Enfin, ces entreprises n'ont pas de réelle vocation à maintenir un intranet ou des ressources informatiques : c'est donc très naturellement que nous leur proposerons notre offre d'hébergement, de support et de formation.
+Le travail d'équipe est bien souvent fondamental dans les PME et associations ; cependant, la rédaction collaborative de documents autant que la circulation et l'échange de l'information y sont laborieuses.
+Par ailleurs, les e-mails y sont omniprésents et constituent plus une charge qu'un réel bénéfice pour le salarié.
+Enfin, ces entreprises n'ont pas de réelle vocation à maintenir un intranet ou des ressources informatiques : c'est donc très naturellement que nous leur proposerons notre offre d'hébergement, de support et de formation, détaillée dans la suite du présent document.
 
 ### Grandes entreprises
 
-Les points cités précédemment - le travail en équipe et la surcharge de mails - est d'autant plus exacerbé dans les grandes entreprises. En effet, les équipes de travail sont grandes et il est fréquent de travailler avec des personnes qui ne sont pas cotoyées au quotidien - contexte international, télétravail, missions.
-Aussi, elles mettent souvent en place des solutions hétérogènes de réseau social d'entreprise et de rédaction collaborative qui ne répondent pas à leurs besoins ; elles souhaitent de plus avoir la main mise sur leurs données et leur système d'information.
+Les points cités précédemment - le travail en équipe et la surcharge d'e-mails - sont d'autant plus exacerbés dans les grandes entreprises. En effet, les équipes de travail sont grandes et il est fréquent de travailler avec des personnes qui ne sont pas cotoyées au quotidien - contexte international, télétravail, missions.
+Ainsi, elles mettent souvent en place des solutions hétérogènes de réseau social d'entreprise et de rédaction collaborative qui ne répondent pas totalement à leurs besoins ; elles souhaitent de plus avoir la mainmise sur leurs données et leur système d'information.
 Nous leur proposerons donc d'installer notre produit en leur sein, avec l'appui de leurs équipes IT. Un support personnalisé leur sera accordé et des formations prodiguées ; l'intégration avec leurs serveurs d'authentification, de stockage et de collaboration sera également effectuée.
 
 ### Leaders d'opinion
@@ -25,7 +25,7 @@ Nous leur proposerons donc d'installer notre produit en leur sein, avec l'appui 
 Nous souhaitons donner la possibilité aux leaders d'opinion de s'exprimer très facilement sur les sujets qu'ils maîtrisent et qui leur tiennent à coeur.
 Ils pourront donc, grâce à notre produit, créer des communautés rapidement et facilement et partager leur savoir-faire. Les discussions y seront facilitées et les documents d'importance promus.
 
-L'offre gratuite leur sera accessible mais il leur sera rapidement plus confortable de souscrire un abonnement premium, dont le coût peut être supporté intégralement par ces derniers mais aussi distribué entre les membres de la communauté.
+L'offre gratuite leur sera accessible, bien que la nécessité de souscrire un abonnement premium se fasse rapidement sentir. Le coût de celui-ci peut être supporté intégralement par l'instigateur de la communauté, mais aussi distribué entre les membres de la communauté.
 
 ## Plan marketing
 
@@ -33,7 +33,7 @@ Notre plan marketing aura pour objectif d'optimiser notre usage des canaux de co
 
 ### Canaux de communication
 
-Le marketing de notre produit, pour être efficace étant donné notre segment marketing, doit emprunter de nombreux canaux de communication. Le nombre de ces derniers montrera aussi l'importance que vous l'entreprise à la promotion de son produit et sa proximité avec ses clients.
+Étant donné notre segment clientèle, le plan marketing doit emprunter de nombreux canaux de communication. Le nombre de ces derniers montrera aussi l'importance que voue l'entreprise à la promotion de son produit et sa proximité avec ses clients.
 
 #### Site web
 
@@ -45,7 +45,7 @@ Enfin, un blog sera tenu par l'équipe de développement pour échanger autour d
 
 #### Réseaux sociaux
 
-L'entreprise s'efforcera d'être présente sur les réseaux sociaux - Twitter, LinkedIn ou Facebooc - pour accroitre sa visibilité, donner une impression de proximité, tenir les utilisateurs au courant d'annonces importantes ou effectuer du support.
+L'entreprise s'efforcera d'être présente sur les réseaux sociaux - Twitter, LinkedIn ou Facebook - pour accroitre sa visibilité, donner une impression de proximité, tenir les utilisateurs au courant d'annonces importantes ou effectuer du support.
 C'est une composante très essentielle de l'image de marque d'une entreprise, où il est très important de paraître dynamiques et disponibles.
 
 #### Publicité
@@ -62,7 +62,7 @@ Ces évènements desquels raffollent les "décideurs pressés" sont l'occasion d
 #### Porte-à-porte
 
 Notre équipe commerciale devra démarcher les entreprises pour leur présenter les intérêts et le gain de notre produit dans le cadre de travail collaboratif.
-Du matériel promotionnel - plaquettes commerciales, goodies - sera également délivré.
+Du matériel promotionnel - plaquettes commerciales, *goodies* - sera également délivré.
 
 ### Actions de vente
 
@@ -75,11 +75,6 @@ Elle aura ainsi pour vocation de pousser les leaders d'opinion à souscrire un a
 
 #### Campagnes promotionnelles
 
-Un autre moyen d'attirer les clients est la mise en place de promotions à l'occasion de divers évènements - noêl, anniversaire de la société, soldes - lors desquels le coût de l'abonnement sera réduit pour une période temporelle définie.
-Cependant, étants confiants en la qualité de notre produit et sa réponse à un réel besoin, ce genre d'actions sera mené avec parcimonie.
+Un autre moyen d'attirer les clients est la mise en place de promotions à l'occasion de divers événements - Noël, anniversaire de la société, soldes - lors desquels le coût de l'abonnement sera réduit pour une période temporelle définie.
+Cependant, ayants confiance en la qualité de notre produit et en sa réponse à un réel besoin, ce genre d'actions sera mené avec parcimonie.
 Nous préférons en effet privilégier les clients qui nous restent fidèles ou qui représentent un poids financier important en consentant à des remises commerciales.
-
-# A AFFINER:
-
- * intégrer l'analyse fonctionnelle
- * relire !!!
