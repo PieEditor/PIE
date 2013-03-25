@@ -17,7 +17,7 @@ Un objectif de 20% du financement par ce biais semble réaliste et suffisant dan
 
 ### Banques
 
-Les banques sont un partenaire naturel des entrepreneurs pour l'accompagnement financier de leurs idées. Des banques d'investissement existent aussi dont le savoir-faire est justement celui-là.
+Les banques sont un partenaire naturel des entrepreneurs pour l'accompagnement financier de leurs idées, en particulier les banques d'investissement.
 Leur aide se fera en fonction de la confiance qu'elles auront en notre produit, notre *business model* et notre investissement.
 Leur taux d'intérêts peuvent cependant être non négligeables et il pourra être très difficile de les convaincre de s'impliquer dans notre projet. C'est pour cette dernière raison que le présent cahier est - entre autres - réalisé.
 
@@ -28,11 +28,12 @@ Un prêt de 150.000 à 200.000€ doit ainsi être contracté pour financer en g
 Il existe également des fonds d'investissements, subventions et accompagnements au niveau national, régional voire départemental.
 Ces organismes publics aident les entreprises qui se créent *via* un apport financier sans ou avec un très faible taux d'intérêt ou se portent garant auprès des banques ou des fournisseurs.
 Ils bénéficient d'une grande crédibilité et sont des partenaires à ne pas oublier dans notre recherche de financements.
+Parmi ces organismes, nous pouvons citer OSEO, CREALYS et GRAIN en Rhône-Alpes qui financent l'innovation.
 Nous avons donc tout intérêt à solliciter au maximum ces organismes pour diminuer la somme à emprunter auprès d'acteurs privés.
 
 ### Capital risque
 
-Les investisseurs en capital risque - ou *angel investors* - sont très populaires aux États-Unis dans le soutien de start-ups, en particulier dans le domaine des technologies de l'information . Google, Skype ou Dropbox sont des exemples notables d'entreprises ayant suivi cette voie-là.
+Les investisseurs en capital risque - ou *angel investors* - sont très populaires aux États-Unis dans le soutien de start-ups, en particulier dans le domaine des technologies de l'information . Google, Skype ou Dropbox sont des exemples notables d'entreprises ayant suivi cette voie.
 Ils apportent leur réseaux et leur expérience dans la création d'entreprises et du suivi des premières phases de développement.
 Il faut cependant prendre en compte la forte sélectivité qu'exercent les investisseurs en capital risque, les contraites de temps et la prise de participation de ces derniers dans l'entreprise.
 Nous pourrons faire appel à de tels investisseurs en cas d'échec de financement auprès des banques, ou après l'échec d'une première mise sur le marché.
@@ -45,8 +46,8 @@ Cette solution ne sera envisagée que lors de la viabilité financière de l'ent
 
 ## Besoins financiers
 
-La création d'une start-up dans le domaine de l'ingénierie logicielle implique des besoins bien particuliers, qui sont chiffrés ci-dessous et constitue l'objectif à atteindre lors de notre campagne de financement.
-À noter que les montants ci-dessous sont donnés à titre indicatif et pourront être ajustés.
+La création d'une start-up dans le domaine de l'ingénierie logicielle implique des besoins bien particuliers, chiffrés ci-dessous. Le résultat de cette évaluation des besoins constritue notre objectif pour la campagne de financement que nous menons.
+Il faut noter que les montants ci-dessous sont donnés à titre indicatif et pourront être ajustés.
 Nous avons établi un partenariat avec le département *Télécommunications, Services & Usages* de l'INSA de Lyon pour l'incubation durant cinq mois de notre projet. Il en découle des économies importantes en termes de salaires et d'infrastructures.
 Cependant, ce partenariat ne constitue qu'un soutien temporaire et nous devons par conséquent étudier nos besoins en financement après cette période d'incubation.
 
@@ -72,11 +73,11 @@ Dans l'intention de permettre à nos équipes de travailler dans des conditions 
 Des équipements informatiques sont indispensables considérant le monde numérique d'aujourd'hui et le secteur d'activité dans lequel nous opérons. De plus, un ordinateur sera affecté à chacun des employés qui en fera la demande et ils pourront demander tout équipement nécessaire à leur activité (serveurs, écrans, périphériques, pièces détachées...) ; aussi, nous accorderons le droit à nos équipes d'utiliser leur propre matériel s'ils le désirent.
 Les fournitures de bureau standard seront enfin en libre accès.
 
-Une connexion à Internet est aussi indispensable pour la conduite de notre activité.
+Une connexion à Internet est également indispensable pour la conduite de notre activité.
 
 Pour la version en ligne de notre produit, nous ferons appel à un prestataire de stockage dans le *cloud*. Cette solution représente l'avantage d'être flexible et s'adaptera ainsi à la croissance de l'utilisation du produit. De plus, cela offre le confort d'une maintenance externalisée et et de tarifs avantageux. Amazon Web Services est un acteur majeur du stockage et de l'hébergement dans le cloud et reconnu par tous par sa fiabilité, sa fiabilité et son support. 
 
-<table><tbody><tr><th>Référence</th><th>Coût annuel HT</th></tr><tr><td>Bureaux</td><td>36000</td></tr><tr><td>Matériel informatique</td><td>10000</td></tr><tr><td>Fournitures de bureau</td><td>200</td></tr><tr><td>Connexion à Internet</td><td>600</td></tr><tr><td>Abonnements téléphonie mobile</td><td>1500</td></tr><tr><td> </td><td>48300</td></tr></tbody></table>
+<table><tbody><tr><th>Référence</th><th>Coût annuel HT</th></tr><tr><td>Bureaux</td><td>36000</td></tr><tr><td>Matériel informatique</td><td>10000</td></tr><tr><td>Fournitures de bureau</td><td>200</td></tr><tr><td>Connexion à Internet</td><td>600</td></tr><tr><td>Abonnements téléphonie mobile</td><td>1500</td></tr><tr><td>Infrastructure d'hébergement</td><td>f(nombre d'utilisateurs)</td></tr><tr><td> </td><td>48300 + f(nombre d'utilisateurs)</td></tr></tbody></table>
 
 Tous ces coûts seront nuls au cours des cinq premiers mois grâce à notre partenariat.
 
@@ -87,7 +88,7 @@ Des actions auprès de l'Institut National de la Propriété Intellectuelle sont
 Le marketing, bien qu'espoir de retombées économiques, a un coût qu'il faut prendre en compte.
 Il se traduit par la création et l'hébergement d'un site web, la création de vidéos ou de supports de présentation.
 Ces actions seront menées après la période d'incubation, dès lors que nous aurons un produit à la hauteur des attentes du client.
-La participation aux conférences et salons d'entreprises représente également un coût, justifié par l'occasion de rencontrer directement les professionnels constituant l'un de nos segments clientèle et de procéder à un aperçu des bénéfices qu'ils pourraient tirer de l'utilisation de notre produit. Ce type d'évènement concède un retour sur investissement très important et permet d'établir une proximité fort avec les professionnels et de donner une visibilité importante sur notre marque et nos solutions.
+La participation aux conférences et salons d'entreprises représente également un coût, justifié par l'occasion de rencontrer directement les professionnels constituant l'un de nos segments clientèle et de procéder à un aperçu des bénéfices qu'ils pourraient tirer de l'utilisation de notre produit. Ce type d'évènement concède un retour sur investissement très important et permet d'établir une proximité forte avec les professionnels et de donner une visibilité importante sur notre marque et nos solutions.
 
 <table><tbody><tr><th>Référence</th><th>Prix HT</th></tr><tr><td>Hébergement</td><td>1000</td></tr><tr><td>Nom de domaine</td><td>15</td></tr><tr><td>Vidéos</td><td>2000</td></tr><tr><td>Flyers</td><td>1000</td></tr><tr><td>Présentations</td><td>500</td></tr><tr><td>Conférences</td><td>10000</td></tr><tr><td> </td><td>14515</td></tr></tbody></table>
 
@@ -100,19 +101,19 @@ Enfin, nos offres correspondent aux segments de marché visés et placent les in
 ### Version basique
 
 Une version gratuite en ligne sera proposée pour permettre à l'ensemble des utilisateurs de connaître notre produit, ses caractéristiques et ses atouts. Elle sera dotée des fonctionnalités standard telles que la discussion ou l'édition de documents qui font la force et l'intérêt de notre produit. Cependant, cette version sera amputée de l'édition collaborative en temps réel ou la gestion fine des permissions.
-La version basique cible les leaders d'opinion qui souhaitent bâtir une communauté bâtie autour du même centre d'intérêt.
-De la publicité sera en outre intégrée ; il est en effet essentiel de monétiser chaque utilisateur et une hausse de la base d'utilisateurs doit entraîner mécaniquement une hausse de nos revenus, que ce soit par une augmentation des souscriptions à nos services payants ou par des revenus publicitaires plus importants. En outre, l'intégration de tels encarts permettra de support les coûts de stockage associés.
+La version basique cible les leaders d'opinion qui souhaitent monter une communauté bâtie autour du même centre d'intérêt.
+De la publicité sera en outre intégrée ; il est en effet essentiel de monétiser chaque utilisateur et une hausse de la base d'utilisateurs doit entraîner mécaniquement une hausse de nos revenus, que ce soit par une augmentation des souscriptions à nos services payants ou par des revenus publicitaires plus importants. En outre, l'intégration de tels encarts permettra de supporter les coûts de stockage associés.
 
 ### Version premium
 
-Apportant des fonctionnalités telles que l'édition collaborative en temps réel, la gestion fine des permissions, la visibilité des contenus ou le choix de formats d'export, cette version ciblera les petites et moyennes entreprises ainsi que les associations n'ayant pas les ressources temporelles ou financières de gérer un intranet ou un ensemble d'applicatifs métier supportant leurs activités. De plus, l'interface sera débarrassée des publicités et le nom de domaine sera personnalisable.
+Apportant des fonctionnalités telles que l'édition collaborative en temps réel, la gestion fine des permissions, la visibilité des contenus ou le choix de formats d'export, cette version ciblera les petites et moyennes entreprises ainsi que les associations n'ayant pas les ressources temporelles ou financières de gérer un intranet ou un ensemble d'applicatifs métier supportant leurs activités. En effet, l'hébergement et la maintenance seront assurés par nos soins, les déchargeants de ces opérations dans un but de rationnalisation des coûts	. De plus, l'interface sera débarrassée des publicités et le nom de domaine sera personnalisable.
 
 En l'échange d'un abonnement mensuel ou annuel - à ce dernier étant associé une remise pour fidéliser nos clients - sera accordée l'usage de la plateforme par un ensemble de personnes appartenant à l'organisation. Aussi, le client bénéficiera des mises à jour qui seront déployées et d'un support en ligne réactif.
 Le tarif sera également fonction du nombre d'utilisateurs concernés.
 
 #### Étudiants
 
-Les étudiants pourront quant à eux bénéficier de cette version premiumgratuitement dans le cadre de notre engagement fort en faveur de l'éducation. Leurs projets scolaires pourraient ainsi être réalisés à l'aide de notre produit. Cette version constituera un vecteur marketing très important en exploitant les techniques dites de l'appât et de l'hameçon : l'objectif est de sensibiliser, convaincre et fidéliser cette clientèle qui deviendra les décideurs de demain.
+Les étudiants pourront quant à eux bénéficier de cette version premium gratuitement dans le cadre de notre engagement fort en faveur de l'éducation. Leurs projets scolaires pourraient ainsi être réalisés à l'aide de notre produit. Cette version constituera un vecteur marketing très important en exploitant les techniques dites de l'appât et de l'hameçon : l'objectif est de sensibiliser, convaincre et fidéliser cette clientèle qui deviendra les décideurs de demain.
 
 ### Version entreprise
 
