@@ -130,4 +130,12 @@ Dans le cadre de la version gratuite, ce support se fera principalement par mail
 
 En sus de l'argument de vente et de l'éliminiation de potentiels *bugs*, le support peut être générateur direct de ressources et nous proposerons des contrats de support personnalisés, offrant une priorisation des recours au support, une garantie de temps de rétablissement, des formations ou l'implémentation de fonctionnalités.
 
+### Récapitulatif des offres
+
+Les offres proposées et leur prix associé sont synthétisés dans le tableau ci-dessous.
+
+<table><tbody><tr><th>Produit</th><th>Basique</th><th>Premium</th><th>Entreprise</th></tr><tr><td>Frais initiaux</td><td>offerts</td><td>offerts</td><td>2000€</td></tr><tr><td>Abonnement</td><td>0€ mais publicité (~2€/utilisateur/mois)</td><td>40€/groupe/mois ou 5€/utilisateur/mois</td><td>20€/utilisateur/mois</td></tr><tr><td>Support</td><td>inclus (communauté)</td><td>inclus (sous 48h)</td><td>à partir de 1000€/mois</td></tr><tr><td>Rentabilité</td><td>∞</td><td>600 groupes</td><td>300 entreprises</td></tr></tbody></table>
+
+
 Notre objectif est de toucher tous les créateurs de contenus à forte valeur ajoutée en leur proposant des offres adaptées à leur besoin pour leur faciliter la création de valeur.
+
