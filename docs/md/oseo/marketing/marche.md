@@ -6,22 +6,26 @@ De par nature l'homme transmet ce qu'il sait en le communiquant. De nos jours, i
 
 Le **travail collaboratif** peut être défini comme un mode de travail non hiérarchisé dans lequel des personnes mettent en commun leur créativité et leurs compétences afin d'atteindre un même objectif. Aujourd'hui, les travaux en collaboration s'appuient de plus en plus sur les technologies de l'information et de la communication. Les nouveaux outils permettent d'optimiser l'efficacité d'un groupe de personnes travaillant ensemble sur des projets même si elles sont très dispersées dans l'espace et le temps. Les domaines suivants nécessitent fortement de tels outils.
 
- * Gestion documentaire : pour harmoniser le travail sur différentes versions de documents
- * Gestion de projet : pour manager le déroulement d'un projet	
- * Gestion des relations sociales : pour valoriser les relations internes et externes à une organisation
- * Gestion des connaissances : pour capitaliser les savoirs et mieux partager les informations
+ * **Gestion documentaire** pour harmoniser le travail sur différentes versions de documents
+ * **Gestion de projet** pour manager le déroulement d'un projet	
+ * **Gestion des relations sociales** pour valoriser les relations internes et externes à une organisation
+ * **Gestion des connaissances** pour capitaliser les savoirs et mieux partager les informations
 
 ## Comportements du marché
 
 Chaque utilisateur du Web utilise aujourd'hui des outils de travail collaboratif divers et variés. Certains proposent un moyen direct de communication : par téléphone, par messagerie instantanée, par vidéo conférence... D'autres moyens sont eux asynchrones : e-mail, SMS, forums... Selon l'INSEE, 45% des sociétés françaises étaient dotées d'un intranet début 2010. De plus, concernant le travail collaboratif sur un même produit amené à beaucoup évoluer dans le temps, on remarque l'utilisation d'outils permettant le versioning et le partage de documents. Il est également intéressant de noter que certains outils qui à l'origine n'étaient pas destinés à faciliter le travail collaboratif ont évolué en ce sens. Par exemple, Facebook est devenu un organisateur d'événement.
 
+### Nouveaux concepts émergents
+
+Il est intéressant de remarquer l'émergence de nouveaux modes de collaboration, qui soulignent bien notre entrée dans l'ère du travail a plusieurs. Le *coworking*, par exemple, est un nouveau terme désignant un type d'organisation du travail qui regroupe deux notions : un espace de travail partagé, mais aussi un réseau de travailleurs encourageant l'échange et l'ouverture. Similaires aux *cafés philos*, ces espaces publics de travail sont de plus en plus nombreux à apparaître dans les grandes villes du monde. La notion de *crowdsourcing* désigne quant à elle une pratique consistant à réunir un grand groupe de personnes intéréssées par un même sujet avec pour but de trouver une solution à un problème. Par exemple, **Amazon Mechanical Turk** (MTurk) est un marché internet de *crowdsourcing* permettant à des programmeurs de coordonner des travaux non réalisables par des machines.  On trouve en ligne diverses tâches que quiconque peut réaliser. Celles-ci sont variées et proposent en retour une petite rénumération. Ces tâches peuvent par exemple être une sélection de photos pour une publicité ou une traduction en anglais de tweets écrit dans un dialecte rare. En janvier 2011, MTurk recensait 500.000 travailleurs de 190 pays différents. 
+
 Un sondage réalisé auprès de 113 personnes nous a permis de mettre en évidence la grande variété d'outils utilisé pour les travaux collaboratifs.
 
 ![ Sondage : quels outils de collaborations utilisez vous ? ](../../../ressources/sondageOutils.png)
 
-Ce résultat montre la diversité des outils.  Il resort que l'e-mail, DropBox et GoogleDocs constitue parmi les moyens de collaborer principaux. 
+Ce résultat montre la diversité des outils.  Il ressort que l'e-mail, DropBox et GoogleDocs constituent les moyens principaux de collaboration. 
 
-Nous analysons maintenant les grandes catégories d'outils de travail en collaboration.
+Nous analysons maintenant les grandes catégories d'outils de travail collaboratif.
 
 ### Gestionnaires de versionning et outils de partage de documents
 
@@ -40,7 +44,7 @@ Ces outils se concentrent sur l'édition de documents en groupe visant à partag
 * Les outils fonctionnant en temps réel tels que GoogleDocs et EtherPad, qui sont de plus en plus utilisés par les entreprises
 * Les outils asynchrones, comme Wikipédia qui compte aujourd'hui 18,5 millions d'utilisateurs et qui a permis de générer environ 29 millions de pages wiki en travail collaboratif
 
-Les 3 noms d'outils mentionnés ci-dessus constitue nos principaux concurrents. Cependant, notre sondage a mis en évidence le désir d'une amélioration dans ce domaine.
+Les trois outils mentionnés ci-dessus constituent nos principaux concurrents. Cependant, notre sondage a mis en évidence le désir d'une amélioration dans ce domaine.
 
 *Avec les outils actuels, vous estimez que l'édition collaborative de documents est :*
 
@@ -50,29 +54,26 @@ Les 3 noms d'outils mentionnés ci-dessus constitue nos principaux concurrents. 
 
 ![ Sondage : besoin d'un nouvel outil ? ](../../../ressources/sondageBesoins.png)
 
-Nous avons également profiter de ce sondage pour mettre en évidence les formats d'exportation les plus attendu par le public.
+Nous avons également profité de ce sondage pour mettre en évidence les formats d'exportation les plus attendu par le public.
 
 ![ Sondage : formats les plus important ](../../../ressources/sondageFormats.png)
-
-### Nouveaux concepts émergents
-
-Il est également intéressant de remarquer l'émergence de nouveaux modes de collaboration, qui soulignent bien notre entrée dans l'ère du travail à plusieurs. Le *coworking*, par exemple, est un nouveau terme désignant un type d'organisation du travail qui regroupe deux notions : un espace de travail partagé, mais aussi un réseau de travailleurs encourageant l'échange et l'ouverture. Similaires aux *cafés philos*, ces espaces publics de travail sont de plus en plus nombreux à apparaître dans les grandes villes du monde. La notion de *crowdsourcing* désigne quant à elle une pratique consistant à réunir un grand groupe de personnes intéréssées par un même sujet dans acteurs avec planle but de trouver une solution à un problème.
 
 ##  Opportunités de lancement
 
 ### Points sensibles 
 
-Comme montré ci-dessus, il y a beaucoup de concurents potentiels et ils sont d'envergures. De plus, la migration sur notre outil peut être difficile pour les sociétés dont les employés peuvent être réfractaire au changement. Enfin, notre outil, tout comme une communauté, prend d'autant plus de valeur que son nombre d'utilisateur est grand. Le décollage de ce dernier peut donc être un peu fastidieux au départ.
+Comme montré ci-dessus, il y a beaucoup de concurents potentiels et ils sont d'envergures. De plus, la migration sur notre outil peut être difficile pour les sociétés dont les employés peuvent être réfractaire au changement. Enfin, notre outil, tout comme une communauté, prend d'autant plus de valeur que son nombre d'utilisateurs est grand. Le décollage de ce dernier peut donc être un peu fastidieux au départ.
 
 ### Points forts
 
-Pouvoir péréniser les discussions et utilisé différents support sur un même outil est une idée innovante qui, suite à notre étude de marché, nous semble répondre à un besoin réel. Notre objectif est de faire resortir les informations de valeur, ce qui est un point crucial pour le monde actuel. 
+Pouvoir péréniser les discussions et utiliser différents support sur un même outil est une idée innovante qui, suite à notre étude de marché, nous semble répondre à un besoin réel. Notre objectif est de faire ressortir les informations de valeur, ce qui est un point crucial de nos jours. 
 
-On parle également aujourd'hui du "Web 3.0" ou du "Web sémantique" dont le but principal viserait à orienter l'évolution du Web pour permettre aux utilisateurs sans intermédiaires de trouver, partager et combiner l'information plus facilement. C'est dans cette direction que notre outil veut servir ses utilisateurs.
+On parle également aujourd'hui du "Web 3.0" ou du "Web sémantique" dont le but principal viserait à orienter l'évolution du Web pour permettre aux utilisateurs sans intermédiaire de trouver, partager et combiner l'information plus facilement. C'est dans cette direction que notre outil veut servir ses utilisateurs.
 
-Dans la culture de l'internet on parle de la "loi des 1 pourcent" ou du "principe 90-9-1" qui gouverne l'apport d'informations sur la toile. Celle-ci stipule que seul 1 pourcent des utilisateurs du web contribuent à créer de l'information, 9 pourcents contribuent par leurs remarques et leurs commentaires à la bonnification de cette information et que les 90 restants ne font que profiter de l'information créée mais sans en créer eux même. Notre outil aurait pour but de donner plus de pouvoir aux créateurs et de faciliter la contribution à la création d'information en ligne afin d'amener les personnes à mieux et plus produire ensemble ! 
+Dans la culture de l'internet on parle de la "loi des 1 pourcent" ou du "principe 90-9-1" qui gouverne l'apport d'informations sur la toile. Celle-ci stipule que seul 1 pourcent des utilisateurs du web contribuent à créer de l'information, 9 pourcents contribuent par leurs remarques et leurs commentaires à la bonnification de cette information et que les 90 restants ne font que profiter de l'information créée mais sans en créer eux-mêmes. Notre outil aurait pour but de donner plus de pouvoir aux créateurs et de faciliter la contribution à la création d'information en ligne afin d'amener les personnes à mieux et plus produire ensemble ! 
 
 ![ 1 percent rule ](../../../ressources/1PercentRule.png)
+
 
 
 
