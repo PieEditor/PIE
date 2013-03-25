@@ -21,7 +21,7 @@ Il est intéressant de remarquer l'émergence de nouveaux modes de collaboration
 
 Un sondage réalisé auprès de 113 personnes nous a permis de mettre en évidence la grande variété d'outils utilisé pour les travaux collaboratifs.
 
-![ Sondage : quels outils de collaborations utilisez vous ? ](../../../ressources/sondageOutils.png)
+![ Sondage : quels outils de collaborations utilisez vous ? ](../../ressources/sondageOutils.png)
 
 Ce résultat montre la diversité des outils.  Il ressort que l'e-mail, DropBox et GoogleDocs constituent les moyens principaux de collaboration. 
 
@@ -35,7 +35,7 @@ On pourra également noter que l'aspect social a pris de l'importance. Par exemp
 
 Le succès rencontré est fulgurant, comme le montre le graphique suivant représentant l'évolution du nombre de dépôts Github au cours de ces dernières années :
 
-![ évolution du nombre de dépôt sur Github ](../../../ressources/githubEvolutionDepot.png)
+![ évolution du nombre de dépôt sur Github ](../../ressources/githubEvolutionDepot.png)
 
 ### Éditeurs collaboratifs
 
@@ -48,15 +48,15 @@ Les trois outils mentionnés ci-dessus constituent nos principaux concurrents. C
 
 *Avec les outils actuels, vous estimez que l'édition collaborative de documents est :*
 
-![ Sondage : qualité de l'édition collaborative ? ](../../../ressources/sondageOpigionsOutilsActuels.png)
+![ Sondage : qualité de l'édition collaborative ? ](../../ressources/sondageOpigionsOutilsActuels.png)
 
 *Seriez-vous intéressé par un nouvel outil permettant de faciliter la rédaction de documents en groupe ?*
 
-![ Sondage : besoin d'un nouvel outil ? ](../../../ressources/sondageBesoins.png)
+![ Sondage : besoin d'un nouvel outil ? ](../../ressources/sondageBesoins.png)
 
 Nous avons également profité de ce sondage pour mettre en évidence les formats d'exportation les plus attendu par le public.
 
-![ Sondage : formats les plus important ](../../../ressources/sondageFormats.png)
+![ Sondage : formats les plus important ](../../ressources/sondageFormats.png)
 
 ##  Opportunités de lancement
 
@@ -72,7 +72,7 @@ On parle également aujourd'hui du "Web 3.0" ou du "Web sémantique" dont le but
 
 Dans la culture de l'internet on parle de la "loi des 1 pourcent" ou du "principe 90-9-1" qui gouverne l'apport d'informations sur la toile. Celle-ci stipule que seul 1 pourcent des utilisateurs du web contribuent à créer de l'information, 9 pourcents contribuent par leurs remarques et leurs commentaires à la bonnification de cette information et que les 90 restants ne font que profiter de l'information créée mais sans en créer eux-mêmes. Notre outil aurait pour but de donner plus de pouvoir aux créateurs et de faciliter la contribution à la création d'information en ligne afin d'amener les personnes à mieux et plus produire ensemble ! 
 
-![ 1 percent rule ](../../../ressources/1PercentRule.png)
+![ 1 percent rule ](../../ressources/1PercentRule.png)
 
 
 

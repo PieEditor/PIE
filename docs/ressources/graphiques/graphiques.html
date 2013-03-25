@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Bar Chart</title>
+		<script src="Chart.min.js"></script>
+		<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
+		<style>
+			canvas{
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Évolution du nombre de dépôts sur GitHub</h1>		
+		<canvas id="canvas_github" height="450" width="600"></canvas>
+		<script>
+		
+			var myLine = new Chart(document.getElementById("canvas_github").getContext("2d")).Line(
+				{
+					labels : ["2008","2009","2010","2011","2012"],
+					datasets : [
+						{
+							fillColor : "rgba(220,220,220,0.5)",
+							strokeColor : "rgba(220,220,220,1)",
+							data : [38423, 214893, 599490, 1697457, 4614306]
+						}
+					]
+					
+				},
+				{
+					scaleOverride : true,
+					scaleSteps : 5,
+					scaleStepWidth : 1000000,
+					scaleStartValue : 0,
+					bezierCurve : false,
+					scaleLabel : "<%=value/1000000 + 1%> M",
+				}
+			);
+		</script>
+
+		<h1>Règle des 1%</h1>		
+		<canvas id="canvas_1percent" height="450" width="600"></canvas>
+		<script>
+			var myLine = new Chart(document.getElementById("canvas_1percent").getContext("2d")).Doughnut(
+				[{
+					value : 1,
+					color: "#F38630"
+				},
+				{
+					value : 9,
+					color: "#C7604C"
+				},
+				{
+					value : 90,
+					color: "#69D2E7"
+				}]
+			);
+		</script>
+
+		<h1>Sondage : besoins</h1>		
+		<canvas id="canvas_sondage_besoins" height="450" width="600"></canvas>
+		<script>
+			var myLine = new Chart(document.getElementById("canvas_sondage_besoins").getContext("2d")).Doughnut(
+				[{
+					value : 16,
+					color: "#F33030"
+				},
+				{
+					value : 84,
+					color: "#58943E"
+				}]
+			);
+		</script>
+
+		<h1>Sondage : formats</h1>		
+		<canvas id="canvas_sondage_formats" height="450" width="600"></canvas>
+		<script>
+			var myLine = new Chart(document.getElementById("canvas_sondage_formats").getContext("2d")).Bar(
+				{
+					labels : ["LateX","Markdown","Word","HTML","Texte brut", "Open Office", "RTF", "PDF"],
+					datasets : [
+						{
+							fillColor : "rgba(220,220,220,0.5)",
+							strokeColor : "rgba(220,220,220,1)",
+							data : [19, 18, 85, 38, 30, 51, 5, 95]
+						}
+					]
+					
+				}
+			);
+		</script>
+
+		<h1>Sondage : opinions outils actuels</h1>		
+		<canvas id="canvas_sondage_opinions" height="450" width="600"></canvas>
+		<script>
+			var myLine = new Chart(document.getElementById("canvas_sondage_opinions").getContext("2d")).Doughnut(
+				[{
+					value: 1,
+					color:"#F7464A"
+				},
+				{
+					value : 6,
+					color : "#E2EAE9"
+				},
+				{
+					value : 6,
+					color : "#D4CCC5"
+				},
+				{
+					value : 28,
+					color : "#949FB1"
+				},
+				{
+					value : 59,
+					color : "#4D5360"
+				}]
+			);
+		</script>
+
+		<h1>Sondage : outils</h1>		
+		<canvas id="canvas_sondage_outils" height="450" width="600"></canvas>
+		<script>
+			var myLine = new Chart(document.getElementById("canvas_sondage_outils").getContext("2d")).Doughnut(
+				[{
+					value: 1,
+					color:"#F7464A" // Réseau social d'entreprise
+				},
+				{
+					value : 1, // Etherpad
+					color : "#E2EAE9"
+				},
+				{
+					value : 2, // G+
+					color : "#D4CCC5"
+				},
+				{
+					value : 2, // Autres
+					color : "#949FB1"
+				},
+				{
+					value : 13, // Google Docs
+					color : "#4D5360"
+				},
+				{
+					value : 11, // SMS
+					color : "#F38630"
+				},
+				{
+					value : 15, // Dropbox
+					color : "#E0E4CC"
+				},
+				{
+					value : 18, // Email
+					color : "#69D2E7"
+				},
+				{
+					value : 12, // Traitement de texte
+					color : "#D97041"
+				},
+				{
+					value : 10, // Facebook
+					color : "#C7604C"
+				},
+				{
+					value : 11, // Téléphone
+					color : "#21323D"
+				},
+				{
+					value : 5, // Gestionnaire de versions
+					color : "#9D9B7F"
+				},]
+			);
+		</script>
+
+	</body>
+</html>
