@@ -27,7 +27,7 @@ Ils pourront donc, grâce à notre produit, créer des communautés rapidement e
 
 L'offre gratuite leur sera accessible, bien que la nécessité de souscrire un abonnement premium se fasse rapidement sentir. Le coût de celui-ci peut être supporté intégralement par l'instigateur de la communauté, mais aussi distribué entre les membres de la communauté.
 
-On peut également ajouter à cette catégorie d'utilisateurs les chercheurs qui sont amenés à rédiger souvent des documents synthétisant des travaux en groupe, ainsi que l'ensemble de la communauté scientifique qui, elle, participe à des session de *peer review* - évaluation par les pairs. En effet, ces usages sont propices à l'édition collaborative - pour la rédaction d'un papier par une équipe -, l'apport de corrections, d'annotations et la création de discussions - pour le *peer review*.
+On peut également ajouter à cette catégorie d'utilisateurs les chercheurs, qui sont amenés d'une part à rédiger des articles synthétisant leurs travaux en groupe, et d'autre part à participes à des session de *peer review* - évaluation par les pairs. En effet, ces usages sont propices à l'édition collaborative, l'apport de corrections, d'annotations et la création de discussions.
 
 ## Plan marketing
 
@@ -43,7 +43,7 @@ Un site web sera mis en place pour présenter notre produit. Il contiendra une p
 Une liste et un comparatif des services seront tenus et il sera possible de souscrire en ligne ou de contacter le service commercial.
 Il permettra aussi de diffuser les annonces de mises à jour, de modifications ou d'évolutions.
 Les informations importantes de l'entreprise seront aussi présentées, comme l'histoire de l'entreprise, sa politique de confidentialité, ses éléments d'identification et de contact.
-Enfin, un blog sera tenu par l'équipe de développement pour échanger autour des défis techniques posés par la conception ou l'exploitation, informer des nouveautés ou des nouveaux employés intégrant l'entreprise. Tous les collaborateurs de l'équipe seront encouragés à y contribuer pour apporter une pluralité des points de vue et des expériences, ce qui aura pour effet de construire et consolider un esprit d'entreprise ainsi que de dresser une image dynamique et d'accroître sa réputation. Ces articles seront également l'occasion de mettre en avant les compétences de nos équipes, leur donner une visibilité et les présenter en autorités dans leurs domaines respectifs.
+Enfin, un blog sera tenu par l'équipe de développement pour échanger autour des défis techniques posés par la conception ou l'exploitation, informer des nouveautés ou des nouveaux employés intégrant l'entreprise. Tous les collaborateurs de l'équipe seront encouragés à y contribuer pour apporter une pluralité des points de vue et des expériences, ce qui aura pour effet de construire et consolider un esprit d'entreprise ainsi que de dresser une image dynamique et d'accroître notre réputation. Ces articles seront également l'occasion de mettre en avant les compétences de nos équipes, leur donner une visibilité et les présenter en autorités dans leurs domaines respectifs.
 
 #### Réseaux sociaux
 
@@ -59,9 +59,9 @@ Enfin, les possibilités de mise en avant de nos applications sur les boutiques 
 #### Conférences et salons professionnels
 
 Dans une volonté d'être au contact des entreprises, nous participerons à des conférences d'entreprises sur le travail en équipe et à des salons professionnels pour présenter notre offre, tels que ceux organisés par l'ADIM, le MEDEF ou Studyrama.
-Ces évènements desquels raffollent les *décideurs pressés* sont l'occasion d'entrer en contact direct avec les personnes ayant le pouvoir  d'intégrer nos solutions en entreprise.
+Ces événements desquels raffollent les *décideurs pressés* sont l'occasion d'entrer en contact direct avec les personnes ayant le pouvoir  d'intégrer nos solutions en entreprise.
 
-L'occasion sera aussi donnée à nos employésde tenir des présentations lors de conférences - on peut citer Devoxx, PyCon, RTC - pour faire partager leur connaissances, et augmenter la visibilité et la réputation de l'entreprise.	
+L'occasion sera aussi donnée à nos employés de tenir des présentations lors de conférences - on peut citer Devoxx, PyCon, RTC - pour faire partager leur connaissances, et augmenter la visibilité et la réputation de l'entreprise.	
 
 #### Porte-à-porte
 
@@ -82,3 +82,4 @@ Elle aura ainsi pour vocation de pousser les leaders d'opinion à souscrire un a
 Un autre moyen d'attirer les clients est la mise en place de promotions à l'occasion de divers événements - Noël, anniversaire de la société, soldes - lors desquels le coût de l'abonnement sera réduit pour une période temporelle définie.
 Cependant, ayants confiance en la qualité de notre produit et en sa réponse à un réel besoin, ce genre d'actions sera mené avec parcimonie.
 Nous préférons en effet privilégier les clients qui nous restent fidèles ou qui représentent un poids financier important en consentant à des remises commerciales.
+
