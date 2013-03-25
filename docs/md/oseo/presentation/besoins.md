@@ -10,7 +10,7 @@ Par ailleurs, l'utilisation de la pièce jointe pour transporter des fichiers de
 
 ## Limitations des outils disponibles
 
-Bien entendu, des outils alternatifs et mieux adaptés existent depuis longtemps pour répondre à ces problèmes, sans toutefois fournir de solution globale et cohérente. Ainsi, les forums ou les messageries instantanées sont plus adaptées pour l'échange d'idées et la discussion, les services de dépôt de fichiers comme Github ou SVN gèrent efficacement le partage de fichiers en général et la gestion de versions, mais sont davantage orientés vers l'édition de code et sont difficiles d'utilisation ; en pratique, ils ne sont pas adaptés à la rédaction collaborative. À défaut de système unifié, le seul remplacement valable pour l'e-mail serait une série d'outils hétérogènes. Une telle solution est peu attractive et ajoute également au processus d'édition des lourdeurs liées à l'apprentissage et à l'usage de plusieurs technologies en parallèle.
+Bien entendu, des outils alternatifs et mieux adaptés existent depuis longtemps pour répondre à ces problèmes, sans toutefois fournir de solution globale et cohérente. Ainsi, les forums ou les messageries instantanées sont plus adaptés pour l'échange d'idées et la discussion, les services de dépôt de fichiers comme Github ou SVN gèrent efficacement le partage de fichiers en général et la gestion de versions, mais sont davantage orientés vers l'édition de code et sont difficiles d'utilisation ; en pratique, ils ne sont pas adaptés à la rédaction collaborative. À défaut de système unifié, le seul remplacement valable pour l'e-mail serait une série d'outils hétérogènes. Une telle solution est peu attractive et ajoute également au processus d'édition des lourdeurs liées à l'apprentissage et à l'usage de plusieurs technologies en parallèle.
 
 Toutefois, le besoin de convergence entre éditeurs de documents et outils de discussion s'est déjà fait sentir, et plusieurs solutions ont été proposées. Nous pouvons citer, parmi les plus populaires, Google Docs et EtherPad. Le premier fonctionne uniquement dans un navigateur Web et propose une gestion de l'historique, des fonctionnalités de mise en page avancées et un système de commentaires permettant d'annoter un document en cours de rédaction ; la possibilité de répondre à des commentaires peut en faire au mieux une plate-forme de discussion très embryonnaire. Le second utilise un client installé sur la machine et propose un système d'édition basique et un espace de discussion instantanée. Il en existe également des versions utilisables directement dans le navigateur.
 
@@ -22,8 +22,10 @@ L'approche structurelle de l'écriture de documents présente deux avantages, do
 
 ## Analyse fonctionnelle
 
-Le but de notre produit est de fournir un outil d'édition collaborative de documents simple d'utilisation, ne nécessitant ni l'installation d'un client, ni la gestion de mises à jour. Il permet à plusieurs rédacteurs de travailler sur un même document tout en discutant en temps réel et en conservant une trace des conversations pertinentes afin d'y faire référence plus tard en cas de besoin.
+Le but de notre produit est de fournir un outil d'édition collaborative de documents simple d'utilisation, ne nécessitant ni l'installation d'un client, ni la gestion de mises à jour. Il permet à plusieurs rédacteurs de travailler sur un même document tout en discutant en temps réel et en conservant une trace des conversations pertinentes afin d'y faire référence plus tard en cas de besoin. 
+Le graphe ci-dessous détaille précisément les fonctions contraintes et complémentaires de notre produit :
 
-![](../../ressources/analyse-fonctionnelle.svg)
+![Diagramme d'analyse fonctionnelle. Vert : fonction contrainte. Blanc : fonction complémentaire](../../ressources/analyse-fonctionnelle.svg)
 
 Diagramme d'analyse fonctionnelle. Vert : fonction contrainte. Blanc : fonction complémentaire
+
