@@ -15,6 +15,21 @@ Le **travail collaboratif** peut être défini comme un mode de travail non hié
 
 Chaque utilisateur du Web utilise aujourd'hui des outils de travail collaboratif divers et variés. Certains proposent un moyen direct de communication : par téléphone, par messagerie instantanée, par vidéo conférence... D'autres moyens sont eux asynchrones : e-mail, SMS, forums... Selon l'INSEE, 45% des sociétés françaises étaient dotées d'un intranet début 2010. De plus, concernant le travail collaboratif sur un même produit amené à beaucoup évoluer dans le temps, on remarque l'utilisation d'outils permettant le versioning et le partage de documents. Il est également intéressant de noter que certains outils qui à l'origine n'étaient pas destinés à faciliter le travail collaboratif ont évolué en ce sens. Par exemple, Facebook est devenu un organisateur d'événement.
 
+## Étude de l'environnement
+
+### Intranet
+
+Les entreprises maintiennent aujourd'hui majoritairement un intranet. Ce dernier leur permet de partager des documents et toutes sortes de ressources informatiques.
+Ces activités nécessitent un investissement humain et financier lourd, souvent disproportionné - pour les PME et associations - par rapport à la criticité de ces outils dans les activités cœur de l'entreprise.
+Ce marché représentait en 2010 environ 289.000€ par an en moyenne pour les grands groupes ; c'est donc dans une optique de rationnalisation des coûts que nous nous positonnons en déchargeant les petites et moyennes structures de cette responsabilité.
+
+### Traitement de texte
+
+Les logiciels de traitement de texte sont un outil plebiscité par les entreprises qui en sont universellement clientes et utilisatrices.
+En effet, il est constamment nécessaire pour elles de rédiger et mettre en forme de l'information dans leur activité quotidienne.
+Un acteur possède une position dominante sur ce marché : Microsoft Business, avec sa suite Office et son logiciel phare Word. Cette division génère 20 milliards d'euros de chiffre d'affaires par an, soit un tiers du chiffre d'affaires total de Microsoft. C'est aussi 500 millions d'utilisateurs à travers le monde pour un prix public de 269€ par licence (petites entreprises) à 539€ par licence (professionnel).
+Une autre offre a fait son apparition en 2011, Microsoft Office 365, qui est proposé en mode *SaaS* - abonnement mensuel - pour un prix de 4,80€ à 19€ par mois selon les services intégrés - messagerie électronique, Office Web Apps, Skydrive, Sharepoint, Skype, etc.
+
 ### Nouveaux concepts émergents
 
 Il est intéressant de remarquer l'émergence de nouveaux modes de collaboration, qui soulignent bien notre entrée dans l'ère du travail a plusieurs. Le *coworking*, par exemple, est un nouveau terme désignant un type d'organisation du travail qui regroupe deux notions : un espace de travail partagé, mais aussi un réseau de travailleurs encourageant l'échange et l'ouverture. Similaires aux *cafés philos*, ces espaces publics de travail sont de plus en plus nombreux à apparaître dans les grandes villes du monde. La notion de *crowdsourcing* désigne quant à elle une pratique consistant à réunir un grand groupe de personnes intéréssées par un même sujet avec pour but de trouver une solution à un problème. Par exemple, **Amazon Mechanical Turk** (MTurk) est un marché internet de *crowdsourcing* permettant à des programmeurs de coordonner des travaux non réalisables par des machines.  On trouve en ligne diverses tâches que quiconque peut réaliser. Celles-ci sont variées et proposent en retour une petite rénumération. Ces tâches peuvent par exemple être une sélection de photos pour une publicité ou une traduction en anglais de tweets écrit dans un dialecte rare. En janvier 2011, MTurk recensait 500.000 travailleurs de 190 pays différents. 
