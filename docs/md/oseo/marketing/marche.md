@@ -89,14 +89,3 @@ Dans la culture de l'internet on parle de la "loi des 1 pourcent" ou du "princip
 
 ![ 1 percent rule ](../../ressources/1PercentRule.png)
 
-
-
-
-
-
-
-
-
-
-
-
