@@ -1,4 +1,4 @@
-# Liste des fontionnalités
+# Liste des fonctionnalités
 
 ## Document
 
