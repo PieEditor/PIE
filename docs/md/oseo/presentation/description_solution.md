@@ -16,9 +16,11 @@ Quand une personne rédige un premier brouillon d'un document, elle va demander 
 
 L'ensemble des fils de discussions servira alors de base pour l'amélioration et la création d'une nouvelle version du document. Au cours de sa rédaction les différents résumés des discussions seront affichés pour aider le rédacteur à prendre en compte les commentaires des participants.
 
+Chaque post et discussion aura un *score d'importance*, calculé automatiquement en fonction du nombre de réactions engendrées ou de l'importance des participants. Cela nous permettra de **mettre en avant les points de vue pertinents** afin d'aider les rédacteurs à améliorer leurs documents.
+
 Nous proposons également la possibilité de tenir une discussion instantanée parmi les différents lecteurs d'un document, permettant ainsi d'obtenir des retours rapides. Si la discussion instantanée est jugée importante, elle pourra être **pérennisée** en étant transformée en fil de discussion.
 
-Ce principe de **rédaction itérative**, centrée sur un cycle de rédaction et de discussion, a également l'avantage de conserver une trace de l'évolution du document au cours du temps en maintenant un historique des discussions importantes.
+Ce principe de **rédaction itérative**, centrée sur un cycle de rédaction et de discussion, a également l'avantage de conserver une trace de l'évolution du document au cours du temps en maintenant un historique des discussions importantes. Enfin, nous proposons un **système de gestion de versions** : il sera possible de visualiser les différences entre deux versions d'un même document, ainsi que les discussions associées qui ont permis à ce document d'évoluer.
 
 ## Collaboration
 Comme précisé dans la section précédente, une organisation basée sur l'e-mail comme outil de travail principal n'est pas optimale. Nous proposons un outil où l'ensemble des participants sont organisés en **communautés de travail**. Chaque participant peut faire partie de plusieurs communautés de travail, qui peuvent alors s'apparenter aux services des entreprises mais peuvent aussi regrouper des personnes aux intérêts communs, telles qu'un groupe de travail transversal.
@@ -26,6 +28,8 @@ Comme précisé dans la section précédente, une organisation basée sur l'e-ma
 Fort de cette organisation, un utilisateur sera alors notifié de chaque discussion se déroulant dans les communautés auxquelles il appartient.
 
 Dans la même optique de collaboration, il est également possible d'**inviter** une personne à une discussion ou de l'inviter à relire un document afin de demander son opinion ou ses conseils. La personne invitée peut alors lire le document et l'intégralité des discussions associées.
+
+Ces fonctionnalités de collaboration, de rédaction multi-utilisateurs ainsi que de discussion contribuent ainsi à **améliorer l'organisation des personnes** lors de leur travail.
 
 ## Inter-opérabilité
 Bien conscients de la nécessité de créer un outil utilisable avec les systèmes déjà en place, nous proposons un ensemble de fonctionnalités visant à intégrer notre outil dans l'écosystème logiciel existant.
