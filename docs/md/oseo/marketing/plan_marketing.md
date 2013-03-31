@@ -22,8 +22,7 @@ Nous leur proposerons donc d'installer notre produit en leur sein, avec l'appui 
 
 ### Leaders d'opinion
 
-Nous souhaitons donner la possibilité aux leaders d'opinion de s'exprimer très facilement sur les sujets qu'ils maîtrisent et qui leur tiennent à coeur.e
-Ils pourront donc, grâce à notre produit, créer des communautés rapidement et facilement et partager leur savoir-faire. Les discussions y seront facilitées et les documents d'importance promus.
+Nous souhaitons donner la possibilité aux leaders d'opinion de s'exprimer très facilement sur les sujets qu'ils maîtrisent et qui leur tiennent à cœur. Ils pourront donc, grâce à notre produit, créer des communautés rapidement et facilement et partager leur savoir-faire. Les discussions y seront facilitées et les documents d'importance promus.
 
 L'offre gratuite leur sera accessible, bien que la nécessité de souscrire un abonnement premium se fasse rapidement sentir. Le coût de celui-ci peut être supporté intégralement par l'instigateur de la communauté, mais aussi distribué entre les membres de la communauté.
 
