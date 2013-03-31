@@ -33,20 +33,20 @@ Nous avons donc tout intérêt à solliciter au maximum ces organismes pour dimi
 
 ### Capital risque
 
-Les investisseurs en capital risque - ou *angel investors* - sont très populaires aux États-Unis dans le soutien de start-ups, en particulier dans le domaine des technologies de l'information . Google, Skype ou Dropbox sont des exemples notables d'entreprises ayant suivi cette voie.
-Ils apportent leur réseaux et leur expérience dans la création d'entreprises et du suivi des premières phases de développement.
-Il faut cependant prendre en compte la forte sélectivité qu'exercent les investisseurs en capital risque, les contraites de temps et la prise de participation de ces derniers dans l'entreprise.
+Les investisseurs en capital risque - ou *angel investors* - sont très populaires aux États-Unis dans le soutien de start-ups, en particulier dans le domaine des technologies de l'information. Google, Skype ou Dropbox sont des exemples notables d'entreprises ayant suivi cette voie.
+Ils apportent leur réseau et leur expérience dans la création d'entreprises et dans le suivi des premières phases de développement.
+Il faut cependant prendre en compte la forte sélectivité qu'exercent les investisseurs en capital risque, les contraintes de temps et la prise de participation de ces derniers dans l'entreprise.
 Nous pourrons faire appel à de tels investisseurs en cas d'échec de financement auprès des banques, ou après l'échec d'une première mise sur le marché.
 
 ### Actionnariat
 
 Une alternative aux investisseurs en capital risque pouvant être étudiée serait l'ouverture au public du capital de l'entreprise, tout un chacun prenant des parts dans l'entreprise en échange d'une participation financière.
 Des statuts particuliers doivent être considérés pour avoir la possibilité d'ouvrir le capital et un risque serait pris quant à une prise de contrôle de l'entreprise par un tiers. Aussi, il faut proposer une rentabilité financière à court terme pour les actionnaires ce qui nécessite d'avoir un modèle d'affaires adapté.
-Cette solution ne sera envisagée que lors de la viabilité financière de l'entreprise. Ces fonds seront alors investi dans une sutructuration plus forte de l'entreprise et des fonctionnalités toujours plus innovantes et centrées sur les besoins de nos clients, via une politique forte de recherche et développement et ainsi capitaliser sur notre expérience.
+Cette solution ne sera envisagée que lors de la viabilité financière de l'entreprise. Ces fonds seront alors investis dans une structuration plus forte de l'entreprise et des fonctionnalités toujours plus innovantes et centrées sur les besoins de nos clients, via une politique forte de recherche et développement et ainsi capitaliser sur notre expérience.
 
 ## Besoins financiers
 
-La création d'une start-up dans le domaine de l'ingénierie logicielle implique des besoins bien particuliers, chiffrés ci-dessous. Le résultat de cette évaluation des besoins constritue notre objectif pour la campagne de financement que nous menons.
+La création d'une start-up dans le domaine de l'ingénierie logicielle implique des besoins bien particuliers, chiffrés ci-dessous. Le résultat de cette évaluation des besoins constitue notre objectif pour la campagne de financement que nous menons.
 Il faut noter que les montants ci-dessous sont donnés à titre indicatif et pourront être ajustés.
 Nous avons établi un partenariat avec le département *Télécommunications, Services & Usages* de l'INSA de Lyon pour l'incubation durant cinq mois de notre projet. Il en découle des économies importantes en termes de salaires et d'infrastructures.
 Cependant, ce partenariat ne constitue qu'un soutien temporaire et nous devons par conséquent étudier nos besoins en financement après cette période d'incubation.
@@ -100,15 +100,15 @@ Enfin, nos offres correspondent aux segments de marché visés et placent les in
 
 ### Version basique
 
-Une version gratuite en ligne sera proposée pour permettre à l'ensemble des utilisateurs de connaître notre produit, ses caractéristiques et ses atouts. Elle sera dotée des fonctionnalités standard telles que la discussion ou l'édition de documents qui font la force et l'intérêt de notre produit. Cependant, cette version sera amputée de l'édition collaborative en temps réel ou la gestion fine des permissions.
+Une version gratuite en ligne sera proposée pour permettre à l'ensemble des utilisateurs de connaître notre produit, ses caractéristiques et ses atouts. Elle sera dotée des fonctionnalités standard telles que la discussion ou l'édition de documents qui font la force et l'intérêt de notre produit. Cependant, cette version sera amputée de l'édition collaborative en temps réel ou de la gestion fine des permissions.
 La version basique cible les leaders d'opinion qui souhaitent monter une communauté bâtie autour du même centre d'intérêt.
 De la publicité sera en outre intégrée ; il est en effet essentiel de monétiser chaque utilisateur et une hausse de la base d'utilisateurs doit entraîner mécaniquement une hausse de nos revenus, que ce soit par une augmentation des souscriptions à nos services payants ou par des revenus publicitaires plus importants. En outre, l'intégration de tels encarts permettra de supporter les coûts de stockage associés.
 
 ### Version premium
 
-Apportant des fonctionnalités telles que l'édition collaborative en temps réel, la gestion fine des permissions, la visibilité des contenus ou le choix de formats d'export, cette version ciblera les petites et moyennes entreprises ainsi que les associations n'ayant pas les ressources temporelles ou financières de gérer un intranet ou un ensemble d'applicatifs métier supportant leurs activités. En effet, l'hébergement et la maintenance seront assurés par nos soins, les déchargeants de ces opérations dans un but de rationnalisation des coûts	. De plus, l'interface sera débarrassée des publicités et le nom de domaine sera personnalisable.
+Apportant des fonctionnalités telles que l'édition collaborative en temps réel, la gestion fine des permissions, la visibilité des contenus ou le choix de formats d'export, cette version ciblera les petites et moyennes entreprises ainsi que les associations n'ayant pas les ressources temporelles ou financières de gérer un intranet ou un ensemble d'applicatifs métier supportant leurs activités. En effet, l'hébergement et la maintenance seront assurés par nos soins, les déchargeants de ces opérations dans un but de rationalisation des coûts	. De plus, l'interface sera débarrassée des publicités et le nom de domaine sera personnalisable.
 
-En l'échange d'un abonnement mensuel ou annuel - à ce dernier étant associé une remise pour fidéliser nos clients - sera accordée l'usage de la plateforme par un ensemble de personnes appartenant à l'organisation. Aussi, le client bénéficiera des mises à jour qui seront déployées et d'un support en ligne réactif.
+En l'échange d'un abonnement mensuel ou annuel - à ce dernier étant associé une remise pour fidéliser nos clients - sera accordé l'usage de la plateforme à un ensemble de personnes appartenant à l'organisation. Aussi, le client bénéficiera des mises à jour qui seront déployées et d'un support en ligne réactif.
 Le tarif sera également fonction du nombre d'utilisateurs concernés.
 
 #### Étudiants
@@ -126,9 +126,9 @@ La souscription à ce service se fera *via* un abonnement mensuel ou annuel.
 Le support constitue un atout majeur dans le domaine de l'ingénierie logicielle. Des équipes de support courtoises et performantes rassurent le client et influent grandement dans le processus de vente d'un produit ou d'un service.
 Il est en effet essentiel pour un client, en particulier une grande entreprise dont le logiciel en question est un élément essentiel de son *workflow*, d'avoir un interlocuteur en cas de difficulté lors de l'utilisation du logiciel ou si il est victime d'un éventuel bug ou dysfonctionnement du logiciel. Ce dernier cas est très intéressant pour l'accroissement de la qualité du logiciel et il est de ce fait très important que le problème soit remonté aux développeurs. C'est pourquoi la relation client est une composante à part entière des services que nous proposons.
 
-Dans le cadre de la version gratuite, ce support se fera principalement par mail par nos équipes, mais nous metterons aussi en place un forum et un salon de discussions pour permettre une entraide par la communauté. Lors de la souscription à l'un de nos services, le client aura quant à lui un accès par téléphone au support et aura la garantie d'une réponse sous deux jours ouvrés.
+Dans le cadre de la version gratuite, ce support se fera principalement par mail par nos équipes, mais nous mettrons aussi en place un forum et un salon de discussions pour permettre une entraide par la communauté. Lors de la souscription à l'un de nos services, le client aura quant à lui un accès par téléphone au support et aura la garantie d'une réponse sous deux jours ouvrés.
 
-En sus de l'argument de vente et de l'éliminiation de potentiels *bugs*, le support peut être générateur direct de ressources et nous proposerons des contrats de support personnalisés, offrant une priorisation des recours au support, une garantie de temps de rétablissement, des formations ou l'implémentation de fonctionnalités.
+En sus de l'argument de vente et de l'élimination de potentiels *bugs*, le support peut être générateur direct de ressources et nous proposerons des contrats de support personnalisés, offrant une priorisation des recours au support, une garantie de temps de rétablissement, des formations ou l'implémentation de fonctionnalités.
 
 ### Récapitulatif des offres
 

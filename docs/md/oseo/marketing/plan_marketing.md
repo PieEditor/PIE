@@ -16,7 +16,7 @@ Enfin, ces entreprises n'ont pas de réelle vocation à maintenir un intranet ou
 
 ### Grandes entreprises
 
-Les points cités précédemment - le travail en équipe et la surcharge d'e-mails - sont d'autant plus exacerbés dans les grandes entreprises. En effet, les équipes de travail sont grandes et il est fréquent de travailler avec des personnes qui ne sont pas cotoyées au quotidien - contexte international, télétravail, missions.
+Les points cités précédemment - le travail en équipe et la surcharge d'e-mails - sont d'autant plus exacerbés dans les grandes entreprises. En effet, les équipes de travail sont grandes et il est fréquent de travailler avec des personnes qui ne sont pas côtoyées au quotidien - contexte international, télétravail, missions.
 Ainsi, elles mettent souvent en place des solutions hétérogènes de réseau social d'entreprise et de rédaction collaborative qui ne répondent pas totalement à leurs besoins ; elles souhaitent de plus avoir la mainmise sur leurs données et leur système d'information.
 Nous leur proposerons donc d'installer notre produit en leur sein, avec l'appui de leurs équipes IT. Un support personnalisé leur sera accordé et des formations prodiguées ; l'intégration avec leurs serveurs d'authentification, de stockage et de collaboration sera également effectuée.
 
@@ -27,7 +27,7 @@ Ils pourront donc, grâce à notre produit, créer des communautés rapidement e
 
 L'offre gratuite leur sera accessible, bien que la nécessité de souscrire un abonnement premium se fasse rapidement sentir. Le coût de celui-ci peut être supporté intégralement par l'instigateur de la communauté, mais aussi distribué entre les membres de la communauté.
 
-On peut également ajouter à cette catégorie d'utilisateurs les chercheurs, qui sont amenés d'une part à rédiger des articles synthétisant leurs travaux en groupe, et d'autre part à participes à des session de *peer review* - évaluation par les pairs. En effet, ces usages sont propices à l'édition collaborative, l'apport de corrections, d'annotations et la création de discussions.
+On peut également ajouter à cette catégorie d'utilisateurs les chercheurs, qui sont amenés d'une part à rédiger des articles synthétisant leurs travaux en groupe, et d'autre part à participer à des sessions de *peer review* - évaluation par les pairs. En effet, ces usages sont propices à l'édition collaborative, l'apport de corrections, d'annotations et la création de discussions.
 
 ## Plan marketing
 

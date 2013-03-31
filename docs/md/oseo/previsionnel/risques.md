@@ -29,3 +29,4 @@ Enfin, il convient d'analyser les risques posés par le volet financier de notre
 * *frais trop importants par rapport aux ressources* : risque critique et difficile à évaluer au démarrage de notre activité, il nous faudra surveiller attentivement nos dépenses afin que nos frais soient en adéquation avec les profits effectués par notre entreprise.
 * *mauvais positionnement tarifaire*, qui peut impliquer deux possibilités 1) des clients présents mais trop peu rentables 2) trop peu de clients du fait d'un prix demandé trop élevé. Une étude poussée des solutions concurrentes nous aidera à nous positionner au lancement de notre produit. Nous envisagerons également d'engager un consultant afin d'étudier le positionnement tarifaire de notre offre.
 * *trop peu de ressources* : il conviendra dans ce cas de ré-étudier le plan marketing ou de se concentrer sur un segment clientèle plus restreint afin de proposer un produit plus ciblé.
+

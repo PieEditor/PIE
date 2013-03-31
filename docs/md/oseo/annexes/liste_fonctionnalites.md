@@ -11,10 +11,10 @@
 
 ## Efficacité
 
- * Création de discussions autour d'un thème ou d'un documentr à rejoindre un document
- * Invitation d'un rédacteu
+ * Création de discussions autour d'un thème ou d'un document à rejoindre un document
+ * Invitation d'un rédacteur
  * Rédaction d'un document de manière collaborative
- * Notification de l'évolution d'un document ou d'une discussion (par e-mail, SMS, hooks)
+ * Notification de l'évolution d'un document ou d'une discussion (par e-mail, SMS, *hooks*)
  * Annotation aisée et précise d'un document collaboratif
  * Pérennisation d'une discussion vers un post de forum
  * Intégration et interaction des e-mails dans les discussions
@@ -39,3 +39,4 @@
  * Création et gestion de groupes d'utilisateurs associés à des permissions
  * Gestion de la visibilité d'un contenu
  * Intégration à un serveur d'authentification
+ 

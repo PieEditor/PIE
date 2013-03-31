@@ -17,3 +17,4 @@ Notre outil peut permettre la rédaction d'articles scientifiques et la mise en 
 ## Importation de documents externes 
 
 Pouvoir importer un document externe de type PDF pour ensuite partager une discussion sur celui-ci peut être une évolution possible. Cela permettrait de profiter de l'interface de discussion de notre outil, même si le document n'en est pas originaire.
+
