@@ -1,10 +1,10 @@
 # Évolutions possibles à long terme
 
-Cette partie constitue une réflexion sur les évolutions possibles de notre outil dans un futur plus lointain. Bien que nous souhaitions pour l'instant nous concentrer sur les fonctionnalités cœur il semble important de lister quelques perspectives d'avenir. En voici la liste non exhaustive.
+Cette partie constitue une réflexion sur les évolutions possibles de notre outil dans un futur plus lointain. Bien que nous souhaitions pour l'instant nous concentrer sur les fonctionnalités cœur il semble important de proposer quelques perspectives d'avenir. En voici une liste non exhaustive.
 
 ## Application pour smartphone
 
-Une évolution vers une plate-forme mobile est incontournable de nos jours. Bien que la rédaction soit plus agréable sur un ordinateur classique, offrir à nos clients la possibilité de visualiser leurs documents depuis un terminal est très important. 
+Une évolution vers une plate-forme mobile est incontournable de nos jours. Bien que la rédaction soit plus agréable sur un ordinateur classique, offrir à nos clients la possibilité de visualiser leurs documents depuis un terminal mobile est très important. 
 
 ## Socialisation
 
