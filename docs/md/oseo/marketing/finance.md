@@ -79,8 +79,10 @@ Pour la version en ligne de notre produit, nous ferons appel à un prestataire d
 
 <table><tbody><tr><th>Référence</th><th>Coût annuel HT</th></tr><tr><td>Bureaux</td><td>36000</td></tr><tr><td>Matériel informatique</td><td>10000</td></tr><tr><td>Fournitures de bureau</td><td>200</td></tr><tr><td>Connexion à Internet</td><td>600</td></tr><tr><td>Abonnements téléphonie mobile</td><td>1500</td></tr><tr><td>Infrastructure d'hébergement</td><td>f(nombre d'utilisateurs)</td></tr><tr><td> </td><td>48300 + f(nombre d'utilisateurs)</td></tr></tbody></table>
 
-Tous ces coûts seront nuls au cours des cinq premiers mois grâce à notre partenariat.
+où f(nombre d'utilisateurs) ~= nombre d'utilisateurs * 2€ / mois
 
+On pourrait également considérer, au moins pour une partie, le coût de l'infrastructure pour les utilisateurs d'une offre gratuite comme une charge de publicité.
+Tous ces coûts seront nuls au cours des cinq premiers mois grâce à notre partenariat.
 Des actions auprès de l'Institut National de la Propriété Intellectuelle sont aussi à mener pour protéger notre marque, notre logo et notre produit. Si notre activité prend une dimension internationale importante, ces mêmes actions devront être portées auprès des bureaux de propriété intellectuelle étrangers, où nous devrons aussi déposer nos savoir-faire dans le cas où les brevets logiciels seraient reconnus.
 
 #### Marketing

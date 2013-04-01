@@ -28,7 +28,7 @@ Ce marché représentait en 2010 environ 289.000€ par an et par entreprise en 
 Les logiciels de traitement de texte sont un outil plébiscité par les entreprises qui en sont universellement clientes et utilisatrices.
 En effet, il est constamment nécessaire pour elles de rédiger et mettre en forme de l'information dans leur activité quotidienne.
 Un acteur possède une position dominante sur ce marché : Microsoft Business, avec sa suite Office et son logiciel phare Word. Cette division génère 20 milliards d'euros de chiffre d'affaires par an, soit un tiers du chiffre d'affaires total de Microsoft. C'est aussi 500 millions d'utilisateurs à travers le monde pour un prix public de 269€ par licence (petites entreprises) à 539€ par licence (professionnel).
-Une autre offre a fait son apparition en 2011, Microsoft Office 365, qui est proposé en mode *SaaS* - abonnement mensuel - pour un prix de 4,80€ à 19€ par mois selon les services intégrés - messagerie électronique, Office Web Apps, Skydrive, Sharepoint, Skype, etc.
+Une autre offre a fait son apparition en 2011, Microsoft Office 365, qui est proposé en mode *SaaS* - abonnement mensuel - pour un prix de 4,80€ à 19€ par mois selon les services intégrés - messagerie électronique, visualisation et édition en ligne, stockage dans le cloud, collaboration, voix sur IP, etc.
 
 ### Nouveaux concepts émergents
 
