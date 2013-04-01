@@ -36,9 +36,9 @@ Notre plan marketing aura pour objectif d'optimiser notre usage des canaux de co
 
 Étant donné notre segment clientèle, le plan marketing doit emprunter de nombreux canaux de communication. Le nombre de ces derniers montrera aussi l'importance que voue l'entreprise à la promotion de son produit et sa proximité avec ses clients.
 
-#### Site web
+#### Site Web
 
-Un site web sera mis en place pour présenter notre produit. Il contiendra une présentation du produit à travers un descriptif détaillé, des captures d'écran et une version de démonstration.
+Un site Web sera mis en place pour présenter notre produit. Il contiendra une présentation du produit à travers un descriptif détaillé, des captures d'écran et une version de démonstration.
 Une liste et un comparatif des services seront tenus et il sera possible de souscrire en ligne ou de contacter le service commercial.
 Il permettra aussi de diffuser les annonces de mises à jour, de modifications ou d'évolutions.
 Les informations importantes de l'entreprise seront aussi présentées, comme l'histoire de l'entreprise, sa politique de confidentialité, ses éléments d'identification et de contact.

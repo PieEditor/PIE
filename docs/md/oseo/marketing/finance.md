@@ -86,9 +86,9 @@ Des actions auprès de l'Institut National de la Propriété Intellectuelle sont
 #### Marketing
 
 Le marketing, bien qu'espoir de retombées économiques, a un coût qu'il faut prendre en compte.
-Il se traduit par la création et l'hébergement d'un site web, la création de vidéos ou de supports de présentation.
+Il se traduit par la création et l'hébergement d'un site Web, la création de vidéos ou de supports de présentation.
 Ces actions seront menées après la période d'incubation, dès lors que nous aurons un produit à la hauteur des attentes du client.
-La participation aux conférences et salons d'entreprises représente également un coût, justifié par l'occasion de rencontrer directement les professionnels constituant l'un de nos segments clientèle et de procéder à un aperçu des bénéfices qu'ils pourraient tirer de l'utilisation de notre produit. Ce type d'évènement concède un retour sur investissement très important et permet d'établir une proximité forte avec les professionnels et de donner une visibilité importante sur notre marque et nos solutions.
+La participation aux conférences et salons d'entreprises représente également un coût, justifié par l'occasion de rencontrer directement les professionnels constituant l'un de nos segments clientèle et de procéder à un aperçu des bénéfices qu'ils pourraient tirer de l'utilisation de notre produit. Ce type d'événement concède un retour sur investissement très important et permet d'établir une proximité forte avec les professionnels et de donner une visibilité importante sur notre marque et nos solutions.
 
 <table><tbody><tr><th>Référence</th><th>Prix HT</th></tr><tr><td>Hébergement</td><td>1000</td></tr><tr><td>Nom de domaine</td><td>15</td></tr><tr><td>Vidéos</td><td>2000</td></tr><tr><td>Flyers</td><td>1000</td></tr><tr><td>Présentations</td><td>500</td></tr><tr><td>Conférences</td><td>10000</td></tr><tr><td> </td><td>14515</td></tr></tbody></table>
 
@@ -108,7 +108,7 @@ De la publicité sera en outre intégrée ; il est en effet essentiel de monéti
 
 Apportant des fonctionnalités telles que l'édition collaborative en temps réel, la gestion fine des permissions, la visibilité des contenus ou le choix de formats d'export, cette version ciblera les petites et moyennes entreprises ainsi que les associations n'ayant pas les ressources temporelles ou financières de gérer un intranet ou un ensemble d'applicatifs métier supportant leurs activités. En effet, l'hébergement et la maintenance seront assurés par nos soins, les déchargeants de ces opérations dans un but de rationalisation des coûts	. De plus, l'interface sera débarrassée des publicités et le nom de domaine sera personnalisable.
 
-En l'échange d'un abonnement mensuel ou annuel - à ce dernier étant associé une remise pour fidéliser nos clients - sera accordé l'usage de la plateforme à un ensemble de personnes appartenant à l'organisation. Aussi, le client bénéficiera des mises à jour qui seront déployées et d'un support en ligne réactif.
+En l'échange d'un abonnement mensuel ou annuel - à ce dernier étant associé une remise pour fidéliser nos clients - sera accordé l'usage de la plate-forme à un ensemble de personnes appartenant à l'organisation. Aussi, le client bénéficiera des mises à jour qui seront déployées et d'un support en ligne réactif.
 Le tarif sera également fonction du nombre d'utilisateurs concernés.
 
 #### Étudiants
@@ -118,7 +118,7 @@ Les étudiants pourront quant à eux bénéficier de cette version premium gratu
 ### Version entreprise
 
 Les grandes entreprises sont ici visées par cette version, reprenant l'ensemble des fonctionnalités premium.
-Cette version se démarque par l'installation de la plateforme au sein des infrastructures du client en collaboration avec ses équipes IT. Un support avancé sera offert pour l'intégration du produit avec les serveurs d'authentification ou de collaboration en place.
+Cette version se démarque par l'installation de la plate-forme au sein des infrastructures du client en collaboration avec ses équipes IT. Un support avancé sera offert pour l'intégration du produit avec les serveurs d'authentification ou de collaboration en place.
 La souscription à ce service se fera *via* un abonnement mensuel ou annuel.
 
 ### Support

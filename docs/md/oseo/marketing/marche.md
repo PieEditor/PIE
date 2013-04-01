@@ -85,7 +85,7 @@ Pouvoir pérenniser les discussions et utiliser différents supports sur un mêm
 
 On parle également aujourd'hui du "Web 3.0" ou du "Web sémantique" dont le but principal viserait à orienter l'évolution du Web pour permettre aux utilisateurs sans intermédiaire de trouver, partager et combiner l'information plus facilement. C'est dans cette direction que notre outil veut servir ses utilisateurs.
 
-Dans la culture de l'internet on parle de la "loi des 1 pourcent" ou du "principe 90-9-1" qui gouverne l'apport d'informations sur la toile. Celle-ci stipule que seul 1 pourcent des utilisateurs du web contribuent à créer de l'information, 9 pourcents contribuent par leurs remarques et leurs commentaires à la bonification de cette information et que les 90 restants ne font que profiter de l'information créée mais sans en créer eux-mêmes. Notre outil aurait pour but de donner plus de pouvoir aux créateurs et de faciliter la contribution à la création d'information en ligne afin d'amener les personnes à mieux et plus produire ensemble ! 
+Dans la culture de l'internet on parle de la "loi des 1 pourcent" ou du "principe 90-9-1" qui gouverne l'apport d'informations sur la toile. Celle-ci stipule que seul 1 pourcent des utilisateurs du Web contribuent à créer de l'information, 9 pourcents contribuent par leurs remarques et leurs commentaires à la bonification de cette information et que les 90 restants ne font que profiter de l'information créée mais sans en créer eux-mêmes. Notre outil aurait pour but de donner plus de pouvoir aux créateurs et de faciliter la contribution à la création d'information en ligne afin d'amener les personnes à mieux et plus produire ensemble ! 
 
 ![ 1 percent rule ](../../ressources/1PercentRule.png)
 

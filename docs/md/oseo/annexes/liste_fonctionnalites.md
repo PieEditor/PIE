@@ -32,7 +32,7 @@
 
  * Interface épurée, réactive, *responsive* et dotée de peu d'options
  * Présence d'un guide de démarrage (animation, vidéo, FAQ)
- * Compatibilité du produit avec la majorité des navigateurs respectant les standards du web
+ * Compatibilité du produit avec la majorité des navigateurs respectant les standards du Web
 
 ## Autres
 
