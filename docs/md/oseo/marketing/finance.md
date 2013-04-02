@@ -77,7 +77,42 @@ Une connexion à Internet est également indispensable pour la conduite de notre
 
 Pour la version en ligne de notre produit, nous ferons appel à un prestataire de stockage dans le *cloud*. Cette solution représente l'avantage d'être flexible et s'adaptera ainsi à la croissance de l'utilisation du produit. De plus, cela offre le confort d'une maintenance externalisée et et de tarifs avantageux. Amazon Web Services est un acteur majeur du stockage et de l'hébergement dans le cloud et reconnu par tous par sa fiabilité, sa fiabilité et son support. 
 
-<table><tbody><tr><th>Référence</th><th>Coût annuel HT</th></tr><tr><td>Bureaux</td><td>36000</td></tr><tr><td>Matériel informatique</td><td>10000</td></tr><tr><td>Fournitures de bureau</td><td>200</td></tr><tr><td>Connexion à Internet</td><td>600</td></tr><tr><td>Abonnements téléphonie mobile</td><td>1500</td></tr><tr><td>Infrastructure d'hébergement</td><td>f(nombre d'utilisateurs)</td></tr><tr><td> </td><td>48300 + f(nombre d'utilisateurs)</td></tr></tbody></table>
+<table>
+	<tbody>
+		<tr>
+			<th>Référence</th>
+			<th>Coût annuel HT</th>
+		</tr>
+		<tr>
+			<td>Bureaux</td>
+			<td>36000</td>
+		</tr>
+		<tr>
+			<td>Matériel informatique</td>
+			<td>10000</td>
+		</tr>
+		<tr>
+			<td>Fournitures de bureau</td>
+			<td>200</td>
+		</tr>
+		<tr>
+			<td>Connexion à Internet</td>
+			<td>600</td>
+		</tr>
+		<tr>
+			<td>Abonnements téléphonie mobile</td>
+			<td>1500</td>
+		</tr>
+		<tr>
+			<td>Infrastructure d'hébergement</td>
+			<td>f(nombre d'utilisateurs)</td>
+		</tr>
+		<tr>
+			<td> </td>
+			<td>48300 + f(nombre d'utilisateurs)</td>
+		</tr>
+	</tbody>
+</table>
 
 où f(nombre d'utilisateurs) ~= nombre d'utilisateurs * 2€ / mois
 
@@ -92,7 +127,42 @@ Il se traduit par la création et l'hébergement d'un site Web, la création de 
 Ces actions seront menées après la période d'incubation, dès lors que nous aurons un produit à la hauteur des attentes du client.
 La participation aux conférences et salons d'entreprises représente également un coût, justifié par l'occasion de rencontrer directement les professionnels constituant l'un de nos segments clientèle et de procéder à un aperçu des bénéfices qu'ils pourraient tirer de l'utilisation de notre produit. Ce type d'événement concède un retour sur investissement très important et permet d'établir une proximité forte avec les professionnels et de donner une visibilité importante sur notre marque et nos solutions.
 
-<table><tbody><tr><th>Référence</th><th>Prix HT</th></tr><tr><td>Hébergement</td><td>1000</td></tr><tr><td>Nom de domaine</td><td>15</td></tr><tr><td>Vidéos</td><td>2000</td></tr><tr><td>Flyers</td><td>1000</td></tr><tr><td>Présentations</td><td>500</td></tr><tr><td>Conférences</td><td>10000</td></tr><tr><td> </td><td>14515</td></tr></tbody></table>
+<table>
+	<tbody>
+		<tr>
+			<th>Référence</th>
+			<th>Prix HT</th>
+		</tr>
+		<tr>
+			<td>Hébergement</td>
+			<td>1000</td>
+		</tr>
+		<tr>
+			<td>Nom de domaine</td>
+			<td>15</td>
+		</tr>
+		<tr>
+			<td>Vidéos</td>
+			<td>2000</td>
+		</tr>
+		<tr>
+			<td>Flyers</td>
+			<td>1000</td>
+		</tr>
+		<tr>
+			<td>Présentations</td>
+			<td>500</td>
+		</tr>
+		<tr>
+			<td>Conférences</td>
+			<td>10000</td>
+		</tr>
+		<tr>
+			<td> </td>
+			<td>14515</td>
+		</tr>
+	</tbody>
+</table>
 
 ## Commercialisation
 
@@ -108,7 +178,7 @@ De la publicité sera en outre intégrée ; il est en effet essentiel de monéti
 
 ### Version premium
 
-Apportant des fonctionnalités telles que l'édition collaborative en temps réel, la gestion fine des permissions, la visibilité des contenus ou le choix de formats d'export, cette version ciblera les petites et moyennes entreprises ainsi que les associations n'ayant pas les ressources temporelles ou financières de gérer un intranet ou un ensemble d'applicatifs métier supportant leurs activités. En effet, l'hébergement et la maintenance seront assurés par nos soins, les déchargeants de ces opérations dans un but de rationalisation des coûts	. De plus, l'interface sera débarrassée des publicités et le nom de domaine sera personnalisable.
+Apportant des fonctionnalités telles que l'édition collaborative en temps réel, la gestion fine des permissions, la visibilité des contenus ou le choix de formats d'export, cette version ciblera les petites et moyennes entreprises ainsi que les associations n'ayant pas les ressources temporelles ou financières de gérer un intranet ou un ensemble d'applicatifs métier supportant leurs activités. En effet, l'hébergement et la maintenance seront assurés par nos soins, les déchargeants de ces opérations dans un but de rationalisation des coûts. De plus, l'interface sera débarrassée des publicités et le nom de domaine sera personnalisable.
 
 En l'échange d'un abonnement mensuel ou annuel - à ce dernier étant associé une remise pour fidéliser nos clients - sera accordé l'usage de la plate-forme à un ensemble de personnes appartenant à l'organisation. Aussi, le client bénéficiera des mises à jour qui seront déployées et d'un support en ligne réactif.
 Le tarif sera également fonction du nombre d'utilisateurs concernés.
@@ -136,7 +206,40 @@ En sus de l'argument de vente et de l'élimination de potentiels *bugs*, le supp
 
 Les offres proposées et leur prix associé sont synthétisés dans le tableau ci-dessous.
 
-<table><tbody><tr><th>Produit</th><th>Basique</th><th>Premium</th><th>Entreprise</th></tr><tr><td>Frais initiaux</td><td>offerts</td><td>offerts</td><td>2000€</td></tr><tr><td>Abonnement</td><td>0€ mais publicité (~2€/utilisateur/mois)</td><td>40€/groupe/mois ou 5€/utilisateur/mois</td><td>20€/utilisateur/mois</td></tr><tr><td>Support</td><td>inclus (communauté)</td><td>inclus (sous 48h)</td><td>à partir de 1000€/mois</td></tr><tr><td>Rentabilité</td><td>∞</td><td>600 groupes</td><td>300 entreprises</td></tr></tbody></table>
+<table>
+	<tbody>
+		<tr>
+			<th>Produit</th>
+			<th>Basique</th>
+			<th>Premium</th>
+			<th>Entreprise</th>
+		</tr>
+		<tr>
+			<td>Frais initiaux</td>
+			<td>offerts</td>
+			<td>offerts</td>
+			<td>2000€</td>
+		</tr>
+		<tr>
+			<td>Abonnement</td>
+			<td>0€ mais publicité (~2€/utilisateur/mois)</td>
+			<td>40€/groupe/mois ou 5€/utilisateur/mois</td>
+			<td>20€/utilisateur/mois</td>
+		</tr>
+		<tr>
+			<td>Support</td>
+			<td>inclus (communauté)</td>
+			<td>inclus (sous 48h)</td>
+			<td>à partir de 1000€/mois</td>
+		</tr>
+		<tr>
+			<td>Rentabilité</td>
+			<td>∞</td>
+			<td>600 groupes</td>
+			<td>300 entreprises</td>
+		</tr>
+	</tbody>
+</table>
 
 
 Notre objectif est de toucher tous les créateurs de contenus à forte valeur ajoutée en leur proposant des offres adaptées à leur besoin pour leur faciliter la création de valeur.
