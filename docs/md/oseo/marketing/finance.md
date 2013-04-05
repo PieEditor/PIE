@@ -15,14 +15,6 @@ Dans un souci de crédibilité, les créateurs de l'entreprise apporteront une s
 Cet apport personnel déterminera la part de chacun dans le capital de l'entreprise et la confiance de nos partenaires financier en notre entreprise sera fonction de ce montant.
 Un objectif de 20% du financement par ce biais semble réaliste et suffisant dans la quête d'obtention de fonds supplémentaires.
 
-### Banques
-
-Les banques sont un partenaire naturel des entrepreneurs pour l'accompagnement financier de leurs idées, en particulier les banques d'investissement.
-Leur aide se fera en fonction de la confiance qu'elles auront en notre produit, notre *business model* et notre investissement.
-Leur taux d'intérêts peuvent cependant être non négligeables et il pourra être très difficile de les convaincre de s'impliquer dans notre projet. C'est pour cette dernière raison que le présent cahier est - entre autres - réalisé.
-
-Un prêt de 150.000 à 200.000€ doit ainsi être contracté pour financer en grande partie la première année après l'incubation du projet. L'objectif sera, après commercialisation de nos services, le remboursement rapide de ce prêt ou sa renégociation pour en limiter le coût et se tourner vers d'autres sources de financement.
-
 ### Fonds d'investissement public
 
 Il existe également des fonds d'investissements, subventions et accompagnements au niveau national, régional voire départemental.
@@ -36,11 +28,18 @@ Nous avons donc tout intérêt à solliciter au maximum ces organismes pour dimi
 Les investisseurs en capital risque - ou *angel investors* - sont très populaires aux États-Unis dans le soutien de start-ups, en particulier dans le domaine des technologies de l'information. Google, Skype ou Dropbox sont des exemples notables d'entreprises ayant suivi cette voie.
 Ils apportent leur réseau et leur expérience dans la création d'entreprises et dans le suivi des premières phases de développement.
 Il faut cependant prendre en compte la forte sélectivité qu'exercent les investisseurs en capital risque, les contraintes de temps et la prise de participation de ces derniers dans l'entreprise.
-Nous pourrons faire appel à de tels investisseurs en cas d'échec de financement auprès des banques, ou après l'échec d'une première mise sur le marché.
+Notre objectif consiste donc à lever de 150 000 à 200 000€ pour financer l'année suivant notre période d'incubation au sein de l'INSA de Lyon et la mise sur le marché de notre produit.
+
+### Banques
+
+Les banques sont un partenaire naturel des entrepreneurs pour l'accompagnement financier de leurs idées, en particulier les banques d'investissement.
+Leur aide se fera en fonction de la confiance qu'elles auront en notre produit, notre *business model* et notre investissement dans le projet.
+Leur taux d'intérêts peuvent cependant être non négligeables et il pourra être très difficile de les convaincre de s'impliquer dans notre projet. C'est pour cette dernière raison que le présent cahier est - entre autres - réalisé.
+Un prêt devra ainsi être contracté en cas d'échec du financement par des investisseurs en capital risque. Après la commercialisation de nos services, un rapport étroit avec les organismes bancaires devra être noué pour financer notre cycle de production et financer nos investisements futurs.
 
 ### Actionnariat
 
-Une alternative aux investisseurs en capital risque pouvant être étudiée serait l'ouverture au public du capital de l'entreprise, tout un chacun prenant des parts dans l'entreprise en échange d'une participation financière.
+Une alternative aux investisseurs en capital risque pouvant être étudiée serait l'ouverture au public du capital de l'entreprise, tout un chacun prenant des parts dans l'entreprise en échange d'une participation financière.stissemen
 Des statuts particuliers doivent être considérés pour avoir la possibilité d'ouvrir le capital et un risque serait pris quant à une prise de contrôle de l'entreprise par un tiers. Aussi, il faut proposer une rentabilité financière à court terme pour les actionnaires ce qui nécessite d'avoir un modèle d'affaires adapté.
 Cette solution ne sera envisagée que lors de la viabilité financière de l'entreprise. Ces fonds seront alors investis dans une structuration plus forte de l'entreprise et des fonctionnalités toujours plus innovantes et centrées sur les besoins de nos clients, via une politique forte de recherche et développement et ainsi capitaliser sur notre expérience.
 
@@ -60,7 +59,52 @@ Durant les premiers mois, le coût de 5 ingénieurs est pris en charge par l'INS
 Ensuite, nous estimons à un chef de projet et deux ingénieurs logiciels à temps plein les ressources nécessaires au déroulement du projet. Ils seront épaulés par deux stagiaires.
 En outre, un commercial sera intégré à nos équipes pour démarcher des sociétés, organiser des conférences et participer aux salons d'entreprise. Un chargé de communication qui prendra également en charge le secrétariat sera lui aussi intégré. Il s'occupera quant à lui de la création des supports promotionnels, de la visibilité de nos produit sur l'Internet et participera également aux salons d'entreprise.
 
-<table><tbody><tr><th>Référence</th><th>Heures</th><th>Prix unitaire HT</th><th>Total HT</th></tr><tr><td>Chef de projet</td><td>1800</td><td>30</td><td>54000</td></tr><tr><td>Ingénieurs logiciels</td><td>3600</td><td>30</td><td>108000</td></tr><tr><td>Commercial</td><td>900</td><td>25</td><td>22500</td></tr><tr><td>Chargé de communication</td><td>900</td><td>20</td><td>18000</td></tr><tr><td>Stagiaires</td><td>3600</td><td>10</td><td>36000</td></tr><tr><td> </td><td> </td><td> </td><td>238500</td></tr></tbody></table>
+<table>
+	<tbody>
+		<tr>
+			<th>Référence</th>
+			<th>Heures</th>
+			<th>Prix unitaire HT</th>
+			<th>Total HT</th>
+		</tr>
+		<tr>
+			<td>Chef de projet</td>
+			<td>1800</td>
+			<td>30</td>
+			<td>54000</td>
+		</tr>
+		<tr>
+			<td>Ingénieurs logiciels</td>
+			<td>3600</td>
+			<td>30</td>
+			<td>108000</td>
+		</tr>
+		<tr>
+			<td>Commercial</td>
+			<td>900</td>
+			<td>25</td>
+			<td>22500</td>
+		</tr>
+		<tr>
+			<td>Chargé de communication</td>
+			<td>900</td>
+			<td>20</td>
+			<td>18000</td>
+		</tr>
+		<tr>
+			<td>Stagiaires</td>
+			<td>3600</td>
+			<td>10</td>
+			<td>36000</td>
+		</tr>
+		<tr>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td>238500</td>
+		</tr>
+	</tbody>
+</table>
 
 Dans un premier temps, le chargé de communication et un développeur seront affectés au support des utilisateurs mais il sera de bon ton d'engager dès que nos ressources nous le permettront un responsable qualité ainsi qu'un *Community Manager* pour décharger les précédents collaborateurs de ce travail qui doit placer le client au centre de nos préoccupations.
 
@@ -243,4 +287,3 @@ Les offres proposées et leur prix associé sont synthétisés dans le tableau c
 
 
 Notre objectif est de toucher tous les créateurs de contenus à forte valeur ajoutée en leur proposant des offres adaptées à leur besoin pour leur faciliter la création de valeur.
-

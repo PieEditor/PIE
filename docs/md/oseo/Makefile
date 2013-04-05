@@ -8,4 +8,3 @@ pdf: concat
 
 clean:
 	if [ -e oseo.md ]; then rm oseo.md; elif [ -e ../../pdf/oseo/oseo.pdf ]; then rm ../../pdf/oseo/oseo.pdf; fi
-
