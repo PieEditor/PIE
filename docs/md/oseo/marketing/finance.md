@@ -35,11 +35,11 @@ Notre objectif consiste donc à lever de 150 000 à 200 000€ pour financer l'a
 Les banques sont un partenaire naturel des entrepreneurs pour l'accompagnement financier de leurs idées, en particulier les banques d'investissement.
 Leur aide se fera en fonction de la confiance qu'elles auront en notre produit, notre *business model* et notre investissement dans le projet.
 Leur taux d'intérêts peuvent cependant être non négligeables et il pourra être très difficile de les convaincre de s'impliquer dans notre projet. C'est pour cette dernière raison que le présent cahier est - entre autres - réalisé.
-Un prêt devra ainsi être contracté en cas d'échec du financement par des investisseurs en capital risque. Après la commercialisation de nos services, un rapport étroit avec les organismes bancaires devra être noué pour financer notre cycle de production et financer nos investisements futurs.
+Un prêt devra ainsi être contracté en cas d'échec du financement par des investisseurs en capital risque. Après la commercialisation de nos services, un rapport étroit avec les organismes bancaires devra être noué pour financer notre cycle de production et financer nos investissements futurs.
 
 ### Actionnariat
 
-Une alternative aux investisseurs en capital risque pouvant être étudiée serait l'ouverture au public du capital de l'entreprise, tout un chacun prenant des parts dans l'entreprise en échange d'une participation financière.stissemen
+Une alternative aux investisseurs en capital risque pouvant être étudiée serait l'ouverture au public du capital de l'entreprise, tout un chacun prenant des parts dans l'entreprise en échange d'une participation financière.
 Des statuts particuliers doivent être considérés pour avoir la possibilité d'ouvrir le capital et un risque serait pris quant à une prise de contrôle de l'entreprise par un tiers. Aussi, il faut proposer une rentabilité financière à court terme pour les actionnaires ce qui nécessite d'avoir un modèle d'affaires adapté.
 Cette solution ne sera envisagée que lors de la viabilité financière de l'entreprise. Ces fonds seront alors investis dans une structuration plus forte de l'entreprise et des fonctionnalités toujours plus innovantes et centrées sur les besoins de nos clients, via une politique forte de recherche et développement et ainsi capitaliser sur notre expérience.
 

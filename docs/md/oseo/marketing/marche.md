@@ -44,8 +44,7 @@ Nous analysons maintenant les grandes catégories d'outils de travail collaborat
 
 ### Gestionnaires de versionning et outils de partage de documents
 
-Ils sont en place sur le marché depuis quelques années déjà, comme le montre la forte implentation en entreprise de IBM Lotus Notes depuis plus de 20 ans. En revanche, l'ouverture au grand public est plus récente. Dropbox est un des exemples connus car il a su s'imposer dans les entreprises, mais également chez l'utilisateur *lambda* en démystifiant la complexité inhérente au partage. Comme le blog de Dropbox l'indique, cet outil est utilisé par les professionels de plus de 2 millions d'entreprises et par les particuliers avec plus de 50 millons de comptes ouverts depuis 2007.
-
+Ils sont en place sur le marché depuis quelques années déjà, comme le montre la forte implantation en entreprise de IBM Lotus Notes depuis plus de 20 ans. En revanche, l'ouverture au grand public est plus récente. Dropbox est un des exemples connus car il a su s'imposer dans les entreprises, mais également chez l'utilisateur *lambda* en démystifiant la complexité inhérente au partage. Comme leur blog l'indique, cet outil est utilisé par les professionnels de plus de 2 millions d'entreprises et par les particuliers avec plus de 50 millions de comptes ouverts depuis 2007.
 
 On pourra également noter que l'aspect social a pris de l'importance. Par exemple, Github et Microsoft Sharepoint proposent une page de profil présentant rapidement l'identité de l'utilisateur et les projets auxquels il a contribué. L'interaction entre les divers utilisateurs est de plus en plus mise en avant afin de les rapprocher en raison d'un intérêt commun.
 
