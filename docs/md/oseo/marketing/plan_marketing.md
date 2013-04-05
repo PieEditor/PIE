@@ -16,18 +16,17 @@ Enfin, ces entreprises n'ont pas de réelle vocation à maintenir un intranet ou
 
 ### Grandes entreprises
 
-Les points cités précédemment - le travail en équipe et la surcharge d'e-mails - sont d'autant plus exacerbés dans les grandes entreprises. En effet, les équipes de travail sont grandes et il est fréquent de travailler avec des personnes qui ne sont pas cotoyées au quotidien - contexte international, télétravail, missions.
+Les points cités précédemment - le travail en équipe et la surcharge d'e-mails - sont d'autant plus exacerbés dans les grandes entreprises. En effet, les équipes de travail sont grandes et il est fréquent de travailler avec des personnes qui ne sont pas côtoyées au quotidien - contexte international, télétravail, missions.
 Ainsi, elles mettent souvent en place des solutions hétérogènes de réseau social d'entreprise et de rédaction collaborative qui ne répondent pas totalement à leurs besoins ; elles souhaitent de plus avoir la mainmise sur leurs données et leur système d'information.
 Nous leur proposerons donc d'installer notre produit en leur sein, avec l'appui de leurs équipes IT. Un support personnalisé leur sera accordé et des formations prodiguées ; l'intégration avec leurs serveurs d'authentification, de stockage et de collaboration sera également effectuée.
 
 ### Leaders d'opinion
 
-Nous souhaitons donner la possibilité aux leaders d'opinion de s'exprimer très facilement sur les sujets qu'ils maîtrisent et qui leur tiennent à coeur.e
-Ils pourront donc, grâce à notre produit, créer des communautés rapidement et facilement et partager leur savoir-faire. Les discussions y seront facilitées et les documents d'importance promus.
+Nous souhaitons donner la possibilité aux leaders d'opinion de s'exprimer très facilement sur les sujets qu'ils maîtrisent et qui leur tiennent à cœur. Ils pourront donc, grâce à notre produit, créer des communautés rapidement et facilement et partager leur savoir-faire. Les discussions y seront facilitées et les documents d'importance promus.
 
 L'offre gratuite leur sera accessible, bien que la nécessité de souscrire un abonnement premium se fasse rapidement sentir. Le coût de celui-ci peut être supporté intégralement par l'instigateur de la communauté, mais aussi distribué entre les membres de la communauté.
 
-On peut également ajouter à cette catégorie d'utilisateurs les chercheurs, qui sont amenés d'une part à rédiger des articles synthétisant leurs travaux en groupe, et d'autre part à participes à des session de *peer review* - évaluation par les pairs. En effet, ces usages sont propices à l'édition collaborative, l'apport de corrections, d'annotations et la création de discussions.
+On peut également ajouter à cette catégorie d'utilisateurs les chercheurs, qui sont amenés d'une part à rédiger des articles synthétisant leurs travaux en groupe, et d'autre part à participer à des sessions de *peer review* - évaluation par les pairs. En effet, ces usages sont propices à l'édition collaborative, l'apport de corrections, d'annotations et la création de discussions.
 
 ## Plan marketing
 
@@ -37,9 +36,9 @@ Notre plan marketing aura pour objectif d'optimiser notre usage des canaux de co
 
 Étant donné notre segment clientèle, le plan marketing doit emprunter de nombreux canaux de communication. Le nombre de ces derniers montrera aussi l'importance que voue l'entreprise à la promotion de son produit et sa proximité avec ses clients.
 
-#### Site web
+#### Site Web
 
-Un site web sera mis en place pour présenter notre produit. Il contiendra une présentation du produit à travers un descriptif détaillé, des captures d'écran et une version de démonstration.
+Un site Web sera mis en place pour présenter notre produit. Il contiendra une présentation du produit à travers un descriptif détaillé, des captures d'écran et une version de démonstration.
 Une liste et un comparatif des services seront tenus et il sera possible de souscrire en ligne ou de contacter le service commercial.
 Il permettra aussi de diffuser les annonces de mises à jour, de modifications ou d'évolutions.
 Les informations importantes de l'entreprise seront aussi présentées, comme l'histoire de l'entreprise, sa politique de confidentialité, ses éléments d'identification et de contact.
