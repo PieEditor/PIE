@@ -27,5 +27,5 @@ Le graphe ci-dessous détaille précisément les fonctions contraintes et compl�
 
 ![Diagramme d'analyse fonctionnelle. Vert : fonction contrainte. Blanc : fonction complémentaire](../../ressources/analyse-fonctionnelle.svg)
 
-Diagramme d'analyse fonctionnelle. Vert : fonction contrainte. Blanc : fonction complémentaire
+Diagramme d'analyse fonctionnelle. Vert : fonction principale ; orange : fonction contrainte ; blanc : fonction optionnelle.
 
