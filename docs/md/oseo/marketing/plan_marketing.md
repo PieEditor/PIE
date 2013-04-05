@@ -64,8 +64,10 @@ L'occasion sera aussi donnée à nos employés de tenir des présentations lors 
 
 #### Porte-à-porte
 
-Notre équipe commerciale devra démarcher les entreprises pour leur présenter les intérêts et le gain de notre produit dans le cadre de travail collaboratif.
+Afin de toucher les grands groupes, notre équipe commerciale devra démarcher les entreprises pour leur présenter les intérêts et le gain de notre produit dans le cadre de travail collaboratif. Cette approche personnalisée permettra de négocier plus aisément des contrats avec ces entreprises de taille importante.
 Du matériel promotionnel - plaquettes commerciales, *goodies* - sera également délivré.
+
+Bien conscients de la difficulté de mener ces actions au début de la vie d'une start-up, nous envisagerons d'utiliser ce canal de communication dans un second temps.
 
 ### Actions de vente
 
