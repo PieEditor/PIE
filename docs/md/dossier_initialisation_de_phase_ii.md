@@ -57,36 +57,73 @@ Afin de vérifier le bon fonctionnement de notre prototype à la fin de la phase
 					<li>Le visiteur peut se déconnecter</li>
 				</ul>
 			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
 			<td>
 				<ul>
-					<li></li>
-					<li></li>
+					<li>[ ]</li>
+					<li>[ ]</li>
+					<li>[ ]</li>
+					<li>[ ]</li>
 				</ul>
 			</td>
-			<td></td>
+		</tr>
+		<tr>
+			<td>Rédaction d'un document</td>
+			<td>
+				<ul>
+					<li>L'utilisateur connecté peut créer un nouveau document vierge</li>
+					<li>L'utilisateur connecté peut rédiger son document</li>
+					<li>L'utilisateur connecté peut sauvegarder son document</li>
+					<li>La rédaction d'un document sauvegardé peut être reprise plus tard</li>
+					<li>Un document peut être catégorisé *via* des mots-clés.</li>
+					<li>L'utilisateur peut rechercher les documents correspondant à un ou plusieurs mots-clés</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>[ ]</li>
+					<li>[ ]</li>
+					<li>[ ]</li>
+					<li>[ ]</li>
+					<li>[ ]</li>
+					<li>[ ]</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>Relecture d'un document</td>
+			<td>
+				<ul>
+					<li>L'utilisateur connecté peut visualiser un document sauvegardé</li>
+					<li>L'utilisateur connecté peut exporter un document sauvegardé dans un fichier brut, proposé au téléchargement</li>
+					<li>L'utilisateur connecté peut exporter un document sauvegardé dans un fichier avec mise en page, proposé au téléchargement</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>[ ]</li>
+					<li>[ ]</li>
+					<li>[ ]</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>Discussions</td>
+			<td>
+				<ul>
+					<li>L'utilisateur connecté peut lancer une discussion à propos d'un document</li>
+					<li>L'utilisateur connecté peut participer à une discussion</li>
+					<li>L'utilisateur connecté peut commenter une partie précise d'un document</li>
+					<li>Le système met en valeur les posts pertinents dans une discussion</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>[ ]</li>
+					<li>[ ]</li>
+					<li>[ ]</li>
+					<li>[ ]</li>
+				</ul>
+			</td>
 		</tr>
 	</tobdy>
 </table>
-
-#### Gestion des utilisateurs
-
-
-- utilisateur : création de compte, connexion, déconnexion
-- rédaction :
-  - création de document
-  - rédaction d'un document
-  - sauvegarder un document
-  - catégoriser un document
-- relecture :
-  - visualiser un document
-  - export d'un document dans un fichier brut
-  - export d'un document dans un fichier avec mise en page
-- discussions
-  - commenter un document
-  - répondre à un commentaire
-  - lancer une nouvelle discussion
-  - mettre en valeur des posts pertinents d'une discussion
