@@ -1,4 +1,4 @@
-# Besoins financiers
+# Financement du projet
 
 Le volet financier constitue un élément important du projet et déterminera en partie sa réussite future.
 
@@ -25,7 +25,7 @@ Nous avons donc tout intérêt à solliciter au maximum ces organismes pour dimi
 
 ### Capital risque
 
-Les investisseurs en capital risque - ou *angel investors* - sont très populaires aux États-Unis dans le soutien de start-ups, en particulier dans le domaine des technologies de l'information. Google, Skype ou Dropbox sont des exemples notables d'entreprises ayant suivi cette voie.
+Les investisseurs en capital risque - ou *angel investors* - sont très populaires aux États-Unis dans le soutien de *startups*, en particulier dans le domaine des technologies de l'information. Google, Skype ou Dropbox sont des exemples notables d'entreprises ayant suivi cette voie.
 Ils apportent leur réseau et leur expérience dans la création d'entreprises et dans le suivi des premières phases de développement.
 Il faut cependant prendre en compte la forte sélectivité qu'exercent les investisseurs en capital risque, les contraintes de temps et la prise de participation de ces derniers dans l'entreprise.
 Notre objectif consiste donc à lever de 150 000 à 200 000€ pour financer l'année suivant notre période d'incubation au sein de l'INSA de Lyon et la mise sur le marché de notre produit.
@@ -34,7 +34,7 @@ Notre objectif consiste donc à lever de 150 000 à 200 000€ pour financer l'a
 
 Les banques sont un partenaire naturel des entrepreneurs pour l'accompagnement financier de leurs idées, en particulier les banques d'investissement.
 Leur aide se fera en fonction de la confiance qu'elles auront en notre produit, notre *business model* et notre investissement dans le projet.
-Leur taux d'intérêts peuvent cependant être non négligeables et il pourra être très difficile de les convaincre de s'impliquer dans notre projet. C'est pour cette dernière raison que le présent cahier est - entre autres - réalisé.
+Les taux d'intérêts peuvent cependant être non négligeables et il pourra être très difficile de les convaincre de s'impliquer dans notre projet. C'est pour cette dernière raison que le présent cahier est - entre autres - réalisé.
 Un prêt devra ainsi être contracté en cas d'échec du financement par des investisseurs en capital risque. Après la commercialisation de nos services, un rapport étroit avec les organismes bancaires devra être noué pour financer notre cycle de production et financer nos investissements futurs.
 
 ### Actionnariat
@@ -98,15 +98,21 @@ En outre, un commercial sera intégré à nos équipes pour démarcher des soci�
 			<td>36000</td>
 		</tr>
 		<tr>
+			<td>Comptabilité</td>
+			<td>12</td>
+			<td>125</td>
+			<td>1500</td>
+		</tr>
+		<tr>
 			<td> </td>
 			<td> </td>
 			<td> </td>
-			<td>238500</td>
+			<td>240000</td>
 		</tr>
 	</tbody>
 </table>
 
-Dans un premier temps, le chargé de communication et un développeur seront affectés au support des utilisateurs mais il sera de bon ton d'engager dès que nos ressources nous le permettront un responsable qualité ainsi qu'un *Community Manager* pour décharger les précédents collaborateurs de ce travail qui doit placer le client au centre de nos préoccupations.
+Dans un premier temps, le chargé de communication et un développeur seront affectés au support des utilisateurs mais il sera de bon ton d'engager dès que nos ressources nous le permettront un responsable qualité ainsi qu'un *Community Manager* pour décharger les précédents collaborateurs de ce travail qui doit placer le client au centre de nos préoccupations. Enfin, pour la tenue de notre comptabilité et l'établissement des documents comptables obligatoires, nous ferons appel à un cabinet d'expertise comptable.
 
 Nous souhaitons de plus nous appuyer sur des fondations solides pour le développement de notre produit. Ainsi, nous utiliserons des bibliothèques et des solutions logicielles standard et éprouvées ; nous privilégierons aussi des bibliothèques *open-source* ce qui nous permettra de bénéficier de leur communauté d'utilisateurs, leur réactivité et leur coût négligeable.
 L'emphase sera alors placée sur les fonctionnalités du logiciel et leur bénéfice sur les utilisateurs plus que sur des considérations technico-techniques.
@@ -162,7 +168,7 @@ où f(nombre d'utilisateurs) ~= nombre d'utilisateurs * 2€ / mois
 
 On pourrait également considérer, au moins pour une partie, le coût de l'infrastructure pour les utilisateurs d'une offre gratuite comme une charge de publicité.
 Tous ces coûts seront nuls au cours des cinq premiers mois grâce à notre partenariat.
-Des actions auprès de l'Institut National de la Propriété Intellectuelle sont aussi à mener pour protéger notre marque, notre logo et notre produit. Si notre activité prend une dimension internationale importante, ces mêmes actions devront être portées auprès des bureaux de propriété intellectuelle étrangers, où nous devrons aussi déposer nos savoir-faire dans le cas où les brevets logiciels seraient reconnus.
+Des actions auprès de l'INPI (Institut National de la Propriété Intellectuelle) sont aussi à mener pour protéger notre marque, notre logo et notre produit. Si notre activité prend une dimension internationale importante, ces mêmes actions devront être portées auprès des bureaux de propriété intellectuelle étrangers, où nous devrons aussi déposer nos savoir-faire dans le cas où les brevets logiciels seraient reconnus.
 
 #### Marketing
 
@@ -240,7 +246,7 @@ La souscription à ce service se fera *via* un abonnement mensuel ou annuel.
 ### Support
 
 Le support constitue un atout majeur dans le domaine de l'ingénierie logicielle. Des équipes de support courtoises et performantes rassurent le client et influent grandement dans le processus de vente d'un produit ou d'un service.
-Il est en effet essentiel pour un client, en particulier une grande entreprise dont le logiciel en question est un élément essentiel de son *workflow*, d'avoir un interlocuteur en cas de difficulté lors de l'utilisation du logiciel ou si il est victime d'un éventuel bug ou dysfonctionnement du logiciel. Ce dernier cas est très intéressant pour l'accroissement de la qualité du logiciel et il est de ce fait très important que le problème soit remonté aux développeurs. C'est pourquoi la relation client est une composante à part entière des services que nous proposons.
+Il est en effet essentiel pour un client, en particulier une grande entreprise dont le logiciel en question est un élément essentiel de son *workflow*, d'avoir un interlocuteur en cas de difficulté lors de l'utilisation du logiciel ou s'il est victime d'un éventuel bug ou dysfonctionnement du logiciel. Ce dernier cas est très intéressant pour l'accroissement de la qualité du logiciel et il est de ce fait très important que le problème soit remonté aux développeurs. C'est pourquoi la relation client est une composante à part entière des services que nous proposons.
 
 Dans le cadre de la version gratuite, ce support se fera principalement par mail par nos équipes, mais nous mettrons aussi en place un forum et un salon de discussions pour permettre une entraide par la communauté. Lors de la souscription à l'un de nos services, le client aura quant à lui un accès par téléphone au support et aura la garantie d'une réponse sous deux jours ouvrés.
 

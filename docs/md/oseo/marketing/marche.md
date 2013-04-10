@@ -32,7 +32,7 @@ Une autre offre a fait son apparition en 2011, Microsoft Office 365, qui est pro
 
 ### Nouveaux concepts émergents
 
-Il est intéressant de remarquer l'émergence de nouveaux modes de collaboration, qui soulignent bien notre entrée dans l'ère du travail a plusieurs. Le *coworking*, par exemple, est un nouveau terme désignant un type d'organisation du travail qui regroupe deux notions : un espace de travail partagé, mais aussi un réseau de travailleurs encourageant l'échange et l'ouverture. Similaires aux *cafés philos*, ces espaces publics de travail sont de plus en plus nombreux à apparaître dans les grandes villes du monde et souligne un désir de collaboration de plus en plus fort dans le monde du travail. La notion de *crowdsourcing* désigne quant à elle une pratique consistant à réunir un grand groupe de personnes intéréssées par un même sujet avec pour but de trouver une solution à un problème. Par exemple, **Amazon Mechanical Turk** (MTurk) est un marché internet de *crowdsourcing* permettant à des programmeurs de coordonner des travaux non réalisables par des machines.  On trouve en ligne diverses tâches que quiconque peut réaliser. Celles-ci sont variées et proposent en retour une petite rénumération. Ces tâches peuvent par exemple être une sélection de photos pour une publicité ou une traduction en anglais de tweets écrit dans un dialecte rare. En janvier 2011, MTurk recensait 500.000 travailleurs de 190 pays différents. 
+Il est intéressant de remarquer l'émergence de nouveaux modes de collaboration, qui soulignent bien notre entrée dans l'ère du travail a plusieurs. Le *coworking*, par exemple, est un nouveau terme désignant un type d'organisation du travail qui regroupe deux notions : un espace de travail partagé, mais aussi un réseau de travailleurs encourageant l'échange et l'ouverture. Similaires aux *cafés philos*, ces espaces publics de travail, qui sont de plus en plus nombreux à apparaître dans les grandes villes à travers le monde, soulignent un désir de collaboration de plus en plus fort dans le monde du travail. La notion de *crowdsourcing* désigne quant à elle une pratique consistant à réunir un grand groupe de personnes intéréssées par un même sujet ayant pour but de trouver une solution à un problème. Par exemple, **Amazon Mechanical Turk** (MTurk) est un marché internet de *crowdsourcing* permettant à des programmeurs de coordonner des travaux non réalisables par des machines.  On trouve en ligne diverses tâches que quiconque peut réaliser. Celles-ci sont variées et proposent en retour une petite rénumération. Ces tâches peuvent par exemple être une sélection de photos pour une publicité ou une traduction en anglais de tweets écrit dans un dialecte rare. En janvier 2011, MTurk recensait 500.000 travailleurs de 190 pays différents. 
 
 Un sondage réalisé auprès de 113 personnes nous a permis de mettre en évidence la grande variété d'outils utilisés pour les travaux collaboratifs.
 
@@ -42,7 +42,7 @@ Ce résultat montre la diversité des outils utilisés.  Il ressort que l'e-mail
 
 Nous analysons maintenant les grandes catégories d'outils de travail collaboratif.
 
-### Gestionnaires de versionning et outils de partage de documents
+### Gestionnaires de versions et outils de partage de documents
 
 Ils sont en place sur le marché depuis quelques années déjà, comme le montre la forte implantation en entreprise de IBM Lotus Notes depuis plus de 20 ans. En revanche, l'ouverture au grand public est plus récente. Dropbox est un des exemples connus car il a su s'imposer dans les entreprises, mais également chez l'utilisateur *lambda* en démystifiant la complexité inhérente au partage. Comme leur blog l'indique, cet outil est utilisé par les professionnels de plus de 2 millions d'entreprises et par les particuliers avec plus de 50 millions de comptes ouverts depuis 2007.
 
@@ -77,15 +77,15 @@ Nous avons également profité de ce sondage pour mettre en évidence les format
 
 ### Points sensibles 
 
-Comme montré ci-dessus, il y a beaucoup de concurrents potentiels et ils sont d'envergures. De plus, la migration sur notre outil peut être difficile pour les sociétés dont les employés peuvent être réfractaires au changement. Enfin, notre outil, tout comme une communauté, prend d'autant plus de valeur que son nombre d'utilisateurs est grand. Le décollage de ce dernier peut donc être un peu fastidieux au départ.
+Comme montré ci-dessus, il y a beaucoup de concurrents potentiels et ils sont d'envergure. De plus, la migration vers notre outil peut être difficile pour les sociétés dont les employés peuvent être réfractaires au changement. Enfin, à l'instar d'une une communauté, sa valeur est fonction de son nombre d'utilisateurs, bien que le décollage - l'arrivée progressive des utilisateurs - puisse se révéler fastidieuse.
 
 ### Points forts
 
-Pouvoir pérenniser les discussions et utiliser différents supports sur un même outil est une idée innovante qui, suite à notre étude de marché, nous semble répondre à un besoin réel. Notre objectif est de faire ressortir les informations de valeur, ce qui est un point crucial de nos jours. 
+Pérenniser les discussions et utiliser différents supports sur un même outil sont des idées innovantes qui, suite à notre étude de marché, nous semblent répondre à un besoin réel. Notre objectif est de faire ressortir les informations de valeur, ce qui est un point crucial de nos jours. 
 
-On parle également aujourd'hui du "Web 3.0" ou du "Web sémantique" dont le but principal viserait à orienter l'évolution du Web pour permettre aux utilisateurs sans intermédiaire de trouver, partager et combiner l'information plus facilement. C'est dans cette direction que notre outil veut servir ses utilisateurs.
+On parle également aujourd'hui du "Web 3.0" ou du "Web sémantique" qui consiste, à travers l'évolution des services et des usages, à permettre aux utilisateurs de trouver, partager et combiner l'information plus facilement sans intermédiaires. C'est dans cette direction que notre outil veut mener ses utilisateurs.
 
-Dans la culture de l'internet on parle de la "loi des 1 pourcent" ou du "principe 90-9-1" qui gouverne l'apport d'informations sur la toile. Celle-ci stipule que seul 1 pourcent des utilisateurs du Web contribuent à créer de l'information, 9 pourcents contribuent par leurs remarques et leurs commentaires à la bonification de cette information et que les 90 restants ne font que profiter de l'information créée mais sans en créer eux-mêmes. Notre outil aurait pour but de donner plus de pouvoir aux créateurs et de faciliter la contribution à la création d'information en ligne afin d'amener les personnes à mieux et plus produire ensemble ! 
+Dans la culture de l'internet on parle de la "loi des 1 pourcent" ou du "principe 90-9-1" qui gouverne l'apport d'informations sur la toile. Celle-ci stipule que seul 1 pourcent des utilisateurs du Web contribuent à créer de l'information, 9 pourcents contribuent par leurs remarques et leurs commentaires à la bonification de cette information et que les 90 restants ne font que profiter de l'information créée mais sans en créer eux-mêmes. Notre outil a donc pour ambition de donner plus de pouvoir aux créateurs et de faciliter la contribution à la création d'information en ligne afin d'amener les personnes à mieux et plus produire ensemble ! 
 
 ![ 1 percent rule ](../../ressources/1PercentRule.png)
 

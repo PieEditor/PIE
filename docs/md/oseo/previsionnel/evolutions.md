@@ -1,6 +1,6 @@
 # Évolutions possibles à long terme
 
-Cette partie constitue une réflexion sur les évolutions possibles de notre outil dans un futur plus lointain. Bien que nous souhaitions pour l'instant nous concentrer sur les fonctionnalités cœur il semble important de proposer quelques perspectives d'avenir. En voici une liste non exhaustive.
+Cette partie constitue une réflexion sur les évolutions possibles de notre outil dans un futur plus lointain. Bien que nous souhaitions pour l'instant nous concentrer sur les fonctionnalités cœur, il semble important de proposer quelques perspectives d'avenir. En voici une liste non exhaustive.
 
 ## Application pour smartphone
 
@@ -8,7 +8,7 @@ Une évolution vers une plate-forme mobile est incontournable de nos jours. Bien
 
 ## Socialisation
 
-Apporter une dimension sociale est importante pour offrir une plate-forme de travail virtuel vivante et agréable. Cela peut passer par des pages de profils présentant les travaux réalisés par un utilisateur et la mise en contact de personnes ayant des intérêts communs.
+Apporter une dimension sociale est essentielle pour offrir une plate-forme de travail virtuel vivante et agréable. Cela peut passer par des pages de profils présentant les travaux réalisés par un utilisateur et la mise en contact de personnes ayant des intérêts communs.
 
 ## Orientation scientifique
 

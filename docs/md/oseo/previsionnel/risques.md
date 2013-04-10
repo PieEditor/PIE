@@ -18,10 +18,10 @@ Nous listons ici la plupart des risques opérationnels liés à la livraison et 
 
 Dans cette section sont listés les risques liés à la composante humaine de notre projet.
 
-* *équipe peu productive ou démotivée* : ce risque est critique et deviendra de plus en plus présent au fur et à mesure de l'avancement du projet. Il nous faudra alors nous concentrer sur l'essentiel des fonctionnalités ou revoir nous objectifs à la baisse. Nous envisagerons également d'engager du personnel supplémentaire tel que des consultants ou des stagiaires qui apporteront leur point de vue neuf sur notre projet.
+* *équipe peu productive ou démotivée* : ce risque est critique et deviendra de plus en plus présent au fur et à mesure de l'avancement du projet. Il nous faudra alors nous concentrer sur l'essentiel des fonctionnalités ou revoir nous objectifs à la baisse. Nous envisagerons également d'engager du personnel supplémentaire tel que des consultants ou des stagiaires qui apporteront un point de vue neuf sur notre projet.
 * *deadline non respectée* : ce risque est important et sera atténué par une organisation agile, centrée sur des *sprints* de développements courts, nous permettant ainsi une évaluation rapide de nos performances.
 
-## Risque financiers
+## Risques financiers
 
 Enfin, il convient d'analyser les risques posés par le volet financier de notre projet.
 

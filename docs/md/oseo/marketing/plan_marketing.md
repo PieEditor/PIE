@@ -5,20 +5,20 @@ Les segments clientèle doivent être identifiés et les actions de vente adapt�
 
 ## Segments clientèle
 
-Nous avons étudié en détail les segments de clientèles que nous visons, en fonction desquels les services et canaux de communications sont adaptés.
+Nous avons étudié en détail le public que nous visons, en fonction desquels les services et canaux de communications sont adaptés.
 L'étude de marché nous permet de cibler trois segments : les structures à taille humaine, les grandes entreprises et les leaders d'opinion.
 
 ### Petites et moyennes structures
 
 Le travail d'équipe est bien souvent fondamental dans les PME et associations ; cependant, la rédaction collaborative de documents autant que la circulation et l'échange de l'information y sont laborieuses.
 Par ailleurs, les e-mails y sont omniprésents et constituent plus une charge qu'un réel bénéfice pour le salarié.
-Enfin, ces entreprises n'ont pas de réelle vocation à maintenir un intranet ou des ressources informatiques : c'est donc très naturellement que nous leur proposerons notre offre d'hébergement, de support et de formation, détaillée dans la suite du présent document.
+Enfin, ces entreprises n'ont pas de réel intérêt à maintenir un intranet ou des ressources informatiques : c'est donc très naturellement que nous leur proposerons notre offre d'hébergement, de support et de formation, détaillée dans la suite du présent document.
 
 ### Grandes entreprises
 
-Les points cités précédemment - le travail en équipe et la surcharge d'e-mails - sont d'autant plus exacerbés dans les grandes entreprises. En effet, les équipes de travail sont grandes et il est fréquent de travailler avec des personnes qui ne sont pas côtoyées au quotidien - contexte international, télétravail, missions.
+Les points cités précédemment - le travail en équipe et la surcharge d'e-mails - sont d'autant plus exacerbés dans les grandes entreprises. En effet, les équipes de travail sont grandes et il est fréquent de travailler avec des personnes qui ne se côtoient pas au quotidien - contexte international, télétravail, missions diverses	.
 Ainsi, elles mettent souvent en place des solutions hétérogènes de réseau social d'entreprise et de rédaction collaborative qui ne répondent pas totalement à leurs besoins ; elles souhaitent de plus avoir la mainmise sur leurs données et leur système d'information.
-Nous leur proposerons donc d'installer notre produit en leur sein, avec l'appui de leurs équipes IT. Un support personnalisé leur sera accordé et des formations prodiguées ; l'intégration avec leurs serveurs d'authentification, de stockage et de collaboration sera également effectuée.
+Nous leur proposerons donc d'installer notre produit en leur sein, avec l'appui de leurs équipes IT. Un support personnalisé leur sera accordé et des formations dispensées ; l'intégration avec leurs serveurs d'authentification, de stockage et de collaboration sera également assurée.
 
 ### Leaders d'opinion
 
@@ -34,7 +34,7 @@ Notre plan marketing aura pour objectif d'optimiser notre usage des canaux de co
 
 ### Canaux de communication
 
-Étant donné notre segment clientèle, le plan marketing doit emprunter de nombreux canaux de communication. Le nombre de ces derniers montrera aussi l'importance que voue l'entreprise à la promotion de son produit et sa proximité avec ses clients.
+Étant donné notre segment clientèle, le plan marketing doit emprunter de nombreux canaux de communication. Leur nombre montrera aussi l'importance que voue l'entreprise à la promotion de son produit et sa proximité avec ses clients.
 
 #### Site Web
 
@@ -47,11 +47,11 @@ Enfin, un blog sera tenu par l'équipe de développement pour échanger autour d
 #### Réseaux sociaux
 
 L'entreprise s'efforcera d'être présente sur les réseaux sociaux - Twitter, LinkedIn ou Facebook - pour accroitre sa visibilité, donner une impression de proximité, tenir les utilisateurs au courant d'annonces importantes ou effectuer du support.
-C'est une composante très essentielle de l'image de marque d'une entreprise, où il est très important de paraître dynamiques et disponibles.
+C'est une composante essentielle de l'image de marque d'une entreprise, où il est très important de paraître dynamiques et disponibles.
 
 #### Publicité
 
-La publicité est historiquement le canal de communication privilégié des entreprises. Elle permet de toucher un très grand nombre de personnes dans le cadre de médias de masse en broadcast (télévision, radio, presse écrite) mais également de cibler son public à l'aide de publicité contextuelles.
+La publicité est historiquement le canal de communication privilégié des entreprises. Elle permet de toucher un très grand nombre de personnes dans le cadre de médias de masse en *broadcast*  -télévision, radio, presse écrite - mais également de cibler son public à l'aide de publicité contextuelles.
 C'est cette dernière approche qui est retenue: nous achèterons des mots clés pour apparaître dans les résultats des moteurs de recherche ou sur les sites en relation avec notre activité. Des articles sponsorisés seront aussi achetés, nous permettant de tirer partie de la crédibilité qu'ont su construire certains blogueurs.
 Enfin, les possibilités de mise en avant de nos applications sur les boutiques d'applications - aussi appelées *stores* ou *markets* - devront être étudiées.
 
@@ -81,6 +81,6 @@ Elle aura ainsi pour vocation de pousser les leaders d'opinion à souscrire un a
 #### Campagnes promotionnelles
 
 Un autre moyen d'attirer les clients est la mise en place de promotions à l'occasion de divers événements - Noël, anniversaire de la société, soldes - lors desquels le coût de l'abonnement sera réduit pour une période temporelle définie.
-Cependant, ayants confiance en la qualité de notre produit et en sa réponse à un réel besoin, ce genre d'actions sera mené avec parcimonie.
+Cependant, ayant confiance en la qualité de notre produit et en sa réponse à un réel besoin, ce genre d'actions sera mené avec parcimonie.
 Nous préférons en effet privilégier les clients qui nous restent fidèles ou qui représentent un poids financier important en consentant à des remises commerciales.
 
