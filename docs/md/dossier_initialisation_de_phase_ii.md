@@ -33,7 +33,7 @@ Tout d'abord, nous jugeons nécessaire de s'accorder sur l'interface que propose
 
 D'autre part, notre produit étant un logiciel utilisant de nombreux composants externes tels qu'une base de données et des bibliothèques, il est primordial d'effectuer les choix techniques en amont afin de constituer des fondations solides. Nous éviterons ainsi de perdre du temps. Pour nous assister dans ce choix, nous prévoyons d'envoyer deux membres de l'équipe à la *Realtime Conference* mentionnée plus haut.  Une fois ces choix techniques effectués, les différents membres présenterons leur décision à l'équipe. Une fois ces choix approuvés un livrable interne sera rédigé.
 
-Enfin, il est crucial de mettre rapidement en place l'ensemble des outils sélectionnés précédemment et du serveur d'hébergement afin de garantir leur bon fonctionnement et une prise en main rapide par l'ensemble de l'équipe. Une phase d'initialisation est alors nécessaire, comme détaillée dans la section d'organisation de la phase II.
+Enfin, il est crucial de mettre rapidement en place l'ensemble des outils sélectionnés précédemment et le serveur d'hébergement afin de garantir leur bon fonctionnement et une prise en main rapide par l'ensemble de l'équipe. Une phase d'initialisation est alors nécessaire, comme détaillé dans la section d'organisation de la phase II.
 
 
 ### Fiche de recette
