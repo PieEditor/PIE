@@ -115,7 +115,7 @@ En outre, un commercial sera intégré à nos équipes pour démarcher des soci�
 Dans un premier temps, le chargé de communication et un développeur seront affectés au support des utilisateurs mais il sera de bon ton d'engager dès que nos ressources nous le permettront un responsable qualité ainsi qu'un *Community Manager* pour décharger les précédents collaborateurs de ce travail qui doit placer le client au centre de nos préoccupations. Enfin, pour la tenue de notre comptabilité et l'établissement des documents comptables obligatoires, nous ferons appel à un cabinet d'expertise comptable.
 
 Nous souhaitons de plus nous appuyer sur des fondations solides pour le développement de notre produit. Ainsi, nous utiliserons des bibliothèques et des solutions logicielles standard et éprouvées ; nous privilégierons aussi des bibliothèques *open-source* ce qui nous permettra de bénéficier de leur communauté d'utilisateurs, leur réactivité et leur coût négligeable.
-L'emphase sera alors placée sur les fonctionnalités du logiciel et leur bénéfice sur les utilisateurs plus que sur des considérations technico-techniques.
+L'emphase sera alors placée sur les fonctionnalités du logiciel et leur bénéfice sur les utilisateurs plus que sur des considérations purement techniques.
 
 #### Ressources physiques et organisation
 
