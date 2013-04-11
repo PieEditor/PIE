@@ -7,7 +7,7 @@ Il est illusoire d'espérer être parés à toutes ces situations : c'est pour c
 
 Nous listons ici la plupart des risques opérationnels liés à la livraison et l'exploitation de notre produit, pouvant attiser l'incompréhension voir la colère de nos utilisateurs.
 
-* *panne de l'offre cloud* : il nous faudra renégocier des contrats avec notre partenaire afin d'augmenter la redondance et de diminuer la garantie de temps de rétablissement (GTR). Il sera également envisageable de recopier automatiquement les données chez plusieurs hébergeurs, bien que cela implique un temps de développement et de maintenance accru. Nous effectuerons de plus un geste commercial envers les utilisateurs payants afin de les dédommager pour l'indisponibilité de l'outil. Ce risque est qualifié de peu critique si la durée d'indisponibilité est limitée.
+* *panne de l'offre *cloud** : il nous faudra renégocier des contrats avec notre partenaire afin d'augmenter la redondance et de diminuer la garantie de temps de rétablissement (GTR). Il sera également envisageable de recopier automatiquement les données chez plusieurs hébergeurs, bien que cela implique un temps de développement et de maintenance accru. Nous effectuerons de plus un geste commercial envers les utilisateurs payants afin de les dédommager pour l'indisponibilité de l'outil. Ce risque est qualifié de peu critique si la durée d'indisponibilité est limitée.
 * *perte de données* : très critique, ils nous faut limiter cette éventualité dans la mesure du possible par la mise en place en amont de sauvegardes automatiques.
 * *non satisfaction des clients* : pouvant mettre en péril notre société, ce risque est considéré comme critique. Afin de recueillir les commentaires de nos clients, nous mettrons en place une plate-forme de suggestions, contacterons personnellement les clients les plus importants voire engagerons un consultant afin de nous recentrer sur les fonctionnalités cœur. Un renfort des équipes support et marketing sera également à envisager. 
 * *concurrence* : notre produit évoluant dans un secteur concurrentiel, il nous faudra surveiller attentivement l'évolution des solutions concurrentes afin d'évaluer plus précisément les risques posés par chaque compétiteur. 
@@ -19,7 +19,7 @@ Nous listons ici la plupart des risques opérationnels liés à la livraison et 
 Dans cette section sont listés les risques liés à la composante humaine de notre projet.
 
 * *équipe peu productive ou démotivée* : ce risque est critique et deviendra de plus en plus présent au fur et à mesure de l'avancement du projet. Il nous faudra alors nous concentrer sur l'essentiel des fonctionnalités ou revoir nous objectifs à la baisse. Nous envisagerons également d'engager du personnel supplémentaire tel que des consultants ou des stagiaires qui apporteront un point de vue neuf sur notre projet.
-* *deadline non respectée* : ce risque est important et sera atténué par une organisation agile, centrée sur des *sprints* de développements courts, nous permettant ainsi une évaluation rapide de nos performances.
+* **deadline* non respectée* : ce risque est important et sera atténué par une organisation agile, centrée sur des *sprints* de développements courts, nous permettant ainsi une évaluation rapide de nos performances.
 
 ## Risques financiers
 
