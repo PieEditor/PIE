@@ -3,7 +3,7 @@
 angular.module('yeomanApp')
   .controller('MainCtrl', function ($scope) {
     $scope.awesomeThings = [
-      'HTML5 late',
+      'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
