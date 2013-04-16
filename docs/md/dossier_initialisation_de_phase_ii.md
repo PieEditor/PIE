@@ -54,15 +54,17 @@ Afin de vérifier le bon fonctionnement de notre prototype à la fin de la phase
 					<li>Le visiteur peut créer un nouveau compte</li>
 					<li>Le visiteur peut se connecter avec son compte</li>
 					<li>Une fois connecté, le visiteur a accès à des informations personnalisées</li>
+					<li>L'utilisateur fait partie de groupes d'utilisateurs</li>
 					<li>Le visiteur peut se déconnecter</li>
 				</ul>
 			</td>
 			<td>
 				<ul>
-					<li>[ ]</li>
-					<li>[ ]</li>
-					<li>[ ]</li>
-					<li>[ ]</li>
+					<li>[ Oui / Non ]</li>
+					<li>[ Oui / Non ]</li>
+					<li>[ Oui : un panneau indiquant des notifications personnalisées / Oui : ses informations de profil uniquement / Non ]</li>
+					<li>[ Oui : pas de limitations sur le nombre de groupes / Oui : 1 seul groupe par utilisateur / Non ]</li>
+					<li>[ Oui / Non ]</li>
 				</ul>
 			</td>
 		</tr>
@@ -75,17 +77,19 @@ Afin de vérifier le bon fonctionnement de notre prototype à la fin de la phase
 					<li>L'utilisateur connecté peut sauvegarder son document</li>
 					<li>La rédaction d'un document sauvegardé peut être reprise plus tard</li>
 					<li>Un document peut être catégorisé *via* des mots-clés.</li>
-					<li>L'utilisateur peut rechercher les documents correspondant à un ou plusieurs mots-clés</li>
+					<li>L'utilisateur peut rechercher les documents</li>
+					<li>Le fond est séparé de la forme</li>
 				</ul>
 			</td>
 			<td>
 				<ul>
-					<li>[ ]</li>
-					<li>[ ]</li>
-					<li>[ ]</li>
-					<li>[ ]</li>
-					<li>[ ]</li>
-					<li>[ ]</li>
+					<li>[ Oui / Non ]</li>
+					<li>[ Oui / Non ]</li>
+					<li>[ Oui : sauvegarde automatique / Oui : sauvegarde manuelle / Non ]</li>
+					<li>[ Oui / Non ]</li>
+					<li>[ Oui : autant de mots-clés que souhaités / Oui : 1 mot clé uniquement / Non ]</li>
+					<li>[ Oui : recherche par mots-clés et titre / Oui : recherche par titre uniquement / Non ]</li>
+					<li>[ Oui / Non ]</li>
 				</ul>
 			</td>
 		</tr>
@@ -100,9 +104,9 @@ Afin de vérifier le bon fonctionnement de notre prototype à la fin de la phase
 			</td>
 			<td>
 				<ul>
-					<li>[ ]</li>
-					<li>[ ]</li>
-					<li>[ ]</li>
+					<li>[ Oui : en même temps que d'autres / Oui : 1 personne par document maximum / Non ]</li>
+					<li>[ Oui / Non ]</li>
+					<li>[ Oui / Non ]</li>
 				</ul>
 			</td>
 		</tr>
@@ -118,10 +122,10 @@ Afin de vérifier le bon fonctionnement de notre prototype à la fin de la phase
 			</td>
 			<td>
 				<ul>
-					<li>[ ]</li>
-					<li>[ ]</li>
-					<li>[ ]</li>
-					<li>[ ]</li>
+					<li>[ Oui / Non ]</li>
+					<li>[ Oui / Non ]</li>
+					<li>[ Oui : granularité de la lettre / Oui : granularité de la ligne / Oui : granularité du paragraphe / Non ]</li>
+					<li>[ Oui : selon un algorithme complexe / Oui : selon le nombre de commentaires associés / Non ]</li>
 				</ul>
 			</td>
 		</tr>
