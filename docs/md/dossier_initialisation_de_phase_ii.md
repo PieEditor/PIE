@@ -40,6 +40,16 @@ Enfin, il est crucial de mettre rapidement en place l'ensemble des outils sélec
 
 Afin de vérifier le bon fonctionnement de notre prototype à la fin de la phase II, il est primordial de s'accorder sur des tests de recette. Ils garantissent la capacité de notre prototype à remplir un certain nombre de fonctions. Cette fiche de recette est détaillée ci-dessous.
 
+#### Informations sur la procédure
+
+**Objet de la procédure de recette** Cette procédure a pour objectif la validation de la conformité de notre produit selon des critères objectifs et connus à l'avance. Elle concerne l'ensemble logiciel formé par le logiciel client, le logiciel serveur et la base de données. Nous nous inscrivons ainsi dans une démarche qualité forte.
+
+**Étapes de recette** Nous distinguons deux catégories de tests à effectuer. Les *tests techniques* valident l'ensemble des considérations techniques associées à l'application, telles que son architecture ou ses performances. À l'inverse, les *tests fonctionnels* contrôlent la capacité de l'application du point de vue de l'utilisateur final à effectuer l'ensemble des tâches qui lui sont confiées. Ces tests fonctionnels doivent permettre de valider l'ensemble des fonctions qualifiées de principales dans l'analyse fonctionnelle détaillée plus haut dans ce document.
+
+**Conditions de la recette** Cette procédure sera effectuée en fin de phase II - conformément au planning détaillé précédemment - et ne concerne ainsi que la version finale du *prototype* développé pendant cette durée. Dans un souci d'économie de temps, l'ensemble des tests techniques sera effectué en amont par l'équipe projet. En revanche, les tests fonctionnels pourront être effectués indifféremment par l'équipe tutorale ou par l'équipe projet. Un procès-verbal de recette listant les tests effectués et leurs résultats sera dressé au cours de la séance.
+
+#### Procès-verbal de recette
+
 <table>
 	<thead>
 		<th>Fonction</th>
