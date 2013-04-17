@@ -139,5 +139,51 @@ Afin de vérifier le bon fonctionnement de notre prototype à la fin de la phase
 				</ul>
 			</td>
 		</tr>
+		<tr>
+			<td>Architecture</td>
+			<td>
+				<ul>
+					<li>La bdd peut communiquer avec le serveur.</li>
+					<li>Le site peut communiquer avec le serveur.</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>[ Oui : ouverture d'un document stocké dans la bdd / Non ]</li>
+					<li>[ Oui : requête de type POST du client vers le serveur / Non ]</li></ul>
+			</td>
+		</tr>
+		<tr>
+			<td>Performances</td>
+			<td>
+				<ul>
+					<li>Le temps moyen d'une requête d'ouverture d'un document est inférieure à 3 secondes</li>
+					<li>Le temps moyen du chargement d'une page est inférieure à 3 secondes</li>
+					<li>Un utilisateur peut créer au moins 10 documents à partir de son compte</li> 
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>[ Oui / Non ]</li>
+					<li>[ Oui / Non ]</li>
+					<li>[ Oui / Non ]</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>Outils</td>
+			<td>
+				<ul>
+					<li>Les bibliothèques utilisées ont des licences correctes</li>
+					<li>Les bibliothèques prévu d'être utilisé dans OSEO ont bien été mise en place</li>
+				</ul>
+			</td>
+			<td>
+				<ul>
+					<li>[ Oui / Non ]</li>
+					<li>[ Oui / Non ]</li>
+				</ul>
+			</td>
+		</tr>
 	</tobdy>
 </table>
