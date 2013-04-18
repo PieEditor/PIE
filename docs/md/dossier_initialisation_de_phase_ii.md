@@ -25,6 +25,16 @@ D'autre part, notre produit est de manière inhérente une application temps ré
 
 Au total, le coût de notre prototype revient à 889,97€.
 
+### Analyse des risques
+
+Une analyse des risques inhérents à cette seconde phase de projet, complétant celle établie dans le cahier OSEO, est essentielle pour appréhender cette seconde phase du projet.
+
+ * *choix des technologies* : il a été choisi de s'appuyer sur des technologies novatrices et récentes pour la réalisation de notre projet (*frameworks web*, base de données orientée documents, paradigmes de programmation) ; cependant, ne possédant aucune expérience sur ces dernières, il est de notre devoir de s'assurer que ces choix n'entraveront pas la réalisation. Ainsi, une solution de repli connue et éprouvée est prévue pour chaque élément de l'architecture
+ * *retard dans la réalisation* : bien que des méthodes agiles seront suivies pour le développement du produit et des objectifs clairs posés, il est plus que probable que l'imprévu se mêle à nos travaux : il sera donc essentiel de concentrer nos efforts sur ce qui fait la force de notre produit et définir des priorités entre les différentes fonctionnalités
+ * *interface peu intuitive* : nous l'avons clamé haut et fort dans notre cahier OSEO: l'interface de notre produit constitue une priorité et il est important qu'elle soit simple et intuitive pour ne pas déboussoler l'utilisateur. Une équipe sera donc consacrée à cette tâche et des bêta-tests auprès de personnes extérieurs au projet seront menés pour évaluer l'ergonomie de l'interface
+ * *produit peu performant* : dans le cas où les performances ne seraient pas à la hauteur des attentes des utilisateurs, des investigations seront menées pour déterminer le ou les goulots d'étranglement. Ainsi, les choix d'architecture pourront être remis en cause
+ * *concurrence* : nous ne sommes pas à l'abri de l'émergence de produits concurrents qui enbrasseraient le marché avant nous ; cependant, nous croyons en le caractères innovant de notre solution et en notre capacité à développer et déployer une première version de notre produit rapidement
+
 ### Éléments nécessaires pour entamer la seconde phase du projet
 
 Entamer la phase II de notre projet du bon pied nécessite quelques ressources clés.
