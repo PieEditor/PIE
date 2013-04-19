@@ -16,7 +16,7 @@ server.on('request', function(request, response) {
 				});
 
 				request.on('end', function() {
-					var params = JSON.parse(data);
+					var params = JSON.parse(body);
 					couchWrapper.userLogin(params.login, function(real_hash) {
 						if (real_hash == params.hash) {
 							response.writeHead(200, "OK");
