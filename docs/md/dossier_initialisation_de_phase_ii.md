@@ -31,9 +31,10 @@ Une analyse des risques inhérents à cette seconde phase de projet, complétant
 
  * *choix des technologies* : il a été choisi de s'appuyer sur des technologies novatrices et récentes pour la réalisation de notre projet (*frameworks web*, base de données orientée documents, paradigmes de programmation) ; cependant, ne possédant aucune expérience sur ces dernières, il est de notre devoir de s'assurer que ces choix n'entraveront pas la réalisation. Ainsi, une solution de repli connue et éprouvée est prévue pour chaque élément de l'architecture
  * *retard dans la réalisation* : bien que des méthodes agiles seront suivies pour le développement du produit et des objectifs clairs posés, il est plus que probable que l'imprévu se mêle à nos travaux : il sera donc essentiel de concentrer nos efforts sur ce qui fait la force de notre produit et définir des priorités entre les différentes fonctionnalités
- * *interface peu intuitive* : nous l'avons clamé haut et fort dans notre cahier OSEO: l'interface de notre produit constitue une priorité et il est important qu'elle soit simple et intuitive pour ne pas déboussoler l'utilisateur. Une équipe sera donc consacrée à cette tâche et des bêta-tests auprès de personnes extérieurs au projet seront menés pour évaluer l'ergonomie de l'interface
+ * *interface peu intuitive* : nous l'avons clamé haut et fort dans notre cahier OSEO : l'interface de notre produit constitue une priorité et il est important qu'elle soit simple et intuitive pour ne pas déboussoler l'utilisateur. Une équipe sera donc consacrée à cette tâche et des bêta-tests auprès de personnes extérieures au projet seront menés pour évaluer l'ergonomie de l'interface
+ * *mauvaise organisation du groupe* : la phase II étant courte, il est probable qu'une mauvaise coordination puisse entraver le bon fonctionnement du projet. Pour contrer ce risque, une bonne communication est primordiale, et le chef de projet en sera le garant.
  * *produit peu performant* : dans le cas où les performances ne seraient pas à la hauteur des attentes des utilisateurs, des investigations seront menées pour déterminer le ou les goulots d'étranglement. Ainsi, les choix d'architecture pourront être remis en cause
- * *concurrence* : nous ne sommes pas à l'abri de l'émergence de produits concurrents qui enbrasseraient le marché avant nous ; cependant, nous croyons en le caractères innovant de notre solution et en notre capacité à développer et déployer une première version de notre produit rapidement
+ * *concurrence* : nous ne sommes pas à l'abri de l'émergence de produits concurrents qui embrasseraient le marché avant nous ; cependant, nous croyons en le caractère innovant de notre solution et en notre capacité à développer et déployer une première version de notre produit rapidement
 
 ### Éléments nécessaires pour entamer la seconde phase du projet
 
@@ -153,22 +154,22 @@ Afin de vérifier le bon fonctionnement de notre prototype à la fin de la phase
 			<td>Architecture</td>
 			<td>
 				<ul>
-					<li>La bdd peut communiquer avec le serveur.</li>
-					<li>Le site peut communiquer avec le serveur.</li>
+					<li>La base de données peut communiquer avec le serveur</li>
+					<li>L'application client peut communiquer avec le serveur</li>
 				</ul>
 			</td>
 			<td>
 				<ul>
-					<li>[ Oui : ouverture d'un document stocké dans la bdd / Non ]</li>
-					<li>[ Oui : requête de type POST du client vers le serveur / Non ]</li></ul>
+					<li>[ Oui : ajout et récupération de données stockées / Non ]</li>
+					<li>[ Oui : envoi de requêtes du client vers le serveur / Non ]</li></ul>
 			</td>
 		</tr>
 		<tr>
 			<td>Performances</td>
 			<td>
 				<ul>
-					<li>Le temps moyen d'une requête d'ouverture d'un document est inférieure à 3 secondes</li>
-					<li>Le temps moyen du chargement d'une page est inférieure à 3 secondes</li>
+					<li>Le temps moyen d'une requête d'ouverture d'un document est inférieur à 3 secondes</li>
+					<li>Le temps moyen du chargement d'une page est inférieur à 3 secondes</li>
 					<li>Un utilisateur peut créer au moins 10 documents à partir de son compte</li> 
 				</ul>
 			</td>
@@ -181,17 +182,19 @@ Afin de vérifier le bon fonctionnement de notre prototype à la fin de la phase
 			</td>
 		</tr>
 		<tr>
-			<td>Outils</td>
+			<td>Divers</td>
 			<td>
 				<ul>
-					<li>Les bibliothèques utilisées ont des licences correctes</li>
-					<li>Les bibliothèques prévu d'être utilisé dans OSEO ont bien été mise en place</li>
+					<li>Les bibliothèques utilisées sont utilisables dans un cadre commercial</li>
+					<li>Présence d'une documentation technique concernant l'API</li>
+					<li>Présence d'une documentation technique concernant la procédure d'installation</li>
 				</ul>
 			</td>
 			<td>
 				<ul>
 					<li>[ Oui / Non ]</li>
-					<li>[ Oui / Non ]</li>
+					<li>[ Oui : détaillée / Oui : faible / Non ]</li>
+					<li>[ Oui : détaillée / Oui : faible / Non ]</li>
 				</ul>
 			</td>
 		</tr>
