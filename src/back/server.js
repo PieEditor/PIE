@@ -9,7 +9,7 @@ var server = http.createServer().listen(8080, '127.0.0.1');
 server.on('request', function(request, response) {
 	var body;
 	switch (request.url) {
-		case "user":
+		case "/user":
 			if (request.method == "POST") {
 				request.on('data', function(chunk) {
 					body += chunk;
