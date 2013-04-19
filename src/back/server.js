@@ -4,9 +4,9 @@ var http = require('http');
 
 var users = [];
 
-http.createServer().listen(8080, '127.0.0.1');
+var server = http.createServer().listen(8080, '127.0.0.1');
 
-http.on('request', function(request, response) {
+server.on('request', function(request, response) {
 	var body;
 	switch (request.url) {
 		case "user":
