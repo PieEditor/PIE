@@ -1,14 +1,22 @@
-<h1>{{ discussion.title }}</h1>
-<hr />
+<div class="row-fluid">
+	<h1>{{ discussion.title }}</h1>
+	<hr />
+</div>
 
 <div ng-repeat="post in discussion.posts" class="row-fluid">
-	<div class="span3">
-		<img src="{{ post.owner.img }}" class="pull-left" />
-		<p>{{ post.owner.name }}</p>
-		<span class="badge">{{ post.date | date }}</span>
-		<span class="badge score-positive-{{post.score >= 0}}">{{ post.score | number }}</span>
-		<i class="icon-thumbs-up" ng-click="upvote(post)"></i>
-		<i class="icon-thumbs-down" ng-click="downvote(post)"></i>
+	<div class="row-fluid span3">
+		<div class="span3">
+			<img src="{{ post.owner.img }}" class="pull-left" />
+		</div>
+
+		<div class="span9 row-fluid">
+			<p>{{ post.owner.name }}</p>
+			
+			<span class="badge">{{ post.date | date }}</span>
+			<span class="badge score-positive-{{post.score >= 0}}">{{ post.score | number }}</span>
+			<i class="icon-thumbs-up" ng-click="upvote(post)"></i>
+			<i class="icon-thumbs-down" ng-click="downvote(post)"></i>
+		</div>
 	</div>
 
 	<div class="span9 well">
@@ -21,13 +29,18 @@
 </div>
 
 <div class="row-fluid">
-	<div class="span3">
-		<img src="{{ user.img }}" class="pull-left" />
-		<p>{{ user.name }}</p>
-		<span class="badge">{{ now | date }}</span>
+	<div class="span3 row-fluid">
+		<div class="span3">
+			<img src="{{ user.img }}" class="pull-left" />
+		</div>
+
+		<div class="span9">
+			<p>{{ user.name }}</p>
+			<span class="badge">{{ now | date }}</span>
+		</div>
 	</div>
 	
-	<div class="span9">
+	<div class="span9 row-fluid">
 		<form ng-submit="addPost()">
 			<fieldset>
 				<label>
