@@ -1,3 +1,8 @@
+// Hotfix Glyphicons-halflings include
+// will throw an error at compile time, but will be OK at runtime…
+$iconSpritePath:          "../../images/glyphicons-halflings.png" !default;
+$iconWhiteSpritePath:     "../../images/glyphicons-halflings-white.png" !default;
 @import "compass_twitter_bootstrap";
 @import "compass_twitter_bootstrap_responsive";
+
 @import "discuss";
