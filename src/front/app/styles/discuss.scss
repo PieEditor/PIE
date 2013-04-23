@@ -1,0 +1,7 @@
+// Post score
+.score-positive-true {
+	@extend .badge-success;
+}
+.score-positive-false {
+	@extend .badge-important;
+}
