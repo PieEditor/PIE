@@ -7,6 +7,10 @@ angular.module('pie', [])
 				templateUrl: 'views/main.html',
 				controller: 'MainCtrl'
 			})
+			.when('/discuss', {
+				templateUrl: 'views/discuss.html',
+				controller: 'DiscussController'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});
