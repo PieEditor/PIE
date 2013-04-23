@@ -1,9 +1,9 @@
 // Post score
 .score-positive-true {
-	@extend .badge-success;
+	@extend .badge-success !optional;
 }
 .score-positive-false {
-	@extend .badge-important;
+	@extend .badge-important !optional;
 }
 
 .profile_image {
