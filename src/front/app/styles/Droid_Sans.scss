@@ -1,0 +1,10 @@
+// Define the new font
+@font-face {
+	font-family: 'Droid Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Droid Sans'), local('DroidSans'), url(Droid_Sans.ttf) format('truetype');
+}
+
+// Change the default font used by Twitter Bootstrap
+$sansFontFamily: "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
