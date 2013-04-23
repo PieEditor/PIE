@@ -8,8 +8,8 @@ angular.module('pie')
 		posts: [
 			{
 				owner: {
-					name: 'Paul Mougel',
-					img: '/favicon.ico'
+					name: 'Fabio Guigou',
+					img: '/images/zooportraits/fox.jpg'
 				},
 				content: 'Coucou, 1er post ici',
 				date: new Date(2013, 2, 2),
@@ -18,7 +18,7 @@ angular.module('pie')
 			{
 				owner: {
 					name: 'Baptiste Metge',
-					img: '/favicon.ico'
+					img: '/images/zooportraits/llama.jpg'
 				},
 				content: 'Coucou, 2eme post ici',
 				date: new Date(2013, 2, 3),
@@ -29,7 +29,7 @@ angular.module('pie')
 
 	$scope.user = {
 		name: 'Paul Mougel',
-		img: '/favicon.ico'
+		img: '/images/zooportraits/giraffe.jpg'
 	};
 
 	$scope.now = new Date();
