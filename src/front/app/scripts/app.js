@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('pie', [])
+angular.module('pie', ['ngResource', 'ngMockE2E'])
 	.config(function ($routeProvider) {
 		$routeProvider
 			.when('/', {
-				templateUrl: 'views/main.html',
+				templateUrl: '/views/main.html',
 				controller: 'MainCtrl'
 			})
 			.when('/discuss', {

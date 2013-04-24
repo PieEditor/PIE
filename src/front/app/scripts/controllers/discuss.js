@@ -1,36 +1,13 @@
 'use strict';
 
 angular.module('pie')
-.controller('DiscussController', function ($scope) {
-	// Default data, should be populated later by an AJAX call
-	$scope.discussion = {
-		title: 'Our first discussion',
-		posts: [
-			{
-				owner: {
-					name: 'Fabio Guigou',
-					img: '/images/zooportraits/fox.jpg'
-				},
-				content: 'Coucou, 1er post ici',
-				date: new Date(2013, 2, 2),
-				score: 10
-			},
-			{
-				owner: {
-					name: 'Baptiste Metge',
-					img: '/images/zooportraits/llama.jpg'
-				},
-				content: 'Coucou, 2eme post ici',
-				date: new Date(2013, 2, 3),
-				score: -1
-			}
-		]
-	};
+.controller('DiscussController', function ($scope, $resource) {
 
-	$scope.user = {
-		name: 'Paul Mougel',
-		img: '/images/zooportraits/giraffe.jpg'
-	};
+	var Discussion = $resource('/api/discussion/:id', {id: '@id'});
+	$scope.discussion = Discussion.get({id: 1});
+
+	var User = $resource('/api/user/:id', {id: '@id'});
+	$scope.user = User.get({id: 1});
 
 	$scope.now = new Date();
 
@@ -40,14 +17,14 @@ angular.module('pie')
 			return;
 		}
 
-		// Add the new post to the model
 		var newPost = {
 			owner: $scope.user,
 			content: $scope.newContent,
 			date: new Date(),
 			score: 0
 		};
-		$scope.discussion.posts.push(newPost);
+		$scope.discussion.posts.push(newPost); // Update model
+		$scope.discussion.$save(); // POST data to server 
 
 		// Clear inputs
 		$scope.newContent = '';
