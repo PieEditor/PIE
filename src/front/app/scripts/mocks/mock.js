@@ -11,7 +11,7 @@ angular.module('pie')
 			{
 				owner: {
 					name: 'Fabio Guigou',
-					img: '/images/zooportraits/fox.jpg'
+					img: 'resources/zooportraits/fox.jpg'
 				},
 				content: 'Coucou, 1er post ici',
 				date: new Date(2013, 2, 2),
@@ -20,7 +20,7 @@ angular.module('pie')
 			{
 				owner: {
 					name: 'Baptiste Metge',
-					img: '/images/zooportraits/llama.jpg'
+					img: 'resources/zooportraits/llama.jpg'
 				},
 				content: 'Coucou, 2eme post ici',
 				date: new Date(2013, 2, 3),
@@ -31,7 +31,7 @@ angular.module('pie')
 
 	var user = {
 		name: 'Paul Mougel',
-		img: '/images/zooportraits/giraffe.jpg'
+		img: 'resources/zooportraits/giraffe.jpg'
 	};
 
 	var document = {
