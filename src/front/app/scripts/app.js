@@ -4,8 +4,7 @@ angular.module('pie', ['ngResource', 'ngMockE2E'])
 	.config(function ($routeProvider) {
 		$routeProvider
 			.when('/', {
-				templateUrl: '/views/main.html',
-				controller: 'MainCtrl'
+				templateUrl: 'views/index.html'
 			})
 			.when('/discuss/:discussionId', {
 				templateUrl: 'views/discuss.html'
