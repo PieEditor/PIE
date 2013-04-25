@@ -251,8 +251,9 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,txt}',
             '.htaccess',
-            'components/**/*',
-            'images/{,*/}*.{gif,webp}'
+            //'components/**/*',
+            'images/{,*/}*.{gif,webp}',
+            'resources/**'
           ]
         }]
       }
@@ -291,7 +292,7 @@ module.exports = function (grunt) {
     'htmlmin',
     'concat',
     'copy',
-    'cdnify',
+    //'cdnify',
     'ngmin',
     'uglify',
     'rev',
