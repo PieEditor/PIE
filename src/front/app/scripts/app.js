@@ -7,11 +7,14 @@ angular.module('pie', ['ngResource', 'ngMockE2E'])
 				templateUrl: '/views/main.html',
 				controller: 'MainCtrl'
 			})
-			.when('/discuss', {
+			.when('/discuss/:discussionId', {
 				templateUrl: 'views/discuss.html'
 			})
-			.when('/edit', {
+			.when('/edit/:documentId', {
 				templateUrl: 'views/edit.html'
+			})
+			.when('/editAndDiscuss/:documentId/:discussionId', {
+				templateUrl: 'views/editAndDiscuss.html'
 			})
 			.otherwise({
 				templateUrl: 'views/404.html'
