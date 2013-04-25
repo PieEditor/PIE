@@ -14,6 +14,6 @@ angular.module('pie', ['ngResource', 'ngMockE2E'])
 				templateUrl: 'views/edit.html'
 			})
 			.otherwise({
-				redirectTo: '/'
+				templateUrl: 'views/404.html'
 			});
 	});
