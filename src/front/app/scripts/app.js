@@ -14,6 +14,9 @@ angular.module('pie', ['ngResource', 'ngMockE2E'])
 			})
 			.when('/editAndDiscuss/:documentId/:discussionId', {
 				templateUrl: 'views/editAndDiscuss.html'
+			})			
+			.when('/login', {
+				templateUrl: 'views/login.html'
 			})
 			.otherwise({
 				templateUrl: 'views/404.html'
