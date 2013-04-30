@@ -32,7 +32,8 @@ angular.module('pie')
 	var user = {
 		name: 'Paul Mougel',
 		img: 'resources/zooportraits/giraffe.jpg',
-		password : 'paul'
+		password : 'paul',
+		email : 'paul.mougel@insa-lyon.fr'
 	};
 
 	var document = {

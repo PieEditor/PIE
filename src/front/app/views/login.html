@@ -8,22 +8,71 @@
 		<hr />
 	</div>
 	
-	<!-- Login Form -->
-	<div class="span9 row-fluid">
-		<form ng-submit="getLog()">
-			<fieldset>
-				<label ng-model="test">
-					<textarea id="inputUserName" placeholder="UserName" ng-model="userName" required rows="1" class="span3"></textarea>
-				</label>
-				<label>
-					<textarea id="inputPassword" placeholder="Password" ng-model="password" required rows="1" class="span3" ></textarea>
-				</label>
+	<!-- Menu -->
+	<div class="row-fluid">
+		<!-- Side Menu -->
+		<div class="well span2 side-menu">
+			<ul class="nav nav-list">
+				<li class="nav-header">PIE</li>
+				<li class={{menuTabLogin}}><a ng-click="menuClickOnLogin()" data-toggle="tab"><i class="icon-chevron-right"></i> Login</a></li>
+				<li class={{menuTabRegister}}><a ng-click="menuClickOnRegister()" data-toggle="tab"><i class="icon-chevron-right"></i> Registration</a></li>
+			</ul>
+		</div>
+		<!-- End side menu -->
+		
+		<!-- Menu  Content -->
+		<div class="tab-content span10">
+			<!-- Login Form -->  
+			<div class="tab-pane {{menuTabPaneLogin}}">
+				<div class="span9 row-fluid formhorizontal well">
+					<form ng-submit="getLog()">
+						<fieldset>
+							<label ng-model="test">
+								<textarea id="inputUserName" placeholder="UserName" ng-model="userName" required rows="1" class="span3"></textarea>
+							</label>
+							<label>
+								<textarea id="inputPassword" placeholder="Password" ng-model="password" required rows="1" class="span3" ></textarea>
+							</label>
 
-				<button type="submit" class="btn input-large">Login</button>
-			</fieldset>
-		</form>
+							<button type="submit" class="btn input-large">Login</button>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+			<!-- End of login form -->
+			<!-- Register Form -->  
+			<div class="tab-pane {{menuTabPaneRegister}}">
+				<div class="span9 row-fluid formhorizontal well">
+					<form ng-submit="getRegistration()">
+						<fieldset>
+							<label ng-model="test">
+								<textarea id="inputNewUserName" placeholder="UserName" ng-model="newUserName" required rows="1" class="span5"></textarea>
+							</label>
+							<label>
+								<textarea id="inputNewPassword" placeholder="Password" ng-model="newPassword" required rows="1" class="span5" ></textarea>
+							</label>
+							<label>
+								<textarea id="inputNewRetypePassword" placeholder="Re-type Password" ng-model="newReTypePassword" required rows="1" class="span5" ></textarea>
+							</label>
+							<label>
+								<textarea id="inputNewEmail" placeholder="Email Adresse" ng-model="newEmail" required rows="1" class="span5" ></textarea>
+							</label>
+							<div>
+									<div class="form-label raw-fluid">
+										<input type="checkbox" id="termsCheckbox" >
+										<label for="termsCheckbox" class="help-inline checkbox">I Accept the <a href="#termsModal" role="button" data-toggle="modal">Terms and Conditions</a> of the SurveyVor system.</label>
+									</div>
+							</div>
+						<button type="submit" class="btn input-large">Login</button>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+			<!-- End of Register form -->
+		</div>
+		<!-- Enf of Menu content -->
 	</div>
-	<!-- End of login form -->
+	<!-- End of Menu -->
 	
 	<!-- Alerts -->
 	<div class="span9 row-fluid">
@@ -42,6 +91,34 @@
 		<div class="alert alert-sucess span5"  style="display: {{loginSucessAlert}};">
 				<h5 class="alert-heading">Login sucess !</h5>
 				Welcome {{ user.name }}  
+		</div>
+		<div class="alert alert-error span5"  style="display: {{registrationPasswordDontMatchAlert}};">
+				<h5 class="alert-heading">Registration failure!</h5>
+				Passwords don't match, please try again. 
+		</div>
+		<div class="alert alert-error span5"  style="display: {{registrationUsernameEmptyAlert}};">
+				<h5 class="alert-heading">Registration failure!</h5>
+				The username is empty, please try again. 
+		</div>		
+		<div class="alert alert-error span5"  style="display: {{registrationEmailEmptyAlert}};">
+				<h5 class="alert-heading">Registration failure!</h5>
+				The email adresse is empty, please try again. 
+		</div>
+		<div class="alert alert-error span5"  style="display: {{registrationPasswordEmptyAlert}};">
+				<h5 class="alert-heading">Registration failure!</h5>
+				The password is empty, please try again. 
+		</div>
+		<div class="alert alert-error span5"  style="display: {{registrationUserNameAlreadyUseAlert}};">
+				<h5 class="alert-heading">Registration failure!</h5>
+				This username is already used, please try again. 
+		</div>
+		<div class="alert alert-error span5"  style="display: {{registrationEmailAdresseAlreadyUseAlert}};">
+				<h5 class="alert-heading">Registration failure!</h5>
+				This email adresse is already use, please try again. 
+		</div>
+		<div class="alert alert-sucess span5"  style="display: {{registrationSucessAlert}};">
+				<h5 class="alert-heading">Registration sucess !</h5>
+				Welcome {{ newUserName }}  
 		</div>
 	</div>
 	<!-- End of alerts -->
