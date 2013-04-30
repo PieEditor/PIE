@@ -15,6 +15,8 @@ angular.module('pie')
 	$scope.menuTabRegister="";
 	$scope.menuTabPaneLogin= "active";
 	$scope.menuTabPaneRegister= "";
+	$scope.terms =  { text : 'Terms and Conditions', checked : false } ;
+	$scope.termsAndConditions= "hide";
 	
 	/* Clean alerts */
 	$scope.cleanAlerts = function() {
@@ -29,6 +31,7 @@ angular.module('pie')
 		$scope.registrationUserNameAlreadyUseAlert = "none";	
 		$scope.registrationEmailAdresseAlreadyUseAlert = "none";	
 		$scope.registrationSucessAlert = "none";	
+		$scope.termsAndConditionsUncheckedAlert= "none";
 	};
 	
 	$scope.cleanAlerts();
@@ -108,6 +111,14 @@ angular.module('pie')
 			return;
 		}
 		
+		/* Check if the new user agreed the Terms and Conditions */
+		if ( $scope.terms.checked === false ) {
+			$scope.cleanAlerts();
+			$scope.termsAndConditionsUncheckedAlert = "true";
+			return;	
+		}
+		
+		
 		/* Registration Sucess */
 		$scope.cleanAlerts();
 		$scope.registrationSucessAlert = "true";
@@ -118,6 +129,7 @@ angular.module('pie')
 	/** Side Menu Management **/
 	/**************************/
 	$scope.menuClickOnLogin = function () {
+		$scope.cleanAlerts();
 		$scope.menuTabRegister="";
 		$scope.menuTabLogin = "active";
 		$scope.menuTabPaneRegister= "";
@@ -125,10 +137,25 @@ angular.module('pie')
 	};
 	
 	$scope.menuClickOnRegister = function () {
+		$scope.cleanAlerts();
 		$scope.menuTabLogin = "";
 		$scope.menuTabRegister="active";
 		$scope.menuTabPaneLogin= "";
 		$scope.menuTabPaneRegister= "active";
 	};
 	
+	/**********************/
+	/** Modal Management **/
+	/**********************/
+	$scope.showTermsAndConditions = function ()  {
+		$scope.termsAndConditions= "shaw";
+	}	
+	
+	$scope.closeTermsAndConditions = function ()  {
+		$scope.termsAndConditions= "hide";
+	}
+	
+	
 });
+
+

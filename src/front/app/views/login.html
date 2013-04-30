@@ -4,7 +4,8 @@
 		<hr />
 	</div>
 	<div class="row-fluid">
-		<h3> MockUser : UserName = "{{ user.name }}" , password = "{{ user.password }}"</h3>
+		<h2> You can run some test using this mockuser </h2>
+		<h3> MockUser : UserName = "{{ user.name }}" , password = "{{ user.password }}", email : "{{user.email}}"</h3>
 		<hr />
 	</div>
 	
@@ -59,8 +60,8 @@
 							</label>
 							<div>
 									<div class="form-label raw-fluid">
-										<input type="checkbox" id="termsCheckbox" >
-										<label for="termsCheckbox" class="help-inline checkbox">I Accept the <a href="#termsModal" role="button" data-toggle="modal">Terms and Conditions</a> of the SurveyVor system.</label>
+										<input type="checkbox" ng-model="terms.checked">
+										<label for="termsCheckbox" class="help-inline checkbox">I Accept the <a role="button" data-toggle="modal" ng-click="showTermsAndConditions()">{{terms.text}}</a> of the SurveyVor system.</label>
 									</div>
 							</div>
 						<button type="submit" class="btn input-large">Login</button>
@@ -114,7 +115,11 @@
 		</div>
 		<div class="alert alert-error span5"  style="display: {{registrationEmailAdresseAlreadyUseAlert}};">
 				<h5 class="alert-heading">Registration failure!</h5>
-				This email adresse is already use, please try again. 
+				This email adresse is already used, please try again. 
+		</div>
+		<div class="alert alert-error span5"  style="display: {{termsAndConditionsUncheckedAlert}};">
+				<h5 class="alert-heading">Registration failure!</h5>
+				You forgot to agreed the Terms and conditions, please try again. 
 		</div>
 		<div class="alert alert-sucess span5"  style="display: {{registrationSucessAlert}};">
 				<h5 class="alert-heading">Registration sucess !</h5>
@@ -122,4 +127,64 @@
 		</div>
 	</div>
 	<!-- End of alerts -->
+	
+	
+	<!-- Modals -->
+		<!-- Terms and conditions modal -->
+		<div class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="termsModalLabel" aria-hidden="true">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 id="termsModalLabel">Terms and conditions</h3>
+			</div>
+			<div class="modal-body">
+				<p>Terms and Conditions </p>
+				<p> Here are the terms and conditions...</p>
+			</div>
+			<div class="modal-footer">
+				<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+			</div>
+		</div>	
+		<!-- End of Terms and conditions modal -->	
+		
+		<!-- Forgot Password modal -->
+		<div class="modal {{termsAndConditions}}" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">		
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 id="forgotPasswordModalLabel">Forgot Password</h3>
+			</div>
+			<div class="modal-body">
+				<p> In order to reset your password please enter your email adress</p>
+				<div class="container-fluid">
+					<div class="row-fluid">
+						<div class="control-group" id="resetEmailGrp">
+							<label class="control-label" for="resetEmailInput">Email Address</label>
+							<div class="controls" >
+								<div class="span6">
+									<input type="text" id="resetEmailInput" maxlength="254" placeholder="Email" class="span12">
+								</div>
+								<div class="span6">
+									<!--<span class="help-inline " id="resetInvalidEmail" style="display: none;">Invalid email</span>
+									<span class="help-inline " id="resetEmailNotFound" style="display: none;">Sorry we haven't found your email in our system</span>
+									<span class="help-inline " id="resetEmailEmptyMsg" style="display: none;"> Enter your email please...</span>
+								--></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--<div class="alert alert-success " style="display: none;" id="resetPasswordMessage">
+					<h5 class="alert-heading">Information!</h5>
+					A new rmodalandom password have been send to your email adress.
+				</div>
+				<div class="alert alert-info" id="resetWaitMessage" style="display: none;">
+					<h5 class="alert-heading">Please wait...</h5>
+					Your reset password request is being processed by the system. 
+				</div>-->
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-primary" id="resetPasswordButton" >Validate</button>
+				<button class="btn" data-dismiss="modal" aria-hidden="true" ng-click="closeTermsAndConditions()" >Close</button>			
+			</div>
+		</div>
+		<!-- End of forgot password modal -->
 </div>
+
