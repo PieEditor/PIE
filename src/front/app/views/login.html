@@ -4,11 +4,45 @@
 		<hr />
 	</div>
 	<div class="row-fluid">
-		<h1>{{ document.title }}</h1>
+		<h3> MockUser : UserName = "{{ user.name }}" , password = "{{ user.password }}"</h3>
 		<hr />
 	</div>
 	
-	<div class="row-fluid">
-		<div>{{ document.content }}</div>
+	<!-- Login Form -->
+	<div class="span9 row-fluid">
+		<form ng-submit="getLog()">
+			<fieldset>
+				<label ng-model="test">
+					<textarea id="inputUserName" placeholder="UserName" ng-model="userName" required rows="1" class="span3"></textarea>
+				</label>
+				<label>
+					<textarea id="inputPassword" placeholder="Password" ng-model="password" required rows="1" class="span3" ></textarea>
+				</label>
+
+				<button type="submit" class="btn input-large">Login</button>
+			</fieldset>
+		</form>
 	</div>
+	<!-- End of login form -->
+	
+	<!-- Alerts -->
+	<div class="span9 row-fluid">
+		<div class="alert alert-error span5"  style="display: {{loginFailureAlert}};">
+				<h5 class="alert-heading">Login failure!</h5>
+				The username or the password are incorrect, please try again. 
+		</div>
+		<div class="alert alert-error span5"  style="display: {{loginUsernameEmptyAlert}};">
+				<h5 class="alert-heading">Login failure!</h5>
+				The username is empty, please try again. 
+		</div>
+		<div class="alert alert-error span5"  style="display: {{loginPasswordEmptyAlert}};">
+				<h5 class="alert-heading">Login failure!</h5>
+				The password is empty, please try again. 
+		</div>
+		<div class="alert alert-sucess span5"  style="display: {{loginSucessAlert}};">
+				<h5 class="alert-heading">Login sucess !</h5>
+				Welcome {{ user.name }}  
+		</div>
+	</div>
+	<!-- End of alerts -->
 </div>
