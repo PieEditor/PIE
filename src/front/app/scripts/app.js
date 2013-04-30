@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pie', ['ngResource', 'ngMockE2E'])
+angular.module('pie', ['ngResource', 'ngMockE2E'])  // Baptiste : Paul que fait cette ligne avec ngResource et ngMockE2E ?
 	.config(function ($routeProvider) {
 		$routeProvider
 			.when('/', {

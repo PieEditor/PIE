@@ -31,7 +31,8 @@ angular.module('pie')
 
 	var user = {
 		name: 'Paul Mougel',
-		img: 'resources/zooportraits/giraffe.jpg'
+		img: 'resources/zooportraits/giraffe.jpg',
+		password : 'paul'
 	};
 
 	var document = {
