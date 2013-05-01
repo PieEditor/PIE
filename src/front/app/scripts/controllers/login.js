@@ -16,7 +16,8 @@ angular.module('pie')
 	$scope.menuTabPaneLogin= "active";
 	$scope.menuTabPaneRegister= "";
 	$scope.terms =  { text : 'Terms and Conditions', checked : false } ;
-	$scope.termsAndConditions= "hide";
+	$scope.termsAndConditionsModal= "hide";
+	$scope.forgotPasswordModal= "hide";
 	
 	/* Clean alerts */
 	$scope.cleanAlerts = function() {
@@ -32,6 +33,9 @@ angular.module('pie')
 		$scope.registrationEmailAdresseAlreadyUseAlert = "none";	
 		$scope.registrationSucessAlert = "none";	
 		$scope.termsAndConditionsUncheckedAlert= "none";
+		$scope.invalidForgotEmailAlert = "none";
+		$scope.emptyForgotPasswordEmail = "none";
+		$scope.successForgotPasswordEmail = "none";
 	};
 	
 	$scope.cleanAlerts();
@@ -128,16 +132,20 @@ angular.module('pie')
 	/**************************/
 	/** Side Menu Management **/
 	/**************************/
+	
+	/* login menu show */
 	$scope.menuClickOnLogin = function () {
 		$scope.cleanAlerts();
+		$scope.cleanAllModals();
 		$scope.menuTabRegister="";
 		$scope.menuTabLogin = "active";
 		$scope.menuTabPaneRegister= "";
 		$scope.menuTabPaneLogin= "active";
 	};
-	
+	/* register menu show */
 	$scope.menuClickOnRegister = function () {
 		$scope.cleanAlerts();
+		$scope.cleanAllModals();
 		$scope.menuTabLogin = "";
 		$scope.menuTabRegister="active";
 		$scope.menuTabPaneLogin= "";
@@ -147,14 +155,39 @@ angular.module('pie')
 	/**********************/
 	/** Modal Management **/
 	/**********************/
-	$scope.showTermsAndConditions = function ()  {
-		$scope.termsAndConditions= "shaw";
-	}	
 	
-	$scope.closeTermsAndConditions = function ()  {
-		$scope.termsAndConditions= "hide";
-	}
+	/* Show Terms and Conditions Modal */
+	$scope.showTermsAndConditionsModal = function ()  {
+		$scope.termsAndConditionsModal= "show";
+	};	
+	/* Show Forgot Password Modal */
+	$scope.showForgotPasswordModal = function ()  {
+		$scope.forgotPasswordModal= "show";
+	};
+	/* Close all modals */
+	$scope.cleanAllModals = function () {
+		$scope.cleanAlerts();
+		$scope.forgotPasswordModal= "hide";
+		$scope.termsAndConditionsModal= "hide";
+	};
 	
+	/*********************/
+	/** Forgot Password **/
+	/*********************/
+	
+	/* Reset Password validation checks */
+	$scope.resetPassword = function () {
+		$scope.cleanAlerts();
+		if ( $scope.emailForResetPassword ==='' || $scope.emailForResetPassword=== undefined ) {
+			$scope.emptyForgotPasswordEmail = "true";
+			return;
+		}
+		if ( $scope.emailForResetPassword !== $scope.user.email) {
+			$scope.invalidForgotEmailAlert = "true";
+			return;
+		}
+		$scope.successForgotPasswordEmail = "true";
+	};
 	
 });
 
