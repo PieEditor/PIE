@@ -36,6 +36,7 @@
 							</label>
 
 							<button type="submit" class="btn input-large">Login</button>
+							<button class="btn input-large" ng-click="showForgotPasswordModal()">Forgot Password ?</button>
 						</fieldset>
 					</form>
 				</div>
@@ -61,7 +62,7 @@
 							<div>
 									<div class="form-label raw-fluid">
 										<input type="checkbox" ng-model="terms.checked">
-										<label for="termsCheckbox" class="help-inline checkbox">I Accept the <a role="button" data-toggle="modal" ng-click="showTermsAndConditions()">{{terms.text}}</a> of the SurveyVor system.</label>
+										<label for="termsCheckbox" class="help-inline checkbox">I Accept the <a role="button" data-toggle="modal" ng-click="showTermsAndConditionsModal()">{{terms.text}}</a> of the SurveyVor system.</label>
 									</div>
 							</div>
 						<button type="submit" class="btn input-large">Login</button>
@@ -131,9 +132,9 @@
 	
 	<!-- Modals -->
 		<!-- Terms and conditions modal -->
-		<div class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="termsModalLabel" aria-hidden="true">
+		<div class="modal {{termsAndConditionsModal}}" tabindex="-1" role="dialog" aria-labelledby="termsModalLabel" aria-hidden="true">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cleanAllModals()">×</button>
 				<h3 id="termsModalLabel">Terms and conditions</h3>
 			</div>
 			<div class="modal-body">
@@ -141,15 +142,15 @@
 				<p> Here are the terms and conditions...</p>
 			</div>
 			<div class="modal-footer">
-				<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+				<button class="btn" data-dismiss="modal" aria-hidden="true" ng-click="cleanAllModals()">Close</button>
 			</div>
 		</div>	
 		<!-- End of Terms and conditions modal -->	
 		
 		<!-- Forgot Password modal -->
-		<div class="modal {{termsAndConditions}}" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">		
+		<div class="modal {{forgotPasswordModal}}" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">		
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cleanAllModals()">×</button>
 				<h3 id="forgotPasswordModalLabel">Forgot Password</h3>
 			</div>
 			<div class="modal-body">
@@ -160,31 +161,25 @@
 							<label class="control-label" for="resetEmailInput">Email Address</label>
 							<div class="controls" >
 								<div class="span6">
-									<input type="text" id="resetEmailInput" maxlength="254" placeholder="Email" class="span12">
+									<input type="text" id="resetEmailInput" maxlength="254" placeholder="Email" class="span12" ng-model="emailForResetPassword">
 								</div>
-								<div class="span6">
-									<!--<span class="help-inline " id="resetInvalidEmail" style="display: none;">Invalid email</span>
-									<span class="help-inline " id="resetEmailNotFound" style="display: none;">Sorry we haven't found your email in our system</span>
-									<span class="help-inline " id="resetEmailEmptyMsg" style="display: none;"> Enter your email please...</span>
-								--></div>
+								<div class="span8">
+									<span class="help-inline alert alert-error span8 " style="display: {{invalidForgotEmailAlert}};">Sorry we haven't found your email in our system</span>
+									<span class="help-inline alert alert-error span8 " style="display: {{emptyForgotPasswordEmail}};"> Enter your email please...</span>
+									<span class="help-inline alert alert-success span8 " style="display: {{successForgotPasswordEmail}};"> A new random password have been send to your email adress.</span>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!--<div class="alert alert-success " style="display: none;" id="resetPasswordMessage">
-					<h5 class="alert-heading">Information!</h5>
-					A new rmodalandom password have been send to your email adress.
-				</div>
-				<div class="alert alert-info" id="resetWaitMessage" style="display: none;">
-					<h5 class="alert-heading">Please wait...</h5>
-					Your reset password request is being processed by the system. 
-				</div>-->
 			</div>
 			<div class="modal-footer">
-				<button class="btn btn-primary" id="resetPasswordButton" >Validate</button>
-				<button class="btn" data-dismiss="modal" aria-hidden="true" ng-click="closeTermsAndConditions()" >Close</button>			
+				<button class="btn btn-primary" id="resetPasswordButton" ng-click="resetPassword()">Validate</button>
+				<button class="btn" data-dismiss="modal" aria-hidden="true" ng-click="cleanAllModals()">Close</button>
 			</div>
 		</div>
 		<!-- End of forgot password modal -->
+	<!-- End of modals --> 
+	
 </div>
 
