@@ -18,6 +18,9 @@ angular.module('pie', ['ngResource', 'ngMockE2E'])  // Baptiste : Paul que fait 
 			.when('/login', {
 				templateUrl: 'views/login.html'
 			})
+			.when('/profilePage', {
+				templateUrl: 'views/profilePage.html'
+			})
 			.otherwise({
 				templateUrl: 'views/404.html'
 			});
