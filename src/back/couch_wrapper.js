@@ -25,7 +25,7 @@ function userLogin(login, callback) {
 			else callback(null);
 		}
 	);
-	req.on("error", callback(null));
+	req.on("error", callback);
 	req.end();
 }
 
