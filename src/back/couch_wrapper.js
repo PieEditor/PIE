@@ -1,6 +1,9 @@
+exports.sayKikoo = sayKikoo;
 exports.initCouchWrapper = initCouchWrapper;
 exports.userLogin = userLogin;
 exports.docAdd = docAdd;
+exports.docUpdate = docUpdate;
+exports.docDelete = docDelete;
 
 var http = require("http");
 var port = 5984, host = "localhost";
@@ -25,7 +28,7 @@ function userLogin(login, callback) {
 			else callback(null);
 		}
 	);
-	req.on("error", callback(null));
+	req.on("error", callback);
 	req.end();
 }
 
@@ -42,24 +45,38 @@ function docAdd(user, document, callback) {
 						if (res.statusCode == 201)
 							callback(docId);
 						else callback(null);
-						res.on("data", function(data) {
-							console.log("+++ " + data);
-						});
 					});
 				addReq.write(JSON.stringify(document));
+				addReq.on("error", callback);
 				addReq.end();
 			});
 		});
+	uuidReq.on("error", callback);
 	uuidReq.end();
 }
 
-function docUpdate(user, text) {
-	
-	return true;
+function docUpdate(document, callback) {
+	var updReq = http.request(
+		{port: port, host: host, path: "/document/" + document.docId, method: "PUT"},
+		function(res) {
+			if (res.statusCode == 200)
+				callback(document.docId);
+			else callback(null);
+		});
+	updReq.write(JSON.stringify(document));
+	updReq.on("error", callback);
+	updReq.end();
 }
 
-function docDelete(user, id) {
-	
-	return true;
+function docDelete(id, callback) {
+	var delReq = http.request(
+		{port: port, host: host, path: "/document/" + id, methode: "DELETE"},
+		function(res) {
+			if (res.statusCode == 200)
+				callback(document.docId);
+			else callback(null);
+		});
+	delReq.on("error", callback);
+	delReq.end();
 }
 
