@@ -1,0 +1,66 @@
+<div ng-controller="ProfileController">
+
+	<!-- navigation bar -->
+	<div class="navbar navbar-fixed-top force-min-width">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<a class="brand span1" href="#">PIE</a>
+					<ul class="nav span8">
+						<li class="active" ><a href="/#/profilePage">My Profile</a></li>
+						<li ><a href="/#/">About Us</a></li>
+						<li ><a href="/#/">Contact Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>            
+	</div>
+	<hr/>
+	<hr/>
+	<!-- Main container -->
+	<div class="container-fluid force-min-width">
+		<div class="row-fluid">
+			<h1>hello this is the profile page</h1>
+			<hr/>
+		</div>
+		<!-- profile info -->
+		<div class="row-fluid span12">
+			<div class="span6 row-fluid well">
+				<div class=" span3">
+					<img src="{{ user.img }}" class="profile_image" />
+				</div>
+
+				<div class="span9">
+					<h2>{{ user.name }}</h2>
+				</div>
+				<hr />
+				<div class="span12">
+					<hr/>
+					<div class="sidebar-nav">
+						<div class="well" style="width:300px; padding: 8px 0;">
+							<ul class="nav nav-list"> 
+							  <li class="nav-header">	 Menu</li>        
+							  <li><a href="#"><i class="icon-envelope"></i> Messages <span class="badge badge-info">4</span></a></li>
+							  <li><a href="#"><i class="icon-comment"></i> Comments <span class="badge badge-info">10</span></a></li>
+							  <li class="active"><a href="#"><i class="icon-user"></i> Members</a></li>
+							  <li class="divider"></li>
+							  <li><a href="#"><i class="icon-comment"></i> Profile Settings</a></li>
+							  <li><a href="#"><i class="icon-share"></i> Logout</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>			
+			</div>
+
+		<!-- end of profile info -->
+		
+			<div class="span6 row-fluid well">
+				<h2> My Works</h2>
+				
+				<h4>Here we put all the documents the user work on with there tags</h4>
+			</div>
+		<!-- end of document info --> 
+		</div>
+	</div>
+	
+</div>
