@@ -32,7 +32,7 @@ function userLogin(login, callback) {
 	req.end();
 }
 
-function docAdd(user, document, callback) {
+function docAdd(document, callback) {
 	var docId;
 	var uuidReq = http.request(
 		{port: port, host: host, path: "/_uuids"},
