@@ -1,13 +1,11 @@
-require("https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js")
-
 var DATABASE = "http://127.0.0.1:5984";
+var current_db = "";
 
-
-function addUser(){//not operational
+function addUser(){
     var username = prompt("Enter user name");
     var passwd = prompt("Enter password");
     if (username && passwd){
-        var newUser = {
+        var new_user = {
             "_id": "org.couchdb.user:" + username,
             "name": username,
             "roles": [],
@@ -17,10 +15,10 @@ function addUser(){//not operational
     };
 
     $.ajax({
-        type:"PUT",
+        type:"POST",
         url:DATABASE + "/_users",
         contentType: "application/json",
-        data: JSON.stringify(newUser)
+        data: JSON.stringify(new_user)
     });
 }
 
@@ -32,20 +30,20 @@ function createDB(){
             type: "PUT",
             url: DATABASE + "/" + dbname,
             success: function(){
-                DATABASE = "http://127.0.0.1:5984/" + dbname;
+                current_db = dbname;
             } 
-        })	
+        })  
     } 
 }
 
 function deleteDB(){
-    var doit = confirm("Do you want to delete the database '" + db + "'?");
+    var doit = confirm("Do you want to delete the database '" + current_db + "'?");
     if (doit){
         $.ajax({
             type:"DELETE",
-            url: DATABASE,
+            url: DATABASE + "/" + current_db,
             success: function(){
-                DATABASE = "http://127.0.0.1:5984";
+                current_db = "";
             }
         })
     }
@@ -60,7 +58,7 @@ function addTask() {
 
         $.ajax({
             type: "POST",
-            url: DATABASE,
+            url: DATABASE + "/" + current_db,
             contentType: "application/json",
             data: JSON.stringify(task),
             success: function () {
@@ -71,9 +69,10 @@ function addTask() {
 }
 
 function getTasks() {
-    var db = DATABASE - "http://127.0.0.1:5984";
+    
     $.ajax({
-        url: DATABASE + "/_view/" + db,
+        type: "GET",
+        url: DATABASE + "/" + current_db,
         success: function (data){
             var view = JSON.parse(data);
             var tasks = [];
@@ -106,11 +105,11 @@ function displayTasks(tasks) {
 }
 
 function deleteTask(task) {
-    var doit = confirm("Do you really want to delete the task '" + task.task + "'?");
+    var doit = confirm("Do you want to delete the task '" + task.task + "'?");
     if (doit) {
         $.ajax({
             type: "DELETE",
-            url: DATABASE + "/" + task._id + "?rev=" + task._rev,
+            url: DATABASE + "/" + current_db + "/" + task._id + "?rev=" + task._rev,
             success: function () {
                 getTasks();
             }
@@ -125,7 +124,7 @@ function editTask(task) {
 
         $.ajax({
             type: "PUT",
-            url: DATABASE + "/" + task._id,
+            url: DATABASE + "/" + current_db  + "/" + task._id,
             contentType: "application/json",
             data: JSON.stringify(task),
             success: function () {
