@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pie', ['ngResource', 'ngMockE2E'])  // Baptiste : Paul que fait cette ligne avec ngResource et ngMockE2E ?
+angular.module('pie', ['ngResource', 'ngMockE2E', 'ui.bootstrap'])
 	.config(function ($routeProvider) {
 		$routeProvider
 			.when('/', {
@@ -14,7 +14,7 @@ angular.module('pie', ['ngResource', 'ngMockE2E'])  // Baptiste : Paul que fait 
 			})
 			.when('/editAndDiscuss/:documentId/:discussionId', {
 				templateUrl: 'views/editAndDiscuss.html'
-			})			
+			})
 			.when('/login', {
 				templateUrl: 'views/login.html'
 			})
