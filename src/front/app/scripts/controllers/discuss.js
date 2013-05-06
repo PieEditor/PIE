@@ -42,10 +42,12 @@ angular.module('pie')
 
 	$scope.downvote = function(post) {
 		post.score--;
+		$scope.discussion.$save($scope.discussion.id);
 	};
 
 	$scope.upvote = function(post) {
 		post.score++;
+		$scope.discussion.$save($scope.discussion.id);
 	};
 
 });
