@@ -1,17 +1,18 @@
 <div ng-controller="EditController">
 	<div class="row-fluid">
-		<h1>
-			{{ document.title }}
-			<button class="btn pull-right" ng-click="edit()">
-				<i class="icon-pencil"></i>
-				{{ editButtonText() }}
-			</button>
-		</h1>
+		<h1>{{ document.title }}</h1>
 	</div>
 
 	<hr />
 	
-	<div class="row-fluid">
-		<div contentEditable="{{isMyContentEditable}}">{{ document.content }}</div>
+	<div ng-repeat="section in document.content" class="row-fluid">
+		<div class="level{{ section.level }}">
+			{{ section.title }}
+			<button class="btn pull-right" ng-click="edit(section)">
+				<i class="icon-pencil"></i>
+				{{ editButtonText(section) }}
+			</button>
+		</div>
+		<div contentEditable="{{ section.isMyContentEditable }}">{{ section.content }}</div>
 	</div>
 </div>
