@@ -1,3 +1,27 @@
 div[contenteditable="true"] {
 	font-family: monospace;
 }
+
+div.level1 {
+	@extend h1;
+}
+
+div.level2 {
+	@extend h2;
+}
+
+div.level3 {
+	@extend h3;
+}
+
+div.level4 {
+	@extend h4;
+}
+
+div.level5 {
+	@extend h5;
+}
+
+div.level6 {
+	@extend h6;
+}

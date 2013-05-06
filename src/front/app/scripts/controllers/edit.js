@@ -7,17 +7,17 @@ angular.module('pie')
 
 	$scope.isMyContentEditable = false;
 
-	$scope.edit = function() {
-		if (! $scope.isMyContentEditable) {
-			$scope.isMyContentEditable = true;
+	$scope.edit = function(section) {
+		if (! section.isMyContentEditable) {
+			section.isMyContentEditable = true;
 		}
 		else {
-			$scope.isMyContentEditable = false;
+			section.isMyContentEditable = false;
 			$scope.document.$save();
 		}
 	};
 
-	$scope.editButtonText = function() {
-		return $scope.isMyContentEditable ? "Save" : "Edit";
+	$scope.editButtonText = function(section) {
+		return section.isMyContentEditable ? "Save" : "Edit";
 	};
 });
