@@ -1,10 +1,17 @@
 <div ng-controller="EditController">
 	<div class="row-fluid">
-		<h1>{{ document.title }}</h1>
-		<hr />
+		<h1>
+			{{ document.title }}
+			<button class="btn pull-right" ng-click="edit()">
+				<i class="icon-pencil"></i>
+				{{ editButtonText() }}
+			</button>
+		</h1>
 	</div>
+
+	<hr />
 	
 	<div class="row-fluid">
-		<div>{{ document.content }}</div>
+		<div contentEditable="{{isMyContentEditable}}">{{ document.content }}</div>
 	</div>
 </div>
