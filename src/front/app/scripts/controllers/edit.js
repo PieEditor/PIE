@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pie')
-.controller('EditController', function ($scope, $resource, $routeParams) {
+.controller('EditController', function ($scope, $resource, $routeParams, discussionService) {
 	var Document = $resource('/api/document/:id', {id: '@id'});
 	$scope.document = Document.get({id: $routeParams.documentId});
 
@@ -18,6 +18,7 @@ angular.module('pie')
 	};
 
 	$scope.showDiscussion = function(discussion) {
+		discussionService.currentDiscussion = discussion;
 	};
 
 	$scope.createDiscussion = function(section) {

@@ -1,9 +1,19 @@
 'use strict';
 
 angular.module('pie')
-.controller('DiscussController', function ($scope, $resource, $routeParams) {
-	var Discussion = $resource('/api/discussion/:id', {id: '@id'});
-	$scope.discussion = Discussion.get({id: $routeParams.discussionId});
+.controller('DiscussController', function ($scope, $resource, $routeParams, discussionService) {
+	// // Initialize the discussion with the ID coming from the URL
+	discussionService.currentDiscussion = discussionService.Discussion.get({id: $routeParams.discussionId});
+
+	// Watch for a change on the discussion shared via the discussionService
+	$scope.$watch(
+		function() { return discussionService.currentDiscussion; },
+		function() {
+			// If the discussion shared via the service has changed
+			// update our scope accordingly
+			$scope.discussion = discussionService.currentDiscussion;
+		}
+	);
 
 	var User = $resource('/api/user/:id', {id: '@id'});
 	$scope.user = User.get({id: 1});
