@@ -1,5 +1,7 @@
 div[contenteditable="true"] {
 	font-family: monospace;
+	border: 1px solid $grayLighter;
+	padding: $fontSizeSmall;
 }
 
 div.level1 {
