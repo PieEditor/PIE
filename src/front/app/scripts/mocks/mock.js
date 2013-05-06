@@ -46,6 +46,7 @@ angular.module('pie')
 	$httpBackend.whenPOST(/\/api\/discussion/).respond(); // TODO: should probably do something?
 	$httpBackend.whenGET(/\/api\/user/).respond(user);
 	$httpBackend.whenGET(/\/api\/document/).respond(document);
+	$httpBackend.whenPOST(/\/api\/document/).respond(); // TODO: should probably do something?
 
 	// Configure some requests to go through (ie. get handled by the real server, not the mock one)
 	$httpBackend.whenGET(/views/).passThrough();
