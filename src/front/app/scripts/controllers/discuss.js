@@ -3,7 +3,7 @@
 angular.module('pie')
 .controller('DiscussController', function ($scope, $resource, $routeParams) {
 	var Discussion = $resource('/api/discussion/:id', {id: '@id'});
-	$scope.discussion = Discussion.get($routeParams.discussionId);
+	$scope.discussion = Discussion.get({id: $routeParams.discussionId});
 
 	var User = $resource('/api/user/:id', {id: '@id'});
 	$scope.user = User.get({id: 1});
@@ -23,7 +23,7 @@ angular.module('pie')
 			score: 0
 		};
 		$scope.discussion.posts.push(newPost); // Update model
-		$scope.discussion.$save(); // POST data to server 
+		$scope.discussion.$save($scope.discussion.id); // POST data to server 
 
 		// Clear inputs
 		$scope.newContent = '';
