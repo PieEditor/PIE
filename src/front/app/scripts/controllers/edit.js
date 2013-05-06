@@ -3,7 +3,7 @@
 angular.module('pie')
 .controller('EditController', function ($scope, $resource, $routeParams) {
 	var Document = $resource('/api/document/:id', {id: '@id'});
-	$scope.document = Document.get($routeParams.documentId);
+	$scope.document = Document.get({id: $routeParams.documentId});
 
 	$scope.isMyContentEditable = false;
 
@@ -13,8 +13,14 @@ angular.module('pie')
 		}
 		else {
 			section.isMyContentEditable = false;
-			$scope.document.$save();
+			$scope.document.$save({id: $scope.document.id});
 		}
+	};
+
+	$scope.showDiscussion = function(discussion) {
+	};
+
+	$scope.createDiscussion = function(section) {
 	};
 
 	$scope.editButtonText = function(section) {
