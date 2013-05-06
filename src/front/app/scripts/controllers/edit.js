@@ -24,7 +24,7 @@ angular.module('pie')
 	$scope.createDiscussion = function(section) {
 	};
 
-	$scope.editButtonText = function(section) {
-		return section.isMyContentEditable ? "Save" : "Edit";
+	$scope.editButtonImage = function(section) {
+		return section.isMyContentEditable ? "icon-ok" : "icon-edit";
 	};
 });

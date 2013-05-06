@@ -1,4 +1,4 @@
-<div ng-controller="DiscussController">
+<div id="discuss" ng-controller="DiscussController">
 	<div class="row-fluid">
 		<h1>{{ discussion.title }}</h1>
 		<hr />
@@ -26,30 +26,32 @@
 	</div>
 
 	<div class="row-fluid">
-		<legend>Add your voice to this discussion!</legend>
-	</div>
-
-	<div class="row-fluid">
-		<div class="span3 row-fluid">
-			<div class="span3">
-				<img src="{{ user.img }}" class="profile_image" />
-			</div>
-
-			<div class="span9">
-				<p>{{ user.name }}</p>
-				<span class="badge">{{ now | date }}</span>
-			</div>
+		<div class="row-fluid">
+			<legend>Add your voice to this discussion!</legend>
 		</div>
+
+		<div class="row-fluid faded">
+			<div class="span3">
+				<div class="span3">
+					<img src="{{ user.img }}" class="profile_image" />
+				</div>
+
+				<div class="span9">
+					<p>{{ user.name }}</p>
+					<span class="badge">{{ now | date }}</span>
+				</div>
+			</div>
 		
-		<div class="span9 row-fluid">
-			<form ng-submit="addPost()">
-				<fieldset>
-					<label>
-						<textarea id="inputContent" placeholder="Content here…" ng-model="newContent" required rows="5" class="span12"></textarea>
-					</label>
-					<button type="submit" class="btn input-large">Answer</button>
-				</fieldset>
-			</form>
+			<div class="span9 row-fluid">
+				<form ng-submit="addPost()">
+					<fieldset>
+						<label>
+							<textarea id="inputContent" placeholder="Content here…" ng-model="newContent" required rows="5" class="span12"></textarea>
+						</label>
+						<button type="submit" class="btn input-large">Answer</button>
+					</fieldset>
+				</form>
+			</div>
 		</div>
 	</div>
 </div>
