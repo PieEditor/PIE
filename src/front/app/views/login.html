@@ -36,7 +36,40 @@
 							</label>
 
 							<button type="submit" class="btn btn-primary input-large">Login</button>
-							<button class="btn input-large" ng-click="showForgotPasswordModal()">Forgot Password ?</button>
+							<div ng-controller="forgotPasswordModalCtrl">
+							<button class="btn input-large" ng-click="open()">Forgot Password ?</button>
+								<!-- Forgot Password modal -->
+								<div modal="forgotpasswordModal" close="close()" options="opts">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">×</button>
+										<h3 id="forgotPasswordModalLabel">Forgot Password</h3>
+									</div>
+									<div class="modal-body">
+										<p> In order to reset your password please enter your email adress</p>
+										<div class="container-fluid">
+											<div class="row-fluid">
+												<div class="control-group" id="resetEmailGrp">
+													<label class="control-label" for="resetEmailInput">Email Address</label>
+													<div class="controls" >
+														<div class="span6">
+															<input maxlength="254" placeholder="Email" type="email" class="span12" ng-model="emailForResetPassword" />
+														</div>
+														<div class="span8">
+															<span class="help-inline alert alert-error span8 " style="display: {{invalidForgotEmailAlert}};">Sorry we haven't found your email in our system</span>
+															<span class="help-inline alert alert-error span8 " style="display: {{emptyForgotPasswordEmail}};"> Enter your email please...</span>
+															<span class="help-inline alert alert-success span8 " style="display: {{successForgotPasswordEmail}};"> A new random password have been send to your email adress.</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button class="btn btn-primary" id="resetPasswordButton" ng-click="resetPassword()">Validate</button>
+										<button class="btn" data-dismiss="modal" aria-hidden="true" ng-click="close()">Close</button>
+									</div>
+								</div>
+							<!-- End of forgot password modal -->
 						</fieldset>
 					</form>
 				</div>
@@ -54,7 +87,7 @@
 								<input placeholder="Password" ng-model="newPassword" required type="password" class="input-large" />
 							</label>
 							<label>
-								<input placeholder="Password" ng-model="newPassword" required type="password" class="input-large" />
+								<input placeholder="Confirm Password" ng-model="newReTypePassword" required type="password" class="input-large" />
 							</label>
 							<label>
 								<input id="inputNewEmail" placeholder="Email Adress" ng-model="newEmail" required type="email" class="input-large" />
@@ -139,47 +172,12 @@
 		</div>
 		<div class="alert alert-sucess span5"  style="display: {{registrationSucessAlert}};">
 				<h5 class="alert-heading">Registration sucess !</h5>
-				Welcome {{ newUserName }}  
+				Please log in {{ newUserName }}  
 		</div>
 	</div>
 	<!-- End of alerts -->
 	
-	
-	<!-- Modals -->	
-		
-		<!-- Forgot Password modal -->
-		<div class="modal {{forgotPasswordModal}}" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">		
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cleanAllModals()">×</button>
-				<h3 id="forgotPasswordModalLabel">Forgot Password</h3>
-			</div>
-			<div class="modal-body">
-				<p> In order to reset your password please enter your email adress</p>
-				<div class="container-fluid">
-					<div class="row-fluid">
-						<div class="control-group" id="resetEmailGrp">
-							<label class="control-label" for="resetEmailInput">Email Address</label>
-							<div class="controls" >
-								<div class="span6">
-									<input maxlength="254" placeholder="Email" type="email" class="span12" ng-model="emailForResetPassword" />
-								</div>
-								<div class="span8">
-									<span class="help-inline alert alert-error span8 " style="display: {{invalidForgotEmailAlert}};">Sorry we haven't found your email in our system</span>
-									<span class="help-inline alert alert-error span8 " style="display: {{emptyForgotPasswordEmail}};"> Enter your email please...</span>
-									<span class="help-inline alert alert-success span8 " style="display: {{successForgotPasswordEmail}};"> A new random password have been send to your email adress.</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button class="btn btn-primary" id="resetPasswordButton" ng-click="resetPassword()">Validate</button>
-				<button class="btn" data-dismiss="modal" aria-hidden="true" ng-click="cleanAllModals()">Close</button>
-			</div>
-		</div>
-		<!-- End of forgot password modal -->
-	<!-- End of modals --> 
+>
 	
 </div>
 
