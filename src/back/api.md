@@ -6,7 +6,7 @@
 
 Most of the parameters are specified as a segment in the path.
 
-For those which aren't, they can be passed in the HTTP query string (eg &parameter=value) for GET requests, or encoded in JSON for POST requests.
+For those which aren't, they can be encoded in JSON.
 
 #### Authentication
 
@@ -16,7 +16,7 @@ Same rule applies for authentication (if required), the access token is consider
 
 Responses are sended back encoded in JSON.
 
-## Users
+## User
 
 ### Sign in
 
@@ -54,6 +54,22 @@ Sign up a new user.
 #### Response
 
  * token **string**
+
+### Get a single user
+
+	GET /users/:user
+
+#### Response
+
+**{}User**
+
+### Get the authenticated user
+
+	GET /usser
+
+#### Response
+
+**{}User**
 
 ### Delete your account
 
@@ -119,7 +135,7 @@ List documents for the specified user.
 
 ### Response
 
- * **{}Document**
+**{}Document**
 
 ## Discussion
 
@@ -149,7 +165,7 @@ List discussions related to a document.
 
 #### Response
 
- * **{}Discussion**
+**{}Discussion**
 
 ### Update a discussion
 
