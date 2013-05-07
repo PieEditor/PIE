@@ -29,13 +29,13 @@
 					<form ng-submit="getLog()">
 						<fieldset>
 							<label ng-model="test">
-								<textarea id="inputUserName" placeholder="UserName" ng-model="userName" required rows="1" class="span5"></textarea>
+								<input type="text" placeholder="UserName" ng-model="userName" required class="input-large" />
 							</label>
 							<label>
-								<textarea id="inputPassword" placeholder="Password" ng-model="password" required rows="1" class="span5" ></textarea>
+								<input placeholder="Password" ng-model="password" required type="password" class="input-large" />
 							</label>
 
-							<button type="submit" class="btn input-large">Login</button>
+							<button type="submit" class="btn btn-primary input-large">Login</button>
 							<button class="btn input-large" ng-click="showForgotPasswordModal()">Forgot Password ?</button>
 						</fieldset>
 					</form>
@@ -48,16 +48,16 @@
 					<form ng-submit="getRegistration()">
 						<fieldset>
 							<label ng-model="test">
-								<textarea id="inputNewUserName" placeholder="UserName" ng-model="newUserName" required rows="1" class="span5"></textarea>
+								<input placeholder="UserName" ng-model="newUserName" required type="text" class="input-large" />
 							</label>
 							<label>
-								<textarea id="inputNewPassword" placeholder="Password" ng-model="newPassword" required rows="1" class="span5" ></textarea>
+								<input placeholder="Password" ng-model="newPassword" required type="password" class="input-large" />
 							</label>
 							<label>
-								<textarea id="inputNewRetypePassword" placeholder="Re-type Password" ng-model="newReTypePassword" required rows="1" class="span5" ></textarea>
+								<input placeholder="Password" ng-model="newPassword" required type="password" class="input-large" />
 							</label>
 							<label>
-								<textarea id="inputNewEmail" placeholder="Email Adresse" ng-model="newEmail" required rows="1" class="span5" ></textarea>
+								<input id="inputNewEmail" placeholder="Email Adress" ng-model="newEmail" required type="email" class="input-large" />
 							</label>
 							<div class="form-label raw-fluid">
 								<!-- Terms and conditions modal -->
@@ -80,7 +80,7 @@
 								</div>
 								<!-- End of Terms and conditions modal -->
 							</div>
-						<button type="submit" class="btn input-large"> Register </button>
+						<button type="submit" class="btn input-large btn-primary"> Register </button>
 						</fieldset>
 					</form>
 				</div>
@@ -161,7 +161,7 @@
 							<label class="control-label" for="resetEmailInput">Email Address</label>
 							<div class="controls" >
 								<div class="span6">
-									<input type="text" id="resetEmailInput" maxlength="254" placeholder="Email" class="span12" ng-model="emailForResetPassword">
+									<input maxlength="254" placeholder="Email" type="email" class="span12" ng-model="emailForResetPassword" />
 								</div>
 								<div class="span8">
 									<span class="help-inline alert alert-error span8 " style="display: {{invalidForgotEmailAlert}};">Sorry we haven't found your email in our system</span>
