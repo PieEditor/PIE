@@ -51,19 +51,11 @@ angular.module('pie')
 				content: 'I differ, this seems to be the most important part for me!',
 				date: new Date(2013, 2, 2),
 				score: 10
-			},
+			}
 		]
 	};
 
-	var user = {
-		id: 1,
-		name: 'Paul Mougel',
-		img: 'resources/zooportraits/giraffe.jpg',
-		password : 'paul',
-		email : 'paul.mougel@insa-lyon.fr'
-	};
-
-	var document = {
+	var document1 = {
 		id: 1,
 		title: 'My document title',
 		content: [
@@ -96,12 +88,51 @@ angular.module('pie')
 		]
 	};
 
+	var document2 = {
+		id: 2,
+		title: 'Cahier OSEO',
+		content: [
+			{
+				title: 'Résumé exécutif',
+				content: 'super résumé',
+				level: 1,
+				discussions: []
+			},
+			{
+				title: 'Description',
+				content: 'blabla',
+				level: 1,
+				discussions: []
+			},
+			{
+				title: "Étude de marché",
+				content: 'fnudfhdf',
+				level: 1,
+				discussions: []
+			}
+		]
+	};
+
+	var user = {
+		id: 1,
+		name: 'Paul Mougel',
+		img: 'resources/zooportraits/giraffe.jpg',
+		password : 'paul',
+		email : 'paul.mougel@insa-lyon.fr',
+		documents: [
+			{title: document1.title, id: document1.id},
+			{title: document2.title, id: document2.id}
+		]
+	};
+
 	// Configure the mock backend with mock URLs
 	$httpBackend.whenGET(/\/api\/discussion\/1/).respond(discussion1);
 	$httpBackend.whenGET(/\/api\/discussion\/2/).respond(discussion2);
 	$httpBackend.whenPOST(/\/api\/discussion/).respond(); // TODO: should probably do something?
-	$httpBackend.whenGET(/\/api\/document\/1/).respond(document);
+	$httpBackend.whenGET(/\/api\/document\/1/).respond(document1);
+	$httpBackend.whenGET(/\/api\/document\/2/).respond(document2);
 	$httpBackend.whenPOST(/\/api\/document\/1/).respond(); // TODO: should probably do something?
+	$httpBackend.whenPOST(/\/api\/document\/2/).respond(); // TODO: should probably do something?
 	$httpBackend.whenGET(/\/api\/user/).respond(user);
 
 	// Configure some requests to go through (ie. get handled by the real server, not the mock one)
