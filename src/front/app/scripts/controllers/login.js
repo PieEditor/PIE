@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pie')
-.controller('LoginController', function ($scope, $resource, $routeParams) {
+.controller('LoginController', function ($scope, $resource, $routeParams,$location,$timeout) {
 	
 	/******************************************/
 	/** Initialisation and general functions **/
@@ -61,7 +61,8 @@ angular.module('pie')
 		/* check if the login if correct */
 		if ( $scope.user.name === $scope.userName && $scope.user.password === $scope.password  ) {
 			$scope.cleanAlerts();
-			$scope.loginSucessAlert = "true"
+			$scope.loginSucessAlert = "true";
+			$location.path('/profilePage/');
 		} else {
 			$scope.cleanAlerts();
 			$scope.loginFailureAlert = "true";		
@@ -126,6 +127,10 @@ angular.module('pie')
 		/* Registration Sucess */
 		$scope.cleanAlerts();
 		$scope.registrationSucessAlert = "true";
+		$timeout(
+			function () {
+				$location.path('/login/');
+				},1500);
 		return;
 	};
 	
@@ -207,6 +212,25 @@ angular.module('pie')
     backdropFade: true,
     dialogFade:true
   };
+  
+});
 
+
+angular.module('pie')
+.controller('forgotPasswordModalCtrl', function ($scope, $resource, $routeParams) {
+
+  $scope.open = function () {
+    $scope.termsAndConditionsModal = true;
+  };
+
+  $scope.close = function () {
+    $scope.closeMsg = 'I was closed at: ' + new Date();
+    $scope.termsAndConditionsModal = false;
+  };
+
+  $scope.opts = {
+    backdropFade: true,
+    dialogFade:true
+  };
 
 });
