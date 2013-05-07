@@ -29,10 +29,10 @@
 					<form ng-submit="getLog()">
 						<fieldset>
 							<label ng-model="test">
-								<textarea id="inputUserName" placeholder="UserName" ng-model="userName" required rows="1" class="span3"></textarea>
+								<textarea id="inputUserName" placeholder="UserName" ng-model="userName" required rows="1" class="span5"></textarea>
 							</label>
 							<label>
-								<textarea id="inputPassword" placeholder="Password" ng-model="password" required rows="1" class="span3" ></textarea>
+								<textarea id="inputPassword" placeholder="Password" ng-model="password" required rows="1" class="span5" ></textarea>
 							</label>
 
 							<button type="submit" class="btn input-large">Login</button>
@@ -59,13 +59,28 @@
 							<label>
 								<textarea id="inputNewEmail" placeholder="Email Adresse" ng-model="newEmail" required rows="1" class="span5" ></textarea>
 							</label>
-							<div>
-									<div class="form-label raw-fluid">
-										<input type="checkbox" ng-model="terms.checked">
-										<label for="termsCheckbox" class="help-inline checkbox">I Accept the <a role="button" data-toggle="modal" ng-click="showTermsAndConditionsModal()">{{terms.text}}</a> of the SurveyVor system.</label>
-									</div>
+							<div class="form-label raw-fluid">
+								<!-- Terms and conditions modal -->
+								<div ng-controller="termsAndConditionsModalCtrl">
+									<input type="checkbox" ng-model="terms.checked">
+									<label for="termsCheckbox" class="help-inline checkbox">I Accept the <a role="button" data-toggle="modal" ng-click="open()">{{terms.text}}</a> of the PIE system.</label>
+										<div modal="termsAndConditionsModal" close="close()" options="opts">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">×</button>
+												<h3 id="termsModalLabel">Terms and conditions</h3>
+											</div>
+											<div class="modal-body">
+												<p>Terms and Conditions </p>
+												<p> Here are the terms and conditions...</p>
+											</div>
+											<div class="modal-footer">
+												<button class="btn" data-dismiss="modal" aria-hidden="true" ng-click="close()">Close</button>
+											</div>
+										</div>
+								</div>
+								<!-- End of Terms and conditions modal -->
 							</div>
-						<button type="submit" class="btn input-large">Login</button>
+						<button type="submit" class="btn input-large"> Register </button>
 						</fieldset>
 					</form>
 				</div>
@@ -130,22 +145,7 @@
 	<!-- End of alerts -->
 	
 	
-	<!-- Modals -->
-		<!-- Terms and conditions modal -->
-		<div class="modal {{termsAndConditionsModal}}" tabindex="-1" role="dialog" aria-labelledby="termsModalLabel" aria-hidden="true">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cleanAllModals()">×</button>
-				<h3 id="termsModalLabel">Terms and conditions</h3>
-			</div>
-			<div class="modal-body">
-				<p>Terms and Conditions </p>
-				<p> Here are the terms and conditions...</p>
-			</div>
-			<div class="modal-footer">
-				<button class="btn" data-dismiss="modal" aria-hidden="true" ng-click="cleanAllModals()">Close</button>
-			</div>
-		</div>	
-		<!-- End of Terms and conditions modal -->	
+	<!-- Modals -->	
 		
 		<!-- Forgot Password modal -->
 		<div class="modal {{forgotPasswordModal}}" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">		

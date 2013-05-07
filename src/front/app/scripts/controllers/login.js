@@ -16,7 +16,7 @@ angular.module('pie')
 	$scope.menuTabPaneLogin= "active";
 	$scope.menuTabPaneRegister= "";
 	$scope.terms =  { text : 'Terms and Conditions', checked : false } ;
-	$scope.termsAndConditionsModal= "hide";
+	//$scope.termsAndConditionsModal= "hide";
 	$scope.forgotPasswordModal= "hide";
 	
 	/* Clean alerts */
@@ -157,9 +157,9 @@ angular.module('pie')
 	/**********************/
 	
 	/* Show Terms and Conditions Modal */
-	$scope.showTermsAndConditionsModal = function ()  {
+	/*$scope.showTermsAndConditionsModal = function ()  {
 		$scope.termsAndConditionsModal= "show";
-	};	
+	};	*/
 	/* Show Forgot Password Modal */
 	$scope.showForgotPasswordModal = function ()  {
 		$scope.forgotPasswordModal= "show";
@@ -168,7 +168,7 @@ angular.module('pie')
 	$scope.cleanAllModals = function () {
 		$scope.cleanAlerts();
 		$scope.forgotPasswordModal= "hide";
-		$scope.termsAndConditionsModal= "hide";
+		//$scope.termsAndConditionsModal= "hide";
 	};
 	
 	/*********************/
@@ -187,8 +187,26 @@ angular.module('pie')
 			return;
 		}
 		$scope.successForgotPasswordEmail = "true";
-	};
+	};   
 	
 });
 
+angular.module('pie')
+.controller('termsAndConditionsModalCtrl', function ($scope, $resource, $routeParams) {
 
+  $scope.open = function () {
+    $scope.termsAndConditionsModal = true;
+  };
+
+  $scope.close = function () {
+    $scope.closeMsg = 'I was closed at: ' + new Date();
+    $scope.termsAndConditionsModal = false;
+  };
+
+  $scope.opts = {
+    backdropFade: true,
+    dialogFade:true
+  };
+
+
+});
