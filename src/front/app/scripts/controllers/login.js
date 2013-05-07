@@ -220,12 +220,12 @@ angular.module('pie')
 .controller('forgotPasswordModalCtrl', function ($scope, $resource, $routeParams) {
 
   $scope.open = function () {
-    $scope.termsAndConditionsModal = true;
+    $scope.forgotpasswordModal = true;
   };
 
   $scope.close = function () {
     $scope.closeMsg = 'I was closed at: ' + new Date();
-    $scope.termsAndConditionsModal = false;
+    $scope.forgotpasswordModal = false;
   };
 
   $scope.opts = {
