@@ -65,7 +65,7 @@ Sign up a new user.
 
 ### Get the authenticated user
 
-	GET /usser
+	GET /user
 
 #### Response
 
