@@ -2,8 +2,10 @@
 
 angular.module('pie')
 .controller('DiscussController', function ($scope, $resource, $routeParams, discussionService) {
-	// // Initialize the discussion with the ID coming from the URL
-	discussionService.currentDiscussion = discussionService.Discussion.get({id: $routeParams.discussionId});
+	if ($routeParams.discussionId !== undefined) {
+		// Initialize the discussion with the ID coming from the URL
+		discussionService.get($routeParams.discussionId);
+	}
 
 	// Watch for a change on the discussion shared via the discussionService
 	$scope.$watch(
@@ -19,6 +21,10 @@ angular.module('pie')
 	$scope.user = User.get({id: 1});
 
 	$scope.now = new Date();
+
+	$scope.close = function() {
+		discussionService.currentDiscussion = undefined;
+	};
 
 	$scope.addPost = function() {
 		// Form validation
