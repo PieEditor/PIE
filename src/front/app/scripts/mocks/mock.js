@@ -113,7 +113,7 @@ angular.module('pie')
 		]
 	};
 
-	var user = {
+	var user1 = {
 		id: 1,
 		name: 'Paul Mougel',
 		img: 'resources/zooportraits/giraffe.jpg',
@@ -125,6 +125,24 @@ angular.module('pie')
 		]
 	};
 
+	var user2 = {
+		id: 2,
+		name: 'Baptiste Metge',
+		img: 'resources/zooportraits/llama.jpg',
+		password : 'baptiste',
+		email : 'baptiste.metge@insa-lyon.fr',
+		documents: []
+	};
+
+	var user3 = {
+		id: 3,
+		name: 'Fabio Guigou',
+		img: 'resources/zooportraits/fox.jpg',
+		password : 'fabio',
+		email : 'fabio.guigou@insa-lyon.fr',
+		documents: []
+	};
+
 	// Configure the mock backend with mock URLs
 	$httpBackend.whenGET(/\/api\/discussion\/1/).respond(discussion1);
 	$httpBackend.whenGET(/\/api\/discussion\/2/).respond(discussion2);
@@ -133,7 +151,9 @@ angular.module('pie')
 	$httpBackend.whenGET(/\/api\/document\/2/).respond(document2);
 	$httpBackend.whenPOST(/\/api\/document\/1/).respond(); // TODO: should probably do something?
 	$httpBackend.whenPOST(/\/api\/document\/2/).respond(); // TODO: should probably do something?
-	$httpBackend.whenGET(/\/api\/user/).respond(user);
+	$httpBackend.whenGET(/\/api\/user\/1/).respond(user1);
+	$httpBackend.whenGET(/\/api\/user\/2/).respond(user2);
+	$httpBackend.whenGET(/\/api\/user\/3/).respond(user3);
 
 	// Configure some requests to go through (ie. get handled by the real server, not the mock one)
 	$httpBackend.whenGET(/views/).passThrough();

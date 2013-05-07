@@ -18,7 +18,7 @@ angular.module('pie', ['ngResource', 'ngMockE2E', 'ui.bootstrap'])
 			.when('/login', {
 				templateUrl: 'views/login.html'
 			})
-			.when('/profilePage', {
+			.when('/profilePage/:userId', {
 				templateUrl: 'views/profilePage.html'
 			})
 			.otherwise({
