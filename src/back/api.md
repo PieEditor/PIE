@@ -22,12 +22,12 @@ Responses are sended back encoded in JSON.
 
 Sign in a user.
 
-POST /users/signin
+	POST /users/signin
 
 #### Input
  
  * user **string**
- * pass **string*
+ * pass **string**
 
 #### Response
 
@@ -37,18 +37,18 @@ POST /users/signin
 
 Invalidate the token.
 
-POST /user/signout
+	POST /user/signout
 
 ### Sign up
 
 Sign up a new user.
 
-POST /users/signup
+	POST /users/signup
 
 #### Input
 
  * login **string**
- * pass **string*
+ * pass **string**
  * e-mail **string**
 
 #### Response
@@ -59,7 +59,7 @@ POST /users/signup
 
 Delete the authenicated user's account.
 
-DELETE /user
+	DELETE /user
 
 ## Document
 
@@ -67,7 +67,7 @@ DELETE /user
 
 Created a new document of which the owner is the authenticated user.
 
-POST /documents
+	POST /documents
 
 #### Input
 
@@ -83,7 +83,7 @@ Update the document of which the id is given.
 
 Note : Patching a document is not supported yet. Please replace the entire document.
 
-PUT /documents/:id
+	PUT /documents/:id
 
 #### Input
 
@@ -91,13 +91,13 @@ PUT /documents/:id
 
 ### Delete a document
 
-DELETE /documents/:id
+	DELETE /documents/:id
 
 ### List your documents
 
 List documents for the authenticated users, or, if called anonymously, return all public documents.
 
-GET /documents
+	GET /documents
 
 #### Response
 
@@ -107,7 +107,7 @@ GET /documents
 
 List documents for the specified user.
 
-GET /users/:user/documents 
+	GET /users/:user/documents 
 
 #### Response
 
@@ -115,7 +115,7 @@ GET /users/:user/documents
 
 ### Get a single document
 
-GET /documents/:id
+	GET /documents/:id
 
 ### Response
 
@@ -127,21 +127,29 @@ GET /documents/:id
 
 Add a discussion related to a document.
 
-POST /documents/:id/discussions
+	POST /documents/:id/discussions
+
+#### Response
+
+ * id **integer** : the id of the new discussion
 
 ### List document discussions
 
 List discussions related to a document.
 
-GET /documents/:id/discussions
+	GET /documents/:id/discussions
 
 #### Response
 
  * ids **[]integer**
 
+### Get a single discussion
+
+	GET /discussions
+
 #### Response
 
- * id **integer** : the id of the new discussion
+ * **{}Discussion**
 
 ### Update a discussion
 
@@ -149,8 +157,8 @@ Update the discussion of which the id is given.
 
 Patching a discussion is not supported yet. Please replace the entire discussion.
 
-PUT /discussions/:id
+	PUT /discussions/:id
 
 ### Delete a discussion
 
-DELETE /discussions/:id
+	DELETE /discussions/:id
