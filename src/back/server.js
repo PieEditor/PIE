@@ -157,13 +157,19 @@ server.on('request', function(request, response) {
 		}
 
 		// Update a discussion
-		else if (request.url.indexOf("/discussions") && request.method == "PUT") {
+		else if (request.url.indexOf("/discussions") == 0 && request.method == "PUT") {
 			// TODO
 		}
 
 		// Delete a discussion
-		else if (request.url.indexOf("/discussions") && request.method == "DELETE") {
+		else if (request.url.indexOf("/discussions") == 0 && request.method == "DELETE") {
 			// TODO
+		}
+
+		// Default
+		else {
+			response.writeHead(400, "Bad Request");
+			response.end();
 		}
 	});
 });
