@@ -62,7 +62,7 @@ angular.module('pie')
 		if ( $scope.user.name === $scope.userName && $scope.user.password === $scope.password  ) {
 			$scope.cleanAlerts();
 			$scope.loginSucessAlert = "true";
-			$location.path('/profilePage/');
+			$location.path('/profilePage/' + $scope.user.id);
 		} else {
 			$scope.cleanAlerts();
 			$scope.loginFailureAlert = "true";		
