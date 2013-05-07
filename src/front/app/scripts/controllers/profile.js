@@ -8,7 +8,7 @@ angular.module('pie')
 	/******************************************/
 	/* Take a MockUser */
 	var User = $resource('/api/user/:id', {id: '@id'});
-	$scope.user = User.get({id: 1});
+	$scope.user = User.get({id: $routeParams.userId});
 	
 	
 });
