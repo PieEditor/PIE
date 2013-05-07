@@ -7,8 +7,11 @@
 */
 angular.module('pie')
 .factory('discussionService', function($resource) {
+	var Discussion = $resource('/api/discussion/:id', {id: '@id'});
 	return {
 		currentDiscussion: undefined,
-		Discussion: $resource('/api/discussion/:id', {id: '@id'})
+		get: function(id) {
+			this.currentDiscussion = Discussion.get({id: id});
+		}
 	};
 });

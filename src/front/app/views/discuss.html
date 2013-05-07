@@ -1,57 +1,67 @@
 <div fixedheight ng-controller="DiscussController">
-	<div class="row-fluid">
-		<h1>{{ discussion.title }}</h1>
+	<div ng-show="discussion != undefined">
+		<div class="row-fluid" >
+			<h1>
+				{{ discussion.title }}
+				<i class="icon-remove pull-right" ng-click="close()"></i>
+			</h1>
+		</div>
+
 		<hr />
-	</div>
 
-	<div ng-repeat="post in discussion.posts" class="row-fluid">
-		<div class="row-fluid span3">
-			<div class="span3">
-				<img src="{{ post.owner.img }}" class="profile_image" />
-			</div>
-
-			<div class="span9 row-fluid">
-				<p>{{ post.owner.name }}</p>
-				
-				<span class="badge">{{ post.date | date }}</span>
-				<span class="badge score-positive-{{post.score >= 0}}">{{ post.score | number }}</span>
-				<i class="icon-thumbs-up" ng-click="upvote(post)"></i>
-				<i class="icon-thumbs-down" ng-click="downvote(post)"></i>
-			</div>
-		</div>
-
-		<div class="span9 well">
-			<p>{{ post.content }}</p>
-		</div>
-	</div>
-
-	<div class="row-fluid">
-		<div class="row-fluid">
-			<legend>Add your voice to this discussion!</legend>
-		</div>
-
-		<div class="row-fluid faded">
-			<div class="span3">
+		<div ng-repeat="post in discussion.posts" class="row-fluid">
+			<div class="row-fluid span3">
 				<div class="span3">
-					<img src="{{ user.img }}" class="profile_image" />
+					<img src="{{ post.owner.img }}" class="profile_image" />
 				</div>
 
-				<div class="span9">
-					<p>{{ user.name }}</p>
-					<span class="badge">{{ now | date }}</span>
+				<div class="span9 row-fluid">
+					<p>{{ post.owner.name }}</p>
+					
+					<span class="badge">{{ post.date | date }}</span>
+					<span class="badge score-positive-{{post.score >= 0}}">{{ post.score | number }}</span>
+					<i class="icon-thumbs-up" ng-click="upvote(post)"></i>
+					<i class="icon-thumbs-down" ng-click="downvote(post)"></i>
 				</div>
 			</div>
-		
-			<div class="span9 row-fluid">
-				<form ng-submit="addPost()">
-					<fieldset>
-						<label>
-							<textarea id="inputContent" placeholder="Content here…" ng-model="newContent" required rows="5" class="span12"></textarea>
-						</label>
-						<button type="submit" class="btn input-large">Answer</button>
-					</fieldset>
-				</form>
+
+			<div class="span9 well">
+				<p>{{ post.content }}</p>
 			</div>
 		</div>
+
+		<div class="row-fluid">
+			<div class="row-fluid">
+				<legend>Add your voice to this discussion!</legend>
+			</div>
+
+			<div class="row-fluid faded">
+				<div class="span3">
+					<div class="span3">
+						<img src="{{ user.img }}" class="profile_image" />
+					</div>
+
+					<div class="span9">
+						<p>{{ user.name }}</p>
+						<span class="badge">{{ now | date }}</span>
+					</div>
+				</div>
+			
+				<div class="span9 row-fluid">
+					<form ng-submit="addPost()">
+						<fieldset>
+							<label>
+								<textarea id="inputContent" placeholder="Content here…" ng-model="newContent" required rows="5" class="span12"></textarea>
+							</label>
+							<button type="submit" class="btn input-large">Answer</button>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div ng-show="discussion == undefined">
+		<p>Please open a discussion using the left pane to display something here.</p>
 	</div>
 </div>
