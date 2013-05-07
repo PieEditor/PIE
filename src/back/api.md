@@ -47,9 +47,7 @@ Sign up a new user.
 
 #### Input
 
- * login **string**
- * pass **string**
- * e-mail **string**
+ * user **{}User**
 
 #### Response
 
@@ -81,7 +79,7 @@ Delete the authenicated user's account.
 
 ### Create a single document
 
-Created a new document of which the owner is the authenticated user.
+Create a new document of which the owner is the authenticated user.
 
 	POST /documents
 
@@ -161,7 +159,7 @@ List discussions related to a document.
 
 ### Get a single discussion
 
-	GET /discussions
+	GET /discussions/:id
 
 #### Response
 
