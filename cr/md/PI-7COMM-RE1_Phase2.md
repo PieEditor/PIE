@@ -1,4 +1,4 @@
-# CR Réunion 1 - Groupe 7-COMM - 25/03/2013
+# CR Réunion 1 - Groupe 7 - 25/03/2013
 
 La réunion s'est tenue de 11h à 12h. Étaient présents :
 
@@ -14,11 +14,11 @@ L'équipe a tout d'abord présenté son projet ainsi que l'ensemble des concepts
 
 ## Prototype
 
-À la suite de cette discussion, l'équipe a re-centré son prototype sur quelques fonctions clés.
+ Le prototype que nous avions envisagé de réaliser ressemblait trop fortement à Google Docs ce qui mettait en doute le côté innovant de notre solution. À la suite de cette discussion, l'équipe a décidé de re-centrer son prototype sur quelques fonctions clés.
 
-La partie rédaction en temps réel ne sera pas développée, et nous proposerons des fonctions d'édition simples pouvant être réalisées rapidement. Une intégration avec Google Docs nous semble peu intuitive et rendra difficile l'interaction avec la partie "discussions" de notre outil.
+La partie rédaction en temps réel ne sera pas développée, et nous proposerons des fonctions d'édition simples pouvant être réalisées rapidement. Bien qu'envisagée, une intégration avec Google Docs pour la partie rédaction nous semble peu intuitive et rendra difficile l'interaction avec la partie "discussions" de notre outil.
 
-Nous concentrerons nos efforts sur trois points principaux :
+L'objectif est de développer au plus vite les fonctions de base afin de pouvoir rapidement se concentrer sur trois points principaux :
 
 - la mise en place d'un *workflow* de rédaction, en passant par les étapes suivantes : Création de la structure du document / Rédaction des sous-parties / Discussions / Création d'une nouvelle version à partir des discussions validées. Ces étapes boucleront jusqu'à la production d'un document PDF finalisé. Nous espérons ainsi pouvoir montrer l'intérêt d'une approche itérative et inspirée des méthodes agiles appliquée à rédaction de documents ;
 - la gestion fine des permissions, en donnant à chaque document un propriétaire, et à chaque sous-partie un responsable. Chaque utilisateur pourra commenter tout le document, mais ne pourra rédiger que les parties dont il fait partie de l'équipe rédactionnelle.
