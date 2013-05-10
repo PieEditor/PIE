@@ -18,7 +18,7 @@ angular.module('pie')
 	};
 
 	$scope.showDiscussion = function(discussion) {
-		discussionService.currentDiscussion = discussion;
+		discussionService.get(discussion.id);
 	};
 
 	$scope.createDiscussion = function(section) {
