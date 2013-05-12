@@ -1,4 +1,4 @@
-# CR Réunion 1 - Groupe 7 - 25/03/2013
+# CR Réunion 1 - Groupe 7 - 06/05/2013
 
 La réunion s'est tenue de 11h à 12h. Étaient présents :
 
