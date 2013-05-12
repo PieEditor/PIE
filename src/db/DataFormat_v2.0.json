@@ -1,0 +1,47 @@
+Document
+{
+    "_id":
+    "_rev":
+
+    "title":
+    "body":
+    "date":
+    "authors":[
+        {
+            "name":
+            "password":
+            "email":
+        },
+
+        {
+            "name":
+            "password":
+            "email":
+        }
+        ...
+    ]
+    "discussions":[
+        {
+            "body":
+            "date":
+            "author":
+        },
+
+        {
+            "body":
+            "date":
+            "author":
+        }
+        ...
+    ]
+}
+
+User
+{
+    "_id":
+    "_rev":
+
+    "name":
+    "password":
+    "email":
+}
