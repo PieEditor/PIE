@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pie', ['ngResource', 'ngMockE2E', 'ui.bootstrap'])
+angular.module('pie', ['ngResource', 'ngMockE2E', 'ngCookies', 'ui.bootstrap'])
 	.config(function ($routeProvider) {
 		$routeProvider
 			.when('/', {
@@ -23,6 +23,9 @@ angular.module('pie', ['ngResource', 'ngMockE2E', 'ui.bootstrap'])
 			})
 			.when('/profilePage/:userId', {
 				templateUrl: 'views/profilePage.html'
+			})
+			.when('/login', {
+				templateUrl: 'views/login.html'
 			})
 			.otherwise({
 				templateUrl: 'views/404.html'

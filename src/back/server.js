@@ -19,15 +19,22 @@ server.on('request', function(request, response) {
 				response.write(body);
 			response.end();
 		}
-		/* Parse request's body */
-		
+
+		/* we provide an API */
+		response.setHeader("Access-Control-Allow-Origin", "*");
+
+		/* Parse request's body */		
 		var params;
 		try {
-			if (body)
-				params = JSON.parse(body);
+			if ((request.method == "POST" || request.method == "PUT" || request.method == "DELETE"))
+				if (body)
+					params = JSON.parse(body);
+				else
+					params = {};
+			else if (request.method == "GET")
+				params = require('url').parse(request.url, true).query;
 			else
 				params = {};
-
 		}
 		catch (error) {
 			badRequest();
@@ -94,7 +101,7 @@ server.on('request', function(request, response) {
 			var shasum = crypto.createHash('sha512').update(params.user.passwd, 'utf8').digest('hex');
 			params.user.shasum = shasum;
 			// ... then delete the password
-			delete params.user.pass;
+			delete params.user.passwd;
 			couchWrapper.userCreate(params.user, function(uuid) {
 				if (uuid) {
 					users[uuid] = params.user.login

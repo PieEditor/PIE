@@ -21,8 +21,6 @@ angular.module('pie')
 		$scope.loginFailureAlert = "none";
 		$scope.registrationPasswordDontMatchAlert = "none";	
 		$scope.registrationUserNameAlreadyUseAlert = "none";	
-		$scope.registrationEmailAdresseAlreadyUseAlert = "none";	
-		$scope.registrationSucessAlert = "none";	
 		$scope.termsAndConditionsUncheckedAlert= "none";
 		$scope.invalidForgotEmailAlert = "none";
 		$scope.emptyForgotPasswordEmail = "none";
@@ -67,15 +65,10 @@ angular.module('pie')
 		/* Registration Sucess */
 		authService.register($scope.newUserName, $scope.newPassword, $scope.newEmail, $scope.newImage,
 			function() { // success callback
-				$scope.registrationSucessAlert = "true";
-				$timeout(
-					function () {
-						$location.path('/login/');
-					},
-					1500
-				);
+				$location.path('/profilePage/' + $scope.userName);
 			},
 			function() { // error callback
+				$scope.registrationUserNameAlreadyUseAlert = "true";
 			}
 		);
 	};
