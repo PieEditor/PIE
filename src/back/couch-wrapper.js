@@ -14,9 +14,12 @@ function doGetRequest(path, callback) {
 	var req = http.request(
 	{port: port, host: host, path: path},
 	function(res) {
-		res.on("data", function(chunk) {
-			callback(JSON.parse(chunk));
-		});
+		if (res.statusCode == 200) {
+			res.on("data", function(chunk) {
+				callback(JSON.parse(chunk));
+			});
+		}
+		else callback(null);
 	});
 	req.on("error", function(e) {callback(null);});
 	req.end();
@@ -26,7 +29,9 @@ function doPutRequest(path, data, callback) {
 	var req = http.request(
 	{port: port, host: host, path: path, method: "PUT"},
 	function(res) {
-		callback(true);
+		if (res.statusCode < 400)
+			callback(true);
+		else callback(false);
 	});
 	req.on("error", function(e) {
 		callback(false);
