@@ -13,6 +13,12 @@ server.on('request', function(request, response) {
 	});
 
 	request.on('end', function() {
+		function badRequest(body) {
+			response.writeHead(400, "Bad Request");
+			if (body)
+				response.write(body);
+			response.end();
+		}
 		/* Parse request's body */
 		
 		var params;
@@ -24,8 +30,7 @@ server.on('request', function(request, response) {
 
 		}
 		catch (error) {
-			response.writeHead(400, "Bad Request");
-			response.end();
+			badRequest();
 		}
 
 		/* CORS handling
@@ -51,9 +56,13 @@ server.on('request', function(request, response) {
 
 		// Sign in
 		else if (request.url == "/users/signin" && request.method == "POST") {
+			if (!params.user || !params.pass) {
+				badRequest();
+			}
+
 			var shasum = crypto.createHash('sha512').update(params.pass, 'utf8').digest('hex');
 			couchWrapper.userLogin(params.user, function(user_data) {
-				if (shasum == user_data.hash) {
+				if (user_data.shasumshasum == user_data.shasum) {
 					users[user_data.uuid] = params.user;
 					response.writeHead(200, "OK");
 					response.write(JSON.stringify({token: user_data.uuid}));
@@ -79,6 +88,9 @@ server.on('request', function(request, response) {
 
 		// Sign up
 		else if (request.url == "/users/signup" && request.method == "POST") {
+			if (!params.user && (!params.user.user || !params.user.pass || !params.user.email)) {
+				badRequest();
+			}
 			// generate shasum...
 			var shasum = crypto.createHash('sha512').update(params.user.pass, 'utf8').digest('hex');
 			params.user.shasum = shasum;
@@ -105,7 +117,7 @@ server.on('request', function(request, response) {
 				/*couchWrapper.userGet(user, function(user_object) {
 					if (user_object) {
 						response.writeHead(200, "OK");
-						response.write(JSON.stringify(user_object));
+						response.write(JSON.stringify({user: user_object}));
 					}
 					else {
 						response.writeHead(403, "Forbidden");
@@ -245,7 +257,7 @@ server.on('request', function(request, response) {
 		}
 
 		/* Discussion */
-
+		/*
 		// Add a discussion
 		else if (request.url.indexOf("/documents/") == 0 && request.url.indexOf("/discussions") == request.url.length - "/discussions".length && request.method == "POST") {
 			// TODO
@@ -269,7 +281,7 @@ server.on('request', function(request, response) {
 		// Delete a discussion
 		else if (request.url.indexOf("/discussions") == 0 && request.method == "DELETE") {
 			// TODO
-		}
+		}*/
 
 		// Default
 		else {

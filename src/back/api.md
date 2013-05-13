@@ -11,6 +11,12 @@ For those which aren't, they can be encoded in JSON.
 #### Authentication
 
 Same rule applies for authentication (if required), the access token is considered as a parameter.
+A 401 "Unauthorized" response is sended back if the access token is not provided.
+
+### Error Codes
+
+Server sends back 2xx responses if request has been handled successfully.
+Otherwise, it sends back 4xx in case of failure - 403 "Forbidden" most of the time.
 
 ### Responses
 
@@ -31,6 +37,8 @@ Sign in a user.
 
 #### Response
 
+200 "OK" if user and pass match.
+
  * token **string** : this token should be stored by the client for future use as it has to be passed in for requests needing a properly authenticated user
 
 ### Sign out
@@ -38,6 +46,10 @@ Sign in a user.
 Invalidate the token.
 
 	POST /user/signout
+
+#### Response
+
+204 "No Content" if the access token is valid.
 
 ### Sign up
 
@@ -51,6 +63,8 @@ Sign up a new user.
 
 #### Response
 
+201 "Created" if user doesn't exist.
+
  * token **string**
 
 ### Get a single user
@@ -59,7 +73,9 @@ Sign up a new user.
 
 #### Response
 
-**{}User**
+200 "OK" if user if a valid login is provided.
+
+ * user **{}User**
 
 ### Get the authenticated user
 
@@ -67,13 +83,19 @@ Sign up a new user.
 
 #### Response
 
-**{}User**
+200 "OK" if the user is authenticated.
+
+ * user **{}User**
 
 ### Delete your account
 
-Delete the authenicated user's account.
+Delete the authenticated user's account.
 
 	DELETE /user
+
+#### Response
+
+204 "No Content".
 
 ## Document
 
@@ -89,6 +111,8 @@ Create a new document of which the owner is the authenticated user.
 
 #### Response
 
+201 "Created"
+
  * id **integer** : the id of the new document
 
 ### Update a document
@@ -103,9 +127,17 @@ Note : Patching a document is not supported yet. Please replace the entire docum
 
  * document **{}Document**
 
+#### Response
+
+204 "No Content".
+
 ### Delete a document
 
 	DELETE /documents/:id
+
+#### Response
+
+204 "No Content".
 
 ### List your documents
 
@@ -114,6 +146,8 @@ List documents for the authenticated users, or, if called anonymously, return al
 	GET /documents
 
 #### Response
+
+200 "OK"
 
  * ids **[]integer**
 
@@ -125,6 +159,8 @@ List documents for the specified user.
 
 #### Response
 
+200 "OK"
+
  * ids **[]integer**
 
 ### Get a single document
@@ -133,46 +169,6 @@ List documents for the specified user.
 
 ### Response
 
-**{}Document**
+200 "OK".
 
-## Discussion
-
-### Add a discussion
-
-Add a discussion related to a document.
-
-	POST /documents/:id/discussions
-
-#### Response
-
- * id **integer** : the id of the new discussion
-
-### List document discussions
-
-List discussions related to a document.
-
-	GET /documents/:id/discussions
-
-#### Response
-
- * ids **[]integer**
-
-### Get a single discussion
-
-	GET /discussions/:id
-
-#### Response
-
-**{}Discussion**
-
-### Update a discussion
-
-Update the discussion of which the id is given.
-
-Patching a discussion is not supported yet. Please replace the entire discussion.
-
-	PUT /discussions/:id
-
-### Delete a discussion
-
-	DELETE /discussions/:id
+ * document **{}Document**
