@@ -3,7 +3,7 @@
     "regexdash": true,
     "browser": true,
     "wsh": true,
-    "trailing": true,
+    "trailing": false,
     "sub": true,
     "predef": ["_", "console", "angular"]
 }
