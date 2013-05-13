@@ -1,11 +1,6 @@
 <div ng-controller="LoginController">
 	<div class="row-fluid">
-		<h1>Hello : this is the login page </h1>
-		<hr />
-	</div>
-	<div class="row-fluid">
-		<h2> You can run some test using this mockuser </h2>
-		<h3> MockUser : UserName = "{{ user.name }}" , password = "{{ user.password }}", email : "{{user.email}}"</h3>
+		<h1>Please login</h1>
 		<hr />
 	</div>
 	
@@ -29,7 +24,7 @@
 					<form ng-submit="getLog()">
 						<fieldset>
 							<label ng-model="test">
-								<input type="text" placeholder="UserName" ng-model="userName" required class="input-large" />
+								<input type="text" placeholder="Username" ng-model="userName" required class="input-large" />
 							</label>
 							<label>
 								<input placeholder="Password" ng-model="password" required type="password" class="input-large" />
@@ -81,19 +76,19 @@
 					<form ng-submit="getRegistration()">
 						<fieldset>
 							<label ng-model="test">
-								<input placeholder="UserName" ng-model="newUserName" required type="text" class="input-large" />
+								<input placeholder="Username" ng-model="newUserName" required type="text" class="input-large" />
 							</label>
 							<label>
 								<input placeholder="Password" ng-model="newPassword" required type="password" class="input-large" />
 							</label>
 							<label>
-								<input placeholder="Confirm Password" ng-model="newReTypePassword" required type="password" class="input-large" />
+								<input placeholder="Confirm password" ng-model="newReTypePassword" required type="password" class="input-large" />
 							</label>
 							<label>
-								<input id="inputNewEmail" placeholder="Email Address" ng-model="newEmail" required type="email" class="input-large" />
+								<input id="inputNewEmail" placeholder="Email address" ng-model="newEmail" required type="email" class="input-large" />
 							</label>
 							<label>
-								<input id="inputNewImage" placeholder="Image" ng-model="newImage" required type="text" class="input-large" />
+								<input id="inputNewImage" placeholder="Profile image URL" ng-model="newImage" required type="text" class="input-large" />
 							</label>
 							<div class="form-label raw-fluid">
 								<!-- Terms and conditions modal -->
@@ -133,33 +128,9 @@
 				<h5 class="alert-heading">Login failure!</h5>
 				The username or the password are incorrect, please try again. 
 		</div>
-		<div class="alert alert-error span5"  style="display: {{loginUsernameEmptyAlert}};">
-				<h5 class="alert-heading">Login failure!</h5>
-				The username is empty, please try again. 
-		</div>
-		<div class="alert alert-error span5"  style="display: {{loginPasswordEmptyAlert}};">
-				<h5 class="alert-heading">Login failure!</h5>
-				The password is empty, please try again. 
-		</div>
-		<div class="alert alert-sucess span5"  style="display: {{loginSucessAlert}};">
-				<h5 class="alert-heading">Login sucess !</h5>
-				Welcome {{ user.name }}  
-		</div>
 		<div class="alert alert-error span5"  style="display: {{registrationPasswordDontMatchAlert}};">
 				<h5 class="alert-heading">Registration failure!</h5>
 				Passwords don't match, please try again. 
-		</div>
-		<div class="alert alert-error span5"  style="display: {{registrationUsernameEmptyAlert}};">
-				<h5 class="alert-heading">Registration failure!</h5>
-				The username is empty, please try again. 
-		</div>		
-		<div class="alert alert-error span5"  style="display: {{registrationEmailEmptyAlert}};">
-				<h5 class="alert-heading">Registration failure!</h5>
-				The email adresse is empty, please try again. 
-		</div>
-		<div class="alert alert-error span5"  style="display: {{registrationPasswordEmptyAlert}};">
-				<h5 class="alert-heading">Registration failure!</h5>
-				The password is empty, please try again. 
 		</div>
 		<div class="alert alert-error span5"  style="display: {{registrationUserNameAlreadyUseAlert}};">
 				<h5 class="alert-heading">Registration failure!</h5>
@@ -167,11 +138,11 @@
 		</div>
 		<div class="alert alert-error span5"  style="display: {{registrationEmailAdresseAlreadyUseAlert}};">
 				<h5 class="alert-heading">Registration failure!</h5>
-				This email adresse is already used, please try again. 
+				This email adress is already used, please try again. 
 		</div>
 		<div class="alert alert-error span5"  style="display: {{termsAndConditionsUncheckedAlert}};">
 				<h5 class="alert-heading">Registration failure!</h5>
-				You forgot to agreed the Terms and conditions, please try again. 
+				You forgot to agree to the Terms and Conditions, please try again. 
 		</div>
 		<div class="alert alert-sucess span5"  style="display: {{registrationSucessAlert}};">
 				<h5 class="alert-heading">Registration sucess !</h5>
@@ -179,8 +150,5 @@
 		</div>
 	</div>
 	<!-- End of alerts -->
-	
->
-	
 </div>
 
