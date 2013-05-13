@@ -28,7 +28,8 @@ angular.module('pie')
 		register: function(login, passwd, email, imgUrl, successCallback, errorCallback) {
 			var t = this;
 
-			$http.post('http://localhost:8080/users/signup', {login:login, passwd:passwd, email:email, imgUrl:imgUrl})
+			var u = {login:login, passwd:passwd, email:email, imgUrl:imgUrl};
+			$http.post('http://localhost:8080/users/signup', {user: u})
 			.success(function(data) {
 				t.authenticated = true;
 				t.token = data.token;
