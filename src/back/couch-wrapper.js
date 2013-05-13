@@ -10,70 +10,65 @@ exports.sayKikoo = function() {
 	return "Kikoo !";
 }
 
-function getUUID(callback) {
-	var req = http.request(
-	{port: port, host: host, path: "/_uuids"},
-	function(res) {
-		if (res.statusCode == 200) {
-			res.on("data", function(data) {
-				uuid = JSON.parse(data).uuids[0];
-				callback(uuid);
-			});
-		} else callback(null);
-	});
-	req.on("error", function(err) {callback(null);});
-	req.end();
-}
-
-function getRev(path, callback) {
+function doGetRequest(path, callback) {
 	var req = http.request(
 	{port: port, host: host, path: path},
 	function(res) {
-		if (res.statusCode == 200) {
-			res.on("data", function(data) {
-				rev = JSON.parse(data)._rev;
-				callback(rev);
-			});
-		} else callback(null);
+		res.on("data", function(chunk) {
+			callback(JSON.parse(chunk));
+		});
 	});
-	req.on("error", function(err) {callback(null);});
+	req.on("error", function(e) {callback(null);});
 	req.end();
+}
+
+function doPutRequest(path, data, callback) {
+	var req = http.request(
+	{port: port, host: host, path: path, method: "PUT"},
+	function(res) {
+		callback(true);
+	});
+	req.on("error", function(e) {
+		callback(false);
+	});
+	req.write(JSON.stringify(data));
+	req.end();
+}
+
+function getUUID(callback) {
+	doGetRequest("/_uuids", function(res) {
+		if (res == null)
+			callback(null);
+		else callback(res.uuids[0]);
+	});
+}
+
+function getRev(path, callback) {
+	doGetRequest(path, function(res) {
+		if (res == null)
+			callback(null);
+		else callback(res._rev);
+	});
 }
 
 // USER
 
 exports.userCreate = function(login, hash, callback) {
-	var req = http.request(
-		{port: port, host: host, path: "/user/" + login, method: "PUT"},
-		function(res) {
-			if (res.statusCode == 201)
-				callback(true);
-			else callback(false);
-		});
-	req.write(JSON.stringify({hash: hash}));
-	req.on("error", function(err) {callback(false);});
-	req.end();
+	doPutRequest("/user/" + login, {hash: hash}, callback);
 }
 
 exports.userLogin = function(login, callback) {
-	var req = http.request(
-		{port: port, host: host, path: "/user/" + login},
-		function(res) {
-			if (res.statusCode == 200)
-				res.on("data", function(data) {
-					var hash = JSON.parse(data).hash;
-					getUUID(function(uuid) {
-						if (uuid == null)
-							callback(null);
-						else
-							callback({"hash": hash, "uuid": uuid});
-					});
-				});
-			else callback(null);
+	doGetRequest("/user/" + login, function(res) {
+		if (res == null) {
+			callback(null);
+			return;
 		}
-	);
-	req.on("error", function(err) {callback(null);});
-	req.end();
+		getUUID(function(uuid) {
+			if (uuid == null)
+				callback(null);
+			else callback({hash: res.hash, uuid: uuid});
+		});
+	});
 }
 
 exports.userDelete = function(login, callback) {
@@ -83,16 +78,7 @@ exports.userDelete = function(login, callback) {
 			callback(false);
 			return;
 		}
-		var req = http.request(
-			{port: port, host: host, path: "/user/" + login, method: "PUT"},
-			function(res) {
-				if (res.statusCode == 200)
-					callback(true);
-				else callback(false);
-			});
-		req.write(JSON.stringify({_rev: rev, _deleted: true}));
-		req.on("error", function(err) {callback(false);});
-		req.end();
+		doPutRequest(path, {_rev: rev, _deleted: true}, callback);
 	});
 }
 
@@ -149,6 +135,5 @@ exports.docDelete = function(id, callback) {
 		req.on("error", function(err) {callback(false);});
 		req.end();
 	});
-}
 }
 
