@@ -155,6 +155,12 @@ angular.module('pie')
 	$httpBackend.whenGET(/\/mockAPI\/user\/2/).respond(user2);
 	$httpBackend.whenGET(/\/mockAPI\/user\/3/).respond(user3);
 
+	$httpBackend.whenPOST(/\/mockAPI\/users\/signin/).respond({token:"MYTOKEN"});
+
 	// Configure some requests to go through (ie. get handled by the real server, not the mock one)
 	$httpBackend.whenGET(/views/).passThrough();
+
+	// Real API
+	$httpBackend.whenGET(/http:\/\/localhost:8080/).passThrough();
+	$httpBackend.whenPOST(/http:\/\/localhost:8080/).passThrough();
 });
