@@ -13,6 +13,20 @@ server.on('request', function(request, response) {
 	});
 
 	request.on('end', function() {
+		/* Parse request's body */
+		
+		var params;
+		try {
+			if (body)
+				params = JSON.parse(body);
+			else
+				params = {};
+
+		}
+		catch (error) {
+			response.writeHead(400, "Bad Request");
+			response.end();
+		}
 
 		/* CORS handling
 		 * Thanks to nilcolor.
@@ -31,7 +45,7 @@ server.on('request', function(request, response) {
 			headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept";
 			response.writeHead(200, headers);
 			response.end();
-		}
+		}		
 
 		/* USER */
 
