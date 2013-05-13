@@ -12,6 +12,8 @@ angular.module('pie')
 		authenticated: false,
 		login: function(login, passwd, successCallback, errorCallback) {
 			var t = this;
+			t.authenticated = false;
+			t.token = undefined;
 
 			$http.post('http://localhost:8080/users/signin', {login:login, passwd:passwd})
 			.success(function(data) {
@@ -20,13 +22,13 @@ angular.module('pie')
 				successCallback();
 			})
 			.error(function(data) {
-				t.authenticated = false;
-				t.token = undefined;
 				errorCallback();
 			});
 		},
 		register: function(login, passwd, email, imgUrl, successCallback, errorCallback) {
 			var t = this;
+			t.authenticated = false;
+			t.token = undefined;
 
 			var u = {login:login, passwd:passwd, email:email, imgUrl:imgUrl};
 			$http.post('http://localhost:8080/users/signup', {user: u})
@@ -36,8 +38,6 @@ angular.module('pie')
 				successCallback();
 			})
 			.error(function(data) {
-				t.authenticated = false;
-				t.token = undefined;
 				errorCallback();
 			});
 		}
