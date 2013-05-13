@@ -13,7 +13,6 @@ server.on('request', function(request, response) {
 	});
 
 	request.on('end', function() {
-		var params = JSON.parse(body);
 
 		/* CORS handling
 		 * Thanks to nilcolor.
