@@ -7,7 +7,7 @@ angular.module('pie')
 	/** Initialisation and general functions **/
 	/******************************************/
 	/* Take a MockUser */
-	var User = $resource('/api/user/:id', {id: '@id'});
+	var User = $resource('/mockAPI/user/:id', {id: '@id'});
 	$scope.user = User.get({id: 1});  // Baptiste : Paul à quoi sert l'id ici utilisé dans discuss.js, ça marche sans non ? 
 	
 	/* Initialise important variables */
