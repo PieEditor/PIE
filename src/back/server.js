@@ -26,11 +26,15 @@ server.on('request', function(request, response) {
 		/* Parse request's body */		
 		var params;
 		try {
-			if (body)
-				params = JSON.parse(body);
+			if ((request.method == "POST" || request.method == "PUT" || request.method == "DELETE"))
+				if (body)
+					params = JSON.parse(body);
+				else
+					params = {};
+			else if (request.method == "GET")
+				params = require('url').parse(request.url, true).query;
 			else
 				params = {};
-
 		}
 		catch (error) {
 			badRequest();
