@@ -1,0 +1,8 @@
+{
+	"views" : {
+		"get": {
+			"map": "function(doc) {if (doc.owner) emit(_id, owner);}"
+		}
+	}
+}
+
