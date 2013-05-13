@@ -114,7 +114,7 @@ server.on('request', function(request, response) {
 			// determine the user
 			var user = request.url == "/user" ? users[params.token] : request.url.substr('/users/'.length);
 			if (users[params.token]) {
-				/*couchWrapper.userGet(user, function(user_object) {
+				couchWrapper.userGet(user, function(user_object) {
 					if (user_object) {
 						response.writeHead(200, "OK");
 						response.write(JSON.stringify({user: user_object}));
@@ -123,7 +123,7 @@ server.on('request', function(request, response) {
 						response.writeHead(403, "Forbidden");
 					}
 					response.end();
-				});*/
+				});
 			}
 			else {
 				response.writeHead(401, "Unauthorized");
@@ -175,7 +175,6 @@ server.on('request', function(request, response) {
 
 		// Update a document
 		else if (request.url.indexOf("/documents/") == 0 && request.method == "PUT") {
-			//var doc_id = parseInt(request.url.substr('/documents/'.length));
 			if (users[params.token]) {
 				couchWrapper.docUpdate(params.document, function(success) {
 					if (success) {
@@ -218,7 +217,7 @@ server.on('request', function(request, response) {
 		else if ((request.url == "/documents" || request.url.indexOf("/users/") == 0 && request.url.indexOf("/documents") == request.url.length - "/documents".length) && request.method == "GET") {
 		var user = request.url == "/documents" ? users[params.token] : request.url.substr('/users'.length, request.url.indexOf('/documents') - 1);
 			if (user) {
-				/*couchWrapper.docUserList(users[params.token], function(doc_ids) {
+				couchWrapper.docByUser(users[params.token], function(doc_ids) {
 					if (doc_ids) {
 						response.writeHead(200, "OK");
 						response.write(JSON.stringify({ids: doc_ids}));
@@ -227,7 +226,7 @@ server.on('request', function(request, response) {
 						response.writeHead(403, "Forbidden");
 					}
 					response.end();
-				});*/
+				});
 			}
 			else {
 				response.writeHead(401, "Unauthorized");
@@ -239,7 +238,7 @@ server.on('request', function(request, response) {
 		else if (request.url.indexOf("/documents/") == 0 && request.method == "GET") {
 			var doc_id = parseInt(request.url.substr('/documents/'.length));
 			if (users[params.token]) {
-				/*couchWrapper.docGet(doc_id, function(doc) {
+				couchWrapper.docGet(doc_id, function(doc) {
 					if (doc) {
 						response.writeHead(200, "OK");
 						response.write(doc);
@@ -248,7 +247,7 @@ server.on('request', function(request, response) {
 						response.writeHead(403, "Forbidden");
 					}
 					response.end();
-				});*/
+				});
 			}
 			else {
 				response.writeHead(401, "Unauthorized");
