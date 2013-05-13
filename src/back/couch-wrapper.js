@@ -15,8 +15,12 @@ function doGetRequest(path, callback) {
 	{port: port, host: host, path: path},
 	function(res) {
 		if (res.statusCode < 400) {
+			var data = "";
 			res.on("data", function(chunk) {
-				callback(JSON.parse(chunk));
+				data += chunk;
+			});
+			res.on("end", function() {
+				callback(JSON.parse(data));
 			});
 		}
 		else callback(null);
@@ -68,8 +72,18 @@ function doDelete(path, callback) {
 
 // USER
 
-exports.userCreate = function(login, hash, callback) {
-	doPutRequest("/user/" + login, {hash: hash}, callback);
+exports.userCreate = function(user, callback) {
+	doPutRequest("/user/" + user.login, user, function(res) {
+		if (res == false) {
+			callback(null);
+			return;
+		}
+		getUUID(function(uuid) {
+			if (uuid == null)
+				callback(null);
+			else callback(uuid);
+		});
+	});
 }
 
 exports.userGet = function(login, callback) {
@@ -85,7 +99,7 @@ exports.userLogin = function(login, callback) {
 		getUUID(function(uuid) {
 			if (uuid == null)
 				callback(null);
-			else callback({hash: res.hash, uuid: uuid});
+			else callback({shasum: res.shasum, uuid: uuid});
 		});
 	});
 }
@@ -127,5 +141,20 @@ exports.docDelete = function(id, callback) {
 
 exports.docGet = function(id, callback) {
 	doGetRequest("/document/" + id, callback);
+}
+
+exports.docByUser = function(login, callback) {
+	doGetRequest("/document/_design/application/_view/get", function(res) {
+		if (res == null) {
+			callback(null);
+			return;
+		}
+		list = [];
+		res.rows.forEach(function(elem) {
+			if (elem.value == login)
+				list.push(elem.key);
+		});
+		callback(list);
+	});
 }
 

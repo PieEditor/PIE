@@ -13,16 +13,56 @@ server.on('request', function(request, response) {
 	});
 
 	request.on('end', function() {
-		var params = JSON.parse(body);
+		function badRequest(body) {
+			response.writeHead(400, "Bad Request");
+			if (body)
+				response.write(body);
+			response.end();
+		}
+		/* Parse request's body */
+		
+		var params;
+		try {
+			if (body)
+				params = JSON.parse(body);
+			else
+				params = {};
+
+		}
+		catch (error) {
+			badRequest();
+		}
+
+		/* CORS handling
+		 * Thanks to nilcolor.
+		 * https://gist.github.com/nilcolor/816580 
+		 */
+
+		if (request.method === 'OPTIONS') {
+			var headers = {};
+			// IE8 does not allow domains to be specified, just the *
+			// headers["Access-Control-Allow-Origin"] = req.headers.origin;
+			headers["Access-Control-Allow-Origin"] = "*";
+			headers["Access-Control-Allow-Methods"] = "POST, GET, PUT, DELETE, OPTIONS";
+			headers["Access-Control-Allow-Credentials"] = false;
+			headers["Access-Control-Max-Age"] = '86400'; // 24 hours
+			headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept";
+			response.writeHead(200, headers);
+			response.end();
+		}		
 
 		/* USER */
 
 		// Sign in
-		if (request.url == "/users/signin" && request.method == "POST") {
-			var shasum = crypto.createHash('sha512').update(params.pass, 'utf8').digest('hex');
-			couchWrapper.userLogin(params.user, function(user_data) {
-				if (shasum == user_data.hash) {
-					users[user_data.uuid] = params.user;
+		else if (request.url == "/users/signin" && request.method == "POST") {
+			if (!params.login || !params.passwd) {
+				badRequest();
+			}
+
+			var shasum = crypto.createHash('sha512').update(params.passwd, 'utf8').digest('hex');
+			couchWrapper.userLogin(params.login, function(user_data) {
+				if (user_data && user_data.shasum && shasum == user_data.shasum) {
+					users[user_data.uuid] = params.login;
 					response.writeHead(200, "OK");
 					response.write(JSON.stringify({token: user_data.uuid}));
 				}
@@ -47,14 +87,17 @@ server.on('request', function(request, response) {
 
 		// Sign up
 		else if (request.url == "/users/signup" && request.method == "POST") {
+			if (!params.user && (!params.user.login || !params.user.passwd || !params.user.email || !params.user.img)) {
+				badRequest();
+			}
 			// generate shasum...
-			var shasum = crypto.createHash('sha512').update(params.user.pass, 'utf8').digest('hex');
+			var shasum = crypto.createHash('sha512').update(params.user.passwd, 'utf8').digest('hex');
 			params.user.shasum = shasum;
 			// ... then delete the password
 			delete params.user.pass;
 			couchWrapper.userCreate(params.user, function(uuid) {
 				if (uuid) {
-					users[uuid] = params.user.username
+					users[uuid] = params.user.login
 					response.writeHead(201, "Created");
 					response.write(JSON.stringify({token: uuid}));
 				}
@@ -68,18 +111,18 @@ server.on('request', function(request, response) {
 		// Get a single user or get the authenticated user
 		else if ((request.url.indexOf('/users/') == 0 || request.url == "/user") && request.method == "GET") {
 			// determine the user
-			var user = request.url == "/user" ? users[params.token] : request.url.substr('/users/'.length);
+			var login = request.url == "/user" ? users[params.token] : request.url.substr('/users/'.length);
 			if (users[params.token]) {
-				/*couchWrapper.userGet(user, function(user_object) {
+				couchWrapper.userGet(login, function(user_object) {
 					if (user_object) {
 						response.writeHead(200, "OK");
-						response.write(JSON.stringify(user_object));
+						response.write(JSON.stringify({user: user_object}));
 					}
 					else {
 						response.writeHead(403, "Forbidden");
 					}
 					response.end();
-				});*/
+				});
 			}
 			else {
 				response.writeHead(401, "Unauthorized");
@@ -131,7 +174,6 @@ server.on('request', function(request, response) {
 
 		// Update a document
 		else if (request.url.indexOf("/documents/") == 0 && request.method == "PUT") {
-			//var doc_id = parseInt(request.url.substr('/documents/'.length));
 			if (users[params.token]) {
 				couchWrapper.docUpdate(params.document, function(success) {
 					if (success) {
@@ -174,7 +216,7 @@ server.on('request', function(request, response) {
 		else if ((request.url == "/documents" || request.url.indexOf("/users/") == 0 && request.url.indexOf("/documents") == request.url.length - "/documents".length) && request.method == "GET") {
 		var user = request.url == "/documents" ? users[params.token] : request.url.substr('/users'.length, request.url.indexOf('/documents') - 1);
 			if (user) {
-				/*couchWrapper.docUserList(users[params.token], function(doc_ids) {
+				couchWrapper.docByUser(users[params.token], function(doc_ids) {
 					if (doc_ids) {
 						response.writeHead(200, "OK");
 						response.write(JSON.stringify({ids: doc_ids}));
@@ -183,7 +225,7 @@ server.on('request', function(request, response) {
 						response.writeHead(403, "Forbidden");
 					}
 					response.end();
-				});*/
+				});
 			}
 			else {
 				response.writeHead(401, "Unauthorized");
@@ -195,7 +237,7 @@ server.on('request', function(request, response) {
 		else if (request.url.indexOf("/documents/") == 0 && request.method == "GET") {
 			var doc_id = parseInt(request.url.substr('/documents/'.length));
 			if (users[params.token]) {
-				/*couchWrapper.docGet(doc_id, function(doc) {
+				couchWrapper.docGet(doc_id, function(doc) {
 					if (doc) {
 						response.writeHead(200, "OK");
 						response.write(doc);
@@ -204,7 +246,7 @@ server.on('request', function(request, response) {
 						response.writeHead(403, "Forbidden");
 					}
 					response.end();
-				});*/
+				});
 			}
 			else {
 				response.writeHead(401, "Unauthorized");
@@ -213,7 +255,7 @@ server.on('request', function(request, response) {
 		}
 
 		/* Discussion */
-
+		/*
 		// Add a discussion
 		else if (request.url.indexOf("/documents/") == 0 && request.url.indexOf("/discussions") == request.url.length - "/discussions".length && request.method == "POST") {
 			// TODO
@@ -237,7 +279,7 @@ server.on('request', function(request, response) {
 		// Delete a discussion
 		else if (request.url.indexOf("/discussions") == 0 && request.method == "DELETE") {
 			// TODO
-		}
+		}*/
 
 		// Default
 		else {
