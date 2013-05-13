@@ -14,7 +14,7 @@ function doGetRequest(path, callback) {
 	var req = http.request(
 	{port: port, host: host, path: path},
 	function(res) {
-		if (res.statusCode == 200) {
+		if (res.statusCode < 400) {
 			res.on("data", function(chunk) {
 				callback(JSON.parse(chunk));
 			});
@@ -56,6 +56,16 @@ function getRev(path, callback) {
 	});
 }
 
+function doDelete(path, callback) {
+	getRev(path, function(rev) {
+		if (rev == null) {
+			callback(false);
+			return;
+		}
+		doPutRequest(path, {_rev: rev, _deleted: true}, callback);
+	});
+}
+
 // USER
 
 exports.userCreate = function(login, hash, callback) {
@@ -81,68 +91,41 @@ exports.userLogin = function(login, callback) {
 }
 
 exports.userDelete = function(login, callback) {
-	var path = "/user/" + login;
-	getRev(path, function(rev) {
-		if (rev == null) {
-			callback(false);
-			return;
-		}
-		doPutRequest(path, {_rev: rev, _deleted: true}, callback);
-	});
+	doDelete("/user/" + login, callback);
 }
 
 // DOCUMENT
 
 exports.docAdd = function(document, callback) {
-	var docId;
-	getUuid(function(uuid) {
+	getUUID(function(uuid) {
 		if (uuid == null) {
 			callback(null);
 			return;
 		}
-		var req = http.request(
-			{port: port, host: host, path: "/document/" + uuid, method: "PUT"},
-			function(res) {
-				if (res.statusCode == 201)
-					callback(uuid);
-				else callback(null);
-			});
-		req.write(JSON.stringify(document));
-		req.on("error", function(err) {callback(null)});
-		req.end();
+		doPutRequest("/document/" + uuid, document, function(res) {
+			if (res == false)
+				callback(null);
+			else callback(uuid);
+		});
 	});
 }
 
 exports.docUpdate = function(document, callback) {
-	var updReq = http.request(
-		{port: port, host: host, path: "/document/" + document.docId, method: "PUT"},
-		function(res) {
-			if (res.statusCode == 200)
-				callback(document.docId);
-			else callback(null);
-		});
-	updReq.write(JSON.stringify(document));
-	updReq.on("error", callback);
-	updReq.end();
-}
-
-exports.docDelete = function(id, callback) {
-	var path = "/document/" + id;
-	getRev(path, function(rev) {
+	getRev("/document/" + document._id, function(rev) {
 		if (rev == null) {
 			callback(false);
 			return;
 		}
-		var req = http.request(
-			{port: port, host: host, path: "/document/" + login, method: "PUT"},
-			function(res) {
-				if (res.statusCode == 200)
-					callback(true);
-				else callback(false);
-			});
-		req.write(JSON.stringify({_rev: rev, _deleted: true}));
-		req.on("error", function(err) {callback(false);});
-		req.end();
+		document._rev = rev;
+		doPutRequest("/document/" + document._id, document, callback);
 	});
+}
+
+exports.docDelete = function(id, callback) {
+	doDeleteRequest("/document/" + id, callback);
+}
+
+exports.docGet = function(id, callback) {
+	doGetRequest("/document/" + id, callback);
 }
 
