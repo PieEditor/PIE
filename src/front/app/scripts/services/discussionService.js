@@ -7,7 +7,7 @@
 */
 angular.module('pie')
 .factory('discussionService', function($resource) {
-	var Discussion = $resource('/api/discussion/:id', {id: '@id'});
+	var Discussion = $resource('/mockAPI/discussion/:id', {id: '@id'});
 	return {
 		currentDiscussion: undefined,
 		get: function(id) {

@@ -2,7 +2,7 @@
 
 angular.module('pie')
 .controller('EditController', function ($scope, $resource, $routeParams, discussionService) {
-	var Document = $resource('/api/document/:id', {id: '@id'});
+	var Document = $resource('/mockAPI/document/:id', {id: '@id'});
 	$scope.document = Document.get({id: $routeParams.documentId});
 
 	$scope.isMyContentEditable = false;
