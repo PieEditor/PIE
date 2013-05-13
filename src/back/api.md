@@ -22,6 +22,17 @@ Otherwise, it sends back 4xx in case of failure - 403 "Forbidden" most of the ti
 
 Responses are sended back encoded in JSON.
 
+### Structures
+
+#### User
+
+	struct User {
+		* login **string**
+		* passwd **string**
+		* email **string**
+		* imgUrl **string**
+	}
+
 ## User
 
 ### Sign in
@@ -32,8 +43,8 @@ Sign in a user.
 
 #### Input
  
- * user **string**
- * pass **string**
+ * login **string**
+ * passwd **string**
 
 #### Response
 
@@ -53,7 +64,7 @@ Invalidate the token.
 
 ### Sign up
 
-Sign up a new user.
+Sign up a new user. Perform the login in the same time in providing the access token in the response.
 
 	POST /users/signup
 
@@ -69,7 +80,7 @@ Sign up a new user.
 
 ### Get a single user
 
-	GET /users/:user
+	GET /users/:login
 
 #### Response
 

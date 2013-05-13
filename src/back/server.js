@@ -39,7 +39,6 @@ server.on('request', function(request, response) {
 		 */
 
 		if (request.method === 'OPTIONS') {
-			console.log('!OPTIONS');
 			var headers = {};
 			// IE8 does not allow domains to be specified, just the *
 			// headers["Access-Control-Allow-Origin"] = req.headers.origin;
@@ -56,14 +55,14 @@ server.on('request', function(request, response) {
 
 		// Sign in
 		else if (request.url == "/users/signin" && request.method == "POST") {
-			if (!params.user || !params.pass) {
+			if (!params.login || !params.passwd) {
 				badRequest();
 			}
 
-			var shasum = crypto.createHash('sha512').update(params.pass, 'utf8').digest('hex');
-			couchWrapper.userLogin(params.user, function(user_data) {
-				if (user_data.shasum && shasum == user_data.shasum) {
-					users[user_data.uuid] = params.user;
+			var shasum = crypto.createHash('sha512').update(params.passwd, 'utf8').digest('hex');
+			couchWrapper.userLogin(params.login, function(user_data) {
+				if (user_data && user_data.shasum && shasum == user_data.shasum) {
+					users[user_data.uuid] = params.login;
 					response.writeHead(200, "OK");
 					response.write(JSON.stringify({token: user_data.uuid}));
 				}
@@ -88,17 +87,17 @@ server.on('request', function(request, response) {
 
 		// Sign up
 		else if (request.url == "/users/signup" && request.method == "POST") {
-			if (!params.user && (!params.user.user || !params.user.pass || !params.user.email)) {
+			if (!params.user && (!params.user.login || !params.user.passwd || !params.user.email || !params.user.img)) {
 				badRequest();
 			}
 			// generate shasum...
-			var shasum = crypto.createHash('sha512').update(params.user.pass, 'utf8').digest('hex');
+			var shasum = crypto.createHash('sha512').update(params.user.passwd, 'utf8').digest('hex');
 			params.user.shasum = shasum;
 			// ... then delete the password
 			delete params.user.pass;
 			couchWrapper.userCreate(params.user, function(uuid) {
 				if (uuid) {
-					users[uuid] = params.user.username
+					users[uuid] = params.user.login
 					response.writeHead(201, "Created");
 					response.write(JSON.stringify({token: uuid}));
 				}
@@ -112,9 +111,9 @@ server.on('request', function(request, response) {
 		// Get a single user or get the authenticated user
 		else if ((request.url.indexOf('/users/') == 0 || request.url == "/user") && request.method == "GET") {
 			// determine the user
-			var user = request.url == "/user" ? users[params.token] : request.url.substr('/users/'.length);
+			var login = request.url == "/user" ? users[params.token] : request.url.substr('/users/'.length);
 			if (users[params.token]) {
-				couchWrapper.userGet(user, function(user_object) {
+				couchWrapper.userGet(login, function(user_object) {
 					if (user_object) {
 						response.writeHead(200, "OK");
 						response.write(JSON.stringify({user: user_object}));
