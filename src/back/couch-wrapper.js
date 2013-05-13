@@ -69,7 +69,7 @@ function doDelete(path, callback) {
 // USER
 
 exports.userCreate = function(login, hash, callback) {
-	doPutRequest("/user/" + login, {hash: hash}, callback);
+	doPutRequest("/user/" + login, {shasum: hash}, callback);
 }
 
 exports.userGet = function(login, callback) {
@@ -85,7 +85,7 @@ exports.userLogin = function(login, callback) {
 		getUUID(function(uuid) {
 			if (uuid == null)
 				callback(null);
-			else callback({hash: res.hash, uuid: uuid});
+			else callback({shasum: res.shasum, uuid: uuid});
 		});
 	});
 }
