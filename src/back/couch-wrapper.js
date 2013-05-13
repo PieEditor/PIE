@@ -73,7 +73,17 @@ function doDelete(path, callback) {
 // USER
 
 exports.userCreate = function(user, callback) {
-	doPutRequest("/user/" + user.login, user, callback);
+	doPutRequest("/user/" + user.login, user, function(res) {
+		if (res == false) {
+			callback(null);
+			return;
+		}
+		getUUID(function(uuid) {
+			if (uuid == null)
+				callback(null);
+			else callback(uuid);
+		});
+	});
 }
 
 exports.userGet = function(login, callback) {
