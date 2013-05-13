@@ -17,7 +17,7 @@ angular.module('pie')
 		}
 	);
 
-	var User = $resource('/api/user/:id', {id: '@id'});
+	var User = $resource('/mockAPI/user/:id', {id: '@id'});
 	$scope.user = User.get({id: 1});
 
 	$scope.now = new Date();

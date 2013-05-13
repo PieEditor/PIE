@@ -144,16 +144,16 @@ angular.module('pie')
 	};
 
 	// Configure the mock backend with mock URLs
-	$httpBackend.whenGET(/\/api\/discussion\/1/).respond(discussion1);
-	$httpBackend.whenGET(/\/api\/discussion\/2/).respond(discussion2);
-	$httpBackend.whenPOST(/\/api\/discussion/).respond(); // TODO: should probably do something?
-	$httpBackend.whenGET(/\/api\/document\/1/).respond(document1);
-	$httpBackend.whenGET(/\/api\/document\/2/).respond(document2);
-	$httpBackend.whenPOST(/\/api\/document\/1/).respond(); // TODO: should probably do something?
-	$httpBackend.whenPOST(/\/api\/document\/2/).respond(); // TODO: should probably do something?
-	$httpBackend.whenGET(/\/api\/user\/1/).respond(user1);
-	$httpBackend.whenGET(/\/api\/user\/2/).respond(user2);
-	$httpBackend.whenGET(/\/api\/user\/3/).respond(user3);
+	$httpBackend.whenGET(/\/mockAPI\/discussion\/1/).respond(discussion1);
+	$httpBackend.whenGET(/\/mockAPI\/discussion\/2/).respond(discussion2);
+	$httpBackend.whenPOST(/\/mockAPI\/discussion/).respond(); // TODO: should probably do something?
+	$httpBackend.whenGET(/\/mockAPI\/document\/1/).respond(document1);
+	$httpBackend.whenGET(/\/mockAPI\/document\/2/).respond(document2);
+	$httpBackend.whenPOST(/\/mockAPI\/document\/1/).respond(); // TODO: should probably do something?
+	$httpBackend.whenPOST(/\/mockAPI\/document\/2/).respond(); // TODO: should probably do something?
+	$httpBackend.whenGET(/\/mockAPI\/user\/1/).respond(user1);
+	$httpBackend.whenGET(/\/mockAPI\/user\/2/).respond(user2);
+	$httpBackend.whenGET(/\/mockAPI\/user\/3/).respond(user3);
 
 	// Configure some requests to go through (ie. get handled by the real server, not the mock one)
 	$httpBackend.whenGET(/views/).passThrough();
