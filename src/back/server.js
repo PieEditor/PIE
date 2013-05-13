@@ -62,7 +62,7 @@ server.on('request', function(request, response) {
 
 			var shasum = crypto.createHash('sha512').update(params.pass, 'utf8').digest('hex');
 			couchWrapper.userLogin(params.user, function(user_data) {
-				if (user_data.shasumshasum == user_data.shasum) {
+				if (user_data.shasum && shasum == user_data.shasum) {
 					users[user_data.uuid] = params.user;
 					response.writeHead(200, "OK");
 					response.write(JSON.stringify({token: user_data.uuid}));
