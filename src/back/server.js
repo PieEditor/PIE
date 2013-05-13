@@ -13,6 +13,12 @@ server.on('request', function(request, response) {
 	});
 
 	request.on('end', function() {
+		function badRequest(body) {
+			response.writeHead(400, "Bad Request");
+			if (body)
+				response.write(body);
+			response.end();
+		}
 		/* Parse request's body */
 		
 		var params;
@@ -24,8 +30,7 @@ server.on('request', function(request, response) {
 
 		}
 		catch (error) {
-			response.writeHead(400, "Bad Request");
-			response.end();
+			badRequest();
 		}
 
 		/* CORS handling
@@ -51,6 +56,10 @@ server.on('request', function(request, response) {
 
 		// Sign in
 		else if (request.url == "/users/signin" && request.method == "POST") {
+			if (!params.user || !params.pass) {
+				badRequest();
+			}
+
 			var shasum = crypto.createHash('sha512').update(params.pass, 'utf8').digest('hex');
 			couchWrapper.userLogin(params.user, function(user_data) {
 				if (user_data.shasumshasum == user_data.shasum) {
@@ -79,6 +88,9 @@ server.on('request', function(request, response) {
 
 		// Sign up
 		else if (request.url == "/users/signup" && request.method == "POST") {
+			if (!params.user && (!params.user.user || !params.user.pass || !params.user.email)) {
+				badRequest();
+			}
 			// generate shasum...
 			var shasum = crypto.createHash('sha512').update(params.user.pass, 'utf8').digest('hex');
 			params.user.shasum = shasum;
