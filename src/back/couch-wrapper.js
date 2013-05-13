@@ -62,6 +62,10 @@ exports.userCreate = function(login, hash, callback) {
 	doPutRequest("/user/" + login, {hash: hash}, callback);
 }
 
+exports.userGet = function(login, callback) {
+	doGetRequest("/user/" + login, callback);
+}
+
 exports.userLogin = function(login, callback) {
 	doGetRequest("/user/" + login, function(res) {
 		if (res == null) {
