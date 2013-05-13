@@ -19,8 +19,11 @@ server.on('request', function(request, response) {
 				response.write(body);
 			response.end();
 		}
-		/* Parse request's body */
-		
+
+		/* we provide an API */
+		response.setHeader("Access-Control-Allow-Origin", "*");
+
+		/* Parse request's body */		
 		var params;
 		try {
 			if (body)
@@ -94,7 +97,7 @@ server.on('request', function(request, response) {
 			var shasum = crypto.createHash('sha512').update(params.user.passwd, 'utf8').digest('hex');
 			params.user.shasum = shasum;
 			// ... then delete the password
-			delete params.user.pass;
+			delete params.user.passwd;
 			couchWrapper.userCreate(params.user, function(uuid) {
 				if (uuid) {
 					users[uuid] = params.user.login
