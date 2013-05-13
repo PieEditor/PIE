@@ -72,8 +72,8 @@ function doDelete(path, callback) {
 
 // USER
 
-exports.userCreate = function(login, hash, callback) {
-	doPutRequest("/user/" + login, {shasum: hash}, callback);
+exports.userCreate = function(user, callback) {
+	doPutRequest("/user/" + user.login, user, callback);
 }
 
 exports.userGet = function(login, callback) {
