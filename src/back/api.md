@@ -85,7 +85,7 @@ Create a new document of which the owner is the authenticated user.
 
 #### Input
 
- * content **{}Document**
+ * document **{}Document**
 
 #### Response
 
@@ -101,7 +101,7 @@ Note : Patching a document is not supported yet. Please replace the entire docum
 
 #### Input
 
- * content **{}Document**
+ * document **{}Document**
 
 ### Delete a document
 
