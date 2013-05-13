@@ -15,8 +15,12 @@ function doGetRequest(path, callback) {
 	{port: port, host: host, path: path},
 	function(res) {
 		if (res.statusCode < 400) {
+			var data = "";
 			res.on("data", function(chunk) {
-				callback(JSON.parse(chunk));
+				data += chunk;
+			});
+			res.on("end", function() {
+				callback(JSON.parse(data));
 			});
 		}
 		else callback(null);
@@ -127,5 +131,20 @@ exports.docDelete = function(id, callback) {
 
 exports.docGet = function(id, callback) {
 	doGetRequest("/document/" + id, callback);
+}
+
+exports.docByUser = function(login, callback) {
+	doGetRequest("/document/_design/application/_view/get", function(res) {
+		if (res == null) {
+			callback(null);
+			return;
+		}
+		list = [];
+		res.rows.forEach(function(elem) {
+			if (elem.value == login)
+				list.push(elem.key);
+		});
+		callback(list);
+	});
 }
 
