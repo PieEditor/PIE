@@ -19,13 +19,7 @@ angular.module('pie')
 	/* Clean alerts */
 	$scope.cleanAlerts = function() {
 		$scope.loginFailureAlert = "none";
-		$scope.loginUsernameEmptyAlert = "none";
-		$scope.loginPasswordEmptyAlert = "none";
-		$scope.loginSucessAlert = "none";
 		$scope.registrationPasswordDontMatchAlert = "none";	
-		$scope.registrationUsernameEmptyAlert = "none";	
-		$scope.registrationPasswordEmptyAlert = "none";	
-		$scope.registrationEmailEmptyAlert = "none";
 		$scope.registrationUserNameAlreadyUseAlert = "none";	
 		$scope.registrationEmailAdresseAlreadyUseAlert = "none";	
 		$scope.registrationSucessAlert = "none";	
@@ -45,7 +39,6 @@ angular.module('pie')
 			$scope.userName,
 			$scope.password,
 			function() { // success callback
-				$scope.loginSucessAlert = "true";
 				$location.path('/profilePage/' + $scope.userName);
 			},
 			function() { // error callback
