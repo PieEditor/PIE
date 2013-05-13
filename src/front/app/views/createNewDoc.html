@@ -5,7 +5,7 @@
 	<hr />
 	<div>
 			<li ng-repeat="part in architectureLevels" class="offset{{getPartLevel(part)-1}}">  
-				Level : {{getPartLevel(part)}}
+				{{ getPartIndice(part, architectureLevels) }}
 				<input type="text"  placeholder="{{part.text}}">
 				<div class="btn-group">
 					<button class="btn btn-mini" data-toggle="dropdown" ng-click="removePart(part)"><i class="icon-remove"></i> </button>
@@ -15,7 +15,7 @@
 					<ul class="dropdown-menu pull-right">
 						<li><a href="" ng-click="createSubPart(part)">Create a subpart here</a></li>
 						<li class="divider"></li>
-						<li><a href="" ng-click="createPart(part)">Create a new part here!</a></li>
+						<li><a href="" ng-click="createNewPart(part)">Create a new part here!</a></li>
 					</ul>
 				</div>
 			</li> 
