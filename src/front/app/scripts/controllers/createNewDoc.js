@@ -5,25 +5,17 @@ angular.module('pie')
 	
 	$scope.architectureLevels = [
 		{text:'First section title...', level:1, deleted:false},
-		{text:'Sub First section title...', level:2, deleted:false},
-		{text:'Sub First section title...', level:2, deleted:false},
-		{text:'Sub First section title...', level:3, deleted:false},
-		{text:'Sub First section title...', level:2, deleted:false},
 		{text:'Second section title...', level:1, deleted:false},
-		{text:'Sub Second section title...', level:2, deleted:false},
-		{text:'Sub Second section title...', level:2, deleted:false},
 		{text:'Third section title...', level:1, deleted:false},
-		{text:'Sub third section title...', level:2, deleted:false},
-		{text:'Sub third section title...', level:2, deleted:false},
     ];
-	$scope.size =  _.size($scope.architectureLevels);
 	/* remove a part and all the subparts in it */
 	$scope.removePart = function(part) {
 		part.deleted = true;
 		var index = _.indexOf( $scope.architectureLevels, part) ;
 		var deleteSubPartsIsNotDone = true ; 
+		var size = $scope.architectureLevels.length;
 		while ( deleteSubPartsIsNotDone ) {
-			if ( $scope.architectureLevels[index+1].level > part.level ) {
+			if ( index+1 < size && $scope.architectureLevels[index+1].level > part.level ) {
 				$scope.architectureLevels[index+1].deleted=true;
 				index=index+1;
 			} else {
@@ -47,12 +39,13 @@ angular.module('pie')
 		var indice="";
 		var myIndex = _.indexOf( architectureLevels, part)  ;
 		var myLevel =  architectureLevels[myIndex].level ;
+		var size = architectureLevels.length;
 		for ( i=1; i<= myLevel; i++ ) {
 			var count = 0 ;		
 			for (j=0;j<=myIndex;j++) {
-				if (j < $scope.size-1 && j!==myIndex && architectureLevels[j+1].level < i ) {
+				if (j < size-1 && j!==myIndex && architectureLevels[j+1].level < i ) {
 					count = 0;
-				} else if  (j < $scope.size && architectureLevels[j].level == i) {
+				} else if  (j < size && architectureLevels[j].level == i) {
 					count++;
 				}
 			}
@@ -67,7 +60,6 @@ angular.module('pie')
 		var index = _.indexOf( $scope.architectureLevels, part) ;
 		var myNewLevel =  $scope.architectureLevels[index].level + 1;
 		$scope.architectureLevels.splice(index+1, 0, { text : 'New sub section title...' , level : myNewLevel , deleted : false });
-		$scope.size =  _.size($scope.architectureLevels);
 	};
 	
 	/* Add a part of the same level under the selected part */
@@ -75,8 +67,54 @@ angular.module('pie')
 		var index = _.indexOf( $scope.architectureLevels, part) ;
 		var myNewLevel =  $scope.architectureLevels[index].level ;
 		$scope.architectureLevels.splice(index+1, 0, { text : 'New section title...' , level : myNewLevel , deleted : false });
-		$scope.size =  _.size($scope.architectureLevels);
 	};
 
+	/* push backward an section of the architecture */
+	$scope.stepBackward = function(part ) {
+		var index = _.indexOf( $scope.architectureLevels, part) ;
+		if ( $scope.architectureLevels[index].level !==1 ) {
+			$scope.architectureLevels[index].level = $scope.architectureLevels[index].level-1 ;		
+		}
+	}
+
+	/* push forward an section of the architecture */
+	$scope.stepForward = function(part ) {
+		var index = _.indexOf( $scope.architectureLevels, part) ;
+		if ( index > 0 && ($scope.architectureLevels[index].level - $scope.architectureLevels[index-1].level ) <1 ) {
+			$scope.architectureLevels[index].level = $scope.architectureLevels[index].level+1 ;	
+		}	
+	}
+	
+	/* Hide the remove button if only one item left */
+	$scope.removeButtonHide = function(part,architectureLevels) {
+	if ( part.level ===1 ) {
+		architectureLevels = _.filter(architectureLevels, function (section) {
+				return section.level===1;
+		})   
+		if ( architectureLevels.length ===1 ) {
+			return true;
+		}
+	}
+		return false;
+	}
+	
+	/* Hide the backward button if the level of the section is 1 */
+	$scope.backwardButtonHide = function(part) {
+	if ( part.level ===1 ) {
+		return true;
+	}
+		return false;
+	}
+	
+	/* Hide the forward button if the level of the previous section is already smaller */
+	$scope.forwardButtonHide = function(part,architectureLevels) {
+	var index = _.indexOf( $scope.architectureLevels, part) ;
+	if ( index === 0 || ($scope.architectureLevels[index].level - $scope.architectureLevels[index-1].level ) >=1 ) {
+		return true;	
+	}
+	return false;
+	}
+
+		
 
 });
