@@ -12,16 +12,16 @@
 
 ### Get single user
 
-	curl -X GET 'http://127.0.0.1:8080/users/kikoo?token=' -v
+	curl -X GET 'http://127.0.0.1:8080/users/kikoo?token=token' -v
 
 ### Get authenticated user
 
-	curl -X GET 'http://127.0.0.1:8080/user?token=' -v
+	curl -X GET 'http://127.0.0.1:8080/user?token=token' -v
 
 ### Sign-out
 
-	curl -X POST -v -d '{"token":""}' http://127.0.0.1:8080/user/signout
+	curl -X POST -v -d '{"token":"token"}' http://127.0.0.1:8080/user/signout
 
 ### Delete
 
-	curl -X DELETE -v -d '{"token":""}' http://127.0.0.1:8080/user
+	curl -X DELETE -v -d '{"token":"token"}' http://127.0.0.1:8080/user
