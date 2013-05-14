@@ -144,15 +144,14 @@ exports.docGet = function(id, callback) {
 }
 
 exports.docByUser = function(login, callback) {
-	doGetRequest("/document/_design/application/_view/get", function(res) {
+	doGetRequest("/document/_design/application/_view/get?key=\"" + login + "\"", function(res) {
 		if (res == null) {
 			callback(null);
 			return;
 		}
 		list = [];
 		res.rows.forEach(function(elem) {
-			if (elem.value == login)
-				list.push(elem.key);
+			list.push({id: elem.id, title: elem.value});
 		});
 		callback(list);
 	});
