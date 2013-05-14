@@ -65,7 +65,7 @@ angular.module('pie')
 		/* Registration Sucess */
 		authService.register($scope.newUserName, $scope.newPassword, $scope.newEmail, $scope.newImage,
 			function() { // success callback
-				$location.path('/profilePage/' + $scope.userName);
+				$location.path('/profile/' + $scope.userName);
 			},
 			function() { // error callback
 				$scope.registrationUserNameAlreadyUseAlert = "true";
