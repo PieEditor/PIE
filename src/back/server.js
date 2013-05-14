@@ -40,9 +40,6 @@ server.on('request', function(request, response) {
 			badRequest("Unable to parse parameters.");
 		}
 
-		console.log(params.token);
-		console.log(request.url);
-
 		/* CORS handling
 		 * Thanks to nilcolor.
 		 * https://gist.github.com/nilcolor/816580 
@@ -86,7 +83,7 @@ server.on('request', function(request, response) {
 
 		// Sign out
 		else if (request.url == "/user/signout" && request.method == "POST") {
-			if (users[params.token]) {
+			if (params.token && users[params.token]) {
 				delete users[params.token];
 				response.writeHead(204, "No Content");				
 			}
@@ -98,7 +95,7 @@ server.on('request', function(request, response) {
 
 		// Sign up
 		else if (request.url == "/users/signup" && request.method == "POST") {
-			if (!params.user && (!params.user.login || !params.user.passwd || !params.user.email || !params.user.img)) {
+			if (!params.user || (!params.user.login || !params.user.passwd || !params.user.email || !params.user.imgUrl)) {
 				badRequest("Parameters are missing.");
 			}
 			// generate shasum...
@@ -122,8 +119,8 @@ server.on('request', function(request, response) {
 		// Get a single user or get the authenticated user
 		else if ((request.url.indexOf('/users/') == 0 || (request.url.indexOf("/user") == 0 && request.url['/user'.length] == '?')) && request.method == "GET") {
 			// determine the user
-			var login = request.url.indexOf('/users/') == 0 ? request.url.substr('/users/'.length) : users[params.token];
-			if (users[params.token]) {
+			var login = request.url.indexOf('/users/') == 0 ? request.url.substr('/users/'.length, request.url.indexOf('?') - 1) : users[params.token];
+			if (params.token && users[params.token]) {
 				couchWrapper.userGet(login, function(user_object) {
 					if (user_object) {
 						response.writeHead(200, "OK");
@@ -143,7 +140,7 @@ server.on('request', function(request, response) {
 
 		// Delete the authenticated user
 		else if (request.url == "/user" && request.method == "DELETE") {
-			if (users[params.token]) {
+			if (params.token && users[params.token]) {
 				couchWrapper.userDelete(users[params.token], function(success) {
 					if (success) {
 						response.writeHead(204, "No Content");
@@ -165,7 +162,7 @@ server.on('request', function(request, response) {
 
 		// Create a single document
 		else if (request.url == "/documents" && request.method == "POST") {
-			if (users[params.token]) {
+			if (params.token && users[params.token]) {
 				couchWrapper.docAdd(params.document, function(id) {
 					if (id) {
 						response.writeHead(201, "Created");
@@ -185,7 +182,7 @@ server.on('request', function(request, response) {
 
 		// Update a document
 		else if (request.url.indexOf("/documents/") == 0 && request.method == "PUT") {
-			if (users[params.token]) {
+			if (params.token && users[params.token]) {
 				couchWrapper.docUpdate(params.document, function(success) {
 					if (success) {
 						response.writeHead(204, "No Content");
@@ -206,7 +203,7 @@ server.on('request', function(request, response) {
 		// Delete a document
 		else if (request.url.indexOf("/documents/") == 0 && request.method == "DELETE") {
 			var doc_id = parseInt(request.url.substr('/documents/'.length));
-			if (users[params.token]) {
+			if (params.token && users[params.token]) {
 				couchWrapper.docDelete(doc_id, function(success) {
 					if (success) {
 						response.writeHead(204, "No Content");
@@ -225,18 +222,23 @@ server.on('request', function(request, response) {
 
 		// List your documents or user documents
 		else if ((request.url == "/documents" || request.url.indexOf("/users/") == 0 && request.url.indexOf("/documents") == request.url.length - "/documents".length) && request.method == "GET") {
-		var user = request.url == "/documents" ? users[params.token] : request.url.substr('/users'.length, request.url.indexOf('/documents') - 1);
-			if (user) {
-				couchWrapper.docByUser(users[params.token], function(doc_ids) {
-					if (doc_ids) {
-						response.writeHead(200, "OK");
-						response.write(JSON.stringify({ids: doc_ids}));
-					}
-					else {
-						response.writeHead(403, "Forbidden");
-					}
-					response.end();
-				});
+			if (params.token && users[params.token]) {
+				var user = request.url == "/documents" ? users[params.token] : request.url.substr('/users'.length, request.url.indexOf('/documents') - 1);
+				if (user) {
+					couchWrapper.docByUser(users[params.token], function(doc_ids) {
+						if (doc_ids) {
+							response.writeHead(200, "OK");
+							response.write(JSON.stringify({ids: doc_ids}));
+						}
+						else {
+							response.writeHead(403, "Forbidden");
+						}
+						response.end();
+					});
+				}
+				else {
+					badRequest("Parameters are missing.");
+				}
 			}
 			else {
 				response.writeHead(401, "Unauthorized");
@@ -247,7 +249,7 @@ server.on('request', function(request, response) {
 		//Get a single document
 		else if (request.url.indexOf("/documents/") == 0 && request.method == "GET") {
 			var doc_id = parseInt(request.url.substr('/documents/'.length));
-			if (users[params.token]) {
+			if (params.token && users[params.token]) {
 				couchWrapper.docGet(doc_id, function(doc) {
 					if (doc) {
 						response.writeHead(200, "OK");
