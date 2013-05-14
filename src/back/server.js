@@ -129,7 +129,6 @@ server.on('request', function(request, response) {
 				couchWrapper.userGet(login, function(user_object) {
 					if (user_object) {
 						couchWrapper.docByUser(login, function(docs_list) {
-							console.log(docs_list);
 							if (docs_list !== null) {
 								user_object.documents = docs_list;
 								response.writeHead(200, "OK");
