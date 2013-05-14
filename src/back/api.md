@@ -109,6 +109,19 @@ Delete the authenticated user's account.
 
 204 "No Content".
 
+### Get the login associated to a token
+
+Should help you to check if a given token is valid.
+
+	GET /tokens/:token
+
+#### Response
+
+200 "OK" if the token is valid.
+ * login **string**
+
+204 "No Content" otherwise.
+
 ## Document
 
 ### Create a single document
