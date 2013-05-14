@@ -2,7 +2,7 @@
 
 angular.module('pie')
 .controller('CreateNewDocController', function ($scope, $resource, $routeParams,$location,$timeout) {
-	
+	$scope.document = {owner: "ownerLogin", content: "plapla"};
 	$scope.architectureLevels = [
 		{text:'First section title...', level:1, deleted:false},
 		{text:'Second section title...', level:1, deleted:false},
@@ -114,7 +114,4 @@ angular.module('pie')
 	}
 	return false;
 	}
-
-		
-
 });
