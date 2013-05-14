@@ -154,7 +154,7 @@ Note : Patching a document is not supported yet. Please replace the entire docum
 
 #### Response
 
-204 "No Content".
+404 "Not Found".
 
 ### Delete a document
 
