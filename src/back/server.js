@@ -20,7 +20,7 @@ server.on('request', function(request, response) {
 			response.end();
 		}
 
-		/* we provide an API */
+		/* we provide a public API */
 		response.setHeader("Access-Control-Allow-Origin", "*");
 
 		/* Parse request's body */		
@@ -37,8 +37,11 @@ server.on('request', function(request, response) {
 				params = {};
 		}
 		catch (error) {
-			badRequest();
+			badRequest("Unable to parse parameters.");
 		}
+
+		console.log(params.token);
+		console.log(request.url);
 
 		/* CORS handling
 		 * Thanks to nilcolor.
@@ -49,7 +52,8 @@ server.on('request', function(request, response) {
 			var headers = {};
 			// IE8 does not allow domains to be specified, just the *
 			// headers["Access-Control-Allow-Origin"] = req.headers.origin;
-			headers["Access-Control-Allow-Origin"] = "*";
+			// Already done
+			// headers["Access-Control-Allow-Origin"] = "*";
 			headers["Access-Control-Allow-Methods"] = "POST, GET, PUT, DELETE, OPTIONS";
 			headers["Access-Control-Allow-Credentials"] = false;
 			headers["Access-Control-Max-Age"] = '86400'; // 24 hours
@@ -63,7 +67,7 @@ server.on('request', function(request, response) {
 		// Sign in
 		else if (request.url == "/users/signin" && request.method == "POST") {
 			if (!params.login || !params.passwd) {
-				badRequest();
+				badRequest("Login or password is missing.");
 			}
 
 			var shasum = crypto.createHash('sha512').update(params.passwd, 'utf8').digest('hex');
@@ -95,7 +99,7 @@ server.on('request', function(request, response) {
 		// Sign up
 		else if (request.url == "/users/signup" && request.method == "POST") {
 			if (!params.user && (!params.user.login || !params.user.passwd || !params.user.email || !params.user.img)) {
-				badRequest();
+				badRequest("Parameters are missing.");
 			}
 			// generate shasum...
 			var shasum = crypto.createHash('sha512').update(params.user.passwd, 'utf8').digest('hex');
@@ -116,7 +120,7 @@ server.on('request', function(request, response) {
 		}
 
 		// Get a single user or get the authenticated user
-		else if ((request.url.indexOf('/users/') == 0 || request.url == "/user") && request.method == "GET") {
+		else if ((request.url.indexOf('/users/') == 0 || (request.url.indexOf("/user") == 0 && request.url['/user'.length] == '?')) && request.method == "GET") {
 			// determine the user
 			var login = request.url == "/user" ? users[params.token] : request.url.substr('/users/'.length);
 			if (users[params.token]) {
@@ -261,37 +265,9 @@ server.on('request', function(request, response) {
 			}
 		}
 
-		/* Discussion */
-		/*
-		// Add a discussion
-		else if (request.url.indexOf("/documents/") == 0 && request.url.indexOf("/discussions") == request.url.length - "/discussions".length && request.method == "POST") {
-			// TODO
-		}
-
-		// List document discussions
-		else if (request.url.indexOf("/documents/") == 0 && request.url.indexOf("/discussions") == request.url.length - "/discussions".length && request.method == "POST") {
-			// TODO
-		}
-
-		// Get a single discussion
-		else if (request.url.indexOf("/discussions") == 0 && request.method == "GET") {
-			// TODO
-		}
-
-		// Update a discussion
-		else if (request.url.indexOf("/discussions") == 0 && request.method == "PUT") {
-			// TODO
-		}
-
-		// Delete a discussion
-		else if (request.url.indexOf("/discussions") == 0 && request.method == "DELETE") {
-			// TODO
-		}*/
-
 		// Default
 		else {
-			response.writeHead(400, "Bad Request");
-			response.end();
+			badRequest("The request does not match with an API function.");
 		}
 	});
 });
