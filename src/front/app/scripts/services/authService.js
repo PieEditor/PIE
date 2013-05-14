@@ -38,9 +38,15 @@ angular.module('pie')
 		},
 
 		ensureLoginAndReturnToken: function() {
-			if ($cookieStore.get('token') === undefined) {
+			// Optimistic function : returns the existing token
+			// assuming it is correct.
+			// If not, after server-side check, redirects the user to
+			// the login page
+			$http.get('http://localhost:8080/tokens/' + $cookieStore.get('token'))
+			.error(function() {
 				$location.path('/login');
-			}
+			});
+
 			return $cookieStore.get('token');
 		}
 	};
