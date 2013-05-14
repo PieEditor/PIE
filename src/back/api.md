@@ -31,6 +31,7 @@ Responses are sended back encoded in JSON.
 		* passwd **string**
 		* email **string**
 		* imgUrl **string**
+		* documents **[]{id, title}**
 	}
 
 ## User

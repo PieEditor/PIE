@@ -4,6 +4,7 @@ var http = require('http');
 var crypto = require('crypto');
 
 var users = [];
+users["token"] = "kikoo";
 var server = http.createServer().listen(8080, '127.0.0.1');
 
 server.on('request', function(request, response) {
@@ -23,7 +24,11 @@ server.on('request', function(request, response) {
 		/* we provide a public API */
 		response.setHeader("Access-Control-Allow-Origin", "*");
 
-		/* Parse request's body */		
+		/* Parse request */
+
+		parsedUrl = require('url').parse(request.url, true);
+
+		/* Parse request's parameters */		
 		var params;
 		try {
 			if ((request.method == "POST" || request.method == "PUT" || request.method == "DELETE"))
@@ -32,7 +37,7 @@ server.on('request', function(request, response) {
 				else
 					params = {};
 			else if (request.method == "GET")
-				params = require('url').parse(request.url, true).query;
+				params = parsedUrl.query;
 			else
 				params = {};
 		}
@@ -62,7 +67,7 @@ server.on('request', function(request, response) {
 		/* USER */
 
 		// Sign in
-		else if (request.url == "/users/signin" && request.method == "POST") {
+		else if (parsedUrl.pathname == "/users/signin" && request.method == "POST") {
 			if (!params.login || !params.passwd) {
 				badRequest("Login or password is missing.");
 			}
@@ -82,7 +87,7 @@ server.on('request', function(request, response) {
 		}
 
 		// Sign out
-		else if (request.url == "/user/signout" && request.method == "POST") {
+		else if (parsedUrl.pathname == "/user/signout" && request.method == "POST") {
 			if (params.token && users[params.token]) {
 				delete users[params.token];
 				response.writeHead(204, "No Content");				
@@ -94,7 +99,7 @@ server.on('request', function(request, response) {
 		}
 
 		// Sign up
-		else if (request.url == "/users/signup" && request.method == "POST") {
+		else if (parsedUrl.pathname == "/users/signup" && request.method == "POST") {
 			if (!params.user || (!params.user.login || !params.user.passwd || !params.user.email || !params.user.imgUrl)) {
 				badRequest("Parameters are missing.");
 			}
@@ -117,19 +122,29 @@ server.on('request', function(request, response) {
 		}
 
 		// Get a single user or get the authenticated user
-		else if ((request.url.indexOf('/users/') == 0 || (request.url.indexOf("/user") == 0 && request.url['/user'.length] == '?')) && request.method == "GET") {
+		else if ((parsedUrl.pathname.indexOf('/users/') == 0 || parsedUrl.pathname == '/user') && request.method == 'GET') {
 			// determine the user
-			var login = request.url.indexOf('/users/') == 0 ? request.url.substr('/users/'.length, request.url.indexOf('?') - 1) : users[params.token];
+			var login = request.url.indexOf('/users/') == 0 ? request.url.substr('/users/'.length) : users[params.token];
 			if (params.token && users[params.token]) {
 				couchWrapper.userGet(login, function(user_object) {
 					if (user_object) {
-						response.writeHead(200, "OK");
-						response.write(JSON.stringify({user: user_object}));
+						couchWrapper.docByUser(login, function(docs_list) {
+							console.log(docs_list);
+							if (docs_list !== null) {
+								user_object.documents = docs_list;
+								response.writeHead(200, "OK");
+								response.write(JSON.stringify({user: user_object}));
+							}
+							else {
+								response.writeHead(403, "Forbidden");
+							}
+							response.end();
+						});
 					}
 					else {
 						response.writeHead(403, "Forbidden");
-					}
-					response.end();
+						response.end();
+					}					
 				});
 			}
 			else {
@@ -139,7 +154,7 @@ server.on('request', function(request, response) {
 		}
 
 		// Delete the authenticated user
-		else if (request.url == "/user" && request.method == "DELETE") {
+		else if (parsedUrl.pathname == "/user" && request.method == "DELETE") {
 			if (params.token && users[params.token]) {
 				couchWrapper.userDelete(users[params.token], function(success) {
 					if (success) {
