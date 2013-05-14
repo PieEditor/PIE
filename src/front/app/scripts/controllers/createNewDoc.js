@@ -48,13 +48,11 @@ angular.module('pie')
 		var myIndex = _.indexOf( architectureLevels, part)  ;
 		var myLevel =  architectureLevels[myIndex].level ;
 		for ( i=1; i<= myLevel; i++ ) {
-			var count = 0 ;
-			
+			var count = 0 ;		
 			for (j=0;j<=myIndex;j++) {
-				if (j > 0 && architectureLevels[j-1] > i) {
+				if (j < $scope.size-1 && j!==myIndex && architectureLevels[j+1].level < i ) {
 					count = 0;
-				}
-				if (architectureLevels[j].level == i) {
+				} else if  (j < $scope.size && architectureLevels[j].level == i) {
 					count++;
 				}
 			}
