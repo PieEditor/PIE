@@ -37,7 +37,7 @@ angular.module('pie')
 			$scope.userName,
 			$scope.password,
 			function() { // success callback
-				$location.path('/profilePage/' + $scope.userName);
+				$location.path('/profile/' + $scope.userName);
 			},
 			function() { // error callback
 				$scope.loginFailureAlert = "true";
