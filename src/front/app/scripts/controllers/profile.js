@@ -8,6 +8,6 @@ angular.module('pie')
 
 	$http.get('http://localhost:8080/user', {params: d} )
 	.success(function(data) {
-		console.log(data);
+		$scope.user = data.user;
 	});
 });
