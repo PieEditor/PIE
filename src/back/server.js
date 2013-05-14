@@ -122,7 +122,7 @@ server.on('request', function(request, response) {
 		// Get a single user or get the authenticated user
 		else if ((request.url.indexOf('/users/') == 0 || (request.url.indexOf("/user") == 0 && request.url['/user'.length] == '?')) && request.method == "GET") {
 			// determine the user
-			var login = request.url == "/user" ? users[params.token] : request.url.substr('/users/'.length);
+			var login = request.url.indexOf('/users/') == 0 ? request.url.substr('/users/'.length) : users[params.token];
 			if (users[params.token]) {
 				couchWrapper.userGet(login, function(user_object) {
 					if (user_object) {
