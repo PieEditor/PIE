@@ -187,7 +187,7 @@ server.on('request', function(request, response) {
 					response.write(JSON.stringify({login: users[parsedUrl.pathname.substr("/tokens/".length)]}));
 				}
 				else {
-					response.writeHead(204, "No Content");
+					response.writeHead(404, "Not Found");
 				}
 				response.end();
 			}
