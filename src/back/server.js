@@ -176,6 +176,23 @@ server.on('request', function(request, response) {
 			}
 		}
 
+		// Get the login associated to a token
+		else if (parsedUrl.pathname.indexOf("/tokens/") == 0 && request.method == "GET") {
+			if (parsedUrl.pathname == "/tokens/") {
+				badRequest("Parameters are missing.");
+			}
+			else {
+				if (users[parsedUrl.pathname.substr("/tokens/".length)]) {
+					response.writeHead(200, "OK");
+					response.write(JSON.stringify({login: users[parsedUrl.pathname.substr("/tokens/".length)]}));
+				}
+				else {
+					response.writeHead(204, "No Content");
+				}
+				response.end();
+			}
+		}
+
 		/* Document */
 
 		// Create a single document

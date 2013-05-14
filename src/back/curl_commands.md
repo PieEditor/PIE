@@ -25,3 +25,7 @@
 ### Delete
 
 	curl -X DELETE -v -d '{"token":"token"}' http://127.0.0.1:8080/user
+
+### Get the login associated to a token
+
+	curl -X GET 'http://127.0.0.1:8080/tokens/token' -v
