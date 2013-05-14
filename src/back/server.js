@@ -72,18 +72,20 @@ server.on('request', function(request, response) {
 				badRequest("Login or password is missing.");
 			}
 
-			var shasum = crypto.createHash('sha512').update(params.passwd, 'utf8').digest('hex');
-			couchWrapper.userLogin(params.login, function(user_data) {
-				if (user_data && user_data.shasum && shasum == user_data.shasum) {
-					users[user_data.uuid] = params.login;
-					response.writeHead(200, "OK");
-					response.write(JSON.stringify({token: user_data.uuid}));
-				}
-				else {
-					response.writeHead(403, "Forbidden");
-				}
-				response.end();
-			})
+			else {
+				var shasum = crypto.createHash('sha512').update(params.passwd, 'utf8').digest('hex');
+				couchWrapper.userLogin(params.login, function(user_data) {
+					if (user_data && user_data.shasum && shasum == user_data.shasum) {
+						users[user_data.uuid] = params.login;
+						response.writeHead(200, "OK");
+						response.write(JSON.stringify({token: user_data.uuid}));
+					}
+					else {
+						response.writeHead(403, "Forbidden");
+					}
+					response.end();
+				});
+			}
 		}
 
 		// Sign out
@@ -103,22 +105,24 @@ server.on('request', function(request, response) {
 			if (!params.user || (!params.user.login || !params.user.passwd || !params.user.email || !params.user.imgUrl)) {
 				badRequest("Parameters are missing.");
 			}
-			// generate shasum...
-			var shasum = crypto.createHash('sha512').update(params.user.passwd, 'utf8').digest('hex');
-			params.user.shasum = shasum;
-			// ... then delete the password
-			delete params.user.passwd;
-			couchWrapper.userCreate(params.user, function(uuid) {
-				if (uuid) {
-					users[uuid] = params.user.login
-					response.writeHead(201, "Created");
-					response.write(JSON.stringify({token: uuid}));
-				}
-				else {
-					response.writeHead(403, "Forbidden");
-				}
-				response.end();
-			});
+			else {
+				// generate shasum...
+				var shasum = crypto.createHash('sha512').update(params.user.passwd, 'utf8').digest('hex');
+				params.user.shasum = shasum;
+				// ... then delete the password
+				delete params.user.passwd;
+				couchWrapper.userCreate(params.user, function(uuid) {
+					if (uuid) {
+						users[uuid] = params.user.login
+						response.writeHead(201, "Created");
+						response.write(JSON.stringify({token: uuid}));
+					}
+					else {
+						response.writeHead(403, "Forbidden");
+					}
+					response.end();
+				});
+			}
 		}
 
 		// Get a single user or get the authenticated user
