@@ -22,8 +22,8 @@ angular.module('pie')
 				errorCallback();
 			});
 		},
-		logout: function() {
-			$http.post('http://localhost:8080/users/signout', {token: $cookieStore.get('token')})
+		logout: function(successCallback, errorCallback) {
+			$http.post('http://localhost:8080/user/signout', {token: $cookieStore.get('token')})
 			.success(successCallback)
 			.error(errorCallback);
 		},
