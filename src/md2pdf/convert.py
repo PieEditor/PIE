@@ -17,6 +17,7 @@ process(jsonfile)
 if (mdfile.count(".md") == 0):
 	mdfile += ".md"
 odtfile = mdfile.replace(".md", ".odt")
+pdffile = mdfile.replace(".md", ".pdf")
 
 system("./md2odt " + mdfile + " content.xml")
 odt = ZipFile(odtfile, "w")
@@ -26,8 +27,5 @@ odt.write("mimetype")
 odt.write("META-INF/manifest.xml")
 odt.close()
 print("ODT file generated")
-f = open("libreoffice.path", "r")
-libreoffice = f.read()
-f.close()
-system(libreoffice + " --headless --convert-to pdf " + odtfile)
+system("echo \"convert " + odtfile + " " + pdffile + " pdf\" | abiword --plugin AbiCommand")
 
