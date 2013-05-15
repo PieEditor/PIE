@@ -196,7 +196,7 @@ server.on('request', function(request, response) {
 		/* Document */
 
 		// Create a single document
-		else if (request.url == "/documents" && request.method == "POST") {
+		else if (parsedUrl.pathname == "/documents" && request.method == "POST") {
 			if (params.token && users[params.token]) {
 				couchWrapper.docAdd(params.document, function(id) {
 					if (id) {
@@ -282,13 +282,12 @@ server.on('request', function(request, response) {
 		}
 
 		//Get a single document
-		else if (request.url.indexOf("/documents/") == 0 && request.method == "GET") {
-			var doc_id = parseInt(request.url.substr('/documents/'.length));
+		else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "GET") {
 			if (params.token && users[params.token]) {
-				couchWrapper.docGet(doc_id, function(doc) {
+				couchWrapper.docGet(parsedUrl.pathname.substr('/documents/'.length), function(doc) {
 					if (doc) {
 						response.writeHead(200, "OK");
-						response.write(doc);
+						response.write(JSON.stringify({document: doc}));
 					}
 					else {
 						response.writeHead(403, "Forbidden");

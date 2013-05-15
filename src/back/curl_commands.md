@@ -29,3 +29,13 @@
 ### Get the login associated to a token
 
 	curl -X GET 'http://127.0.0.1:8080/tokens/token' -v
+
+## Document
+
+### Create a single document
+
+	curl -X"content":"kikoo"}, "token":"token"}' http://127.0.0.1:8080/documents
+
+### Get a single document
+
+	curl -X GET 'http://127.0.0.1:8080/documents/13129a24355ecea3b349a05a6a000cfb?token=token' -v
