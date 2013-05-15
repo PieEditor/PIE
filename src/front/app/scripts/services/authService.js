@@ -8,21 +8,22 @@
 angular.module('pie')
 .factory('authService', function($http, $cookieStore, $location) {
 	return {
+		username: undefined,
 		login: function(login, passwd, successCallback, errorCallback) {
 			var t = this;
 			$cookieStore.put('token', undefined);
 
 			$http.post('http://localhost:8080/users/signin', {login:login, passwd:passwd})
 			.success(function(data) {
-				$cookieStore.put('token', data.token);
+				$cookieStore.put('token', JSON.parse(data));
 				successCallback();
 			})
 			.error(function(data) {
 				errorCallback();
 			});
 		},
-		logout: function() {
-			$http.post('http://localhost:8080/users/signout', {token: $cookieStore.get('token')})
+		logout: function(successCallback, errorCallback) {
+			$http.post('http://localhost:8080/user/signout', {token: $cookieStore.get('token')})
 			.success(successCallback)
 			.error(errorCallback);
 		},
@@ -33,7 +34,7 @@ angular.module('pie')
 			var u = {login:login, passwd:passwd, email:email, imgUrl:imgUrl};
 			$http.post('http://localhost:8080/users/signup', {user: u})
 			.success(function(data) {
-				$cookieStore.put('token', data.token);
+				$cookieStore.put('token', JSON.parse(data));
 				successCallback();
 			})
 			.error(function(data) {
@@ -45,8 +46,13 @@ angular.module('pie')
 			// assuming it is correct.
 			// If not, after server-side check, redirects the user to
 			// the login page
+			var t = this;
 			$http.get('http://localhost:8080/tokens/' + $cookieStore.get('token'))
+			.success(function(data) {
+				t.username = JSON.parse(data);
+			})
 			.error(function() {
+				$cookieStore.remove('token');
 				$location.path('/login');
 			});
 
