@@ -51,7 +51,7 @@ Sign in a user.
 
 200 "OK" if user and pass match.
 
- * token **string** : this token should be stored by the client for future use as it has to be passed in for requests needing a properly authenticated user
+ * **string** : token - this token should be stored by the client for future use as it has to be passed in for requests needing a properly authenticated user
 
 ### Sign out
 
@@ -77,7 +77,7 @@ Sign up a new user. Perform the login in the same time in providing the access t
 
 201 "Created" if user doesn't exist.
 
- * token **string**
+ * **string** : token
 
 ### Get a single user
 
@@ -85,9 +85,9 @@ Sign up a new user. Perform the login in the same time in providing the access t
 
 #### Response
 
-200 "OK" if user if a valid login is provided.
+200 "OK" if a valid login is provided.
 
- * user **{}User**
+ * **{}User** : user
 
 ### Get the authenticated user
 
@@ -97,7 +97,7 @@ Sign up a new user. Perform the login in the same time in providing the access t
 
 200 "OK" if the user is authenticated.
 
- * user **{}User**
+ * **{}User** : user
 
 ### Delete your account
 
@@ -118,9 +118,9 @@ Should help you to check if a given token is valid.
 #### Response
 
 200 "OK" if the token is valid.
- * login **string**
+ * **string** : login
 
-204 "No Content" otherwise.
+404 "Not Found" otherwise.
 
 ## Document
 
@@ -138,7 +138,7 @@ Create a new document of which the owner is the authenticated user.
 
 201 "Created"
 
- * id **integer** : the id of the new document
+ * **string** : uuid - the uuid of the new document
 
 ### Update a document
 
@@ -154,7 +154,7 @@ Note : Patching a document is not supported yet. Please replace the entire docum
 
 #### Response
 
-404 "Not Found".
+200 OK.
 
 ### Delete a document
 
@@ -174,7 +174,7 @@ List documents for the authenticated users, or, if called anonymously, return al
 
 200 "OK"
 
- * ids **[]integer**
+ * **[]{id: **string**, title: **string}**
 
 ### List user documents
 
@@ -185,8 +185,7 @@ List documents for the specified user.
 #### Response
 
 200 "OK"
-
- * ids **[]integer**
+ * **[]{id: **string**, title: **string}**
 
 ### Get a single document
 
@@ -196,4 +195,4 @@ List documents for the specified user.
 
 200 "OK".
 
- * document **{}Document**
+ * **{}Document** : document
