@@ -39,3 +39,23 @@
 ### Get a single document
 
 	curl -X GET 'http://127.0.0.1:8080/documents/13129a24355ecea3b349a05a6a000cfb?token=token' -v
+
+### Update a document
+
+	curl -X PUT -v -d '{"document":{"_id":"13129a24355ecea3b349a05a6a000cfb","_rev":"1-bb818c70d058e6dfeb9e3ffe84494307","owner":"foo","content":"kikooooooooooooooooooooooooooooooooo"}, "token":"token"}' 'http://127.0.0.1:8080/documents/13129a24355ecea3b349a05a6a000cfb'
+
+### Delete a document
+
+	curl -X DELETE -d '{"token": "token"}' 'http://127.0.0.1:8080/documents/13129a24355ecea3b349a05a6a001ec3' -v
+
+### List your documents
+
+	curl -X GET 'http://127.0.0.1:8080/documents?token=token' -v
+
+### List user documents
+
+	curl -X GET 'http://127.0.0.1:8080/users/kikoo/documents?token=token' -v
+
+### Get a single document
+
+	curl -X GET 'http://127.0.0.1:8080/documents/13129a24355ecea3b349a05a6a00295c?token=token' -v

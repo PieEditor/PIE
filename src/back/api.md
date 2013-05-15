@@ -166,7 +166,7 @@ Note : Patching a document is not supported yet. Please replace the entire docum
 
 ### List your documents
 
-List documents for the authenticated users, or, if called anonymously, return all public documents.
+List documents for the authenticated users.
 
 	GET /documents
 

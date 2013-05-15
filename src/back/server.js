@@ -126,7 +126,7 @@ server.on('request', function(request, response) {
 		}
 
 		// Get a single user or get the authenticated user
-		else if ((parsedUrl.pathname.indexOf('/users/') == 0 || parsedUrl.pathname == '/user') && request.method == 'GET') {
+		else if (((parsedUrl.pathname.indexOf('/users/') == 0 && parsedUrl.pathname.split('/').length == 3) || parsedUrl.pathname == '/user') && request.method == 'GET') {
 			// determine the user
 			var login = request.url.indexOf('/users/') == 0 ? request.url.substr('/users/'.length) : users[params.token];
 			if (params.token && users[params.token]) {
@@ -216,7 +216,7 @@ server.on('request', function(request, response) {
 		}
 
 		// Update a document
-		else if (request.url.indexOf("/documents/") == 0 && request.method == "PUT") {
+		else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "PUT") {
 			if (params.token && users[params.token]) {
 				couchWrapper.docUpdate(params.document, function(success) {
 					if (success) {
@@ -236,10 +236,9 @@ server.on('request', function(request, response) {
 		}
 
 		// Delete a document
-		else if (request.url.indexOf("/documents/") == 0 && request.method == "DELETE") {
-			var doc_id = parseInt(request.url.substr('/documents/'.length));
+		else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "DELETE") {
 			if (params.token && users[params.token]) {
-				couchWrapper.docDelete(doc_id, function(success) {
+				couchWrapper.docDelete(parsedUrl.pathname.substr('/documents/'.length), function(success) {
 					if (success) {
 						response.writeHead(204, "No Content");
 					}
@@ -256,14 +255,14 @@ server.on('request', function(request, response) {
 		}
 
 		// List your documents or user documents
-		else if ((request.url == "/documents" || request.url.indexOf("/users/") == 0 && request.url.indexOf("/documents") == request.url.length - "/documents".length) && request.method == "GET") {
+		else if ((parsedUrl.pathname == "/documents" || (parsedUrl.pathname.indexOf("/users/") == 0 && parsedUrl.pathname.indexOf("/documents") == parsedUrl.pathname.length - "/documents".length) && parsedUrl.pathname.split('/').length == 4) && request.method == "GET") {
 			if (params.token && users[params.token]) {
-				var user = request.url == "/documents" ? users[params.token] : request.url.substr('/users'.length, request.url.indexOf('/documents') - 1);
-				if (user) {
-					couchWrapper.docByUser(users[params.token], function(doc_ids) {
-						if (doc_ids) {
+				var login = parsedUrl.pathname == "/documents" ? users[params.token] : parsedUrl.pathname.substring('/users/'.length, parsedUrl.pathname.indexOf('/documents'));
+				if (login) {
+					couchWrapper.docByUser(login, function(docs_list) {
+						if (docs_list !== null) {
 							response.writeHead(200, "OK");
-							response.write(JSON.stringify(doc_ids));
+							response.write(JSON.stringify(docs_list));
 						}
 						else {
 							response.writeHead(403, "Forbidden");
@@ -281,7 +280,7 @@ server.on('request', function(request, response) {
 			}
 		}
 
-		//Get a single document
+		// Get a single document
 		else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "GET") {
 			if (params.token && users[params.token]) {
 				couchWrapper.docGet(parsedUrl.pathname.substr('/documents/'.length), function(doc) {
