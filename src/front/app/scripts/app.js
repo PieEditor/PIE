@@ -21,7 +21,7 @@ angular.module('pie', ['ngResource', 'ngMockE2E', 'ngCookies', 'ui.bootstrap'])
 			.when('/createNewDoc', {
 				templateUrl: 'views/createNewDoc.html'
 			})
-			.when('/profile/:userId', {
+			.when('/profile', {
 				templateUrl: 'views/profile.html'
 			})
 			.when('/login', {
