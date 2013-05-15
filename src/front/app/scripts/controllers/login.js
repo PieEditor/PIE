@@ -37,7 +37,7 @@ angular.module('pie')
 			$scope.userName,
 			$scope.password,
 			function() { // success callback
-				$location.path('/profile/' + $scope.userName);
+				$location.path('/profile/');
 			},
 			function() { // error callback
 				$scope.loginFailureAlert = "true";
@@ -65,7 +65,7 @@ angular.module('pie')
 		/* Registration Sucess */
 		authService.register($scope.newUserName, $scope.newPassword, $scope.newEmail, $scope.newImage,
 			function() { // success callback
-				$location.path('/profile/' + $scope.newUserName);
+				$location.path('/profile/');
 			},
 			function() { // error callback
 				$scope.registrationUserNameAlreadyUseAlert = "true";
