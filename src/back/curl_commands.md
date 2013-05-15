@@ -34,7 +34,7 @@
 
 ### Create a single document
 
-	curl -X"content":"kikoo"}, "token":"token"}' http://127.0.0.1:8080/documents
+	curl -X POST -v -d '{"document":{"owner":"foo", "content":"kikoo"}, "token":"token"}' http://127.0.0.1:8080/documents
 
 ### Get a single document
 
