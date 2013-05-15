@@ -8,7 +8,6 @@
 angular.module('pie')
 .factory('authService', function($http, $cookieStore, $location) {
 	return {
-		authenticated: false,
 		login: function(login, passwd, successCallback, errorCallback) {
 			var t = this;
 			$cookieStore.put('token', undefined);
@@ -21,6 +20,11 @@ angular.module('pie')
 			.error(function(data) {
 				errorCallback();
 			});
+		},
+		logout: function() {
+			$http.post('http://localhost:8080/users/signout', {token: $cookieStore.get('token')})
+			.success(successCallback)
+			.error(errorCallback);
 		},
 		register: function(login, passwd, email, imgUrl, successCallback, errorCallback) {
 			var t = this;
@@ -36,7 +40,6 @@ angular.module('pie')
 				errorCallback();
 			});
 		},
-
 		ensureLoginAndReturnToken: function() {
 			// Optimistic function : returns the existing token
 			// assuming it is correct.
