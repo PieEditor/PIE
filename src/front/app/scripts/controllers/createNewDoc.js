@@ -3,7 +3,6 @@
 angular.module('pie')
 .controller('CreateNewDocController', function ($scope, $http, $resource, $routeParams,$location,$timeout, authService) {
 	var myToken = authService.ensureLoginAndReturnToken();
-	
 	$scope.architectureLevels = [
 		{text:'First section title...', level:1},
 		{text:'Second section title...', level:1},
@@ -120,14 +119,17 @@ angular.module('pie')
 		var myDocument = 	
 		{
 			title: $scope.documentTitle,
-			owner : '',
+			owner : authService.username,
 			content: $scope.architectureLevels
 		} ;
-		/*var i=0;
-		for ( i=0; i < $scope.architectureLevels.length ; i++ ) {
-			$scope.architectureLevels[i] =  $scope.architectureLevels[i].deleted.delete ;
-		}*/
-		var idDocument  =$http.post('http://localhost:8080/documents', {token: myToken, document : myDocument})
-		return idDocument;
+		$http.post('http://localhost:8080/documents', {token: myToken, document : myDocument})
+			.success(function(data) {
+				$location.path('/editAndDiscuss/'+JSON.parse(data));
+			})
+			.error(function(data) {
+				console.log('error');
+			});
+		
+		
 	}
 });
