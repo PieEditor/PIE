@@ -1,15 +1,11 @@
 'use strict';
 
 angular.module('pie')
-.controller('ProfileController', function ($scope, $http, $location, authService) {
+.controller('ProfileController', function ($scope, $location, $resource, authService) {
 	var token = authService.ensureLoginAndReturnToken();
-
-	var d = {token: token};
-
-	$http.get('http://localhost:8080/user', {params: d} )
-	.success(function(data) {
-		$scope.user = data.user;
-	});
+	
+	var User = $resource('http://localhost\\:8080/user', {token: token});
+	$scope.user = User.get();
 
 	$scope.logout = function() {
 		authService.logout(
