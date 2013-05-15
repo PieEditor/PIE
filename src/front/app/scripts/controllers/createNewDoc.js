@@ -1,12 +1,13 @@
 'use strict';
 
 angular.module('pie')
-.controller('CreateNewDocController', function ($scope, $resource, $routeParams,$location,$timeout) {
-	$scope.document = {owner: "ownerLogin", content: "plapla"};
+.controller('CreateNewDocController', function ($scope, $http, $resource, $routeParams,$location,$timeout, authService) {
+	var myToken = authService.ensureLoginAndReturnToken();
+	
 	$scope.architectureLevels = [
-		{text:'First section title...', level:1, deleted:false},
-		{text:'Second section title...', level:1, deleted:false},
-		{text:'Third section title...', level:1, deleted:false},
+		{text:'First section title...', level:1},
+		{text:'Second section title...', level:1},
+		{text:'Third section title...', level:1},
     ];
 	/* remove a part and all the subparts in it */
 	$scope.removePart = function(part) {
@@ -108,10 +109,25 @@ angular.module('pie')
 	
 	/* Hide the forward button if the level of the previous section is already smaller */
 	$scope.forwardButtonHide = function(part,architectureLevels) {
-	var index = _.indexOf( $scope.architectureLevels, part) ;
-	if ( index === 0 || ($scope.architectureLevels[index].level - $scope.architectureLevels[index-1].level ) >=1 ) {
-		return true;	
+		var index = _.indexOf( $scope.architectureLevels, part) ;
+		if ( index === 0 || ($scope.architectureLevels[index].level - $scope.architectureLevels[index-1].level ) >=1 ) {
+			return true;	
+		}
+		return false;
 	}
-	return false;
+	
+	$scope.sendArchitecture = function () {
+		var myDocument = 	
+		{
+			title: $scope.documentTitle,
+			owner : '',
+			content: $scope.architectureLevels
+		} ;
+		/*var i=0;
+		for ( i=0; i < $scope.architectureLevels.length ; i++ ) {
+			$scope.architectureLevels[i] =  $scope.architectureLevels[i].deleted.delete ;
+		}*/
+		var idDocument  =$http.post('http://localhost:8080/documents', {token: myToken, document : myDocument})
+		return idDocument;
 	}
 });
