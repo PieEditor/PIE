@@ -4,13 +4,19 @@ angular.module('pie')
 .controller('EditController', function ($scope, $resource, $routeParams, authService, discussionService) {
 	var token = authService.ensureLoginAndReturnToken();
 
+	// Create the document factory
 	var Document = $resource(
 		'http://localhost\\:8080/documents/:id',
 		{
 			id: '@id',
 			token: token
+		},
+		{
+			update: {method: 'PUT'}
 		}
 	);
+
+	// Get the document from the API
 	$scope.document = Document.get({id: $routeParams.documentId});
 
 	$scope.edit = function(section) {
@@ -19,7 +25,7 @@ angular.module('pie')
 		}
 		else {
 			section.isMyContentEditable = false;
-			//$scope.document.$update({id: $scope.document.id});
+			$scope.document.$update();
 		}
 	};
 
