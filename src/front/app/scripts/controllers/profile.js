@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pie')
-.controller('ProfileController', function ($scope, $http, $routeParams, authService) {
+.controller('ProfileController', function ($scope, $http, authService) {
 	var token = authService.ensureLoginAndReturnToken();
 
 	var d = {token: token};
