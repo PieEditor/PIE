@@ -1,0 +1,40 @@
+{
+	"mainFont": {
+		"fontFamily": "URW Palladio L",
+		"fontSize": "12pt"
+	},
+	"codeFont": {
+		"fontFamily": "Nimbus Mono L",
+		"fontSize": "10pt"
+	},
+	"titles": [
+		{"size": "24pt",
+		"bold": true,
+		"italic": false},
+		{"size": "22pt",
+		"bold": true,
+		"italic": true},
+		{"size": "20pt",
+		"bold": false,
+		"italic": true},
+		{"size": "18pt",
+		"bold": false,
+		"italic": true},
+		{"size": "16pt",
+		"bold": false,
+		"italic": false},
+		{"size": "14pt",
+		"bold": true,
+		"italic": false}
+	],
+	"pageSize": {
+		"width": "21cm",
+		"height": "29.7cm"
+	},
+	"margins": {
+		"top": "1.5cm",
+		"bottom": "1.5cm",
+		"left": "1.5cm",
+		"right": "1.5cm"
+	}
+}
