@@ -24,9 +24,9 @@ odt.write("styles.xml")
 odt.write("mimetype")
 odt.write("META-INF/manifest.xml")
 odt.close()
+system("rm content.xml styles.xml " + mdfile + " " + jsonfile)
 if (fmt == "odt"):
-	print("END")
 	exit(0)
 system("echo \"convert " + odtfile + " " + pdffile + " pdf\" | abiword --plugin AbiCommand")
-print("END")
+system("rm " + odtfile)
 
