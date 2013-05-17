@@ -5,19 +5,17 @@ from os import system
 from zipfile import ZipFile
 from json2styles import process
 
-if (not(len(argv) in [2, 3])):
-	print("Usage : convert.py <md file> [json file]")
+if (not(len(argv) == 4)):
 	exit(1)
 
 mdfile = argv[1]
-jsonfile = "default.json"
-if (len(argv) == 3):
-	jsonfile = argv[2]
+jsonfile = argv[2]
 process(jsonfile)
-if (mdfile.count(".md") == 0):
-	mdfile += ".md"
 odtfile = mdfile.replace(".md", ".odt")
 pdffile = mdfile.replace(".md", ".pdf")
+fmt = "pdf"
+if (argv[3] == "odt"):
+	fmt = "odt"
 
 system("./md2odt " + mdfile + " content.xml")
 odt = ZipFile(odtfile, "w")
@@ -26,6 +24,9 @@ odt.write("styles.xml")
 odt.write("mimetype")
 odt.write("META-INF/manifest.xml")
 odt.close()
-print("ODT file generated")
+if (fmt == "odt"):
+	print("END")
+	exit(0)
 system("echo \"convert " + odtfile + " " + pdffile + " pdf\" | abiword --plugin AbiCommand")
+print("END")
 
