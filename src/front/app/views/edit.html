@@ -29,6 +29,6 @@
 				
 			</div>
 		</div>
-		<div contentEditable="{{ section.isMyContentEditable == true }}">{{ section.content }}</div>
+		<div contenteditable="{{ section.isMyContentEditable == true }}" ng-model="section.content">{{section.content}}</div>
 	</div>
 </div>

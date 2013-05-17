@@ -121,7 +121,7 @@ angular.module('pie')
 			content: $scope.architectureLevels
 		};
 
-		$http.post('http://localhost:8080/documents', {token: myToken, document : myDocument})
+		$http.post('http://localhost:8080/documents?token=' + myToken, myDocument)
 		.success(function(docId) {
 			$location.path('/editAndDiscuss/'+JSON.parse(docId));
 		})
