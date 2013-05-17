@@ -4,9 +4,9 @@ angular.module('pie')
 .controller('CreateNewDocController', function ($scope, $http, $resource, $routeParams,$location,$timeout, authService) {
 	var myToken = authService.ensureLoginAndReturnToken();
 	$scope.architectureLevels = [
-		{text:'First section title...', level:1},
-		{text:'Second section title...', level:1},
-		{text:'Third section title...', level:1},
+		{title:'', level:1},
+		{title:'', level:1},
+		{title:'', level:1},
     ];
 	/* remove a part and all the subparts in it */
 	$scope.removePart = function(part) {
@@ -27,11 +27,6 @@ angular.module('pie')
 		})   
 	};
 	
-	/* return the level of a part */
-	$scope.getPartLevel = function(part) {
-		return part.level;
-	};
-
 	/* return the text of a part */
 	$scope.getPartIndice = function(part,architectureLevels) {
 		var i = 1;
@@ -59,14 +54,14 @@ angular.module('pie')
 	$scope.createSubPart = function(part) {
 		var index = _.indexOf( $scope.architectureLevels, part) ;
 		var myNewLevel =  $scope.architectureLevels[index].level + 1;
-		$scope.architectureLevels.splice(index+1, 0, { text : 'New sub section title...' , level : myNewLevel , deleted : false });
+		$scope.architectureLevels.splice(index+1, 0, { title : '' , level : myNewLevel , deleted : false });
 	};
 	
 	/* Add a part of the same level under the selected part */
 	$scope.createNewPart = function(part) {
 		var index = _.indexOf( $scope.architectureLevels, part) ;
 		var myNewLevel =  $scope.architectureLevels[index].level ;
-		$scope.architectureLevels.splice(index+1, 0, { text : 'New section title...' , level : myNewLevel , deleted : false });
+		$scope.architectureLevels.splice(index+1, 0, { title : '' , level : myNewLevel , deleted : false });
 	};
 
 	/* push backward an section of the architecture */
