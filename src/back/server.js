@@ -54,6 +54,7 @@ server.on('request', function(request, response) {
 		if (parsedUrl.query.token) {
 			token = parsedUrl.query.token;
 		}
+		var isAuthenticatedUser = token && users[token] ? true : false;
 
 		/* CORS handling
 		 * Thanks to nilcolor.
@@ -100,7 +101,7 @@ server.on('request', function(request, response) {
 
 		// Sign out
 		else if (parsedUrl.pathname == "/user/signout" && request.method == "POST") {
-			if (token && users[token]) {
+			if (isAuthenticatedUser) {
 				delete users[token];
 				response.writeHead(204, "No Content");				
 			}
@@ -139,7 +140,7 @@ server.on('request', function(request, response) {
 		else if (((parsedUrl.pathname.indexOf('/users/') == 0 && parsedUrl.pathname.split('/').length == 3) || parsedUrl.pathname == '/user') && request.method == 'GET') {
 			// determine the user
 			var login = request.url.indexOf('/users/') == 0 ? request.url.substr('/users/'.length) : users[token];
-			if (token && users[token]) {
+			if (isAuthenticatedUser) {
 				couchWrapper.userGet(login, function(user_object) {
 					if (user_object) {
 						couchWrapper.docByUser(login, function(docs_list) {
@@ -168,7 +169,7 @@ server.on('request', function(request, response) {
 
 		// Delete the authenticated user
 		else if (parsedUrl.pathname == "/user" && request.method == "DELETE") {
-			if (token && users[token]) {
+			if (isAuthenticatedUser) {
 				couchWrapper.userDelete(users[token], function(success) {
 					if (success) {
 						response.writeHead(204, "No Content");
@@ -207,7 +208,7 @@ server.on('request', function(request, response) {
 
 		// Create a single document
 		else if (parsedUrl.pathname == "/documents" && request.method == "POST") {
-			if (token && users[token]) {
+			if (isAuthenticatedUser) {
 				couchWrapper.docAdd(params, function(id) {
 					if (id) {
 						response.writeHead(201, "Created");
@@ -227,7 +228,7 @@ server.on('request', function(request, response) {
 
 		// Update a document
 		else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "PUT") {
-			if (token && users[token]) {
+			if (isAuthenticatedUser) {
 				couchWrapper.docUpdate(params, function(success) {
 					if (success) {
 						response.writeHead(204, "No Content");
@@ -247,7 +248,7 @@ server.on('request', function(request, response) {
 
 		// Delete a document
 		else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "DELETE") {
-			if (token && users[token]) {
+			if (isAuthenticatedUser) {
 				couchWrapper.docDelete(parsedUrl.pathname.substr('/documents/'.length), function(success) {
 					if (success) {
 						response.writeHead(204, "No Content");
@@ -266,7 +267,7 @@ server.on('request', function(request, response) {
 
 		// List your documents or user documents
 		else if ((parsedUrl.pathname == "/documents" || (parsedUrl.pathname.indexOf("/users/") == 0 && parsedUrl.pathname.indexOf("/documents") == parsedUrl.pathname.length - "/documents".length) && parsedUrl.pathname.split('/').length == 4) && request.method == "GET") {
-			if (token && users[token]) {
+			if (isAuthenticatedUser) {
 				var login = parsedUrl.pathname == "/documents" ? users[token] : parsedUrl.pathname.substring('/users/'.length, parsedUrl.pathname.indexOf('/documents'));
 				if (login) {
 					couchWrapper.docByUser(login, function(docs_list) {
@@ -292,7 +293,7 @@ server.on('request', function(request, response) {
 
 		// Get a single document
 		else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "GET") {
-			if (token && users[token]) {
+			if (isAuthenticatedUser) {
 				couchWrapper.docGet(parsedUrl.pathname.substr('/documents/'.length), function(doc) {
 					if (doc) {
 						response.writeHead(200, "OK");
