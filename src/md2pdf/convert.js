@@ -4,13 +4,13 @@ var exec = require("child_process").exec;
 
 http.createServer(function(req, res) {
 	if (req.method != "GET") {
-		res.writeHead(501);
+		res.writeHead(400);
 		res.end();
 		return;
 	}
 	var fmt = req.url.replace("/", "");
 	if ((fmt !== "odt") && (fmt !== "pdf")) {
-		res.writeHead(404);
+		res.writeHead(501);
 		res.end();
 		return;
 	}
