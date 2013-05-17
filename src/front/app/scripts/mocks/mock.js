@@ -163,4 +163,5 @@ angular.module('pie')
 	// Real API
 	$httpBackend.whenGET(/http:\/\/localhost:8080/).passThrough();
 	$httpBackend.whenPOST(/http:\/\/localhost:8080/).passThrough();
+	$httpBackend.whenPUT(/http:\/\/localhost:8080/).passThrough();
 });
