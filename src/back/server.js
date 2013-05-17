@@ -21,21 +21,27 @@ server.on('request', function(request, response) {
 			response.end();
 		}
 
+		console.log(body);
+
 		/* we provide a public API */
 		response.setHeader("Access-Control-Allow-Origin", "*");
 
 		/* Parse request */
-
 		parsedUrl = require('url').parse(request.url, true);
 
 		/* Parse request's parameters */		
 		var params;
 		try {
-			if ((request.method == "POST" || request.method == "PUT" || request.method == "DELETE"))
+			if ((request.method == "POST" || request.method == "PUT" || request.method == "DELETE")) {
 				if (body)
 					params = JSON.parse(body);
 				else
 					params = {};
+
+				// the token should be in the URL's query string
+				if (parsedUrl.query.token)
+					params.token = parsedUrl.query.token;
+			}
 			else if (request.method == "GET")
 				params = parsedUrl.query;
 			else
@@ -44,6 +50,8 @@ server.on('request', function(request, response) {
 		catch (error) {
 			badRequest("Unable to parse parameters.");
 		}
+
+		console.log(params);
 
 		/* CORS handling
 		 * Thanks to nilcolor.
@@ -102,18 +110,18 @@ server.on('request', function(request, response) {
 
 		// Sign up
 		else if (parsedUrl.pathname == "/users/signup" && request.method == "POST") {
-			if (!params.user || (!params.user.login || !params.user.passwd || !params.user.email || !params.user.imgUrl)) {
+			if (!params.login || !params.passwd || !params.email || !params.imgUrl) {
 				badRequest("Parameters are missing.");
 			}
 			else {
 				// generate shasum...
-				var shasum = crypto.createHash('sha512').update(params.user.passwd, 'utf8').digest('hex');
-				params.user.shasum = shasum;
+				var shasum = crypto.createHash('sha512').update(params.passwd, 'utf8').digest('hex');
+				params.shasum = shasum;
 				// ... then delete the password
-				delete params.user.passwd;
-				couchWrapper.userCreate(params.user, function(uuid) {
+				delete params.passwd;
+				couchWrapper.userCreate(params, function(uuid) {
 					if (uuid) {
-						users[uuid] = params.user.login
+						users[uuid] = params.login
 						response.writeHead(201, "Created");
 						response.write(JSON.stringify(uuid));
 					}
@@ -198,7 +206,7 @@ server.on('request', function(request, response) {
 		// Create a single document
 		else if (parsedUrl.pathname == "/documents" && request.method == "POST") {
 			if (params.token && users[params.token]) {
-				couchWrapper.docAdd(params.document, function(id) {
+				couchWrapper.docAdd(params, function(id) {
 					if (id) {
 						response.writeHead(201, "Created");
 						response.write(JSON.stringify(id));
@@ -218,7 +226,7 @@ server.on('request', function(request, response) {
 		// Update a document
 		else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "PUT") {
 			if (params.token && users[params.token]) {
-				couchWrapper.docUpdate(params.document, function(success) {
+				couchWrapper.docUpdate(params, function(success) {
 					if (success) {
 						response.writeHead(204, "No Content");
 					}
