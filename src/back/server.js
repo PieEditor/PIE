@@ -14,22 +14,22 @@ server.on('request', function(request, response) {
 	});
 
 	request.on('end', function() {
+
+		/* response handling */
 		function badRequest(body) {
 			response.writeHead(400, "Bad Request");
 			if (body)
 				response.write(body);
 			response.end();
 		}
-
-		console.log(body);
-
-		/* we provide a public API */
+		 // we provide a public API
 		response.setHeader("Access-Control-Allow-Origin", "*");
 
-		/* Parse request */
+		/* request handling */
+		// parse request
 		parsedUrl = require('url').parse(request.url, true);
 
-		/* Parse request's parameters */		
+		// parse request's parameters		
 		var params;
 		try {
 			if ((request.method == "POST" || request.method == "PUT" || request.method == "DELETE")) {
@@ -37,10 +37,6 @@ server.on('request', function(request, response) {
 					params = JSON.parse(body);
 				else
 					params = {};
-
-				// the token should be in the URL's query string
-				if (parsedUrl.query.token)
-					params.token = parsedUrl.query.token;
 			}
 			else if (request.method == "GET")
 				params = parsedUrl.query;
@@ -50,8 +46,14 @@ server.on('request', function(request, response) {
 		catch (error) {
 			badRequest("Unable to parse parameters.");
 		}
-
-		console.log(params);
+		var token = "";
+		if (params.token) {
+			token = params.token;
+			delete params.token;
+		}
+		if (parsedUrl.query.token) {
+			token = parsedUrl.query.token;
+		}
 
 		/* CORS handling
 		 * Thanks to nilcolor.
@@ -98,8 +100,8 @@ server.on('request', function(request, response) {
 
 		// Sign out
 		else if (parsedUrl.pathname == "/user/signout" && request.method == "POST") {
-			if (params.token && users[params.token]) {
-				delete users[params.token];
+			if (token && users[token]) {
+				delete users[token];
 				response.writeHead(204, "No Content");				
 			}
 			else {
@@ -136,8 +138,8 @@ server.on('request', function(request, response) {
 		// Get a single user or get the authenticated user
 		else if (((parsedUrl.pathname.indexOf('/users/') == 0 && parsedUrl.pathname.split('/').length == 3) || parsedUrl.pathname == '/user') && request.method == 'GET') {
 			// determine the user
-			var login = request.url.indexOf('/users/') == 0 ? request.url.substr('/users/'.length) : users[params.token];
-			if (params.token && users[params.token]) {
+			var login = request.url.indexOf('/users/') == 0 ? request.url.substr('/users/'.length) : users[token];
+			if (token && users[token]) {
 				couchWrapper.userGet(login, function(user_object) {
 					if (user_object) {
 						couchWrapper.docByUser(login, function(docs_list) {
@@ -166,8 +168,8 @@ server.on('request', function(request, response) {
 
 		// Delete the authenticated user
 		else if (parsedUrl.pathname == "/user" && request.method == "DELETE") {
-			if (params.token && users[params.token]) {
-				couchWrapper.userDelete(users[params.token], function(success) {
+			if (token && users[token]) {
+				couchWrapper.userDelete(users[token], function(success) {
 					if (success) {
 						response.writeHead(204, "No Content");
 					}
@@ -176,7 +178,7 @@ server.on('request', function(request, response) {
 					}
 					response.end();
 				});
-				delete users[params.token];		
+				delete users[token];		
 			}
 			else {
 				response.writeHead(401, "Unauthorized");
@@ -205,7 +207,7 @@ server.on('request', function(request, response) {
 
 		// Create a single document
 		else if (parsedUrl.pathname == "/documents" && request.method == "POST") {
-			if (params.token && users[params.token]) {
+			if (token && users[token]) {
 				couchWrapper.docAdd(params, function(id) {
 					if (id) {
 						response.writeHead(201, "Created");
@@ -225,7 +227,7 @@ server.on('request', function(request, response) {
 
 		// Update a document
 		else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "PUT") {
-			if (params.token && users[params.token]) {
+			if (token && users[token]) {
 				couchWrapper.docUpdate(params, function(success) {
 					if (success) {
 						response.writeHead(204, "No Content");
@@ -245,7 +247,7 @@ server.on('request', function(request, response) {
 
 		// Delete a document
 		else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "DELETE") {
-			if (params.token && users[params.token]) {
+			if (token && users[token]) {
 				couchWrapper.docDelete(parsedUrl.pathname.substr('/documents/'.length), function(success) {
 					if (success) {
 						response.writeHead(204, "No Content");
@@ -264,8 +266,8 @@ server.on('request', function(request, response) {
 
 		// List your documents or user documents
 		else if ((parsedUrl.pathname == "/documents" || (parsedUrl.pathname.indexOf("/users/") == 0 && parsedUrl.pathname.indexOf("/documents") == parsedUrl.pathname.length - "/documents".length) && parsedUrl.pathname.split('/').length == 4) && request.method == "GET") {
-			if (params.token && users[params.token]) {
-				var login = parsedUrl.pathname == "/documents" ? users[params.token] : parsedUrl.pathname.substring('/users/'.length, parsedUrl.pathname.indexOf('/documents'));
+			if (token && users[token]) {
+				var login = parsedUrl.pathname == "/documents" ? users[token] : parsedUrl.pathname.substring('/users/'.length, parsedUrl.pathname.indexOf('/documents'));
 				if (login) {
 					couchWrapper.docByUser(login, function(docs_list) {
 						if (docs_list !== null) {
@@ -290,7 +292,7 @@ server.on('request', function(request, response) {
 
 		// Get a single document
 		else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "GET") {
-			if (params.token && users[params.token]) {
+			if (token && users[token]) {
 				couchWrapper.docGet(parsedUrl.pathname.substr('/documents/'.length), function(doc) {
 					if (doc) {
 						response.writeHead(200, "OK");
