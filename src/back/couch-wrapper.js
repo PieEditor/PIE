@@ -12,7 +12,7 @@ exports.sayKikoo = function() {
 
 function doGetRequest(path, callback) {
 	var req = http.request(
-	{port: port, host: host, path: path},
+	{port: port, host: host, path: path, agent: false},
 	function(res) {
 		if (res.statusCode < 400) {
 			var data = "";
@@ -31,7 +31,7 @@ function doGetRequest(path, callback) {
 
 function doPutRequest(path, data, callback) {
 	var req = http.request(
-	{port: port, host: host, path: path, method: "PUT"},
+	{port: port, host: host, path: path, method: "PUT", agent: false},
 	function(res) {
 		if (res.statusCode < 400)
 			callback(true);
