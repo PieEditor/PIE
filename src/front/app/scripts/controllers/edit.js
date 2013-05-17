@@ -8,7 +8,7 @@ angular.module('pie')
 	var Document = $resource(
 		'http://localhost\\:8080/documents/:id',
 		{
-			id: '@id',
+			id: '@_id',
 			token: token
 		},
 		{
