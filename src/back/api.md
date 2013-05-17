@@ -6,12 +6,12 @@
 
 Most of the parameters are specified as a segment in the path.
 
-For those which aren't, they can be encoded in JSON.
+For those which aren't, they can be encoded in JSON in the body of the request.
 
 #### Authentication
 
-Same rule applies for authentication (if required), the access token is considered as a parameter.
-A 401 "Unauthorized" response is sended back if the access token is not provided.
+The access token should be passed in the URL's query string. For compatibility reasons, it can be passed in the request's body encoded in JSON.
+A 401 "Unauthorized" response is sended back if the access token is not provided or does not correspond to an authenticated user.
 
 ### Error Codes
 
@@ -71,13 +71,13 @@ Sign up a new user. Perform the login in the same time in providing the access t
 
 #### Input
 
- * user **{}User**
+ * **{}User** : the new user
 
 #### Response
 
 201 "Created" if user doesn't exist.
 
- * **string** : token
+ * **string** : token - this token should be stored by the client for future use as it has to be passed in for requests needing a properly authenticated user
 
 ### Get a single user
 
@@ -87,7 +87,7 @@ Sign up a new user. Perform the login in the same time in providing the access t
 
 200 "OK" if a valid login is provided.
 
- * **{}User** : user
+ * **{}User** : user data
 
 ### Get the authenticated user
 
@@ -97,7 +97,7 @@ Sign up a new user. Perform the login in the same time in providing the access t
 
 200 "OK" if the user is authenticated.
 
- * **{}User** : user
+ * **{}User** : user data
 
 ### Delete your account
 
@@ -132,7 +132,7 @@ Create a new document of which the owner is the authenticated user.
 
 #### Input
 
- * document **{}Document**
+ * **{}Document** : the new document
 
 #### Response
 
@@ -150,7 +150,7 @@ Note : Patching a document is not supported yet. Please replace the entire docum
 
 #### Input
 
- * document **{}Document**
+ * **{}Document** : the updated document
 
 #### Response
 
@@ -166,7 +166,7 @@ Note : Patching a document is not supported yet. Please replace the entire docum
 
 ### List your documents
 
-List documents for the authenticated users, or, if called anonymously, return all public documents.
+List documents for the authenticated users.
 
 	GET /documents
 

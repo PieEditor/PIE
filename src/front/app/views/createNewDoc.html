@@ -5,12 +5,13 @@
 	<hr />
 	<h3>Use the different buttons to either create new sections or modified there position in the architectures</h3>
 	<p> The idea here is design the struture of the document before writing it. The philosophie of PIE is to follow presicely the real workflow of the creation of a document, which obviously start here... </p>
-	<hr />		
-	<div class="offset5"><h2>Document Title</h2></div>
-	<div class="offset5"><input type="text"  placeholder="Document Title"></div>
-	<li ng-repeat="part in architectureLevels" class="offset{{getPartLevel(part)-1}}">  
+	<hr />
+	<button class="btn btn-large btn-success" ng-click="sendArchitecture()"><i class="icon-plus"></i> Save Architecture ! </button>		
+	<div class="offset5"><h2>Document Title  {{documentTitle}}</h2></div>
+	<div class="offset5"><input type="text" ng-model="documentTitle" placeholder="Document Title"></div>
+	<li ng-repeat="part in architectureLevels" class="offset{{part.level-1}}">  
 		{{ getPartIndice(part, architectureLevels) }}
-		<input type="text"  placeholder="{{part.text}}">
+		<input type="text"  ng-model="part.title" placeholder="Section title">
 		<div class="btn-group">
 			<button class="btn btn-mini" ng-hide="removeButtonHide(part,architectureLevels)" data-toggle="dropdown" ng-click="removePart(part)"><i class="icon-remove"></i> </button>
 			<button class="btn btn-mini" ng-hide="backwardButtonHide(part)" data-toggle="dropdown" ng-click="stepBackward(part)"><i class="icon-step-backward"></i> </button>

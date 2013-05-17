@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include "odt_content.h"
 
-int fputc_unlocked(int c, FILE *stream);
-int fputs_unlocked(const char *s, FILE *stream);
-int fgetc_unlocked(FILE *stream);
+#ifndef __USE_MISC
+#define __USE_MISC
+#endif
 
 char c2s[2] = {0, 0};
 char buffer[65536];
@@ -176,13 +176,8 @@ void process(FILE * input, FILE * output) {
 			fputs_unlocked("&amp;", output);
 			break;
 		case '-' :	// Smart dashes
-			if (last == ' ')
+			if ((last == ' ') || (last == '\n'))
 				fputs_unlocked(LONG_DASH, output);
-			else if (last == '\n') {
-				fputs_unlocked(LONG_DASH, output);
-				fputs_unlocked(EN_SPACE, output);
-				state.ignore_next = 1;
-			}
 			else fputc_unlocked('-', output);
 			break;
 		case '\\' :	// After backslash, copy next character verbatim

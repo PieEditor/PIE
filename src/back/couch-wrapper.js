@@ -136,7 +136,7 @@ exports.docUpdate = function(document, callback) {
 }
 
 exports.docDelete = function(id, callback) {
-	doDeleteRequest("/document/" + id, callback);
+	doDelete("/document/" + id, callback);
 }
 
 exports.docGet = function(id, callback) {

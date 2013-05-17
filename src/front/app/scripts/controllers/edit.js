@@ -1,11 +1,23 @@
 'use strict';
 
 angular.module('pie')
-.controller('EditController', function ($scope, $resource, $routeParams, discussionService) {
-	var Document = $resource('/mockAPI/document/:id', {id: '@id'});
-	$scope.document = Document.get({id: $routeParams.documentId});
+.controller('EditController', function ($scope, $resource, $routeParams, authService, discussionService) {
+	var token = authService.ensureLoginAndReturnToken();
 
-	$scope.isMyContentEditable = false;
+	// Create the document factory
+	var Document = $resource(
+		'http://localhost\\:8080/documents/:id',
+		{
+			id: '@_id',
+			token: token
+		},
+		{
+			update: {method: 'PUT'}
+		}
+	);
+
+	// Get the document from the API
+	$scope.document = Document.get({id: $routeParams.documentId});
 
 	$scope.edit = function(section) {
 		if (! section.isMyContentEditable) {
@@ -13,7 +25,7 @@ angular.module('pie')
 		}
 		else {
 			section.isMyContentEditable = false;
-			$scope.document.$save({id: $scope.document.id});
+			$scope.document.$update();
 		}
 	};
 

@@ -31,8 +31,8 @@ angular.module('pie')
 			var t = this;
 			$cookieStore.put('token', undefined);
 
-			var u = {login:login, passwd:passwd, email:email, imgUrl:imgUrl};
-			$http.post('http://localhost:8080/users/signup', {user: u})
+			var user = {login:login, passwd:passwd, email:email, imgUrl:imgUrl};
+			$http.post('http://localhost:8080/users/signup', user)
 			.success(function(data) {
 				$cookieStore.put('token', JSON.parse(data));
 				successCallback();
