@@ -14,7 +14,7 @@ The document is encoded in JSON and must follow this syntax:
 	"content": string
 }
 
-The **_id** field should be unique, the **content** field is the Markdown document itself, and the **settings** field contains all the information required to apply styles to the document. If empty or **null**, default values will be used.
+The **_id** field should be unique, the **content** field is the Markdown document itself, and the **settings** field contains all the information required to apply styles to the document. If empty or **null**, default values will be used. See **default.json** for the syntax of the settings object.
 
 ## Return values
 
