@@ -28,8 +28,9 @@ http.createServer(function(req, res) {
 		} catch(e) {}
 		fs.writeFileSync(path + "d.md", md);
 		fs.writeFileSync(path + "s.json", settings);
-		exec("python convert.py " + path + "d.md " + path + "s.json " + req.url.replace("/", ""),
+		exec("python convert.py " + path + " " + req.url.replace("/", ""),
 			function(error, stdout, stderr) {
+				console.log(stdout);
 				if (error !== null) {
 					res.writeHead(500);
 					res.end();
