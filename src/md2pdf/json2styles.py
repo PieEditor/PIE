@@ -72,11 +72,11 @@ def textDecoration(dic):
 		res += "fo:font-style=\"italic\""
 	return res
 
-def process(jsonfile):
+def process(jsonfile, xmlfile):
 	f = open(jsonfile, "r")
 	settings = loads(f.read())
 	f.close()
-	f = open("styles.xml", "w")
+	f = open(xmlfile, "w")
 	f.write(xml_header)
 	f.write(office_header)
 	f.write(fonts.format(
