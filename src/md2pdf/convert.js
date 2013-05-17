@@ -22,10 +22,13 @@ http.createServer(function(req, res) {
 		var doc = JSON.parse(body);
 		var md = doc.content;
 		var settings = JSON.stringify(doc.settings);
-		var id = doc._id;
-		fs.writeFileSync(id + ".md", md);
-		fs.writeFileSync(id + ".json", settings);
-		exec("python convert.py " + id + ".md " + id + ".json " + req.url.replace("/", ""),
+		var path = "/tmp/" + doc._id + "/";
+		try {
+			fs.mkdirSync(path);
+		} catch(e) {}
+		fs.writeFileSync(path + "d.md", md);
+		fs.writeFileSync(path + "s.json", settings);
+		exec("python convert.py " + path + "d.md " + path + "s.json " + req.url.replace("/", ""),
 			function(error, stdout, stderr) {
 				if (error !== null) {
 					res.writeHead(500);
@@ -33,7 +36,7 @@ http.createServer(function(req, res) {
 					return;
 				}
 				if (fmt === "odt") {
-					fs.readFile(id + ".odt", function(error, data) {
+					fs.readFile(path + "d.odt", function(error, data) {
 						if (error !== null) {
 							res.writeHead(500);
 							res.end();
@@ -43,10 +46,12 @@ http.createServer(function(req, res) {
 						res.writeHead(200);
 						res.write(data);
 						res.end();
+						fs.unlink(path + "d.odt", function(err) {});
+						fs.rmdir(path, function(err) {});
 					});
 				}
 				else {
-					fs.readFile(id + ".pdf", function(error, data) {
+					fs.readFile(path + "d.pdf", function(error, data) {
 						if (error !== null) {
 							res.writeHead(500);
 							res.end();
@@ -56,8 +61,11 @@ http.createServer(function(req, res) {
 						res.writeHead(200);
 						res.write(data);
 						res.end();
+						fs.unlink(path + "d.pdf", function(err) {});
+						fs.rmdir(path, function(err) {});
 					});
 				}
 			});
 	});
 }).listen(8081, "localhost");
+
