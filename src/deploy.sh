@@ -6,4 +6,4 @@
 # $ ./deploy.fr another.server.com
 
 host=${1:-yimgo.fr}
-ssh pie@$host "cd devel/Communities; git pull; make -C src/md2pdf; cd src/front; killall node; npm install ; bower install ; grunt build ; nohup node ../back/server.js &"
+ssh pie@$host "cd devel/Communities; git pull; make -C src/md2pdf; cd src/front; killall node; npm install ; bower install ; grunt build ; (nohup node ../back/server.js > ../back/server.js.out 2> ../back/server.js.err &)"
