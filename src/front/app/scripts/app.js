@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pie', ['ngResource', 'ngMockE2E', 'ngCookies', 'ui.bootstrap'])
+angular.module('pie', ['ngResource', 'ngCookies', 'ui.bootstrap'])
 	.config(function ($routeProvider) {
 		$routeProvider
 			.when('/', {
