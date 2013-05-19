@@ -56,17 +56,29 @@
 		<!-- end of profile info -->
 		
 		<!-- document info -->
-			<div class="span6 row-fluid well">
-				<h2> My Works</h2>
-					<a href="#/createNewDoc"><button class="btn btn-large btn-success"><i class="icon-plus"></i> Create New Document ! </button></a>
-				<h4>Here we put all the documents the user work on with there tags</h4>
+			<div class="span6 row-fluid">
+				<h2> My Documents</h2>
 				
-				<div ng-repeat= "document in user.documents" class="row-fluid">
-					<div class="row-fluid" >
-						<a href="/#/editAndDiscuss/{{document.id}}"> {{document.title}} <i class="icon-pencil"></i></a>
-						<i class="icon-trash" ng-click="deleteDocument(document)"></i>
-					</div>
-				</div>
+				<table class="table table-striped">
+					<thead>
+						<th>Title</th>
+						<th>Actions</th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="document in user.documents">
+							<td><a href="/#/editAndDiscuss/{{document.id}}"> {{document.title}}</i></td>
+							<td><i class="icon-trash" ng-click="deleteDocument(document)"></i></td>
+						</tr>
+
+						<tr>
+							<td>
+								<a href="#/createNewDoc"><button class="btn btn-success"><i class="icon-plus-sign icon-white"></i> Create a new document</button></a>
+							</td>
+							<td></td>
+
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		<!-- end of document info --> 
 		</div>
