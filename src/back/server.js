@@ -6,7 +6,7 @@ var Cookies = require('cookies');
 
 var users = [];
 users["token"] = "kikoo";
-var server = http.createServer().listen(8080, '127.0.0.1');
+var server = http.createServer().listen(8080);
 
 server.on('request', function(request, response) {
 	var body = "";
