@@ -7,7 +7,9 @@ angular.module('pie')
 		scope: { content: '=' },
 		link: function(scope, element, attrs) {
 			scope.$watch('content', function(newVal) {
-				element.html(converter.makeHtml(newVal));
+				if (newVal) {
+					element.html(converter.makeHtml(newVal));
+				}
 			});
 		}
 	};
