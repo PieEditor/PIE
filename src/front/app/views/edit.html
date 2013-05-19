@@ -29,6 +29,8 @@
 				
 			</div>
 		</div>
-		<div contenteditable="{{ section.isMyContentEditable == true }}" ng-model="section.content"></div>
+
+		<div ng-hide="section.isMyContentEditable == true" ng-bind-html-unsafe="section.content | convertnewlines"></div>
+		<textarea ng-show="section.isMyContentEditable == true" ng-model="section.content" class="span12" rows="10"></textarea>
 	</div>
 </div>
