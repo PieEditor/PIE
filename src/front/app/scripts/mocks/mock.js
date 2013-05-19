@@ -3,7 +3,7 @@
 // All HTTP requests will go through this server
 // which will answer with mock data
 angular.module('pie')
-.run(function($httpBackend) {
+.run(function($httpBackend, apiBaseUrl) {
 	// Fake data
 	var discussion1 = {
 		id: 1,
@@ -161,8 +161,9 @@ angular.module('pie')
 	$httpBackend.whenGET(/views/).passThrough();
 
 	// Real API
-	$httpBackend.whenGET(/http:\/\/localhost:8080/).passThrough();
-	$httpBackend.whenPOST(/http:\/\/localhost:8080/).passThrough();
-	$httpBackend.whenPUT(/http:\/\/localhost:8080/).passThrough();
-	$httpBackend.whenDELETE(/http:\/\/localhost:8080/).passThrough();
+	var regex_baseUrl = new RegExp(apiBaseUrl);
+	$httpBackend.whenGET(regex_baseUrl).passThrough();
+	$httpBackend.whenPOST(regex_baseUrl).passThrough();
+	$httpBackend.whenPUT(regex_baseUrl).passThrough();
+	$httpBackend.whenDELETE(regex_baseUrl).passThrough();
 });
