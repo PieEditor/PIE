@@ -2,7 +2,6 @@ var couchWrapper = require('./couch-wrapper')
 
 var http = require('http');
 var crypto = require('crypto');
-var Cookies = require('cookies');
 
 var users = [];
 users["token"] = "kikoo";
@@ -10,8 +9,6 @@ var server = http.createServer().listen(8080);
 
 server.on('request', function(request, response) {
 	var body = "";
-	var cookieJar = new Cookies(request, response);
-
 	request.on('data', function(chunk) {
 		body += chunk;
 	});
@@ -91,8 +88,8 @@ server.on('request', function(request, response) {
 				couchWrapper.userLogin(params.login, function(user_data) {
 					if (user_data && user_data.shasum && shasum == user_data.shasum) {
 						users[user_data.uuid] = params.login;
-						cookieJar.set("token", user_data.uuid, {httpOnly: false});
-						response.writeHead(204, "No Content");
+						response.writeHead(200, "OK");
+						response.write(JSON.stringify(user_data.uuid));
 					}
 					else {
 						response.writeHead(403, "Forbidden");
@@ -106,7 +103,6 @@ server.on('request', function(request, response) {
 		else if (parsedUrl.pathname == "/user/signout" && request.method == "POST") {
 			if (isAuthenticatedUser) {
 				delete users[token];
-				cookieJar.set("token", "deleted", {httpOnly: false, expires: new Date(0)});
 				response.writeHead(204, "No Content");				
 			}
 			else {

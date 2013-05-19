@@ -15,6 +15,7 @@ angular.module('pie')
 
 			$http.post(apiBaseUrl + '/users/signin', {login:login, passwd:passwd})
 			.success(function(data) {
+				$cookieStore.put('token', JSON.parse(data));
 				successCallback();
 			})
 			.error(function(data) {
