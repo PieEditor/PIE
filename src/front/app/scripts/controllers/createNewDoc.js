@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pie')
-.controller('CreateNewDocController', function ($scope, $http, $resource, $routeParams,$location,$timeout, authService) {
+.controller('CreateNewDocController', function ($scope, $http, $resource, $routeParams, $location, $timeout, authService, apiBaseUrl) {
 	var myToken = authService.ensureLoginAndReturnToken();
 	$scope.architectureLevels = [
 		{title:'', level:1},
@@ -121,7 +121,7 @@ angular.module('pie')
 			content: $scope.architectureLevels
 		};
 
-		$http.post('http://localhost:8080/documents?token=' + myToken, myDocument)
+		$http.post(apiBaseUrl + '/documents?token=' + myToken, myDocument)
 		.success(function(docId) {
 			$location.path('/editAndDiscuss/'+JSON.parse(docId));
 		})
