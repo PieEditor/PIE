@@ -164,4 +164,5 @@ angular.module('pie')
 	$httpBackend.whenGET(/http:\/\/localhost:8080/).passThrough();
 	$httpBackend.whenPOST(/http:\/\/localhost:8080/).passThrough();
 	$httpBackend.whenPUT(/http:\/\/localhost:8080/).passThrough();
+	$httpBackend.whenDELETE(/http:\/\/localhost:8080/).passThrough();
 });

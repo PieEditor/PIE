@@ -63,7 +63,8 @@
 				
 				<div ng-repeat= "document in user.documents" class="row-fluid">
 					<div class="row-fluid" >
-						<i class="icon-pencil"></i><a href="/#/editAndDiscuss/{{document.id}}"> {{document.title}}</a>
+						<a href="/#/editAndDiscuss/{{document.id}}"> {{document.title}} <i class="icon-pencil"></i></a>
+						<i class="icon-trash" ng-click="deleteDocument(document)"></i>
 					</div>
 				</div>
 			</div>
