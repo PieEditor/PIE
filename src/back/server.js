@@ -22,8 +22,9 @@ server.on('request', function(request, response) {
 				response.write(body);
 			response.end();
 		}
-		 // we provide a public API
-		response.setHeader("Access-Control-Allow-Origin", "*");
+		 // handle CORS headers
+		response.setHeader("Access-Control-Allow-Origin", request.headers.origin);
+		response.setHeader("Access-Control-Allow-Credentials", true);
 
 		/* request handling */
 		// parse request
@@ -46,32 +47,25 @@ server.on('request', function(request, response) {
 		catch (error) {
 			badRequest("Unable to parse parameters.");
 		}
-		var token = "";
-		if (params.token) {
-			token = params.token;
-			delete params.token;
-		}
-		if (parsedUrl.query.token) {
-			token = parsedUrl.query.token;
-		}
+
+		// parse cookies in order to get the access token - thanks to Corey Hart & ianj : http://stackoverflow.com/questions/3393854/get-and-set-a-single-cookie-with-node-js-http-server
+		var cookies = {};
+		request.headers.cookie && request.headers.cookie.split(';').forEach(function(cookie) {
+			var parts = cookie.split("=");
+			cookies[parts[0].trim()] = (parts[1] || "").trim();
+		});
+
+		// check token validity
+		var token = cookies["token"] || "";
 		var isAuthenticatedUser = token && users[token] ? true : false;
 
-		/* CORS handling
-		 * Thanks to nilcolor.
-		 * https://gist.github.com/nilcolor/816580 
-		 */
 
+		// handle CORS preflight requests
 		if (request.method === 'OPTIONS') {
-			var headers = {};
-			// IE8 does not allow domains to be specified, just the *
-			// headers["Access-Control-Allow-Origin"] = req.headers.origin;
-			// Already done
-			// headers["Access-Control-Allow-Origin"] = "*";
-			headers["Access-Control-Allow-Methods"] = "POST, GET, PUT, DELETE, OPTIONS";
-			headers["Access-Control-Allow-Credentials"] = false;
-			headers["Access-Control-Max-Age"] = '86400'; // 24 hours
-			headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept";
-			response.writeHead(200, headers);
+			response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
+			response.setHeader("Access-Control-Max-Age", "86400"); // 24 hours
+			response.setHeader("Access-Control-Allow-Headers", "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept");
+			response.writeHead(200, "OK");
 			response.end();
 		}		
 
@@ -88,8 +82,8 @@ server.on('request', function(request, response) {
 				couchWrapper.userLogin(params.login, function(user_data) {
 					if (user_data && user_data.shasum && shasum == user_data.shasum) {
 						users[user_data.uuid] = params.login;
-						response.writeHead(200, "OK");
-						response.write(JSON.stringify(user_data.uuid));
+						response.setHeader("Set-Cookie", "token="+user_data.uuid);
+						response.writeHead(204, "No Content");
 					}
 					else {
 						response.writeHead(403, "Forbidden");
