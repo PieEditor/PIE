@@ -59,7 +59,6 @@ server.on('request', function(request, response) {
 		var token = cookies["token"] || "";
 		var isAuthenticatedUser = token && users[token] ? true : false;
 
-
 		// handle CORS preflight requests
 		if (request.method === 'OPTIONS') {
 			response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
@@ -182,20 +181,15 @@ server.on('request', function(request, response) {
 		}
 
 		// Get the login associated to a token
-		else if (parsedUrl.pathname.indexOf("/tokens/") == 0 && request.method == "GET") {
-			if (parsedUrl.pathname == "/tokens/") {
-				badRequest("Parameters are missing.");
+		else if (parsedUrl.pathname == "/token" && request.method == "GET") {
+			if (isAuthenticatedUser) {
+				response.writeHead(200, "OK");
+				response.write(JSON.stringify(users[token]));
 			}
 			else {
-				if (users[parsedUrl.pathname.substr("/tokens/".length)]) {
-					response.writeHead(200, "OK");
-					response.write(JSON.stringify(users[parsedUrl.pathname.substr("/tokens/".length)]));
-				}
-				else {
-					response.writeHead(404, "Not Found");
-				}
-				response.end();
+				response.writeHead(404, "Not Found");
 			}
+			response.end();
 		}
 
 		/* Document */
