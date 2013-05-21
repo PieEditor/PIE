@@ -2,7 +2,8 @@
 
 angular.module('pie')
 .controller('CreateNewDocController', function ($scope, $http, $resource, $routeParams, $location, $timeout, authService, apiBaseUrl) {
-	var myToken = authService.ensureLoginAndReturnToken();
+	authService.ensureLogin();
+
 	$scope.architectureLevels = [
 		{title:'', level:1},
 		{title:'', level:1},
@@ -121,7 +122,7 @@ angular.module('pie')
 			content: $scope.architectureLevels
 		};
 
-		$http.post(apiBaseUrl + '/documents?token=' + myToken, myDocument)
+		$http.post(apiBaseUrl + '/documents', myDocument)
 		.success(function(docId) {
 			$location.path('/editAndDiscuss/'+JSON.parse(docId));
 		})
