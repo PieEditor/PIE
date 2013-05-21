@@ -2,15 +2,12 @@
 
 angular.module('pie')
 .controller('EditController', function ($scope, $resource, $routeParams, authService, discussionService, apiBaseUrlEscaped) {
-	var token = authService.ensureLoginAndReturnToken();
+	authService.ensureLogin();
 
 	// Create the document factory
 	var Document = $resource(
 		apiBaseUrlEscaped + '/documents/:id',
-		{
-			id: '@_id',
-			token: token
-		},
+		{ id: '@_id' },
 		{
 			update: {method: 'PUT'}
 		}

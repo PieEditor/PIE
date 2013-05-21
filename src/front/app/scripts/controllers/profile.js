@@ -2,9 +2,9 @@
 
 angular.module('pie')
 .controller('ProfileController', function ($scope, $location, $resource, authService, $http, apiBaseUrl, apiBaseUrlEscaped) {
-	var token = authService.ensureLoginAndReturnToken();
+	authService.ensureLogin();
 	
-	var User = $resource(apiBaseUrlEscaped + '/user', {token: token});
+	var User = $resource(apiBaseUrlEscaped + '/user');
 	$scope.user = User.get();
 
 	$scope.logout = function() {
@@ -12,13 +12,12 @@ angular.module('pie')
 			function() { // success callback
 				$location.path("/");
 			},
-			function() { // error callback
-			}
+			function() {} // error callback
 		);
 	};
 
 	$scope.deleteDocument = function(document) {
-		$http.delete(apiBaseUrl + '/documents/' + document.id + '?token=' + token)
+		$http.delete(apiBaseUrl + '/documents/' + document.id)
 		.success(function() {
 			$scope.user = User.get(); // refresh the user
 		});
