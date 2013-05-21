@@ -10,7 +10,10 @@ For those which aren't, they can be encoded in JSON in the body of the request.
 
 #### Authentication
 
-The access token should be passed in the URL's query string. For compatibility reasons, it can be passed in the request's body encoded in JSON.
+The access token should be passed using cookie mechanism. 
+
+	Cookie: Cookie:token={token}
+
 A 401 "Unauthorized" response is sended back if the access token is not provided or does not correspond to an authenticated user.
 
 ### Error Codes
@@ -113,7 +116,7 @@ Delete the authenticated user's account.
 
 Should help you to check if a given token is valid.
 
-	GET /tokens/:token
+	GET /token
 
 #### Response
 
