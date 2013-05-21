@@ -84,7 +84,7 @@ Sign up a new user. Perform the login in the same time in providing the access t
 
 ### Get a single user
 
-	GET /users/:login
+	GET /users/{login}
 
 #### Response
 
@@ -149,7 +149,7 @@ Update the document of which the id is given.
 
 Note : Patching a document is not supported yet. Please replace the entire document.
 
-	PUT /documents/:id
+	PUT /documents/{id}
 
 #### Input
 
@@ -161,7 +161,7 @@ Note : Patching a document is not supported yet. Please replace the entire docum
 
 ### Delete a document
 
-	DELETE /documents/:id
+	DELETE /documents/{id}
 
 #### Response
 
@@ -183,7 +183,7 @@ List documents for the authenticated users.
 
 List documents for the specified user.
 
-	GET /users/:user/documents 
+	GET /users/{user}/documents 
 
 #### Response
 
@@ -192,7 +192,7 @@ List documents for the specified user.
 
 ### Get a single document
 
-	GET /documents/:id
+	GET /documents/{id}
 
 ### Response
 

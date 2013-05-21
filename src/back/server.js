@@ -1,21 +1,21 @@
-var couchWrapper = require('./couch-wrapper')
+var couchWrapper = require("./couch-wrapper")
 
-var http = require('http');
-var crypto = require('crypto');
+var http = require("http");
+var crypto = require("crypto");
 
 var users = [];
 users["token"] = "kikoo";
 var server = http.createServer().listen(8080);
 
-server.on('request', function(request, response) {
+server.on("request", function(request, response) {
 	var body = "";
-	request.on('data', function(chunk) {
+	request.on("data", function(chunk) {
 		body += chunk;
 	});
 
-	request.on('end', function() {
+	request.on("end", function() {
 
-		/* response handling */
+		// bad request helper
 		function badRequest(body) {
 			response.writeHead(400, "Bad Request");
 			if (body)
@@ -26,9 +26,8 @@ server.on('request', function(request, response) {
 		response.setHeader("Access-Control-Allow-Origin", request.headers.origin);
 		response.setHeader("Access-Control-Allow-Credentials", true);
 
-		/* request handling */
 		// parse request
-		parsedUrl = require('url').parse(request.url, true);
+		parsedUrl = require("url").parse(request.url, true);
 
 		// parse request's parameters		
 		var params;
@@ -50,7 +49,7 @@ server.on('request', function(request, response) {
 
 		// parse cookies in order to get the access token - thanks to Corey Hart & ianj : http://stackoverflow.com/questions/3393854/get-and-set-a-single-cookie-with-node-js-http-server
 		var cookies = {};
-		request.headers.cookie && request.headers.cookie.split(';').forEach(function(cookie) {
+		request.headers.cookie && request.headers.cookie.split(";").forEach(function(cookie) {
 			var parts = cookie.split("=");
 			cookies[parts[0].trim()] = (parts[1] || "").trim();
 		});
@@ -60,10 +59,10 @@ server.on('request', function(request, response) {
 		var isAuthenticatedUser = token && users[token] ? true : false;
 
 		// handle CORS preflight requests
-		if (request.method === 'OPTIONS') {
+		if (request.method === "OPTIONS") {
 			response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
 			response.setHeader("Access-Control-Max-Age", "86400"); // 24 hours
-			response.setHeader("Access-Control-Allow-Headers", "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept");
+			response.setHeader("Access-Control-Allow-Headers", "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Access-Control-Allow-Credentials");
 			response.writeHead(200, "OK");
 			response.end();
 		}		
@@ -77,7 +76,7 @@ server.on('request', function(request, response) {
 			}
 
 			else {
-				var shasum = crypto.createHash('sha512').update(params.passwd, 'utf8').digest('hex');
+				var shasum = crypto.createHash("sha512").update(params.passwd, "utf8").digest("hex");
 				couchWrapper.userLogin(params.login, function(user_data) {
 					if (user_data && user_data.shasum && shasum == user_data.shasum) {
 						users[user_data.uuid] = params.login;
@@ -111,7 +110,7 @@ server.on('request', function(request, response) {
 			}
 			else {
 				// generate shasum...
-				var shasum = crypto.createHash('sha512').update(params.passwd, 'utf8').digest('hex');
+				var shasum = crypto.createHash("sha512").update(params.passwd, "utf8").digest("hex");
 				params.shasum = shasum;
 				// ... then delete the password
 				delete params.passwd;
@@ -130,9 +129,9 @@ server.on('request', function(request, response) {
 		}
 
 		// Get a single user or get the authenticated user
-		else if (((parsedUrl.pathname.indexOf('/users/') == 0 && parsedUrl.pathname.split('/').length == 3) || parsedUrl.pathname == '/user') && request.method == 'GET') {
+		else if (((parsedUrl.pathname.indexOf("/users/") == 0 && parsedUrl.pathname.split("/").length == 3) || parsedUrl.pathname == "/user") && request.method == "GET") {
 			// determine the user
-			var login = request.url.indexOf('/users/') == 0 ? request.url.substr('/users/'.length) : users[token];
+			var login = request.url.indexOf("/users/") == 0 ? request.url.substr("/users/".length) : users[token];
 			if (isAuthenticatedUser) {
 				couchWrapper.userGet(login, function(user_object) {
 					if (user_object) {
@@ -237,7 +236,7 @@ server.on('request', function(request, response) {
 		// Delete a document
 		else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "DELETE") {
 			if (isAuthenticatedUser) {
-				couchWrapper.docDelete(parsedUrl.pathname.substr('/documents/'.length), function(success) {
+				couchWrapper.docDelete(parsedUrl.pathname.substr("/documents/".length), function(success) {
 					if (success) {
 						response.writeHead(204, "No Content");
 					}
@@ -254,9 +253,9 @@ server.on('request', function(request, response) {
 		}
 
 		// List your documents or user documents
-		else if ((parsedUrl.pathname == "/documents" || (parsedUrl.pathname.indexOf("/users/") == 0 && parsedUrl.pathname.indexOf("/documents") == parsedUrl.pathname.length - "/documents".length) && parsedUrl.pathname.split('/').length == 4) && request.method == "GET") {
+		else if ((parsedUrl.pathname == "/documents" || (parsedUrl.pathname.indexOf("/users/") == 0 && parsedUrl.pathname.indexOf("/documents") == parsedUrl.pathname.length - "/documents".length) && parsedUrl.pathname.split("/").length == 4) && request.method == "GET") {
 			if (isAuthenticatedUser) {
-				var login = parsedUrl.pathname == "/documents" ? users[token] : parsedUrl.pathname.substring('/users/'.length, parsedUrl.pathname.indexOf('/documents'));
+				var login = parsedUrl.pathname == "/documents" ? users[token] : parsedUrl.pathname.substring("/users/".length, parsedUrl.pathname.indexOf("/documents"));
 				if (login) {
 					couchWrapper.docByUser(login, function(docs_list) {
 						if (docs_list !== null) {
@@ -282,7 +281,7 @@ server.on('request', function(request, response) {
 		// Get a single document
 		else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "GET") {
 			if (isAuthenticatedUser) {
-				couchWrapper.docGet(parsedUrl.pathname.substr('/documents/'.length), function(doc) {
+				couchWrapper.docGet(parsedUrl.pathname.substr("/documents/".length), function(doc) {
 					if (doc) {
 						response.writeHead(200, "OK");
 						response.write(JSON.stringify(doc));
