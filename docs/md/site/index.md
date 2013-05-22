@@ -12,7 +12,7 @@ L'équipe PIE est constituée de cinq étudiants du département *Télécommunic
 * Guillaume Burel : responsable serveur
 * Baptiste Metge : responsable *front-end*
 * Fabio Guigou : responsable base de données
-* Xiao-Yu Feng : irresponsable puni
+* Xiao-Yu Feng
 
 TODO : Ajouter photo de groupe, ça fera mieux.
 
