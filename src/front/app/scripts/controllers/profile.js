@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('pie')
-.controller('ProfileController', function ($scope, $location, $resource, authService) {
-	var token = authService.ensureLoginAndReturnToken();
+.controller('ProfileController', function ($scope, $location, $resource, authService, $http, apiBaseUrl, apiBaseUrlEscaped) {
+	authService.ensureLogin();
 	
-	var User = $resource('http://localhost\\:8080/user', {token: token});
+	var User = $resource(apiBaseUrlEscaped + '/user');
 	$scope.user = User.get();
 
 	$scope.logout = function() {
@@ -12,8 +12,14 @@ angular.module('pie')
 			function() { // success callback
 				$location.path("/");
 			},
-			function() { // error callback
-			}
+			function() {} // error callback
 		);
+	};
+
+	$scope.deleteDocument = function(document) {
+		$http.delete(apiBaseUrl + '/documents/' + document.id)
+		.success(function() {
+			$scope.user = User.get(); // refresh the user
+		});
 	};
 });

@@ -1,16 +1,13 @@
 'use strict';
 
 angular.module('pie')
-.controller('EditController', function ($scope, $resource, $routeParams, authService, discussionService) {
-	var token = authService.ensureLoginAndReturnToken();
+.controller('EditController', function ($scope, $resource, $routeParams, authService, discussionService, apiBaseUrlEscaped) {
+	authService.ensureLogin();
 
 	// Create the document factory
 	var Document = $resource(
-		'http://localhost\\:8080/documents/:id',
-		{
-			id: '@id',
-			token: token
-		},
+		apiBaseUrlEscaped + '/documents/:id',
+		{ id: '@_id' },
 		{
 			update: {method: 'PUT'}
 		}

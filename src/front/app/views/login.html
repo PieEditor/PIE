@@ -1,23 +1,27 @@
+
 <div ng-controller="LoginController">
 	<div class="row-fluid">
 		<h1>Please login</h1>
 		<hr />
 	</div>
 	
+	
+
 	<!-- Menu -->
 	<div class="row-fluid">
 		<!-- Side Menu -->
-		<div class="well span2 side-menu">
+		<div class="well span3 side-menu">
 			<ul class="nav nav-list">
 				<li class="nav-header">PIE</li>
 				<li class={{menuTabLogin}}><a ng-click="menuClickOnLogin()" data-toggle="tab"><i class="icon-chevron-right"></i> Login</a></li>
 				<li class={{menuTabRegister}}><a ng-click="menuClickOnRegister()" data-toggle="tab"><i class="icon-chevron-right"></i> Registration</a></li>
 			</ul>
+
 		</div>
 		<!-- End side menu -->
 		
 		<!-- Menu  Content -->
-		<div class="tab-content span10">
+		<div class="tab-content span9">
 			<!-- Login Form -->  
 			<div class="tab-pane {{menuTabPaneLogin}}">
 				<div class="span9 row-fluid formhorizontal well">
@@ -40,7 +44,7 @@
 										<h3 id="forgotPasswordModalLabel">Forgot Password</h3>
 									</div>
 									<div class="modal-body">
-										<p> In order to reset your password please enter your email adress</p>
+										<p> In order to reset your password please enter your email address</p>
 										<div class="container-fluid">
 											<div class="row-fluid">
 												<div class="control-group" id="resetEmailGrp">
@@ -52,7 +56,7 @@
 														<div class="span8">
 															<span class="help-inline alert alert-error span8 " style="display: {{invalidForgotEmailAlert}};">Sorry we haven't found your email in our system</span>
 															<span class="help-inline alert alert-error span8 " style="display: {{emptyForgotPasswordEmail}};"> Enter your email please...</span>
-															<span class="help-inline alert alert-success span8 " style="display: {{successForgotPasswordEmail}};"> A new random password have been send to your email adress.</span>
+															<span class="help-inline alert alert-success span8 " style="display: {{successForgotPasswordEmail}};"> A new random password have been send to your email address.</span>
 														</div>
 													</div>
 												</div>
@@ -60,7 +64,7 @@
 										</div>
 									</div>
 									<div class="modal-footer">
-										<button class="btn btn-primary" id="resetPasswordButton" ng-click="resetPassword()">Validate</button>
+										<button class="btn btn-primary" id="resetPasswordButton" ng-click="resetPassword()">Confirm</button>
 										<button class="btn" data-dismiss="modal" aria-hidden="true" ng-click="close()">Close</button>
 									</div>
 								</div>
@@ -101,8 +105,12 @@
 												<h3 id="termsModalLabel">Terms and conditions</h3>
 											</div>
 											<div class="modal-body">
-												<p>Terms and Conditions </p>
-												<p> Here are the terms and conditions...</p>
+												<p>Please read these terms and conditions carefully before using this service (the “Service”, “Communities” “we”, “our” or “us”). By using the service, you, the User, signify your agreement to these terms of use. </p>
+												
+												<p> 
+												We reserve the right to change or modify any of the terms and conditions contained in the Terms or any policy or guideline of the Service, at any time and in our sole discretion. Any changes or modifications will be effective immediately upon the posting of such revisions on our website located at http://www.communities.com (the “Site”), and you waive any right you may have to receive specific notice of such changes or modifications. Your continued use of the Service (or any portion thereof) following the posting of changes or modifications will confirm your acceptance of such changes or modifications on the Site. Therefore, you should frequently review the Terms and applicable policies from time-to-time to understand the terms and conditions that apply to your use of the Service. If you do not agree with all of the terms and conditions of the amended Terms, you must stop using the Service.  
+
+												If you have any questions regarding the use of the Service, please email us at support@communities.com.  </p>
 											</div>
 											<div class="modal-footer">
 												<button class="btn" data-dismiss="modal" aria-hidden="true" ng-click="close()">Close</button>
@@ -130,7 +138,7 @@
 		</div>
 		<div class="alert alert-error span5"  style="display: {{registrationPasswordDontMatchAlert}};">
 				<h5 class="alert-heading">Registration failure!</h5>
-				Passwords don't match, please try again. 
+				Password doesn't match, please try again. 
 		</div>
 		<div class="alert alert-error span5"  style="display: {{registrationUserNameAlreadyUseAlert}};">
 				<h5 class="alert-heading">Registration failure!</h5>
@@ -142,5 +150,12 @@
 		</div>
 	</div>
 	<!-- End of alerts -->
+
+	<div class="row-fluid">
+ 		<div class="span4 offset4">
+ 			<img src="https://github.com/Yimgo/Communities/blob/master/docs/ressources/pie.png" width="200" height="200">
+ 		</div>
+ 	</div>
+
 </div>
 
