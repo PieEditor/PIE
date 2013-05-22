@@ -34,7 +34,7 @@ BODY STYLING
 }
 
 body {
-	background: url(../images/bg.png) repeat;
+	background: url(/images/bg.png) repeat;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight:300;
 	text-align: left;
@@ -77,7 +77,7 @@ body {
 	margin-top: -300px;
 	
 	/* Fallback */ 
-	background-image: url(../images/gradient.png); 
+	background-image: url(/images/gradient.png); 
 	background-repeat: no-repeat; 
 	
 	/* CSS3 Gradient */
