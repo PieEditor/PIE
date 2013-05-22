@@ -29,6 +29,10 @@
 				
 			</div>
 		</div>
-		<div contentEditable="{{ section.isMyContentEditable == true }}">{{ section.content }}</div>
+
+		<div ng-hide="section.isMyContentEditable == true">
+			<piemarkdown content="section.content"></piemarkdown>
+		</div>
+		<textarea ng-show="section.isMyContentEditable == true" ng-model="section.content" class="span12" rows="10"></textarea>
 	</div>
 </div>
