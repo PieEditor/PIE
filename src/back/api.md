@@ -10,7 +10,10 @@ For those which aren't, they can be encoded in JSON in the body of the request.
 
 #### Authentication
 
-The access token should be passed in the URL's query string. For compatibility reasons, it can be passed in the request's body encoded in JSON.
+The access token should be passed using cookie mechanism. 
+
+	Cookie: Cookie:token={token}
+
 A 401 "Unauthorized" response is sended back if the access token is not provided or does not correspond to an authenticated user.
 
 ### Error Codes
@@ -81,7 +84,7 @@ Sign up a new user. Perform the login in the same time in providing the access t
 
 ### Get a single user
 
-	GET /users/:login
+	GET /users/{login}
 
 #### Response
 
@@ -113,7 +116,7 @@ Delete the authenticated user's account.
 
 Should help you to check if a given token is valid.
 
-	GET /tokens/:token
+	GET /token
 
 #### Response
 
@@ -146,7 +149,7 @@ Update the document of which the id is given.
 
 Note : Patching a document is not supported yet. Please replace the entire document.
 
-	PUT /documents/:id
+	PUT /documents/{id}
 
 #### Input
 
@@ -158,7 +161,7 @@ Note : Patching a document is not supported yet. Please replace the entire docum
 
 ### Delete a document
 
-	DELETE /documents/:id
+	DELETE /documents/{id}
 
 #### Response
 
@@ -180,7 +183,7 @@ List documents for the authenticated users.
 
 List documents for the specified user.
 
-	GET /users/:user/documents 
+	GET /users/{user}/documents 
 
 #### Response
 
@@ -189,7 +192,7 @@ List documents for the specified user.
 
 ### Get a single document
 
-	GET /documents/:id
+	GET /documents/{id}
 
 ### Response
 
