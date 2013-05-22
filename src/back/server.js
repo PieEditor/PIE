@@ -104,6 +104,7 @@ server.on("request", function(request, response) {
 			else if (parsedUrl.pathname == "/user/signout" && request.method == "POST") {
 				if (isAuthenticated) {
 					delete users[token];
+					response.setHeader("Set-Cookie", "token=deleted; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT");
 					response.writeHead(204, "No Content");				
 				}
 				else {
