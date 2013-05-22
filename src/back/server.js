@@ -14,7 +14,6 @@ server.on("request", function(request, response) {
 	});
 
 	request.on("end", function() {
-
 		// bad request helper
 		function badRequest(body) {
 			response.writeHead(400, "Bad Request");
@@ -22,9 +21,6 @@ server.on("request", function(request, response) {
 				response.write(body);
 			response.end();
 		}
-		 // handle CORS headers
-		response.setHeader("Access-Control-Allow-Origin", request.headers.origin);
-		response.setHeader("Access-Control-Allow-Credentials", true);
 
 		// parse request
 		parsedUrl = require("url").parse(request.url, true);
@@ -55,212 +51,164 @@ server.on("request", function(request, response) {
 		});
 
 		// check token validity
-		var token = cookies["token"] || "";
-		var isAuthenticatedUser = token && users[token] ? true : false;
+		var token = cookies["token"];
+		var isAuthenticated = token && users[token];
 
 		// handle CORS preflight requests
 		if (request.method === "OPTIONS") {
-			response.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
-			response.setHeader("Access-Control-Max-Age", "86400"); // 24 hours
-			response.setHeader("Access-Control-Allow-Headers", "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Access-Control-Allow-Credentials");
-			response.writeHead(200, "OK");
-			response.end();
-		}		
-
-		/* USER */
-
-		// Sign in
-		else if (parsedUrl.pathname == "/users/signin" && request.method == "POST") {
-			if (!params.login || !params.passwd) {
-				badRequest("Login or password is missing.");
-			}
-
-			else {
-				var shasum = crypto.createHash("sha512").update(params.passwd, "utf8").digest("hex");
-				couchWrapper.userLogin(params.login, function(user_data) {
-					if (user_data && user_data.shasum && shasum == user_data.shasum) {
-						users[user_data.uuid] = params.login;
-						response.setHeader("Set-Cookie", "token="+user_data.uuid);
-						response.writeHead(204, "No Content");
-					}
-					else {
-						response.writeHead(403, "Forbidden");
-					}
-					response.end();
-				});
-			}
-		}
-
-		// Sign out
-		else if (parsedUrl.pathname == "/user/signout" && request.method == "POST") {
-			if (isAuthenticatedUser) {
-				delete users[token];
-				response.writeHead(204, "No Content");				
-			}
-			else {
-				response.writeHead(401, "Unauthorized");
-			}
-			response.end();
-		}
-
-		// Sign up
-		else if (parsedUrl.pathname == "/users/signup" && request.method == "POST") {
-			if (!params.login || !params.passwd || !params.email || !params.imgUrl) {
-				badRequest("Parameters are missing.");
-			}
-			else {
-				// generate shasum...
-				var shasum = crypto.createHash("sha512").update(params.passwd, "utf8").digest("hex");
-				params.shasum = shasum;
-				// ... then delete the password
-				delete params.passwd;
-				couchWrapper.userCreate(params, function(uuid) {
-					if (uuid) {
-						users[uuid] = params.login
-						response.writeHead(201, "Created");
-						response.write(JSON.stringify(uuid));
-					}
-					else {
-						response.writeHead(403, "Forbidden");
-					}
-					response.end();
-				});
-			}
-		}
-
-		// Get a single user or get the authenticated user
-		else if (((parsedUrl.pathname.indexOf("/users/") == 0 && parsedUrl.pathname.split("/").length == 3) || parsedUrl.pathname == "/user") && request.method == "GET") {
-			// determine the user
-			var login = request.url.indexOf("/users/") == 0 ? request.url.substr("/users/".length) : users[token];
-			if (isAuthenticatedUser) {
-				couchWrapper.userGet(login, function(user_object) {
-					if (user_object) {
-						couchWrapper.docByUser(login, function(docs_list) {
-							if (docs_list !== null) {
-								user_object.documents = docs_list;
-								response.writeHead(200, "OK");
-								response.write(JSON.stringify(user_object));
-							}
-							else {
-								response.writeHead(403, "Forbidden");
-							}
-							response.end();
-						});
-					}
-					else {
-						response.writeHead(403, "Forbidden");
-						response.end();
-					}					
-				});
-			}
-			else {
-				response.writeHead(401, "Unauthorized");
-				response.end();
-			}
-		}
-
-		// Delete the authenticated user
-		else if (parsedUrl.pathname == "/user" && request.method == "DELETE") {
-			if (isAuthenticatedUser) {
-				couchWrapper.userDelete(users[token], function(success) {
-					if (success) {
-						response.writeHead(204, "No Content");
-					}
-					else {
-						response.writeHead(403, "Forbidden");
-					}
-					response.end();
-				});
-				delete users[token];		
-			}
-			else {
-				response.writeHead(401, "Unauthorized");
-				response.end();
-			}
-		}
-
-		// Get the login associated to a token
-		else if (parsedUrl.pathname == "/token" && request.method == "GET") {
-			if (isAuthenticatedUser) {
+			if (request.headers.origin) {
+	            response.setHeader("Access-Control-Allow-Origin", request.headers.origin);
+	            response.setHeader("Access-Control-Allow-Credentials", "true");
+	            response.setHeader("Access-Control-Allow-Headers", "accept, access-control-allow-credentials, x-requested-with, origin, content-type");
 				response.writeHead(200, "OK");
-				response.write(JSON.stringify(users[token]));
-			}
-			else {
-				response.writeHead(404, "Not Found");
-			}
-			response.end();
-		}
-
-		/* Document */
-
-		// Create a single document
-		else if (parsedUrl.pathname == "/documents" && request.method == "POST") {
-			if (isAuthenticatedUser) {
-				couchWrapper.docAdd(params, function(id) {
-					if (id) {
-						response.writeHead(201, "Created");
-						response.write(JSON.stringify(id));
-					}
-					else {
-						response.writeHead(403, "Forbidden");
-					}
-					response.end();
-				});
-			}
-			else {
-				response.writeHead(401, "Unauthorized");
 				response.end();
 			}
-		}
-
-		// Update a document
-		else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "PUT") {
-			if (isAuthenticatedUser) {
-				couchWrapper.docUpdate(params, function(success) {
-					if (success) {
-						response.writeHead(204, "No Content");
-					}
-					else {
-						response.writeHead(403, "Forbidden");
-					}
-					response.end();
-				});
-			}
 			else {
-				response.writeHead(401, "Unauthorized");
+				response.writeHead(400, "Bad Request");
+				response.end();
+			}
+			
+		}
+		else {
+			// add CORS headers
+			if (request.headers.origin) {
+                response.setHeader("Access-Control-Allow-Origin", request.headers.origin);
+                response.setHeader("Access-Control-Allow-Credentials", "true");
+            }
+
+			/* USER */
+
+			// Sign in
+			if (parsedUrl.pathname == "/users/signin" && request.method == "POST") {
+				if (!params.login || !params.passwd) {
+					badRequest("Login or password is missing.");
+				}
+
+				else {
+					var shasum = crypto.createHash("sha512").update(params.passwd, "utf8").digest("hex");
+					couchWrapper.userLogin(params.login, function(user_data) {
+						if (user_data && user_data.shasum && shasum == user_data.shasum) {
+							users[user_data.uuid] = params.login;
+							response.setHeader("Set-Cookie", "token="+user_data.uuid+"; path=/; expires=Wed, 14-Jan-2032 16:16:49 GMT");
+							response.writeHead(204, "No Content");
+						}
+						else {
+							response.writeHead(403, "Forbidden");
+						}
+						response.end();
+					});
+				}
+			}
+
+			// Sign out
+			else if (parsedUrl.pathname == "/user/signout" && request.method == "POST") {
+				if (isAuthenticated) {
+					delete users[token];
+					response.writeHead(204, "No Content");				
+				}
+				else {
+					response.writeHead(401, "Unauthorized");
+				}
 				response.end();
 			}
 
-		}
-
-		// Delete a document
-		else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "DELETE") {
-			if (isAuthenticatedUser) {
-				couchWrapper.docDelete(parsedUrl.pathname.substr("/documents/".length), function(success) {
-					if (success) {
-						response.writeHead(204, "No Content");
-					}
-					else {
-						response.writeHead(403, "Forbidden");
-					}
-					response.end();
-				});
+			// Sign up
+			else if (parsedUrl.pathname == "/users/signup" && request.method == "POST") {
+				if (!params.login || !params.passwd || !params.email || !params.imgUrl) {
+					badRequest("Parameters are missing.");
+				}
+				else {
+					// generate shasum...
+					var shasum = crypto.createHash("sha512").update(params.passwd, "utf8").digest("hex");
+					params.shasum = shasum;
+					// ... then delete the password
+					delete params.passwd;
+					couchWrapper.userCreate(params, function(uuid) {
+						if (uuid) {
+							users[uuid] = params.login
+							response.writeHead(201, "Created");
+							response.write(JSON.stringify(uuid));
+						}
+						else {
+							response.writeHead(403, "Forbidden");
+						}
+						response.end();
+					});
+				}
 			}
-			else {
-				response.writeHead(401, "Unauthorized");
+
+			// Get a single user or get the authenticated user
+			else if (((parsedUrl.pathname.indexOf("/users/") == 0 && parsedUrl.pathname.split("/").length == 3) || parsedUrl.pathname == "/user") && request.method == "GET") {
+				// determine the user
+				var login = request.url.indexOf("/users/") == 0 ? request.url.substr("/users/".length) : users[token];
+				if (isAuthenticated) {
+					couchWrapper.userGet(login, function(user_object) {
+						if (user_object) {
+							couchWrapper.docByUser(login, function(docs_list) {
+								if (docs_list !== null) {
+									user_object.documents = docs_list;
+									response.writeHead(200, "OK");
+									response.write(JSON.stringify(user_object));
+								}
+								else {
+									response.writeHead(403, "Forbidden");
+								}
+								response.end();
+							});
+						}
+						else {
+							response.writeHead(403, "Forbidden");
+							response.end();
+						}					
+					});
+				}
+				else {
+					response.writeHead(401, "Unauthorized");
+					response.end();
+				}
+			}
+
+			// Delete the authenticated user
+			else if (parsedUrl.pathname == "/user" && request.method == "DELETE") {
+				if (isAuthenticated) {
+					couchWrapper.userDelete(users[token], function(success) {
+						if (success) {
+							response.writeHead(204, "No Content");
+						}
+						else {
+							response.writeHead(403, "Forbidden");
+						}
+						response.end();
+					});
+					delete users[token];		
+				}
+				else {
+					response.writeHead(401, "Unauthorized");
+					response.end();
+				}
+			}
+
+			// Get the login associated to a token
+			else if (parsedUrl.pathname == "/token" && request.method == "GET") {
+				if (isAuthenticated) {
+					response.writeHead(200, "OK");
+					response.write(JSON.stringify(users[token]));
+				}
+				else {
+					response.writeHead(404, "Not Found");
+				}
 				response.end();
 			}
-		}
 
-		// List your documents or user documents
-		else if ((parsedUrl.pathname == "/documents" || (parsedUrl.pathname.indexOf("/users/") == 0 && parsedUrl.pathname.indexOf("/documents") == parsedUrl.pathname.length - "/documents".length) && parsedUrl.pathname.split("/").length == 4) && request.method == "GET") {
-			if (isAuthenticatedUser) {
-				var login = parsedUrl.pathname == "/documents" ? users[token] : parsedUrl.pathname.substring("/users/".length, parsedUrl.pathname.indexOf("/documents"));
-				if (login) {
-					couchWrapper.docByUser(login, function(docs_list) {
-						if (docs_list !== null) {
-							response.writeHead(200, "OK");
-							response.write(JSON.stringify(docs_list));
+			/* Document */
+
+			// Create a single document
+			else if (parsedUrl.pathname == "/documents" && request.method == "POST") {
+				if (isAuthenticated) {
+					couchWrapper.docAdd(params, function(id) {
+						if (id) {
+							response.writeHead(201, "Created");
+							response.write(JSON.stringify(id));
 						}
 						else {
 							response.writeHead(403, "Forbidden");
@@ -269,38 +217,100 @@ server.on("request", function(request, response) {
 					});
 				}
 				else {
-					badRequest("Parameters are missing.");
+					response.writeHead(401, "Unauthorized");
+					response.end();
 				}
 			}
-			else {
-				response.writeHead(401, "Unauthorized");
-				response.end();
-			}
-		}
 
-		// Get a single document
-		else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "GET") {
-			if (isAuthenticatedUser) {
-				couchWrapper.docGet(parsedUrl.pathname.substr("/documents/".length), function(doc) {
-					if (doc) {
-						response.writeHead(200, "OK");
-						response.write(JSON.stringify(doc));
+			// Update a document
+			else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "PUT") {
+				if (isAuthenticated) {
+					couchWrapper.docUpdate(params, function(success) {
+						if (success) {
+							response.writeHead(204, "No Content");
+						}
+						else {
+							response.writeHead(403, "Forbidden");
+						}
+						response.end();
+					});
+				}
+				else {
+					response.writeHead(401, "Unauthorized");
+					response.end();
+				}
+
+			}
+
+			// Delete a document
+			else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "DELETE") {
+				if (isAuthenticated) {
+					couchWrapper.docDelete(parsedUrl.pathname.substr("/documents/".length), function(success) {
+						if (success) {
+							response.writeHead(204, "No Content");
+						}
+						else {
+							response.writeHead(403, "Forbidden");
+						}
+						response.end();
+					});
+				}
+				else {
+					response.writeHead(401, "Unauthorized");
+					response.end();
+				}
+			}
+
+			// List your documents or user documents
+			else if ((parsedUrl.pathname == "/documents" || (parsedUrl.pathname.indexOf("/users/") == 0 && parsedUrl.pathname.indexOf("/documents") == parsedUrl.pathname.length - "/documents".length) && parsedUrl.pathname.split("/").length == 4) && request.method == "GET") {
+				if (isAuthenticated) {
+					var login = parsedUrl.pathname == "/documents" ? users[token] : parsedUrl.pathname.substring("/users/".length, parsedUrl.pathname.indexOf("/documents"));
+					if (login) {
+						couchWrapper.docByUser(login, function(docs_list) {
+							if (docs_list !== null) {
+								response.writeHead(200, "OK");
+								response.write(JSON.stringify(docs_list));
+							}
+							else {
+								response.writeHead(403, "Forbidden");
+							}
+							response.end();
+						});
 					}
 					else {
-						response.writeHead(403, "Forbidden");
+						badRequest("Parameters are missing.");
 					}
+				}
+				else {
+					response.writeHead(401, "Unauthorized");
 					response.end();
-				});
+				}
 			}
-			else {
-				response.writeHead(401, "Unauthorized");
-				response.end();
-			}
-		}
 
-		// Default
-		else {
-			badRequest("The request does not match with an API function.");
+			// Get a single document
+			else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "GET") {
+				if (isAuthenticated) {
+					couchWrapper.docGet(parsedUrl.pathname.substr("/documents/".length), function(doc) {
+						if (doc) {
+							response.writeHead(200, "OK");
+							response.write(JSON.stringify(doc));
+						}
+						else {
+							response.writeHead(403, "Forbidden");
+						}
+						response.end();
+					});
+				}
+				else {
+					response.writeHead(401, "Unauthorized");
+					response.end();
+				}
+			}
+
+			// Default
+			else {
+				badRequest("The request does not match with an API function.");
+			}
 		}
 	});
 });

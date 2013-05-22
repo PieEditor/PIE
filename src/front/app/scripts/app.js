@@ -32,7 +32,4 @@ angular.module('pie', ['ngResource', 'ngCookies', 'ui.bootstrap'])
 			});
 	})
 	.constant('apiBaseUrl', 'http://' + document.domain + ':8080')
-	.constant('apiBaseUrlEscaped', 'http://' + document.domain + '\\:8080')
-	.config(function($httpProvider) {
-		$httpProvider.defaults.headers.common['Access-Control-Allow-Credentials'] = true;
-	});
+	.constant('apiBaseUrlEscaped', 'http://' + document.domain + '\\:8080');
