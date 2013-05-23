@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pie')
-.controller('ProfileController', function ($scope, $location, $resource, authService, $http, apiBaseUrl, apiBaseUrlEscaped) {
+.controller('ProfileController', function ($scope, $location, $resource, authService, $http, apiBaseUrl) {
 	authService.ensureLogin();
 	
 	$http({method: "GET", url: apiBaseUrl + "/user", withCredentials: true})
