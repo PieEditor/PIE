@@ -1,15 +1,39 @@
 <div ng-controller="architectureController">
+	
+	<!-- navigation bar -->
+	<div class="navbar navbar-fixed-top force-min-width">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<a class="brand span1" href="#">PIE</a>
+					<ul class="nav span8">
+						<li class="active" ><a href="/#/profilePage">My Profile</a></li>
+						<li ><a href="/#/">About Us</a></li>
+						<li ><a href="/#/">Contact Us</a></li>
+						<li ><a href="#" ng-click="logout()">Log out</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>            
+	</div>
+	<hr/>
+	
+	
 	<div class="row-fluid">
-		<h1>Please create the architecture that you need for your document here... </h1>
+		<h1>Create the architecture that you need  ! </h1>
+		<p> The idea here is design the struture of the document before writing it. The philosophie of PIE is to follow presicely the real workflow of the creation of a document, which obviously start here... </p>
 	</div>
 	<hr />
-	<h3>Use the different buttons to either create new sections or modified there position in the architectures</h3>
-	<p> The idea here is design the struture of the document before writing it. The philosophie of PIE is to follow presicely the real workflow of the creation of a document, which obviously start here... </p>
-	<hr />
-	<button class="btn btn-large btn-success" ng-click="sendArchitecture()"><i class="icon-plus"></i> Save Architecture ! </button>		
-	<div class="offset5"><h2>Title : {{document.title}}</h2></div>
-	<div class="offset5"><input type="text" ng-model="document.title" placeholder="Document Title"></div>
-	<div><h3>Architecture : </h3></div>
+	<div class="row-fluid " >
+	<div class="span3 well"><h2>Title</h2></div>
+	<div class="span9 "><input class="input-xxlarge input-styled-title" type="text" ng-model="document.title" placeholder="Document Title"></div>
+	</div>
+	<div class="row-fluid " >
+	<div class="span3 well"><h3>Architecture : </h3><br>
+		<p><li>Use <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-plus-sign"></i> <span class="caret"></span></button> to create New or Sub Parts.<br></li>
+		<li>Use <button class="btn btn-mini" data-toggle="dropdown"><i class="icon-step-backward"></i> </button> <button class="btn btn-mini" data-toggle="dropdown"><i class="icon-step-forward"></i> </button> to move a section in the architecture. <br></li>
+		<li> Use <button class="btn btn-mini" data-toggle="dropdown"><i class="icon-remove"></i> </button> to delete a section and all the subparts it contains.</li></p></div>
+	<div class ="span9"> 
 	<li ng-repeat="part in document.content" class="offset{{part.level-1}}"> 
 		{{ getPartIndice(part, document.content) }}
 		<input type="text"  ng-model="part.title" placeholder="Section title">
@@ -26,6 +50,10 @@
 			</ul>
 		</div>
 	</li> 
-	</div>	
+	</div>
+	</div>
+	<div class="row-fluid">
+	<div class=" span3 well "> <button class="btn btn-large btn-success" ng-click="sendArchitecture()"><i class="icon-ok"></i> Save Architecture ! </button>	</div>
+	</div>
 </div>
 </div>
