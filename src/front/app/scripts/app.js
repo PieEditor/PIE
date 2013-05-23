@@ -31,5 +31,4 @@ angular.module('pie', ['ngResource', 'ui.bootstrap'])
 				templateUrl: 'views/404.html'
 			});
 	})
-	.constant('apiBaseUrl', 'http://' + document.domain + ':8080')
-	.constant('apiBaseUrlEscaped', 'http://' + document.domain + '\\:8080');
+	.constant('apiBaseUrl', 'http://' + document.domain + ':8080');
