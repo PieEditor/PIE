@@ -5,14 +5,6 @@
 <title>PIE Intelligent Editor</title>
 <link href='http://fonts.googleapis.com/css?family=Merriweather+Sans' rel='stylesheet' type='text/css'>
 <style>
-/*
-@font-face {
-  font-family: 'Merriweather Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Merriweather Sans Regular'), local('MerriweatherSans-Regular'), url(merryweather.woff) format('woff');
-}
-*/
 body {
 	background-color: white;
 	font-family: "Merriweather Sans", sans-serif;
@@ -22,11 +14,19 @@ p {
 	text-align: justify;
 }
 video {
-	width: 720px;
+	width: 95%;
+	max-width: 720px;
+}
+h1, h2, h3 {
+	color: gray;
+}
+img {
+	width: 100%;
+	max-width: 600px;
 }
 #container {
 	color: black;
-	width: 760px;
+	width: 75%;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: white;
@@ -34,7 +34,7 @@ video {
 #text-container {
 	margin-left: auto;
 	margin-right: auto;
-	width: 740px;
+	width: 95%;
 }
 .content {
 	display: none;
@@ -43,23 +43,24 @@ video {
 	background-color: white;
 }
 .menu:hover {
-	background-color: gray;
+	background-color: #DDDDDD;
 }
 </style>
 </head>
 
 <body>
 <div id="container">
-	<img src="header.png" alt="PIE Intelligent Editor"><br>
-	<table cellspacing=0 cellpadding=10 border=0><tr>
-		<td id="home" class="menu">Accueil</td>
-		<td id="about" class="menu">Qui sommes-nous ?</td>
-		<td id="pie" class="menu">Notre produit</td>
-		<td id="offer" class="menu">Nos offres</td>
-	</tr></table><br>
+	<div id="header">
+		<img src="header.png" alt="PIE Intelligent Editor"><br>
+		<table cellspacing=0 cellpadding=10 border=0><tr>
+			<td id="home" class="menu">Accueil</td>
+			<td id="about" class="menu">Qui sommes-nous ?</td>
+			<td id="pie" class="menu">Notre produit</td>
+			<td id="offer" class="menu">Nos offres</td>
+		</tr></table>
+	</div><br>
 	
 	<div id="text-container" cellspacing=0 cellpadding=0 border=0>
-	
 		<div id="home_" class="content" style="display: inline">
 			<h2>Accueil</h2>
 			<p>On le constate tous les <nobr>jours :</nobr> dans nombre de contextes, en particulier professionnels, il est nécessaire de rédiger des masses importantes de <nobr>documents :</nobr> comptes-rendus de réunions, cahiers des charges, documentation interne... Les équipes s'acquittant de cette tâche peuvent être plus ou moins nombreuses - et plus ou moins formées aux outils à leur disposition. Or les outils <nobr>foisonnent !</nobr> Logiciels libres ou commerciaux, classiques ou services Web, offrant tous un panel impressionnant de fonctionnalités, dont certaines cruciales et d'autres inutiles, et d'autres enfin si obscures que leur existence même est inconnue du grand public. Qui irait inclure un fichier son dans un document <nobr>textuel ?</nobr> Pourquoi un éditeur devrait-il se mêler de la manière dont l'utilisateur organise son texte en <nobr>paragraphes ?</nobr> Est-il vraiment <em>nécessaire</em> d'ajouter un outil de dessin dans un traitement de <nobr>texte ?</nobr></p>
