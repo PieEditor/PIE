@@ -6,13 +6,19 @@ angular.module('pie')
 	$http({method: "GET", url: apiBaseUrl + "/documents/"+$routeParams.documentId, withCredentials: true})
 	.success(function(data) {
 		$scope.document = data;
+
+		_.map($scope.document.content, function(c) {
+			// If we have some content, then show it (isMyContentEditable = false)
+			// If we don't, show the editing field (isMyContentEditable = true)
+			c.isMyContentEditable = ! c.content;
+		});
 	});
 	$scope.edit = function(section) {
 		if (! section.isMyContentEditable) {
 			section.isMyContentEditable = true;
 		}
 		else {
-			section.isMyContentEditable = false;
+			section.isMyContentEditable = ! section.content;
 			$http({
 				method: "PUT",
 				url: apiBaseUrl + "/documents/"+$routeParams.documentId,
@@ -29,9 +35,5 @@ angular.module('pie')
 		
 	};
 	$scope.createDiscussion = function(section) {
-	};
-
-	$scope.editButtonImage = function(section) {
-		return section.isMyContentEditable ? "icon-ok" : "icon-edit";
 	};
 });
