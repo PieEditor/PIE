@@ -4,9 +4,11 @@ angular.module('pie')
 .controller('ProfileController', function ($scope, $location, $resource, authService, $http, apiBaseUrl, apiBaseUrlEscaped) {
 	authService.ensureLogin();
 	
-	var User = $resource(apiBaseUrlEscaped + '/user');
-	$scope.user = User.get();
-
+	$http({method: "GET", url: apiBaseUrl + "/user", withCredentials: true})
+	.success(function(data) {
+		$scope.user = data;
+	});
+	
 	$scope.logout = function() {
 		authService.logout(
 			function() { // success callback
@@ -17,9 +19,13 @@ angular.module('pie')
 	};
 
 	$scope.deleteDocument = function(document) {
-		$http.delete(apiBaseUrl + '/documents/' + document.id)
-		.success(function() {
-			$scope.user = User.get(); // refresh the user
+		$http({method: "DELETE", url: apiBaseUrl + "/documents"  + document.id, withCredentials: true})
+		.success(function(data) {
+			// Refresh the user
+			$http({method: "GET", url: apiBaseUrl + "/user", withCredentials: true})
+			.success(function(data) {
+				$scope.user = data;
+			});
 		});
 	};
 });
