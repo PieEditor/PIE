@@ -1,28 +1,26 @@
 'use strict';
 
 angular.module('pie')
-.controller('EditController', function ($scope, $resource, $routeParams, authService, discussionService, apiBaseUrlEscaped) {
+.controller('EditController', function ($scope, $routeParams,$http,  authService, discussionService,apiBaseUrl ) {
 	authService.ensureLogin();
-
-	// Create the document factory
-	var Document = $resource(
-		apiBaseUrlEscaped + '/documents/:id',
-		{ id: '@_id' },
-		{
-			update: {method: 'PUT'}
-		}
-	);
-
-	// Get the document from the API
-	$scope.document = Document.get({id: $routeParams.documentId});
-
+		
+	$http({method: "GET", url: apiBaseUrl + "/documents/"+$routeParams.documentId, withCredentials: true})
+	.success(function(data) {
+		$scope.document = data;
+	});
+	
 	$scope.edit = function(section) {
 		if (! section.isMyContentEditable) {
 			section.isMyContentEditable = true;
 		}
 		else {
 			section.isMyContentEditable = false;
-			$scope.document.$update();
+			$http({
+				method: "PUT",
+				url: apiBaseUrl + "/documents/"+$routeParams.documentId,
+				data : $scope.document,
+				withCredentials: true
+			});
 		}
 	};
 
