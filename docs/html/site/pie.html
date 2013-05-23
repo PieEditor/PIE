@@ -5,30 +5,45 @@
 <title>PIE Intelligent Editor</title>
 <link href='http://fonts.googleapis.com/css?family=Merriweather+Sans' rel='stylesheet' type='text/css'>
 <style>
+/*
+@font-face {
+  font-family: 'Merriweather Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Merriweather Sans Regular'), local('MerriweatherSans-Regular'), url(merryweather.woff) format('woff');
+}
+*/
 body {
-	background-color: #777777;
+	background-color: white;
 	font-family: "Merriweather Sans", sans-serif;
 	font-size: 16px;
 }
 p {
 	text-align: justify;
 }
+video {
+	width: 720px;
+}
 #container {
-	color: white;
-	width: 600px;
+	color: black;
+	width: 760px;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: #999999;
+	background-color: white;
 }
 #text-container {
 	margin-left: auto;
 	margin-right: auto;
-	width: 560px;
+	width: 740px;
 }
 .content {
 	display: none;
 }
 .menu {
+	background-color: white;
+}
+.menu:hover {
+	background-color: gray;
 }
 </style>
 </head>
@@ -47,20 +62,27 @@ p {
 	
 		<div id="home_" class="content" style="display: inline">
 			<h2>Accueil</h2>
-			<p>TODO : Placer ici affiche, vidéo de présentation, ...</p>
+			<p>On le constate tous les <nobr>jours :</nobr> dans nombre de contextes, en particulier professionnels, il est nécessaire de rédiger des masses importantes de <nobr>documents :</nobr> comptes-rendus de réunions, cahiers des charges, documentation interne... Les équipes s'acquittant de cette tâche peuvent être plus ou moins nombreuses - et plus ou moins formées aux outils à leur disposition. Or les outils <nobr>foisonnent !</nobr> Logiciels libres ou commerciaux, classiques ou services Web, offrant tous un panel impressionnant de fonctionnalités, dont certaines cruciales et d'autres inutiles, et d'autres enfin si obscures que leur existence même est inconnue du grand public. Qui irait inclure un fichier son dans un document <nobr>textuel ?</nobr> Pourquoi un éditeur devrait-il se mêler de la manière dont l'utilisateur organise son texte en <nobr>paragraphes ?</nobr> Est-il vraiment <em>nécessaire</em> d'ajouter un outil de dessin dans un traitement de <nobr>texte ?</nobr></p>
+			<p>Dans ces conditions, l'édition <em>collaborative</em> de documents au sein d'une équipe peut tenir du cauchemar. Formats incompatibles, polices manquantes, incohérences de mise en page, avalanches d'e-mails contenant des versions partiellement à jour, désaccords jamais résolus et incompréhension entre les différents rédacteurs... Pourquoi, à l'heure des technologies de l'information et du développement agile, doit-on encore souffrir tous ces <nobr>maux ?</nobr></p>
+			<p>C'est cette question qui a réuni notre équipe autour d'un projet dynamique, innovant, visant à éliminer définitivement cette douleur du processus de création de documents. Édition, discussion et exportation réunies en un seul outil permettant une collaboration en temps réel sans précédent <em>via</em> une interface Web moderne et <nobr>épurée :</nobr> les rédacteurs pourront enfin se concentrer sur la <em>rédaction</em> plutôt que sur les défauts de leurs logiciels, et ce quelle que soit la plate-forme utilisée - Windows, Mac, Linux et même jusqu'aux smartphones.</p>
+			<p>Notre application propose en effet une convergence totale entre édition et discussion, à la fois instantanée et asynchrone, avec un vaste support des environnements logiciels existants et la possibilité de générer instantanément des rendus de qualité professionnelle à partir de texte structuré, facile et rapide à produire. L'intégration de ressources externes, la gestion des versions, les échanges d'information entre collaborateurs, aussi bien que la définition de l'aspect des documents, sont inclus dans notre solution et accessibles de manière efficace et intuitive. En entreprise ou entre étudiants, dans la même pièce ou partout dans le monde, les rédacteurs n'auront jamais eu la vie aussi <nobr>facile !</nobr></p>
+			<video src="PIE.m4v" controls>
+			Notre vidéo de présentation devrait se trouver ici. Si elle n'apparaît pas, cela signifie que votre navigateur ne supporte pas HTML5.
+			</video>
+			<br>
 		</div>
 	
 		<div id="about_" class="content">
 			<h2>Qui sommes-nous ?</h2>
 			<p>L'équipe PIE est constituée de cinq étudiants du département <em>Télécommunications, Services &amp; Usages</em> de l'INSA de Lyon, fédérés autour d'un projet commun visant à apporter une solution aux problématiques de l'édition collaborative de documents. Les rôles sont ainsi répartis au sein de l'équipe :</p>
 			<ul>
-			<li>Paul Mougel : chef de projet</li>
-			<li>Guillaume Burel : responsable serveur</li>
-			<li>Baptiste Metge : responsable <em>front-end</em></li>
-			<li>Fabio Guigou : responsable base de données</li>
+			<li>Paul Mougel (chef de projet)</li>
+			<li>Guillaume Burel</li>
+			<li>Baptiste Metge</li>
+			<li>Fabio Guigou</li>
 			<li>Xiao-Yu Feng</li>
 			</ul>
-			<p>TODO : Ajouter photo de groupe, ça fera mieux.</p>
+			<p>TODO : Ajouter photo de groupe, ça fera mieux.</p><br>
 		</div>
 	
 		<div id="pie_" class="content">
@@ -79,7 +101,7 @@ p {
 			<li>Application des styles</li>
 			<li>Création du document final dans un format "classique" : OpenDocument (OpenOffice), Office Open XML (MS Word) ou PDF</li>
 			</ul>
-			<p>Chaque étape correspond à une vue particulière adaptée à sa réalisation, ce qui permet à PIE de toujours présenter à l'utilisateur une interface optimale tout en restant simple.</p>
+			<p>Chaque étape correspond à une vue particulière adaptée à sa réalisation, ce qui permet à PIE de toujours présenter à l'utilisateur une interface optimale tout en restant simple.</p><br>
 		</div>
 	
 		<div id="offer_" class="content">
@@ -92,7 +114,7 @@ p {
 			<h3>Pack entreprise</h3>
 			<p>Nous proposons aux grandes entreprises qui le souhaitent d'installer PIE au sein de leur infrastructure et de l'interfacer avec leur propre intranet. Nous offrons alors un service technique personnalisé et des formations afin de familiariser les équipes IT avec les arcanes de notre éditeur. Nous contacter afin de discuter des tarifs et conditions.</p>
 			<h3>Pour les étudiants</h3>
-			<p>L'engagement universitaire est l'une de nos valeurs porteuses, aussi proposons-nous aux étudiants un accès gratuit au pack premium sur simple présentation d'un certificat de scolarité ou document équivalent.</p>
+			<p>L'engagement universitaire est l'une de nos valeurs porteuses, aussi proposons-nous aux étudiants un accès gratuit au pack premium sur simple présentation d'un certificat de scolarité ou document équivalent.</p><br>
 		</div>
 	</div>
 </div>
@@ -100,12 +122,6 @@ p {
 <script>
 var tds = document.getElementsByClassName("menu");
 for (var i = 0 ; i < tds.length ; i++) {
-	tds[i].onmouseover = function(e) {
-		this.style["background-color"] = "#555555";
-	};
-	tds[i].onmouseout = function(e) {
-		this.style["background-color"] = "#999999";
-	};
 	tds[i].onclick = function(e) {
 		var divs = document.getElementsByClassName("content");
 		for (var i = 0 ; i < divs.length ; i++)
@@ -113,8 +129,6 @@ for (var i = 0 ; i < tds.length ; i++) {
 		document.getElementById(this.id + "_").style.display = "inline";
 	};
 }
-// For automatic scroll display
-document.getElementById("container").style["min-height"] = screen.height + "px";
 </script>
 
 </body>
