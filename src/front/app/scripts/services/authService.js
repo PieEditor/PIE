@@ -1,5 +1,5 @@
 angular.module('pie')
-.factory('authService', function($http, $cookieStore, $location, apiBaseUrl) {
+.factory('authService', function($http, $location, apiBaseUrl) {
 	return {
 		username: undefined,
 		login: function(login, passwd, successCallback, errorCallback) {
