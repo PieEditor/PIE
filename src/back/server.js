@@ -59,6 +59,7 @@ server.on("request", function(request, response) {
 			if (request.headers.origin) {
 	            response.setHeader("Access-Control-Allow-Origin", request.headers.origin);
 	            response.setHeader("Access-Control-Allow-Credentials", "true");
+	            response.setHeader("Access-Control-Allow-Methods", "PUT, DELETE");
 	            response.setHeader("Access-Control-Allow-Headers", "accept, access-control-allow-credentials, x-requested-with, origin, content-type");
 				response.writeHead(200, "OK");
 				response.end();
