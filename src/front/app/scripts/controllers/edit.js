@@ -27,7 +27,9 @@ angular.module('pie')
 	$scope.showDiscussion = function(discussion) {
 		discussionService.get(discussion.id);
 	};
-
+	$scope.modifiedArchitecture = function() {
+		
+	};
 	$scope.createDiscussion = function(section) {
 	};
 
