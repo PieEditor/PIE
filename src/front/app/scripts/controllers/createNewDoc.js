@@ -121,8 +121,7 @@ angular.module('pie')
 			owner : authService.username,
 			content: $scope.architectureLevels
 		};
-
-		$http.post(apiBaseUrl + '/documents', myDocument)
+		$http({method: "POST", url: apiBaseUrl +'/documents', data: myDocument, withCredentials: true})
 		.success(function(docId) {
 			$location.path('/editAndDiscuss/'+JSON.parse(docId));
 		})

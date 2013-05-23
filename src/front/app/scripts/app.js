@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pie', ['ngResource', 'ngCookies', 'ui.bootstrap'])
+angular.module('pie', ['ngResource', 'ui.bootstrap'])
 	.config(function ($routeProvider) {
 		$routeProvider
 			.when('/', {
@@ -31,8 +31,4 @@ angular.module('pie', ['ngResource', 'ngCookies', 'ui.bootstrap'])
 				templateUrl: 'views/404.html'
 			});
 	})
-	.constant('apiBaseUrl', 'http://' + document.domain + ':8080')
-	.constant('apiBaseUrlEscaped', 'http://' + document.domain + '\\:8080')
-	.config(function($httpProvider) {
-		$httpProvider.defaults.headers.common['Access-Control-Allow-Credentials'] = true;
-	});
+	.constant('apiBaseUrl', 'http://' + document.domain + ':8080');
