@@ -8,7 +8,7 @@
 body {
 	background-color: white;
 	font-family: "Merriweather Sans", sans-serif;
-	font-size: 16px;
+	font-size: 12pt;
 }
 p {
 	text-align: justify;
@@ -41,6 +41,11 @@ img {
 }
 .menu {
 	background-color: white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	cursor: pointer;
 }
 .menu:hover {
 	background-color: #DDDDDD;
@@ -52,7 +57,7 @@ img {
 <div id="container">
 	<div id="header">
 		<img src="header.png" alt="PIE Intelligent Editor"><br>
-		<table cellspacing=0 cellpadding=10 border=0><tr>
+		<table><tr>
 			<td id="home" class="menu">Accueil</td>
 			<td id="about" class="menu">Qui sommes-nous ?</td>
 			<td id="pie" class="menu">Notre produit</td>
@@ -67,10 +72,11 @@ img {
 			<p>Dans ces conditions, l'édition <em>collaborative</em> de documents au sein d'une équipe peut tenir du cauchemar. Formats incompatibles, polices manquantes, incohérences de mise en page, avalanches d'e-mails contenant des versions partiellement à jour, désaccords jamais résolus et incompréhension entre les différents rédacteurs... Pourquoi, à l'heure des technologies de l'information et du développement agile, doit-on encore souffrir tous ces <nobr>maux ?</nobr></p>
 			<p>C'est cette question qui a réuni notre équipe autour d'un projet dynamique, innovant, visant à éliminer définitivement cette douleur du processus de création de documents. Édition, discussion et exportation réunies en un seul outil permettant une collaboration en temps réel sans précédent <em>via</em> une interface Web moderne et <nobr>épurée :</nobr> les rédacteurs pourront enfin se concentrer sur la <em>rédaction</em> plutôt que sur les défauts de leurs logiciels, et ce quelle que soit la plate-forme utilisée - Windows, Mac, Linux et même jusqu'aux smartphones.</p>
 			<p>Notre application propose en effet une convergence totale entre édition et discussion, à la fois instantanée et asynchrone, avec un vaste support des environnements logiciels existants et la possibilité de générer instantanément des rendus de qualité professionnelle à partir de texte structuré, facile et rapide à produire. L'intégration de ressources externes, la gestion des versions, les échanges d'information entre collaborateurs, aussi bien que la définition de l'aspect des documents, sont inclus dans notre solution et accessibles de manière efficace et intuitive. En entreprise ou entre étudiants, dans la même pièce ou partout dans le monde, les rédacteurs n'auront jamais eu la vie aussi <nobr>facile !</nobr></p>
-			<video src="PIE.m4v" controls>
-			Notre vidéo de présentation devrait se trouver ici. Si elle n'apparaît pas, cela signifie que votre navigateur ne supporte pas HTML5.
-			</video>
-			<br>
+			<p style="text-align:center"><video controls>
+				<source src="PIE.mp4" type="video/mp4">
+				<source src="PIE.webm" type="video/webm">
+				Notre vidéo de présentation devrait se trouver ici. Si elle n'apparaît pas, cela signifie que votre navigateur ne supporte pas HTML5.
+			</video></p>
 		</div>
 	
 		<div id="about_" class="content">
@@ -83,7 +89,7 @@ img {
 			<li>Fabio Guigou</li>
 			<li>Xiao-Yu Feng</li>
 			</ul>
-			<p>TODO : Ajouter photo de groupe, ça fera mieux.</p><br>
+			<p>TODO : Ajouter photo de groupe, ça fera mieux.</p>
 		</div>
 	
 		<div id="pie_" class="content">
@@ -102,7 +108,7 @@ img {
 			<li>Application des styles</li>
 			<li>Création du document final dans un format "classique" : OpenDocument (OpenOffice), Office Open XML (MS Word) ou PDF</li>
 			</ul>
-			<p>Chaque étape correspond à une vue particulière adaptée à sa réalisation, ce qui permet à PIE de toujours présenter à l'utilisateur une interface optimale tout en restant simple.</p><br>
+			<p>Chaque étape correspond à une vue particulière adaptée à sa réalisation, ce qui permet à PIE de toujours présenter à l'utilisateur une interface optimale tout en restant simple.</p>
 		</div>
 	
 		<div id="offer_" class="content">
@@ -115,7 +121,7 @@ img {
 			<h3>Pack entreprise</h3>
 			<p>Nous proposons aux grandes entreprises qui le souhaitent d'installer PIE au sein de leur infrastructure et de l'interfacer avec leur propre intranet. Nous offrons alors un service technique personnalisé et des formations afin de familiariser les équipes IT avec les arcanes de notre éditeur. Nous contacter afin de discuter des tarifs et conditions.</p>
 			<h3>Pour les étudiants</h3>
-			<p>L'engagement universitaire est l'une de nos valeurs porteuses, aussi proposons-nous aux étudiants un accès gratuit au pack premium sur simple présentation d'un certificat de scolarité ou document équivalent.</p><br>
+			<p>L'engagement universitaire est l'une de nos valeurs porteuses, aussi proposons-nous aux étudiants un accès gratuit au pack premium sur simple présentation d'un certificat de scolarité ou document équivalent.</p>
 		</div>
 	</div>
 </div>
@@ -126,8 +132,8 @@ for (var i = 0 ; i < tds.length ; i++) {
 	tds[i].onclick = function(e) {
 		var divs = document.getElementsByClassName("content");
 		for (var i = 0 ; i < divs.length ; i++)
-			divs[i].style.display = "none";
-		document.getElementById(this.id + "_").style.display = "inline";
+			divs[i].style.setProperty("display", "none");
+		document.getElementById(this.id + "_").style.setProperty("display", "inline");
 	};
 }
 </script>
