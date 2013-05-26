@@ -1,21 +1,14 @@
 'use strict';
 
 angular.module('pie')
-.controller('architectureController', function ($scope, $http, $resource, $routeParams, $location, $timeout, authService, apiBaseUrl) {
+.controller('architectureController', function ($scope, $routeParams, $location, authService, documentService) {
 	authService.ensureLogin();
 
-	if (! $routeParams.documentId) {
-		$scope.document = {
-			title: '',
-			owner : authService.username,
-			content: [
-				{title:'', level:1},
-				{title:'', level:1},
-				{title:'', level:1}
-			]
-		};
-	}  else {
-		$http({method: "GET", url: apiBaseUrl + "/documents/"+$routeParams.documentId, withCredentials: true})
+	if (! $routeParams.documentId) { // create a new document
+		$scope.document = documentService.empty();
+	}
+	else { // or fetch an existing one
+		documentService.get($routeParams.documentId)
 		.success(function(data) {
 			$scope.document = data;
 		});
@@ -129,15 +122,17 @@ angular.module('pie')
 	
 	$scope.sendArchitecture = function () {
 		if (! $routeParams.documentId ) {
-			$http({method: "POST", url: apiBaseUrl +'/documents', data: $scope.document, withCredentials: true})
+			$scope.document.owner = authService.username;
+			
+			documentService.post($scope.document)
 			.success(function(docId) {
-				$location.path('/editAndDiscuss/'+JSON.parse(docId));
+				$location.path('/editAndDiscuss/' + JSON.parse(docId));
 			})
 			.error(function(data) {
-				console.log('error');
+				console.log(data);
 			});
 		} else {
-			$http({method: "PUT", url: apiBaseUrl +'/documents/'+$routeParams.documentId, data: $scope.document, withCredentials: true})
+			documentService.update($scope.document)
 			.success(function() {
 				$location.path('/editAndDiscuss/'+$routeParams.documentId);
 			})
