@@ -20,6 +20,7 @@ angular.module('pie')
 	);
 
 	documentService.get($routeParams.documentId);
+	$scope.downloadUrl = documentService.downloadUrl($routeParams.documentId);
 
 	$scope.edit = function(section) {
 		if (! section.isMyContentEditable) {
