@@ -29,9 +29,7 @@ http.createServer(function(req, res) {
 		var md = doc.content;
 		var settings = JSON.stringify(doc.settings);
 		var path = "/tmp/" + doc._id + "/";
-		try {
-			fs.mkdirSync(path);
-		} catch(e) {}
+		fs.mkdir(path, send500);
 		fs.writeFile(path + "d.md", md, send500);
 		fs.writeFile(path + "s.json", settings, send500);
 		exec("python convert.py " + path + " " + req.url.replace("/", ""),
