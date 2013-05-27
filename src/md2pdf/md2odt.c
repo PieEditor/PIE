@@ -1,10 +1,6 @@
 #include <stdio.h>
 #include "odt_content.h"
 
-#ifndef __USE_MISC
-#define __USE_MISC
-#endif
-
 char c2s[2] = {0, 0};
 char buffer[65536];
 char * text_buffer = buffer;
@@ -51,11 +47,11 @@ void process(FILE * input, FILE * output) {
 	char current, next, last;
 	int i;
 	// Copy XML header
-	fputs_unlocked(HEADER, output);
+	fputs(HEADER, output);
 	// Remove UTF-8 garbage
-	while ((current = (char)fgetc_unlocked(input)) != '#');
+	while ((current = (char)fgetc(input)) != '#');
 	// Processing loop
-	while ((next = (char)fgetc_unlocked(input)) != EOF) {
+	while ((next = (char)fgetc(input)) != EOF) {
 	// Ignore next character after some commands
 		if (state.ignore_next) {
 			state.ignore_next = 0;
@@ -68,11 +64,11 @@ void process(FILE * input, FILE * output) {
 			if (current == '~')
 				state.code = 0;
 			else if (current == '\n') {
-				fputs_unlocked(PARAGRAPH_END_TAG, output);
-				fputs_unlocked(CODE_START_TAG, output);
+				fputs(PARAGRAPH_END_TAG, output);
+				fputs(CODE_START_TAG, output);
 			}
 			else
-				fputs_unlocked(xmlify(current), output);
+				fputs(xmlify(current), output);
 			last = current;
 			current = next;
 			continue;
@@ -95,30 +91,30 @@ void process(FILE * input, FILE * output) {
 		switch (current) {
 		case '*' :	// Italic & bold
 			if (next == '*') {
-				fputs_unlocked(state.bold ? SPAN_END_TAG : BOLD_START_TAG, output);
+				fputs(state.bold ? SPAN_END_TAG : BOLD_START_TAG, output);
 				state.bold = state.bold ? 0 : 1;
 				state.ignore_next = 1;
 			} else {
-				fputs_unlocked(state.italic ? SPAN_END_TAG : ITALIC_START_TAG, output);
+				fputs(state.italic ? SPAN_END_TAG : ITALIC_START_TAG, output);
 				state.italic = state.italic ? 0 : 1;
 			}
 			break;
 		case '|' :	// Monotype
-			fputs_unlocked(state.mono ? SPAN_END_TAG : MONO_START_TAG, output);
+			fputs(state.mono ? SPAN_END_TAG : MONO_START_TAG, output);
 			state.mono = state.mono ? 0 : 1;
 			break;
 		case '+' :	// Small caps
-			fputs_unlocked(state.smallcaps ? SPAN_END_TAG : SCAPS_START_TAG, output);
+			fputs(state.smallcaps ? SPAN_END_TAG : SCAPS_START_TAG, output);
 			state.smallcaps = state.smallcaps ? 0 : 1;
 			break;
 		case '<' :	// Start of superscript or end of subscript
-			fputs_unlocked(state.sub ? SPAN_END_TAG : SUP_START_TAG, output);
+			fputs(state.sub ? SPAN_END_TAG : SUP_START_TAG, output);
 			if (state.sub)
 				state.sub = 0;
 			else state.sup = 1;
 			break;
 		case '>' :	// Start of subscript or end of superscript
-			fputs_unlocked(state.sup ? SPAN_END_TAG : SUB_START_TAG, output);
+			fputs(state.sup ? SPAN_END_TAG : SUB_START_TAG, output);
 			if (state.sup)
 				state.sup = 0;
 			else state.sub = 1;
@@ -127,61 +123,61 @@ void process(FILE * input, FILE * output) {
 			if (state.title_level < MAX_TITLE_LEVEL)
 				state.title_level += 1;
 			if (next != '#') {
-				fputs_unlocked(TITLE_START_TAG[state.title_level - 1], output);
+				fputs(TITLE_START_TAG[state.title_level - 1], output);
 				state.paragraph = 1;
 			}
 			break;
 		case '~' :	// Code block
 			if (!state.paragraph) {
-				fputs_unlocked(CODE_START_TAG, output);
+				fputs(CODE_START_TAG, output);
 				state.paragraph = 1;
 				state.code = 1;
 			}
 			break;
 		case '\n' :	// Line break : new paragraph
 			for (i = 0 ; i < state.mono + state.bold + state.italic + state.smallcaps ; i++)
-				fputs_unlocked(SPAN_END_TAG, output);
+				fputs(SPAN_END_TAG, output);
 			if (state.title_level == 0)
-				fputs_unlocked(PARAGRAPH_END_TAG, output);
-			else fputs_unlocked(TITLE_END_TAG, output);
+				fputs(PARAGRAPH_END_TAG, output);
+			else fputs(TITLE_END_TAG, output);
 			state.paragraph = 0;
 			state.title_level = 0;
 			if ((next != '#') && (next != '~')) {
-				fputs_unlocked(state.code ? CODE_START_TAG : PARAGRAPH_START_TAG, output);
+				fputs(state.code ? CODE_START_TAG : PARAGRAPH_START_TAG, output);
 				state.paragraph = 1;
 				if (state.italic)
-					fputs_unlocked(ITALIC_START_TAG, output);
+					fputs(ITALIC_START_TAG, output);
 				if (state.bold)
-					fputs_unlocked(BOLD_START_TAG, output);
+					fputs(BOLD_START_TAG, output);
 				if (state.mono)
-					fputs_unlocked(MONO_START_TAG, output);
+					fputs(MONO_START_TAG, output);
 				if (state.smallcaps)
-					fputs_unlocked(SCAPS_START_TAG, output);
+					fputs(SCAPS_START_TAG, output);
 			}
 			break;
 		case ' ' :	// Space
 			if (is_special(next))
-				fputs_unlocked(NON_BREAKING_SPACE, output);
-			else fputc_unlocked(' ', output);
+				fputs(NON_BREAKING_SPACE, output);
+			else fputc(' ', output);
 			break;
 		case '\'' :	// Single quote
-			fputs_unlocked(state.single_quote ? SINGLE_QUOTE_END : SINGLE_QUOTE_START, output);
+			fputs(state.single_quote ? SINGLE_QUOTE_END : SINGLE_QUOTE_START, output);
 			state.single_quote = state.single_quote ? 0 : 1;
 			break;
 		case '\"' :	// Double quote
-			fputs_unlocked(state.double_quote ? DOUBLE_QUOTE_END : DOUBLE_QUOTE_START, output);
+			fputs(state.double_quote ? DOUBLE_QUOTE_END : DOUBLE_QUOTE_START, output);
 			state.double_quote = state.double_quote ? 0 : 1;
 			break;
 		case '&' :	// Just for XML compliance
-			fputs_unlocked("&amp;", output);
+			fputs("&amp;", output);
 			break;
 		case '-' :	// Smart dashes
 			if ((last == ' ') || (last == '\n'))
-				fputs_unlocked(LONG_DASH, output);
-			else fputc_unlocked('-', output);
+				fputs(LONG_DASH, output);
+			else fputc('-', output);
 			break;
 		case '\\' :	// After backslash, copy next character verbatim
-			fputs_unlocked(xmlify(next), output);
+			fputs(xmlify(next), output);
 			state.ignore_next = 1;
 			break;
 		case '[' :	// Hypertext
@@ -190,21 +186,21 @@ void process(FILE * input, FILE * output) {
 			break;
 		case '(' :	// End of hypertext, start of URL
 			if (state.hypertext) {
-				fputs_unlocked(LINK_START_TAG_BEGIN, output);
+				fputs(LINK_START_TAG_BEGIN, output);
 			}
-			else fputc_unlocked('(', output);
+			else fputc('(', output);
 			break;
 		case ')' :	// End of URL
 			if (state.hypertext) {
-				fputs_unlocked(LINK_START_TAG_END, output);
-				fputs_unlocked(text_buffer, output);
-				fputs_unlocked(LINK_END_TAG, output);
+				fputs(LINK_START_TAG_END, output);
+				fputs(text_buffer, output);
+				fputs(LINK_END_TAG, output);
 				state.hypertext = 0;
 			}
-			else fputc_unlocked(')', output);
+			else fputc(')', output);
 			break;
 		default:
-			fputc_unlocked(current, output);
+			fputc(current, output);
 			break;
 		}
 		if ((next == '\'') && (!((last == '\n') || (last == ' '))))
@@ -212,10 +208,10 @@ void process(FILE * input, FILE * output) {
 		last = current;
 		current = next;
 	}
-	fputc_unlocked(current, output);
+	fputc(current, output);
 	if (state.paragraph)
-		fputs_unlocked(PARAGRAPH_END_TAG, output);
-	fputs_unlocked(FOOTER, output);
+		fputs(PARAGRAPH_END_TAG, output);
+	fputs(FOOTER, output);
 }
 
 int main(int argc, char ** argv) {
