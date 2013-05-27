@@ -1,5 +1,6 @@
 var http = require("http");
-var map = require("./map");
+var mapDoc = require("./map-doc");
+var mapUsr = require("./map-usr");
 var db = require("./couch-wrapper");
 
 var host = "localhost", port = 5984;
@@ -7,17 +8,24 @@ var host = "localhost", port = 5984;
 var user = http.request({port: port, host: host, method: "PUT", path: "/user"},
 	function(res) {
 		console.log("User database creation : " + res.statusCode);
-		process.exit();
+		mapfuncDoc.end();
 	});
 var document = http.request({port: port, host: host, method: "PUT", path: "/document"},
 	function(res) {
 		console.log("Document database creation : " + res.statusCode);
-		mapfunc.end();
-	});
-var mapfunc = http.request({port: port, host: host, method: "PUT", path: "/document/_design/application"},
-	function(res) {
-		console.log("Map function insertion : " + res.statusCode)
 		user.end();
 	});
-mapfunc.write(JSON.stringify(map));
+var mapfuncDoc = http.request({port: port, host: host, method: "PUT", path: "/document/_design/application"},
+	function(res) {
+		console.log("Document map functions insertion : " + res.statusCode)
+		mapfuncUsr.end();
+	});
+var mapfuncUsr = http.request({port: port, host: host, method: "PUT", path: "/user/_design/application"},
+	function(res) {
+		console.log("User map function insertion : " + res.statusCode)
+		process.exit();
+	});
+mapfuncDoc.write(JSON.stringify(mapDoc));
+mapfuncUsr.write(JSON.stringify(mapUsr));
 document.end();
+
