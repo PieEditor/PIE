@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pie')
-.controller('architectureController', function ($scope, $routeParams, $location, authService, documentService, tocService ) {
+.controller('architectureController', function ($scope, $routeParams, $location, apiBaseUrl, authService, $http, documentService, tocService ) {
 	authService.ensureLogin();
 
 	$scope.$watch(
@@ -102,27 +102,6 @@ angular.module('pie')
 		return false;
 	};
 	
-	$scope.collaborators = [{login:"baba", imgUrl:"bra"}, {login:"bubu"}, {login:"fabio"}, {login:"paul"}];
-	
-	$scope.$watch('newCollaborator', function(newCollaborator) {
-		if (! newCollaborator) return;
-		if (! $scope.document.collaborators)
-			$scope.document.collaborators = [];
-
-		if (_.indexOf($scope.document.collaborators, newCollaborator) != -1) {
-			$scope.newCollaborator = '';
-			return;
-		}
-
-		$scope.document.collaborators.push(newCollaborator);
-		$scope.newCollaborator = '';
-	});
-	
-	$scope.removeCollaborator = function(collaborator) {
-		var index = _.indexOf($scope.document.collaborators, collaborator);
-		$scope.document.collaborators.splice(index, 1);
-	};
-	
 	$scope.sendArchitecture = function () {
 		if (! $routeParams.documentId ) {
 			$scope.document.owner = authService.user.login;
@@ -143,5 +122,40 @@ angular.module('pie')
 				console.log('error');
 			});			
 		}
+	};
+
+	// Get collaborators list matching a login name from API
+	$scope.collaborators = function(newCollaboratorLogin) {
+		return $http({
+			method: 'GET',
+			url: apiBaseUrl + '/users',
+			params: {prefix: newCollaboratorLogin},
+			withCredentials: true
+		}).then(function(response) {
+			return response.data;
+		});
+	};
+
+	$scope.$watch('newCollaborator', function(newCollaborator) {
+		// Sanity checks
+		if (! newCollaborator) return;
+		if (! $scope.document.collaborators)
+			$scope.document.collaborators = [];
+		// Check if the collaborator isn't already added
+		var n = _.filter($scope.document.collaborators, function(collaborator) {
+			return (collaborator.login == newCollaborator.login && collaborator.imgUrl == newCollaborator.imgUrl);
+		});
+		if (n.length > 0) {
+			$scope.newCollaborator = '';
+			return;
+		}
+
+		$scope.document.collaborators.push(newCollaborator);
+		$scope.newCollaborator = '';
+	});
+	
+	$scope.removeCollaborator = function(collaborator) {
+		var index = _.indexOf($scope.document.collaborators, collaborator);
+		$scope.document.collaborators.splice(index, 1);
 	};
 });
