@@ -30,6 +30,10 @@
 
 	curl -v -X GET -b 'token=token' 'http://127.0.0.1:8080/token'
 
+### Filter users by name
+
+	curl -v -X GET -b 'token=token' 'http://127.0.0.1:8080/users?prefix=ki'
+
 ## Document
 
 ### Create a single document
