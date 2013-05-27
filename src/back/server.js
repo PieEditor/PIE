@@ -291,40 +291,50 @@ server.on("request", function(request, response) {
 			}
 
 			// Get a single document
-			else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "GET" && !(parsedUrl.pathname.indexOf(".pdf") === parsedUrl.pathname.length - ".pdf".length)) {
+			else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "GET") {
 				if (isAuthenticated) {
-					couchWrapper.docGet(parsedUrl.pathname.substr("/documents/".length), function(doc) {
+					var doc_id = parsedUrl.pathname.substring("/documents/".length, parsedUrl.pathname.lastIndexOf(".") >= 0 ? parsedUrl.pathname.lastIndexOf(".") : parsedUrl.pathname.length);
+					console.log(doc_id);
+					couchWrapper.docGet(doc_id, function(doc) {
 						if (doc) {
-							response.writeHead(200, "OK");
-							response.write(JSON.stringify(doc));
+							if (parsedUrl.pathname.indexOf(".pdf") === parsedUrl.pathname.length - ".pdf".length) {
+								doc_md = {};
+								doc_md._id = doc._id;
+								doc_md.settings = require("../md2pdf/default.json");
+								var md = "";
+								md += "#"+doc.title+"\n";
+								for (var i = 0; i < doc.content.length; ++i) {
+									md += (new Array(doc.content[i].level + 2)).join("#");
+									md += "\n";
+									md += doc.content[i].content;
+									md += "\n";
+								}
+								doc_md.content = md;
+								var req = http.request({hostname: "localhost", port: 8081, path: "/pdf", method: "POST"}, function(res) {
+									response.writeHead(200, "OK");
+									res.on("data", function(buffer) {
+										response.write(buffer);
+									});
+									res.on("end", function() {
+										response.end();
+									});
+								});
+								console.log(JSON.stringify(doc_md));
+								req.write(JSON.stringify(doc_md));
+								req.end();
+
+							}
+							else {
+								response.writeHead(200, "OK");
+								response.write(JSON.stringify(doc));
+								response.end();
+							}							
 						}
 						else {
 							response.writeHead(403, "Forbidden");
-						}
-						response.end();
-					});
-				}
-				else {
-					response.writeHead(401, "Unauthorized");
-					response.end();
-				}
-			}
-
-			// Convert a document
-			else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "GET" && parsedUrl.pathname.indexOf(".pdf") === parsedUrl.pathname.length - ".pdf".length) {
-				if (isAuthenticated)  {					
-					var document = JSON.stringify(require("../md2pdf/example.json"));
-					var req = http.request({hostname: "localhost", port: 8081, path: "/pdf", method: "POST"}, function(res) {
-						response.writeHead(200, "OK");
-						res.on("data", function(buffer) {
-							response.write(buffer);
-						});
-						res.on("end", function() {
 							response.end();
-						});
+						}
 					});
-					req.write(document);
-					req.end();
 				}
 				else {
 					response.writeHead(401, "Unauthorized");
