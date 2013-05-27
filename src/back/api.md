@@ -198,4 +198,7 @@ List documents for the specified user.
 
 200 "OK".
 
+If the "Accept" header is set to "application/pdf", returns a binary-encoded PDF file.
+Returns a JSON object otherwise :
+
  * **{}Document** : document
