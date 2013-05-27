@@ -31,21 +31,23 @@
 					<div class="controls">
 						<input class="input-xxlarge" type="text" ng-model="document.title" placeholder="Document title" id="inputTitle">
 					</div>
-			  	</div>
-			  
+				</div>
+			
 				<div class="control-group">
 					<label class="control-label" for="inputCollaborators">Document collaborators:</label>
 					<div class="controls">
-						<input type="text" class="input-xlarge" id="inputCollaborators" ng-model="newCollaborator" placeholder="Enter new collaborators here..." typeahead="c as c.login for c in collaborators($viewValue)" typeahead-editable="false">
-
-						<ul>
-							<li ng-repeat="user in document.collaborators">
-								{{ user.login }}
-								<i class="icon-trash" ng-click="removeCollaborator(user)"></i>
-							</li>
-						</ul>
+						<input type="text" class="input-xlarge" id="inputCollaborators" ng-model="newCollaborator" placeholder="Enter new collaborators here..." typeahead="c as c.login for c in matchCollaborators($viewValue)" typeahead-editable="false">
 					</div>
-				  </div>
+				</div>
+
+				<div class="control-group">
+					<div class="controls">
+						<span class="btn btn-success" ng-repeat="user in document.collaborators" ng-click="removeCollaborator(user)">
+							{{ user.login }}
+							<i class="icon-remove icon-white"></i>	
+						</span>
+					</div>
+				</div>
 
 			</form>
 		</div>
