@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pie')
-.controller('EditController', function ($scope, $routeParams, authService, documentService, discussionService , tocService) {
+.controller('EditController', function ($scope, $routeParams,$location, authService, documentService, discussionService , tocService) {
 	authService.ensureLogin();
 
 	$scope.$watch(
@@ -42,6 +42,12 @@ angular.module('pie')
 	$scope.saveAndRefresh = function ( ) {
 		documentService.update();
 		documentService.newVersion();
+		documentService.post().success(function(docId) {
+				$location.path('/editAndDiscuss/' + JSON.parse(docId));
+			})
+			.error(function(data) {
+				console.log(data);
+			});
 	};
 	
 	$scope.getPartIndice = function( part , docContent ) {
