@@ -102,15 +102,21 @@ angular.module('pie')
 		return false;
 	};
 	
-	$scope.addCollaborator = function() {
-		if (! $scope.newCollaborator) return;
-		
-		$scope.document.collaborators.push({
-			login: $scope.newCollaborator,
-			imgUrl: undefined
-		});
+	$scope.collaborators = [{login:"baba", imgUrl:"bra"}, {login:"bubu"}, {login:"fabio"}, {login:"paul"}];
+	
+	$scope.$watch('newCollaborator', function(newCollaborator) {
+		if (! newCollaborator) return;
+		if (! $scope.document.collaborators)
+			$scope.document.collaborators = [];
+
+		if (_.indexOf($scope.document.collaborators, newCollaborator) != -1) {
+			$scope.newCollaborator = '';
+			return;
+		}
+
+		$scope.document.collaborators.push(newCollaborator);
 		$scope.newCollaborator = '';
-	};
+	});
 	
 	$scope.removeCollaborator = function(collaborator) {
 		var index = _.indexOf($scope.document.collaborators, collaborator);
