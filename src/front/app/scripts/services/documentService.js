@@ -42,6 +42,9 @@ angular.module('pie')
 					{ title: '', level: 1}
 				]
 			};
+		},
+		downloadUrl: function(id) {
+			return apiBaseUrl + '/documents/' + id + '.pdf';
 		}
 	};
 });
