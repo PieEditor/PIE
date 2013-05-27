@@ -1,5 +1,4 @@
-<div ng-controller="architectureController">
-	
+<div ng-controller="architectureController">	
 	<!-- navigation bar -->
 	<div class="navbar navbar-fixed-top force-min-width">
 		<div class="navbar-inner">
@@ -17,43 +16,41 @@
 		</div>            
 	</div>
 	<hr/>
-	
-	
+	<!-- end of navigation bar -->	
 	<div class="row-fluid">
 		<h1>Create the architecture that you need  ! </h1>
 		<p> The idea here is design the struture of the document before writing it. The philosophie of PIE is to follow presicely the real workflow of the creation of a document, which obviously start here... </p>
 	</div>
 	<hr />
 	<div class="row-fluid " >
-	<div class="span3 well"><h2>Title</h2></div>
-	<div class="span9 "><input class="input-xxlarge input-styled-title" type="text" ng-model="document.title" placeholder="Document Title"></div>
+		<div class="span3 well"><h2>Title</h2></div>
+		<div class="span9 "><input class="input-xxlarge input-styled-title" type="text" ng-model="document.title" placeholder="Document Title"></div>
 	</div>
 	<div class="row-fluid " >
-	<div class="span3 well"><h3>Architecture : </h3><br>
-		<p><li>Use <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-plus-sign"></i> <span class="caret"></span></button> to create New or Sub Parts.<br></li>
-		<li>Use <button class="btn btn-mini" data-toggle="dropdown"><i class="icon-step-backward"></i> </button> <button class="btn btn-mini" data-toggle="dropdown"><i class="icon-step-forward"></i> </button> to move a section in the architecture. <br></li>
-		<li> Use <button class="btn btn-mini" data-toggle="dropdown"><i class="icon-remove"></i> </button> to delete a section and all the subparts it contains.</li></p></div>
-	<div class ="span9"> 
-	<li ng-repeat="part in document.content" class="offset{{part.level-1}}"> 
-		{{ getPartIndice(part, document.content) }}
-		<input type="text"  ng-model="part.title" placeholder="Section title">
-		<div class="btn-group">
-			<button class="btn btn-mini" ng-hide="removeButtonHide(part,document.content)" data-toggle="dropdown" ng-click="removePart(part)"><i class="icon-remove"></i> </button>
-			<button class="btn btn-mini" ng-hide="backwardButtonHide(part)" data-toggle="dropdown" ng-click="stepBackward(part)"><i class="icon-step-backward"></i> </button>
-			<button class="btn btn-mini" ng-hide="forwardButtonHide(part,document.content)" data-toggle="dropdown" ng-click="stepForward(part)"><i class="icon-step-forward"></i> </button>
-			<button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-plus-sign"></i> <span class="caret"></span></button>
+		<div class="span3 well"><h3>Architecture : </h3><br>
+			<p><li>Use <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-plus-sign"></i> <span class="caret"></span></button> to create New or Sub Parts.<br></li>
+			<li>Use <button class="btn btn-mini" data-toggle="dropdown"><i class="icon-step-backward"></i> </button> <button class="btn btn-mini" data-toggle="dropdown"><i class="icon-step-forward"></i> </button> to move a section in the architecture. <br></li>
+			<li> Use <button class="btn btn-mini" data-toggle="dropdown"><i class="icon-remove"></i> </button> to delete a section and all the subparts it contains.</li></p></div>
+		<div class ="span9"> 
+			<li ng-repeat="part in document.content" class="offset{{part.level-1}}"> 
+				{{ getPartIndice(part, document.content) }}
+				<input type="text"  ng-model="part.title" placeholder="Section title">
+				<div class="btn-group">
+					<button class="btn btn-mini" ng-hide="removeButtonHide(part,document.content)" data-toggle="dropdown" ng-click="removePart(part)"><i class="icon-remove"></i> </button>
+					<button class="btn btn-mini" ng-hide="backwardButtonHide(part)" data-toggle="dropdown" ng-click="stepBackward(part)"><i class="icon-step-backward"></i> </button>
+					<button class="btn btn-mini" ng-hide="forwardButtonHide(part,document.content)" data-toggle="dropdown" ng-click="stepForward(part)"><i class="icon-step-forward"></i> </button>
+					<button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-plus-sign"></i> <span class="caret"></span></button>
 
-			<ul class="dropdown-menu pull-right">
-				<li><a href="" ng-click="createSubPart(part)">Create a subpart here</a></li>
-				<li class="divider"></li>
-				<li><a href="" ng-click="createNewPart(part)">Create a new part here!</a></li>
-			</ul>
+					<ul class="dropdown-menu pull-right">
+						<li><a href="" ng-click="createSubPart(part)">Create a subpart here</a></li>
+						<li class="divider"></li>
+						<li><a href="" ng-click="createNewPart(part)">Create a new part here!</a></li>
+					</ul>
+				</div>
+			</li> 
 		</div>
-	</li> 
-	</div>
 	</div>
 	<div class="row-fluid">
-	<div class=" span3 well "> <button class="btn btn-large btn-success" ng-click="sendArchitecture()"><i class="icon-ok"></i> Save Architecture ! </button>	</div>
+		<div class=" span3 well "> <button class="btn btn-large btn-success" ng-click="sendArchitecture()"><i class="icon-ok icon-white"></i> Save Architecture ! </button>	</div>
 	</div>
-</div>
 </div>
