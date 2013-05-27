@@ -36,8 +36,10 @@ angular.module('pie')
 	};
 
 	$scope.createDiscussion = function(section) {
-		// TODO: get user login & img from authService
-		var discussionOwner = {login: 'foo', imgUrl: 'foo'};
+		var discussionOwner = {
+			login: authService.user.login,
+			imgUrl: authService.user.imgUrl
+		};
 		discussionService.create(section, discussionOwner);
 	};
 });

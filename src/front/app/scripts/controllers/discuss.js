@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('pie')
-.controller('DiscussController', function ($scope, $http, $routeParams, apiBaseUrl, discussionService) {
-	$http({method: 'GET', url: apiBaseUrl + '/user', withCredentials: true})
-	.success(function(data) {
-		$scope.user = data;
+.controller('DiscussController', function ($scope, authService, discussionService) {
+	authService
+	.ensureLogin()
+	.then(function() {
+		$scope.user = authService.user;
 	});
 
 	// Watch for a change on some discussionService properties
