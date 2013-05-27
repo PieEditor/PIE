@@ -4,16 +4,17 @@ angular.module('pie')
 .controller('architectureController', function ($scope, $routeParams, $location, authService, documentService) {
 	authService.ensureLogin();
 
+	$scope.$watch(
+		function() { return documentService.currentDocument; },
+		function() { $scope.document = documentService.currentDocument; }
+	);
+
 	if (! $routeParams.documentId) { // create a new document
-		$scope.document = documentService.empty();
+		documentService.create();
 	}
 	else { // or fetch an existing one
-		documentService.get($routeParams.documentId)
-		.success(function(data) {
-			$scope.document = data;
-		});
+		documentService.get($routeParams.documentId);
 	}
-
 
 	/* remove a part and all the subparts in it */
 	$scope.removePart = function(part) {
@@ -124,7 +125,7 @@ angular.module('pie')
 		if (! $routeParams.documentId ) {
 			$scope.document.owner = authService.username;
 			
-			documentService.post($scope.document)
+			documentService.post()
 			.success(function(docId) {
 				$location.path('/editAndDiscuss/' + JSON.parse(docId));
 			})
@@ -132,7 +133,7 @@ angular.module('pie')
 				console.log(data);
 			});
 		} else {
-			documentService.update($scope.document)
+			documentService.update()
 			.success(function() {
 				$location.path('/editAndDiscuss/'+$routeParams.documentId);
 			})
