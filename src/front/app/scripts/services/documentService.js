@@ -1,34 +1,39 @@
 angular.module('pie')
 .factory('documentService', function($http, apiBaseUrl) {
 	return {
+		currentDocument: undefined,
 		get: function(id) {
+			var t = this;
 			var p = $http({
 				method: "GET",
 				url: apiBaseUrl + "/documents/" + id,
 				withCredentials: true
 			});
+			p.success(function(data) {
+				t.currentDocument = data;
+			});
 			return p;
 		},
-		post: function(doc) {
+		post: function() {
 			var p = $http({
 				method: "POST",
 				url: apiBaseUrl + "/documents",
-				data : doc,
+				data : this.currentDocument,
 				withCredentials: true
 			});
 			return p;
 		},
-		update: function(doc) {
+		update: function() {
 			var p = $http({
 				method: "PUT",
-				url: apiBaseUrl + "/documents/" + doc._id,
-				data : doc,
+				url: apiBaseUrl + "/documents/" + this.currentDocument._id,
+				data : this.currentDocument,
 				withCredentials: true
 			});
 			return p;
 		},
-		empty: function() {
-			return {
+		create: function() {
+			this.currentDocument = {
 				title: '',
 				owner : '',
 				content: [
