@@ -123,7 +123,7 @@ angular.module('pie')
 	
 	$scope.sendArchitecture = function () {
 		if (! $routeParams.documentId ) {
-			$scope.document.owner = authService.username;
+			$scope.document.owner = authService.user.login;
 			
 			documentService.post()
 			.success(function(docId) {

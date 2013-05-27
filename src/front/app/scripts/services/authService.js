@@ -1,7 +1,7 @@
 angular.module('pie')
 .factory('authService', function($http, $location, apiBaseUrl) {
 	return {
-		username: undefined,
+		user: undefined,
 		login: function(login, passwd, successCallback, errorCallback) {
 			var t = this;
 
@@ -28,13 +28,18 @@ angular.module('pie')
 			// redirects the user to the login page
 			var t = this;
 
-			$http({method: "GET", url: apiBaseUrl + "/token", withCredentials: true})
-			.success(function(data) {
-				t.username = JSON.parse(data);
-			})
-			.error(function() {
+			var p = $http({
+				method: "GET",
+				url: apiBaseUrl + "/user",
+				withCredentials: true
+			});
+			p.success(function(data) {
+				t.user = data;
+			});
+			p.error(function() {
 				$location.path('/login');
 			});
+			return p;
 		}
 	};
 });

@@ -41,11 +41,11 @@
 		<div ng-repeat="post in discussion.posts" class="row-fluid">
 			<div class="row-fluid span3">
 				<div class="span3">
-					<img src="{{ post.login.imgUrl }}" class="profile_image" />
+					<img src="{{ post.owner.imgUrl }}" class="profile_image" />
 				</div>
 
 				<div class="span9 row-fluid">
-					<p>{{ post.login.login }}</p>
+					<p>{{ post.owner.login }}</p>
 					
 					<span class="badge">{{ post.date | date }}</span>
 					<span class="badge score-positive-{{post.score >= 0}}">{{ post.score | number }}</span>

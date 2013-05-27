@@ -32,10 +32,14 @@ angular.module('pie')
 	};
 
 	$scope.showDiscussion = function(discussion) {
-		discussionService.get(discussion.id);
+		discussionService.show(discussion);
 	};
 
 	$scope.createDiscussion = function(section) {
-		discussionService.currentState = 'new';
+		var discussionOwner = {
+			login: authService.user.login,
+			imgUrl: authService.user.imgUrl
+		};
+		discussionService.create(section, discussionOwner);
 	};
 });
