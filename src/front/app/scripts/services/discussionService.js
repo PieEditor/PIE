@@ -22,7 +22,8 @@ angular.module('pie')
 						date: new Date(),
 						score: 0
 					}
-				]
+				],
+				resolved: false
 			};
 			
 			if (! section.discussions)
@@ -38,13 +39,14 @@ angular.module('pie')
 		save: function() {
 			documentService.update();
 		},
-		addPost: function(owner, content) {
+		addPost: function(owner, content, resolve) {
 			var newPost = {
 				owner: owner,
 				content: content,
 				date: new Date(),
 				score: 0
 			};
+			this.currentDiscussion.resolved = resolve;
 			this.currentDiscussion.posts.push(newPost);
 			this.save();
 		},

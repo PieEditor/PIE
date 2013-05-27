@@ -21,11 +21,11 @@ angular.module('pie')
 
 	$scope.now = new Date();
 
-	$scope.addPost = function() {
+	$scope.addPost = function(resolve) {
 		// Form validation
 		if (! $scope.newContent) return;
 
-		discussionService.addPost($scope.user, $scope.newContent);
+		discussionService.addPost($scope.user, $scope.newContent, resolve);
 
 		// Clear inputs
 		$scope.newContent = '';
