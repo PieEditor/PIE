@@ -1,36 +1,32 @@
 'use strict';
 
 angular.module('pie')
-.controller('DiscussController', function ($scope, $resource, $routeParams, discussionService) {
+.controller('DiscussController', function ($scope, $http, $routeParams, apiBaseUrl, discussionService) {
+	// Initialize the discussion with the ID coming from the URL
 	if ($routeParams.discussionId !== undefined) {
-		// Initialize the discussion with the ID coming from the URL
 		discussionService.get($routeParams.discussionId);
 	}
 
-	// Watch for a change on the discussion shared via the discussionService
+	$http({method: 'GET', url: apiBaseUrl + '/user', withCredentials: true})
+	.success(function(data) {
+		$scope.user = data;
+	});
+
+	// Watch for a change on some discussionService properties
 	$scope.$watch(
 		function() { return discussionService.currentDiscussion; },
-		function() {
-			// If the discussion shared via the service has changed
-			// update our scope accordingly
-			$scope.discussion = discussionService.currentDiscussion;
-		}
+		function() { $scope.discussion = discussionService.currentDiscussion; }
 	);
-
-	var User = $resource('/mockAPI/user/:id', {id: '@id'});
-	$scope.user = User.get({id: 1});
+	$scope.$watch(
+		function() { return discussionService.currentState; },
+		function() { $scope.currentState = discussionService.currentState; }
+	);
 
 	$scope.now = new Date();
 
-	$scope.close = function() {
-		discussionService.currentDiscussion = undefined;
-	};
-
 	$scope.addPost = function() {
 		// Form validation
-		if ($scope.newContent === '' || $scope.newContent === undefined) {
-			return;
-		}
+		if (! $scope.newContent) return;
 
 		var newPost = {
 			owner: $scope.user,
@@ -56,4 +52,18 @@ angular.module('pie')
 		$scope.discussion.$save($scope.discussion.id);
 	};
 
+	$scope.close = function() {
+		discussionService.currentDiscussion = undefined;
+		discussionService.currentState = 'none';
+	};
+
+	$scope.addDiscussion = function() {
+		if (! $scope.newTitle || ! $scope.newContent) return;
+
+		// TODO: Save discussion
+
+		// Clear inputs
+		$scope.newTitle = '';
+		$scope.newContent = '';
+	};
 });

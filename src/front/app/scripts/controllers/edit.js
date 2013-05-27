@@ -30,5 +30,6 @@ angular.module('pie')
 	};
 
 	$scope.createDiscussion = function(section) {
+		discussionService.currentState = 'new';
 	};
 });
