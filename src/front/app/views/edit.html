@@ -1,7 +1,7 @@
 <div fixedheight ng-controller="EditController">
 	<div class="row-fluid">
 		<h1>{{ document.title }}</h1>
-		<a href="/#/architecture/{{document._id}}"><button class="btn btn-success" ng-click="modifiedArchitecture()"><i class="icon-wrench icon-white"></i> Modify Architecture ! </button></a>
+		<a href="/#/architecture/{{document._id}}"><button class="btn btn-success"><i class="icon-wrench icon-white"></i> Modify Architecture ! </button></a>
 	</div>
 
 	<hr />
@@ -12,10 +12,6 @@
 
 			<div class="faded pull-right">
 				<div class="btn-group">
-					<button class="btn btn-mini" ng-click="edit(section)">
-						<i class="{{ editButtonImage(section) }}"></i>
-					</button>
-
 					<button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-question-sign"></i> <span class="caret"></span></button>
 
 					<ul class="dropdown-menu pull-right">
@@ -26,14 +22,12 @@
 						<li><a href="" ng-click="createDiscussion(section)">Create a new discussion!</a></li>
 					</ul>
 				</div>
-				
-				
 			</div>
 		</div>
 
-		<div ng-hide="section.isMyContentEditable == true">
+		<div ng-dblclick="edit(section)" ng-hide="section.isMyContentEditable == true">
 			<piemarkdown content="section.content"></piemarkdown>
 		</div>
-		<textarea ng-show="section.isMyContentEditable == true" ng-model="section.content" class="span12" rows="10"></textarea>
+		<textarea ng-show="section.isMyContentEditable == true" ng-model="section.content" class="span12" rows="10" placeholder="Edit me" ngc-blur="edit(section)"></textarea>
 	</div>
 </div>
