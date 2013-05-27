@@ -2,15 +2,15 @@
 	<div class="row-fluid">
 		<h1>{{ document.title }}</h1>
 		<a href="/#/architecture/{{document._id}}"><button class="btn btn-success"><i class="icon-wrench icon-white"></i> Modify Architecture ! </button></a>
-		<button class="btn btn-success"><i class="icon-refresh icon-white"></i> Save and refresh ! </button>
+		<button class="btn btn-success" ng-click="saveAndRefresh()"><i class="icon-refresh icon-white"></i> Save and refresh ! </button>
 	</div>
 
 	<hr />
 	
 	<div ng-repeat="section in document.content" class="row-fluid">
 		<div class="level{{ section.level }}">
+			{{ getPartIndice( section, document.content ) }}
 			{{ section.title }}
-
 			<div class="faded pull-right">
 				<div class="btn-group">
 					<button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-question-sign"></i> <span class="caret"></span></button>
