@@ -294,7 +294,6 @@ server.on("request", function(request, response) {
 			else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "GET") {
 				if (isAuthenticated) {
 					var doc_id = parsedUrl.pathname.substring("/documents/".length, parsedUrl.pathname.lastIndexOf(".") >= 0 ? parsedUrl.pathname.lastIndexOf(".") : parsedUrl.pathname.length);
-					console.log(doc_id);
 					couchWrapper.docGet(doc_id, function(doc) {
 						if (doc) {
 							if (parsedUrl.pathname.indexOf(".pdf") === parsedUrl.pathname.length - ".pdf".length) {
@@ -304,7 +303,7 @@ server.on("request", function(request, response) {
 								var md = "";
 								md += "#"+doc.title+"\n";
 								for (var i = 0; i < doc.content.length; ++i) {
-									md += (new Array(doc.content[i].level + 2)).join("#");
+									md += (new Array(doc.content[i].level + 2)).join("#") + " " + doc.content[i].title;
 									md += "\n";
 									md += doc.content[i].content;
 									md += "\n";
@@ -319,7 +318,6 @@ server.on("request", function(request, response) {
 										response.end();
 									});
 								});
-								console.log(JSON.stringify(doc_md));
 								req.write(JSON.stringify(doc_md));
 								req.end();
 
