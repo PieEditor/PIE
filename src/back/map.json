@@ -3,6 +3,9 @@
 	"views" : {
 		"get": {
 			"map": "function(doc) {if (doc.owner) emit(doc.owner, doc.title);}"
+		},
+		"last": {
+			"map": "function(doc) {if((doc.version!==undefined) && (doc.docId!==undefined)) {emit(doc.docId,doc.version);}}"
 		}
 	}
 }

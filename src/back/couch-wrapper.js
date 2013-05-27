@@ -70,10 +70,6 @@ function doDelete(path, callback) {
 	});
 }
 
-function getLastVersion(docId, callback) {
-	doGetRequest("/document/_design/application/_view/last?key=\"" + docId + "\"", callback);
-}
-
 // USER
 
 exports.userCreate = function(user, callback) {
@@ -157,6 +153,23 @@ exports.docGet = function(id, callback) {
 	doGetRequest("/document/" + id, callback);
 }
 
+// FUCKING SQL !
+
+function getLastVersion(docId, callback) {
+	doGetRequest("/document/_design/application/_view/last?key=\"" + docId + "\"", function(res) {
+		if (res == null) {
+			callback(0);
+			return;
+		}
+		version = 0;
+		res.rows.forEach(function(elem) {
+			if (elem.value > version)
+				version = elem.value;
+		});
+		callback(version);
+	});
+}
+
 exports.docByUser = function(login, callback) {
 	doGetRequest("/document/_design/application/_view/get?key=\"" + login + "\"", function(res) {
 		if (res == null) {
@@ -170,4 +183,22 @@ exports.docByUser = function(login, callback) {
 		callback(list);
 	});
 }
+
+exports.userByPrefix = function(prefix, callback) {
+	// Error: null
+	// No value: []
+	// Success: [{login, imgUrl}]
+	doGetRequest("/user/_design/application/_view/images", function(res) {
+		if (res == null) {
+			callback(null);
+			return;
+		}
+		list = [];
+		res.rows.forEach(function(elem) {
+			if (elem.key.toLowerCase().indexOf(prefix.toLowerCase()) === 0)
+				list.push({login: elem.key, imgUrl: elem.value});
+		});
+		callback(list);
+	});
+};
 
