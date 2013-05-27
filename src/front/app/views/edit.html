@@ -3,8 +3,9 @@
 		<h1>{{ document.title }}</h1>
 
 		<div class="btn-group">
-			<a href="/#/architecture/{{ document._id }}" class="btn btn-success"><i class="icon-wrench icon-white"></i> Modify Architecture !</a>
+			<a href="/#/architecture/{{ document._id }}" class="btn btn-primary"><i class="icon-wrench icon-white"></i> Modify Architecture</a>
 			<a href="{{ downloadUrl }}" class="btn btn-primary"><i class="icon-download icon-white"></i> Get PDF</a>
+			<button class="btn btn-primary" ng-click="saveAndRefresh()"><i class="icon-refresh icon-white"></i> Save and refresh</button>
 		</div>
 	</div>
 
@@ -12,8 +13,8 @@
 
 	<div ng-repeat="section in document.content" class="row-fluid">
 		<div class="level{{ section.level }}">
+			{{ getPartIndice( section, document.content ) }}
 			{{ section.title }}
-
 			<div class="faded pull-right">
 				<div class="btn-group">
 					<button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-question-sign"></i> <span class="caret"></span></button>
