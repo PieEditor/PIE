@@ -36,10 +36,11 @@ angular.module('pie')
 			this.currentDocument = {
 				title: '',
 				owner : '',
+				collaborators : [],
 				content: [
-					{title: '', level: 1, discussions: []},
-					{title: '', level: 1, discussions: []},
-					{title: '', level: 1, discussions: []}
+					{title: '', level: 1, discussions: [], owner : undefined},
+					{title: '', level: 1, discussions: [], owner : undefined},
+					{title: '', level: 1, discussions: [], owner : undefined}
 				],
 				docId: undefined,
 				version: undefined
