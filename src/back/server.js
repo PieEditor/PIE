@@ -148,7 +148,7 @@ server.on("request", function(request, response) {
 						if (user_object) {
 							couchWrapper.docByUser(login, function(docs_list) {
 								if (docs_list !== null) {
-									delete user_obect.shasum;
+									delete user_object.shasum;
 									user_object.documents = docs_list;
 									response.writeHead(200, "OK");
 									response.write(JSON.stringify(user_object));
