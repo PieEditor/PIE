@@ -4,16 +4,22 @@ angular.module('pie')
 .controller('EditController', function ($scope, $routeParams, authService, documentService, discussionService ) {
 	authService.ensureLogin();
 
-	documentService.get($routeParams.documentId)
-	.success(function(data) {
-		$scope.document = data;
+	$scope.$watch(
+		function() { return documentService.currentDocument; },
+		function() {
+			$scope.document = documentService.currentDocument;
 
-		_.map($scope.document.content, function(c) {
-			// If we have some content, then show it (isMyContentEditable = false)
-			// If we don't, show the editing field (isMyContentEditable = true)
-			c.isMyContentEditable = ! c.content;
-		});
-	});
+			if(! $scope.document) return;
+			
+			_.map($scope.document.content, function(c) {
+				// If we have some content, then show it (isMyContentEditable = false)
+				// If we don't, show the editing field (isMyContentEditable = true)
+				c.isMyContentEditable = ! c.content;
+			});
+		}
+	);
+
+	documentService.get($routeParams.documentId);
 
 	$scope.edit = function(section) {
 		if (! section.isMyContentEditable) {
@@ -21,7 +27,7 @@ angular.module('pie')
 		}
 		else {
 			section.isMyContentEditable = ! section.content;
-			documentService.update($scope.document);
+			documentService.update();
 		}
 	};
 
@@ -30,5 +36,6 @@ angular.module('pie')
 	};
 
 	$scope.createDiscussion = function(section) {
+		discussionService.currentState = 'new';
 	};
 });

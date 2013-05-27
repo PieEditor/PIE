@@ -9,9 +9,31 @@ angular.module('pie')
 .factory('discussionService', function($resource) {
 	var Discussion = $resource('/mockAPI/discussion/:id', {id: '@id'});
 	return {
+		currentState: 'none',
 		currentDiscussion: undefined,
 		get: function(id) {
 			this.currentDiscussion = Discussion.get({id: id});
+		},
+		newDiscussion: function(section) {
+			this.currentState = 'new';
+			
+			var newDiscussion = {
+				title: $scope.newTitle,
+				posts: [
+					{
+						owner: { login: $scope.user.login, imgUrl: $scope.user.imgUrl },
+						content: $scope.newContent,
+						date: $scope.now,
+						score: 0
+					}
+				]
+			};
+			
+			if (! section.discussions)
+				section.discussions = [];
+			
+			section.discussions.push(newDiscussion);
+			this.currentDiscussion = newDiscussion;
 		}
 	};
 });
