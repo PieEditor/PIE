@@ -5,6 +5,7 @@ var exec = require("child_process").exec;
 http.createServer(function(req, res) {
 	var send500 = function(err) {
 		if (err) {
+			console.log("Error: " + err);
 			res.writeHead(500);
 			res.end();
 		}
