@@ -3,7 +3,7 @@ var fs = require("fs");
 var exec = require("child_process").exec;
 
 http.createServer(function(req, res) {
-	if (req.method != "GET") {
+	if (req.method != "POST") {
 		res.writeHead(400);
 		res.end();
 		return;
@@ -19,6 +19,7 @@ http.createServer(function(req, res) {
 		body += data;
 	});
 	req.on("end", function() {
+		fs.writeFileSync("log.json", body);
 		var doc = JSON.parse(body);
 		var md = doc.content;
 		var settings = JSON.stringify(doc.settings);
