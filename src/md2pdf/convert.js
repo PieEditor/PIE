@@ -4,8 +4,10 @@ var exec = require("child_process").exec;
 
 http.createServer(function(req, res) {
 	var send500 = function(err) {
-		res.writeHead(500);
-		res.end();
+		if (err) {
+			res.writeHead(500);
+			res.end();
+		}
 	};
 	if (req.method != "POST") {
 		res.writeHead(400);
@@ -70,4 +72,3 @@ http.createServer(function(req, res) {
 			});
 	});
 }).listen(8081, "localhost");
-
