@@ -36,7 +36,7 @@
 				<div class="control-group">
 					<label class="control-label" for="inputCollaborators">Document collaborators:</label>
 					<div class="controls">
-						<input type="text" class="input-xlarge" id="inputCollaborators" ng-model="newCollaborator" placeholder="Enter new collaborators here..." typeahead="c as c.login for c in collaborators | filter:$viewValue" typeahead-editable="false">
+						<input type="text" class="input-xlarge" id="inputCollaborators" ng-model="newCollaborator" placeholder="Enter new collaborators here..." typeahead="c as c.login for c in collaborators($viewValue)" typeahead-editable="false">
 
 						<ul>
 							<li ng-repeat="user in document.collaborators">
