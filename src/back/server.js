@@ -291,7 +291,7 @@ server.on("request", function(request, response) {
 			}
 
 			// Get a single document
-			else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "GET" && (request.headers.accept === "*/*" || request.headers.accept === "application/json")) {
+			else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "GET" && !(parsedUrl.pathname.indexOf(".pdf") === parsedUrl.pathname.length - ".pdf".length)) {
 				if (isAuthenticated) {
 					couchWrapper.docGet(parsedUrl.pathname.substr("/documents/".length), function(doc) {
 						if (doc) {
@@ -311,13 +311,12 @@ server.on("request", function(request, response) {
 			}
 
 			// Convert a document
-			else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "GET" && request.headers.accept === "application/pdf") {
+			else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "GET" && parsedUrl.pathname.indexOf(".pdf") === parsedUrl.pathname.length - ".pdf".length) {
 				if (isAuthenticated)  {					
 					var document = JSON.stringify(require("../md2pdf/example.json"));
 					var req = http.request({hostname: "localhost", port: 8081, path: "/pdf", method: "POST"}, function(res) {
 						response.writeHead(200, "OK");
 						res.on("data", function(buffer) {
-							console.log("tick");
 							response.write(buffer);
 						});
 						res.on("end", function() {

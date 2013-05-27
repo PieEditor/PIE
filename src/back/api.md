@@ -188,17 +188,16 @@ List documents for the specified user.
 #### Response
 
 200 "OK"
+
  * **[]{id: **string**, title: **string}**
 
 ### Get a single document
 
-	GET /documents/{id}
+	GET /documents/{id}[.pdf|.odt]
 
 ### Response
 
 200 "OK".
-
-If the "Accept" header is set to "application/pdf", returns a binary-encoded PDF file.
-Returns a JSON object otherwise :
+Suffixing the URL with ".pdf" or ".odt" allows you to get a PDF or ODT document. Otherwise, JSON is provided.
 
  * **{}Document** : document
