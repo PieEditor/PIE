@@ -52,6 +52,8 @@ angular.module('pie')
 		$scope.discussion.posts[0].content = $scope.newContent;
 		discussionService.save();
 
+		discussionService.currentState = 'show';
+
 		// Clear inputs
 		$scope.newTitle = '';
 		$scope.newContent = '';
