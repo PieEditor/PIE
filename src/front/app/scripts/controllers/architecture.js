@@ -125,7 +125,7 @@ angular.module('pie')
 	};
 
 	// Get collaborators list matching a login name from API
-	$scope.collaborators = function(newCollaboratorLogin) {
+	$scope.matchCollaborators = function(newCollaboratorLogin) {
 		return $http({
 			method: 'GET',
 			url: apiBaseUrl + '/users',
@@ -137,6 +137,10 @@ angular.module('pie')
 	};
 
 	$scope.$watch('newCollaborator', function(newCollaborator) {
+		$scope.addCollaborator(newCollaborator);
+	});
+	
+	$scope.addCollaborator = function(newCollaborator) {
 		// Sanity checks
 		if (! newCollaborator) return;
 		if (! $scope.document.collaborators)
@@ -152,8 +156,8 @@ angular.module('pie')
 
 		$scope.document.collaborators.push(newCollaborator);
 		$scope.newCollaborator = '';
-	});
-	
+	};
+
 	$scope.removeCollaborator = function(collaborator) {
 		var index = _.indexOf($scope.document.collaborators, collaborator);
 		$scope.document.collaborators.splice(index, 1);
