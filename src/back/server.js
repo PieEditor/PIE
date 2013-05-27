@@ -203,6 +203,32 @@ server.on("request", function(request, response) {
 				response.end();
 			}
 
+			// Get the users for which the login begins with a prefix
+			else if(parsedUrl.pathname == "/users" && request.method == "GET") {
+				if (isAuthenticated) {
+					couchWrapper.userByPrefix(params.prefix, function(users) {
+						if (users !== null) {
+							if (users.length == 0) {
+								response.writeHead(204, "No Content");
+							}
+							else {
+								response.writeHead(200, "OK");
+								response.write(JSON.stringify(users));
+							}
+						}
+						else {
+							console.log("tick");
+							response.writeHead(403, "Forbidden");
+						}
+						response.end();
+					});
+				}
+				else {
+					response.writeHead(401, "Unauthorized");
+					response.end();
+				}
+			}
+
 			/* Document */
 
 			// Create a single document

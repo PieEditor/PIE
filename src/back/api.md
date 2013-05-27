@@ -125,6 +125,20 @@ Should help you to check if a given token is valid.
 
 404 "Not Found" otherwise.
 
+### Filter users by name
+
+Get the users for which the login begins with the specified prefix.
+
+#### Input
+ * prefix **string**
+
+#### Response
+
+200 "OK" if there is at least one match.
+204 "No Content" otherwise.
+
+ * **[]{login, imgUrl}**
+
 ## Document
 
 ### Create a single document
