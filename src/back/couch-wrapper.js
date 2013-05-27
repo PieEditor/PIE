@@ -70,6 +70,10 @@ function doDelete(path, callback) {
 	});
 }
 
+function getLastVersion(docId, callback) {
+	doGetRequest("/document/_design/application/_view/last?key=\"" + docId + "\"", callback);
+}
+
 // USER
 
 exports.userCreate = function(user, callback) {
@@ -110,17 +114,27 @@ exports.userDelete = function(login, callback) {
 
 // DOCUMENT
 
-exports.docAdd = function(document, callback) {
+exports.docAdd = docAdd;
+
+function docAdd(document, callback) {
 	getUUID(function(uuid) {
 		if (uuid == null) {
 			callback(null);
 			return;
 		}
-		doPutRequest("/document/" + uuid, document, function(res) {
-			if (res == false)
-				callback(null);
-			else callback(uuid);
-		});
+		if (document.version == undefined) {
+			getLastVersion(document.docId, function(version) {
+				document.version = version + 1;
+				docAdd(document, callback);
+			});
+		}
+		else {
+			doPutRequest("/document/" + uuid, document, function(res) {
+				if (res == false)
+					callback(null);
+				else callback(uuid);
+			});
+		}
 	});
 }
 

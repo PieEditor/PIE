@@ -37,11 +37,23 @@ angular.module('pie')
 				title: '',
 				owner : '',
 				content: [
-					{ title: '', level: 1},
-					{ title: '', level: 1},
-					{ title: '', level: 1}
-				]
+					{title: '', level: 1, discussions: []},
+					{title: '', level: 1, discussions: []},
+					{title: '', level: 1, discussions: []}
+				],
+				docId: undefined,
+				version: undefined
 			};
+		},
+		downloadUrl: function(id) {
+			return apiBaseUrl + '/documents/' + id + '.pdf';
+		},
+		newVersion: function() {
+			this.currentDocument.version = undefined;
+			this.currentDocument._id = undefined;
+			_.each(this.currentDocument.content, function(elem) {
+				elem.discussions = [];
+			});
 		}
 	};
 });
