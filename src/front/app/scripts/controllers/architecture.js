@@ -102,6 +102,21 @@ angular.module('pie')
 		return false;
 	};
 	
+	$scope.addCollaborator = function() {
+		if (! $scope.newCollaborator) return;
+		
+		$scope.document.collaborators.push({
+			login: $scope.newCollaborator,
+			imgUrl: undefined
+		});
+		$scope.newCollaborator = '';
+	};
+	
+	$scope.removeCollaborator = function(collaborator) {
+		var index = _.indexOf($scope.document.collaborators, collaborator);
+		$scope.document.collaborators.splice(index, 1);
+	};
+	
 	$scope.sendArchitecture = function () {
 		if (! $routeParams.documentId ) {
 			$scope.document.owner = authService.user.login;
