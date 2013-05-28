@@ -63,16 +63,12 @@
 				{{ getPartIndice(part, document.content) }}
 				<input type="text"  ng-model="part.title" placeholder="Section title">
 				<div class="btn-group">
-					<button class="btn btn-mini" ng-hide="removeButtonHide(part,document.content)" data-toggle="dropdown" ng-click="removePart(part)"><i class="icon-remove"></i> </button>
-					<button class="btn btn-mini" ng-hide="backwardButtonHide(part)" data-toggle="dropdown" ng-click="stepBackward(part)"><i class="icon-step-backward"></i> </button>
-					<button class="btn btn-mini" ng-hide="forwardButtonHide(part,document.content)" data-toggle="dropdown" ng-click="stepForward(part)"><i class="icon-step-forward"></i> </button>
-					<button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-plus-sign"></i> <span class="caret"></span></button>
-
-					<ul class="dropdown-menu pull-right">
-						<li><a href="" ng-click="createSubPart(part)">Create a subpart here</a></li>
-						<li class="divider"></li>
-						<li><a href="" ng-click="createNewPart(part)">Create a new part here!</a></li>
-					</ul>
+					<button class="btn btn-mini" ng-hide="removeButtonHide(part,document.content)" ng-click="removePart(part)"><i class="icon-remove"></i> </button>
+					<button class="btn btn-mini" ng-hide="upwardButtonHide(part,document.content)" ng-click="stepUpward(part)"><i class="icon-arrow-up"></i></button>
+					<button class="btn btn-mini" ng-hide="downwardButtonHide(part,document.content)" ng-click="stepDownward(part)"><i class="icon-arrow-down"></i></button>
+					<button class="btn btn-mini" ng-hide="backwardButtonHide(part)" ng-click="stepBackward(part)"><i class="icon-arrow-left"></i> </button>
+					<button class="btn btn-mini" ng-hide="forwardButtonHide(part, document.content)" ng-click="stepForward(part)"><i class="icon-arrow-right"></i></button>
+					<button class="btn btn-mini" ng-click="createNewPart(part)"><i class="icon-plus-sign"></i></button>
 				</div>
 			</li> 
 		</div>

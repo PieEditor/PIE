@@ -41,14 +41,7 @@ angular.module('pie')
 	$scope.getPartIndice = function(part, architectureLevels) {
 		return tocService.getPartIndice(part, architectureLevels ) ;
 	};
-	
-	/* Add a sub part in the selected part */
-	$scope.createSubPart = function(part) {
-		var index = _.indexOf($scope.document.content, part) ;
-		var myNewLevel = $scope.document.content[index].level + 1;
-		$scope.document.content.splice(index+1, 0, {title : '' , level : myNewLevel , deleted : false});
-	};
-	
+		
 	/* Add a part of the same level under the selected part */
 	$scope.createNewPart = function(part) {
 		var index = _.indexOf($scope.document.content, part) ;
@@ -70,6 +63,33 @@ angular.module('pie')
 		if (index > 0 && ($scope.document.content[index].level - $scope.document.content[index-1].level) <1 ) {
 			$scope.document.content[index].level = $scope.document.content[index].level+1;
 		}	
+	};
+
+	/* push upward a section of the architecture */
+	$scope.stepUpward = function(part) {
+		var index = _.indexOf($scope.document.content, part);
+		var tmp_level = $scope.document.content[index].level;
+		var tmp_elem = $scope.document.content[index - 1];
+		
+		$scope.document.content[index].level = tmp_elem.level;
+		tmp_elem.level = tmp_level;
+		
+		$scope.document.content[index - 1] = $scope.document.content[index];
+		$scope.document.content[index] = tmp_elem;
+	};
+
+	/* push downward a section of the architecture */
+	$scope.stepDownward = function(part) {
+		var index = _.indexOf($scope.document.content, part);
+
+		var tmp_level = $scope.document.content[index].level;
+		var tmp_elem = $scope.document.content[index + 1];
+		
+		$scope.document.content[index].level = tmp_elem.level;
+		tmp_elem.level = tmp_level;
+		
+		$scope.document.content[index + 1] = $scope.document.content[index];
+		$scope.document.content[index] = tmp_elem;
 	};
 	
 	/* Hide the remove button if only one item left */
@@ -100,6 +120,16 @@ angular.module('pie')
 			return true;
 		}
 		return false;
+	};
+
+	$scope.upwardButtonHide = function(part, architectureLevels) {
+		var index = _.indexOf( $scope.document.content, part);
+		return (index === 0);
+	};
+
+	$scope.downwardButtonHide = function(part, architectureLevels) {
+		var index = _.indexOf($scope.document.content, part);
+		return (index === $scope.document.content.length - 1);
 	};
 	
 	$scope.sendArchitecture = function () {
