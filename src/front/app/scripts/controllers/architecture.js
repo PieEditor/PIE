@@ -203,7 +203,10 @@ angular.module('pie')
 	};
 
 	$scope.assignementInputHide = function (part) {
-		$scope.part.owner = " hello "
+		
 	};	
 
+	$scope.removeSectionOwner = function (part ) {
+		part.owner = undefined;
+	}
 });
