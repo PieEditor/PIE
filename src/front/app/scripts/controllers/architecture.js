@@ -8,12 +8,21 @@ angular.module('pie')
 		function() { return documentService.currentDocument; },
 		function() { $scope.document = documentService.currentDocument; }
 	);
-
 	if (! $routeParams.documentId) { // create a new document
 		documentService.create();
 	}
 	else { // or fetch an existing one
-		documentService.get($routeParams.documentId);
+		documentService.get($routeParams.documentId)
+		.success(function() {
+			_.map(documentService.currentDocument.content, function(part) {
+				$scope.$watch(
+					function() { return part.owner },
+					function(newOwner) {
+						$scope.addCollaborator(newOwner);
+					}
+				);
+			});
+		});
 	}
 
 	/* remove a part and all the subparts in it */
@@ -192,4 +201,12 @@ angular.module('pie')
 		var index = _.indexOf($scope.document.collaborators, collaborator);
 		$scope.document.collaborators.splice(index, 1);
 	};
+
+	$scope.assignementInputHide = function (part) {
+		
+	};	
+
+	$scope.removeSectionOwner = function (part ) {
+		part.owner = undefined;
+	}
 });
