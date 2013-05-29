@@ -155,7 +155,8 @@ exports.docDelete = function(id, callback) {
 	doDelete("/document/" + id, callback);
 }
 
-exports.docGet = function(id, callback) {
+
+function docById(id, callback) {
 	doGetRequest("/document/" + id, callback);
 }
 
@@ -173,6 +174,30 @@ function getLastVersion(docId, callback) {
 				version = elem.value;
 		});
 		callback(version);
+	});
+}
+
+exports.docGet = docGet;
+
+function docGet(docId, version, callback) {
+	if (version == -1) {
+		getLastVersion(docId, function(ver) {
+			docGet(docId, ver, callback);
+		});
+		return;
+	}
+	doGetRequest("/document/_design/application/_view/last?key=\"" + docId + "\"", function(res) {
+		if (res == null) {
+			callback(null);
+			return;
+		}
+		for (var i = 0 ; i < res.rows.length ; i++) {
+			if (res.rows[i].value == version) {
+				docById(res.rows[i].id, callback);
+				return;
+			}
+		}
+		callback(null);
 	});
 }
 
