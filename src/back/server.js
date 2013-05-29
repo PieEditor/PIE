@@ -317,11 +317,25 @@ server.on("request", function(request, response) {
 			}
 
 			// Get a single document
-			else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "GET") {
+			else if (parsedUrl.pathname.indexOf("/documents/") == 0 && (parsedUrl.pathname.split("/").length == 3 || parsedUrl.pathname.split("/").length == 5) && request.method == "GET") {
 				if (isAuthenticated) {
-					var doc_id = parsedUrl.pathname.substring("/documents/".length, parsedUrl.pathname.lastIndexOf(".") >= 0 ? parsedUrl.pathname.lastIndexOf(".") : parsedUrl.pathname.length);
-					couchWrapper.docGet(doc_id, function(doc) {
-						if (doc) {
+					var version = -1;
+					if (parsedUrl.pathname.indexOf("/versions/") >= 0) {
+						var version = parsedUrl.pathname.substring(parsedUrl.pathname.indexOf("/versions/") + "/versions/".length, parsedUrl.pathname.lastIndexOf(".") >= 0 ? parsedUrl.pathname.lastIndexOf(".") : parsedUrl.pathname.length);
+					}
+
+					if (version == -1) {
+						var doc_id = parsedUrl.pathname.substring("/documents/".length, parsedUrl.pathname.lastIndexOf(".") >= 0 ? parsedUrl.pathname.lastIndexOf(".") : parsedUrl.pathname.length);
+					}
+					else {
+						var doc_id = parsedUrl.pathname.substring("/documents/".length, parsedUrl.pathname.indexOf("/versions/"));
+					}
+
+					console.log(version);
+					console.log(doc_id);
+
+					couchWrapper.docGet(doc_id, version, function(doc) {
+						if (doc !== null) {
 							if (parsedUrl.pathname.indexOf(".pdf") === parsedUrl.pathname.length - ".pdf".length) {
 								doc_md = {};
 								doc_md._id = doc._id;
@@ -364,6 +378,22 @@ server.on("request", function(request, response) {
 					response.writeHead(401, "Unauthorized");
 					response.end();
 				}
+			}
+
+			else if (parsedUrl.pathname.indexOf("/documents/") == 0 && parsedUrl.pathname.split("/").length == 4 && request.method == "GET") {
+				if (isAuthenticated) {
+					var doc_id = parsedUrl.pathname.substring("/documents/".length, parsedUrl.pathname.indexOf("/versions"));
+					couchWrapper.getLastVersion(doc_id, function(lastVersion) {
+						response.writeHead(200, "OK");
+						response.write(JSON.stringify({lastVersion: lastVersion}));
+						response.end();
+					});
+				}
+				else {
+					response.writeHead(401, "Unauthorized");
+					response.end();
+				}
+
 			}
 
 			// Default
