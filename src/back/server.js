@@ -217,7 +217,6 @@ server.on("request", function(request, response) {
 							}
 						}
 						else {
-							console.log("tick");
 							response.writeHead(403, "Forbidden");
 						}
 						response.end();
@@ -330,9 +329,6 @@ server.on("request", function(request, response) {
 					else {
 						var doc_id = parsedUrl.pathname.substring("/documents/".length, parsedUrl.pathname.indexOf("/versions/"));
 					}
-
-					console.log(version);
-					console.log(doc_id);
 
 					couchWrapper.docGet(doc_id, version, function(doc) {
 						if (doc !== null) {
