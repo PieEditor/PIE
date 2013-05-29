@@ -127,9 +127,9 @@ server.on("request", function(request, response) {
 					delete params.passwd;
 					couchWrapper.userCreate(params, function(uuid) {
 						if (uuid) {
-							users[uuid] = params.login
+							users[uuid] = params.login;
+							response.setHeader("Set-Cookie", "token="+uuid+"; path=/; expires=Wed, 14-Jan-2032 16:16:49 GMT");
 							response.writeHead(201, "Created");
-							response.write(JSON.stringify(uuid));
 						}
 						else {
 							response.writeHead(403, "Forbidden");

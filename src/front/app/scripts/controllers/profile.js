@@ -10,12 +10,10 @@ angular.module('pie')
 	});
 	
 	$scope.logout = function() {
-		authService.logout(
-			function() { // success callback
-				$location.path("/");
-			},
-			function() {} // error callback
-		);
+		authService.logout()
+		.success(function() {
+			$location.path("/");
+		});
 	};
 
 	$scope.deleteDocument = function(document) {
