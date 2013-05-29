@@ -1,12 +1,12 @@
 {
 	"_id" : "_design/application",
 	"views" : {
-		"get": {
-			"map": "function(doc) {if (doc.owner) emit(doc.owner, doc.title);}"
-		},
-		"last": {
-			"map": "function(doc) {if((doc.version!==undefined) && (doc.docId!==undefined)) {emit(doc.docId,doc.version);}}"
-		}
-	}
+   "get": {
+       "map": "function(doc) {if (doc.owner) emit(doc.owner, {docId:doc.docId,version:doc.version,title:doc.title});}"
+   },
+   "last": {
+       "map": "function(doc) {if((doc.version!==undefined) && (doc.docId!==undefined)) {emit(doc.docId,doc.version);}}"
+   }
+}
 }
 
