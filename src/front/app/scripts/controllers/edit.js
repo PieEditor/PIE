@@ -18,7 +18,7 @@ angular.module('pie')
 			});
 		}
 	);
-
+	
 	documentService.get($routeParams.documentId);
 	$scope.downloadUrl = documentService.downloadUrl($routeParams.documentId);
 
@@ -45,17 +45,26 @@ angular.module('pie')
 	};
 	
 	$scope.saveAndRefresh = function ( ) {
-		documentService.update();
-		documentService.newVersion();
-		documentService.post().success(function(docId) {
+		documentService.update()
+		.success(function() {
+			documentService.newVersion();
+			documentService.post().success(function(docId) {
+				console.log(JSON.parse(docId));
 				$location.path('/editAndDiscuss/' + JSON.parse(docId));
 			})
 			.error(function(data) {
 				console.log(data);
 			});
+		})
+		.error(function(error) {
+			console.log(error);
+		});	
+		discussionService.currentState = "none";
+		discussionService.currentDiscussion = undefined;
 	};
 	
 	$scope.getPartIndice = function( part , docContent ) {
 		return tocService.getPartIndice (part , docContent ) ;
 	};
 });
+
