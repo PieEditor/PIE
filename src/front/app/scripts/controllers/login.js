@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pie')
-.controller('LoginController', function ($scope, $resource, $routeParams, $location, $timeout, authService) {
+.controller('LoginController', function ($scope, $resource, $routeParams, $location, authService) {
 	
 	/******************************************/
 	/** Initialisation and general functions **/
@@ -33,16 +33,13 @@ angular.module('pie')
 	/** Login Management **/
 	/**********************/
 	$scope.getLog = function() {
-		authService.login(
-			$scope.userName,
-			$scope.password,
-			function() { // success callback
-				$location.path('/profile/');
-			},
-			function() { // error callback
-				$scope.loginFailureAlert = "true";
-			}
-		);
+		authService.login($scope.userName, $scope.password)
+		.success(function() {
+			$location.path('/profile/');
+		})
+		.error(function() {
+			$scope.loginFailureAlert = "true";
+		});
 	};
 	
 	/*****************************/
@@ -63,14 +60,13 @@ angular.module('pie')
 		}
 		
 		/* Registration Sucess */
-		authService.register($scope.newUserName, $scope.newPassword, $scope.newEmail, $scope.newImage,
-			function() { // success callback
-				$location.path('/profile/');
-			},
-			function() { // error callback
-				$scope.registrationUserNameAlreadyUseAlert = "true";
-			}
-		);
+		authService.register($scope.newUserName, $scope.newPassword, $scope.newEmail, $scope.newImage)
+		.success(function() { // success callback
+			$location.path('/profile/');
+		})
+		.error(function() { // error callback
+			$scope.registrationUserNameAlreadyUseAlert = "true";
+		});
 	};
 	
 	/**************************/
