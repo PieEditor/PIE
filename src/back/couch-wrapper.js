@@ -162,7 +162,7 @@ function docById(id, callback) {
 
 // FUCKING SQL !
 
-function getLastVersion(docId, callback) {
+exports.getLastVersion = function(docId, callback) {
 	doGetRequest("/document/_design/application/_view/last?key=\"" + docId + "\"", function(res) {
 		if (res == null) {
 			callback(0);
