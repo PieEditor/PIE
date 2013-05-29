@@ -55,22 +55,30 @@
 	</div>
 	<div class="row-fluid " >
 		<div class="span3 well"><h3>Architecture : </h3><br>
-			<p><li>Use <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-plus-sign"></i> <span class="caret"></span></button> to create New or Sub Parts.<br></li>
+			<p><li>Use <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-plus-sign"></i></button> to create new parts.<br></li>
 			<li>Use <button class="btn btn-mini" data-toggle="dropdown"><i class="icon-step-backward"></i> </button> <button class="btn btn-mini" data-toggle="dropdown"><i class="icon-step-forward"></i> </button> to move a section in the architecture. <br></li>
-			<li> Use <button class="btn btn-mini" data-toggle="dropdown"><i class="icon-remove"></i> </button> to delete a section and all the subparts it contains.</li></p></div>
+			<li> Use <button class="btn btn-mini" data-toggle="dropdown"><i class="icon-remove"></i> </button> to delete a section and all the subparts it contains.</li></p>
+			<li> Use <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i></button> to assign someone to a part.</li></div>
 		<div class ="span9"> 
 			<li ng-repeat="part in document.content" class="offset{{part.level-1}}"> 
 				{{ getPartIndice(part, document.content) }}
 				<input type="text"  ng-model="part.title" placeholder="Section title">
-				<div class="btn-group">
+				<div class="btn-group dropdown">
 					<button class="btn btn-mini" ng-hide="removeButtonHide(part,document.content)" ng-click="removePart(part)"><i class="icon-remove"></i> </button>
 					<button class="btn btn-mini" ng-hide="upwardButtonHide(part,document.content)" ng-click="stepUpward(part)"><i class="icon-arrow-up"></i></button>
 					<button class="btn btn-mini" ng-hide="downwardButtonHide(part,document.content)" ng-click="stepDownward(part)"><i class="icon-arrow-down"></i></button>
 					<button class="btn btn-mini" ng-hide="backwardButtonHide(part)" ng-click="stepBackward(part)"><i class="icon-arrow-left"></i> </button>
 					<button class="btn btn-mini" ng-hide="forwardButtonHide(part, document.content)" ng-click="stepForward(part)"><i class="icon-arrow-right"></i></button>
 					<button class="btn btn-mini" ng-click="createNewPart(part)"><i class="icon-plus-sign"></i></button>
+					<button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i></button>
+
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						<li>
+							<input type="text" class="input-large" ng-model="part.owner" placeholder="Assign someone to this part" typeahead="c as c.login for c in matchCollaborators($viewValue)" typeahead-editable="false" stop-propagation>
+						</li>
+					</ul>
 				</div>
-			</li> 
+			</li>
 		</div>
 	</div>
 </div>
