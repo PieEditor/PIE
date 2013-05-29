@@ -135,7 +135,7 @@ Get the users for which the login begins with the specified prefix.
 200 "OK" if there is at least one match.
 204 "No Content" otherwise.
 
- * **[]{login, imgUrl}**
+ * **[]{login: **string**, imgUrl: **string**}**
 
 ## Document
 
@@ -205,11 +205,25 @@ List documents for the specified user.
 
 ### Get a single document
 
-	GET /documents/{id}[.pdf|.odt]
+Get a single document. If no version is provided, fetch the last version of the document.
+Suffixing the URL with ".pdf" or ".odt" allows you to get a PDF or ODT document. Otherwise, JSON is provided.
+
+	GET /documents/{id}[/versions/{version}][.pdf|.odt]
 
 ### Response
 
 200 "OK".
-Suffixing the URL with ".pdf" or ".odt" allows you to get a PDF or ODT document. Otherwise, JSON is provided.
 
  * **{}Document** : document
+or
+ * binary
+
+### Get the last version of a document
+
+	GET /documents/{id}/versions
+
+### Response
+
+200 "OK".
+
+ * **{lastVersion: **integer**}** 
