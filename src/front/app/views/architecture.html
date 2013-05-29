@@ -70,11 +70,13 @@
 					<button class="btn btn-mini" ng-hide="backwardButtonHide(part)" ng-click="stepBackward(part)"><i class="icon-arrow-left"></i> </button>
 					<button class="btn btn-mini" ng-hide="forwardButtonHide(part, document.content)" ng-click="stepForward(part)"><i class="icon-arrow-right"></i></button>
 					<button class="btn btn-mini" ng-click="createNewPart(part)"><i class="icon-plus-sign"></i></button>
-					<button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i></button>
-
+					<button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i>{{ part.owner.login }}</button>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-						<li>
+						<li> Section Owner</li>
+						<li class="divider"></li>
+						<li class="input-append">
 							<input type="text" class="input-large" ng-model="part.owner" placeholder="Assign someone to this part" typeahead="c as c.login for c in matchCollaborators($viewValue)" typeahead-editable="false" stop-propagation>
+							<button class="btn" ng-click="removeSectionOwner(part)"><i class="icon-remove"></i></button>
 						</li>
 					</ul>
 				</div>
