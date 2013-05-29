@@ -118,17 +118,23 @@ function docAdd(document, callback) {
 			callback(null);
 			return;
 		}
-		if (document.version == undefined) {
-			getLastVersion(document.docId, function(version) {
-				document.version = version + 1;
-				docAdd(document, callback);
-			});
-		}
-		else {
+		if (document.docId === undefined) {
+			document.docId = uuid;
+			document.version = 0;
 			doPutRequest("/document/" + uuid, document, function(res) {
 				if (res == false)
 					callback(null);
 				else callback(uuid);
+			});
+		}
+		else {
+			getLastVersion(document.docId, function(version) {
+				document.version = version + 1;
+				doPutRequest("/document/" + uuid, document, function(res) {
+					if (res == false)
+						callback(null);
+					else callback(uuid);
+				});
 			});
 		}
 	});
@@ -178,7 +184,16 @@ exports.docByUser = function(login, callback) {
 		}
 		list = [];
 		res.rows.forEach(function(elem) {
-			list.push({id: elem.id, title: elem.value});
+			var wasInList = false;
+			for (var i = 0 ; i < list.length ; i++) {
+				if ((list[i].docId == elem.value.docId) && (elem.value.version > list[i].version)) {
+					list[i] = {id: elem.id, docId: elem.value.docId, version: elem.value.version, title: elem.value.title};
+					wasInList = true;
+					break;
+				}
+			}
+			if (!wasInList)
+				list.push({id: elem.id, docId: elem.value.docId, version: elem.value.version, title: elem.value.title});
 		});
 		callback(list);
 	});
