@@ -61,14 +61,9 @@ void process(FILE * input, FILE * output) {
 		}
 		// Copy code blocks verbatim instead of interpreting Markdown
 		if (state.code) {
-			if (current == '~')
+			fputs(xmlify(current), output);
+			if (next == '\n')
 				state.code = 0;
-			else if (current == '\n') {
-				fputs(PARAGRAPH_END_TAG, output);
-				fputs(CODE_START_TAG, output);
-			}
-			else
-				fputs(xmlify(current), output);
 			last = current;
 			current = next;
 			continue;
@@ -99,7 +94,7 @@ void process(FILE * input, FILE * output) {
 				state.italic = state.italic ? 0 : 1;
 			}
 			break;
-		case '|' :	// Monotype
+		case '`' :	// Monotype
 			fputs(state.mono ? SPAN_END_TAG : MONO_START_TAG, output);
 			state.mono = state.mono ? 0 : 1;
 			break;
@@ -142,9 +137,9 @@ void process(FILE * input, FILE * output) {
 			else fputs(TITLE_END_TAG, output);
 			state.paragraph = 0;
 			state.title_level = 0;
-			if ((next != '#') && (next != '~')) {
-				fputs(state.code ? CODE_START_TAG : PARAGRAPH_START_TAG, output);
+			if ((next != '#') && (next != '\t')) {
 				state.paragraph = 1;
+				fputs(PARAGRAPH_START_TAG, output);
 				if (state.italic)
 					fputs(ITALIC_START_TAG, output);
 				if (state.bold)
@@ -198,6 +193,12 @@ void process(FILE * input, FILE * output) {
 				state.hypertext = 0;
 			}
 			else fputc(')', output);
+			break;
+		case '\t' :
+			if ((!state.paragraph) && (!state.code)) {
+				fputs(CODE_START_TAG, output);
+				state.code = 1;
+			}
 			break;
 		default:
 			fputc(current, output);

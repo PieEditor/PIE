@@ -40,6 +40,6 @@
 			"right": "1.5cm"
 		}
 	},
-	"content": "# Main title\n## Hop\nText. **Bold.** *Italic.* +Small caps.+ Hyper[link](http://www.google.com).\n- First\n- Second\n## Now some code\n~var dispatcher = function(req, res) {\n\tif (req.method == \"GET\") {\n\t\tdoSomeStuff();\n\t}\n\telse shit();\n}~\nNice shit, right ?\n"
+	"content": "# Main title\n## Hop\nText. **Bold.** `fprintf` *Italic.* +Small caps.+ Hyper[link](http://www.google.com).\n- First\n- Second\n## Now some code\n\tvar dispatcher = function(req, res) {\n\t\tif (req.method == \"GET\") {\n\t\t\tdoSomeStuff();\n\t\t}\n\t\telse shit();\n\t}\nNice shit, right ?\n"
 }
 
