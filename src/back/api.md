@@ -52,9 +52,9 @@ Sign in a user.
 
 #### Response
 
-200 "OK" if user and pass match.
+200 "OK" if user and pass match and store the access token in a cookie.
 
- * **string** : token - this token should be stored by the client for future use as it has to be passed in for requests needing a properly authenticated user
+
 
 ### Sign out
 
@@ -78,9 +78,7 @@ Sign up a new user. Perform the login in the same time in providing the access t
 
 #### Response
 
-201 "Created" if user doesn't exist.
-
- * **string** : token - this token should be stored by the client for future use as it has to be passed in for requests needing a properly authenticated user
+201 "Created" if user doesn't exist and store the access token in a cookie.
 
 ### Get a single user
 
