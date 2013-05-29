@@ -51,8 +51,8 @@ angular.module('pie')
 		},
 		newVersion: function() {
 			console.log(' new version ');
-			this.currentDocument.version = undefined;
-			this.currentDocument._id = undefined;
+			delete this.currentDocument._id;
+			delete this.currentDocument._rev;
 			_.each(this.currentDocument.content, function(elem) {
 				elem.discussions = [];
 			});
