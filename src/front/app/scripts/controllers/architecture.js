@@ -2,26 +2,32 @@
 
 angular.module('pie')
 .controller('architectureController', function ($scope, $routeParams, $location, apiBaseUrl, authService, $http, documentService, tocService ) {
-	authService.ensureLogin();
-
+	authService.ensureLogin()
+	.success(function(data) {
+		$scope.user = data;
+	});
+	
+	$scope.watchSectionOwner = function(section) {
+		$scope.$watch(
+			function() { return section.owner },
+			function(newOwner) {
+				$scope.addCollaborator(newOwner);
+			}
+		);
+	};
+	
 	$scope.$watch(
 		function() { return documentService.currentDocument; },
 		function() { $scope.document = documentService.currentDocument; }
 	);
 	if (! $routeParams.documentId) { // create a new document
 		documentService.create();
+		_.map(documentService.currentDocument.content, $scope.watchSectionOwner);
 	}
 	else { // or fetch an existing one
 		documentService.get($routeParams.documentId)
 		.success(function() {
-			_.map(documentService.currentDocument.content, function(part) {
-				$scope.$watch(
-					function() { return part.owner },
-					function(newOwner) {
-						$scope.addCollaborator(newOwner);
-					}
-				);
-			});
+			_.map(documentService.currentDocument.content, $scope.watchSectionOwner);
 		});
 	}
 
@@ -56,6 +62,8 @@ angular.module('pie')
 		var index = _.indexOf($scope.document.content, part) ;
 		var myNewLevel = $scope.document.content[index].level ;
 		$scope.document.content.splice(index+1, 0, {title : '' , level : myNewLevel , deleted : false});
+		
+		$scope.watchSectionOwner($scope.document.content[index+1]);
 	};
 
 	/* push backward an section of the architecture */
@@ -184,6 +192,7 @@ angular.module('pie')
 		if (! newCollaborator) return;
 		if (! $scope.document.collaborators)
 			$scope.document.collaborators = [];
+		if ( newCollaborator.login === $scope.user.login ) return ;
 		// Check if the collaborator isn't already added
 		var n = _.filter($scope.document.collaborators, function(collaborator) {
 			return (collaborator.login == newCollaborator.login && collaborator.imgUrl == newCollaborator.imgUrl);
@@ -203,14 +212,10 @@ angular.module('pie')
 		
 		_.map($scope.document.content, function(section) {
 			if (section.owner && section.owner.login == collaborator.login) {
-				section.owner.login = undefined;
+				section.owner = undefined;
 			}; 
 		});
 	};
-
-	$scope.assignementInputHide = function (part) {
-		
-	};	
 
 	$scope.removeSectionOwner = function (part ) {
 		part.owner = undefined;
