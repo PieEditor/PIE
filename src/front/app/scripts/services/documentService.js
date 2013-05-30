@@ -54,7 +54,9 @@ angular.module('pie')
 			delete this.currentDocument._id;
 			delete this.currentDocument._rev;
 			_.each(this.currentDocument.content, function(elem) {
-				elem.discussions = [];
+				for (var i = 0 ; i < elem.discussions.length ; i++)
+					if (elem.discussions[i].resolved)
+						elem.discussions.splice(i, 1);
 			});
 		}
 	};
