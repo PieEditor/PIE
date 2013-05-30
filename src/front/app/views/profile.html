@@ -65,17 +65,20 @@
 						<th>Actions</th>
 					</thead>
 					<tbody>
-						<tr>
+						<tr ng-hide="user.documents.owner.length == 0">
 							<td colspan="2"><center><i>Documents you own</i></center></td>
 						</tr>
-
 						<tr ng-repeat="document in user.documents.owner">
 							<td><a href="/#/editAndDiscuss/{{document.id}}"> {{document.title}}</i></td>
 							<td><i class="icon-trash" ng-click="deleteDocument(document)"></i></td>
 						</tr>
 
-						<tr>
+						<tr ng-hide="user.documents.collaborator.length == 0">
 							<td colspan="2"><center><i>Documents you collaborate on</i></center></td>
+						</tr>
+						<tr ng-repeat="document in user.documents.collaborator">
+							<td><a href="/#/editAndDiscuss/{{document.id}}"> {{document.title}}</i></td>
+							<td><i class="icon-trash" ng-click="deleteDocument(document)"></i></td>
 						</tr>
 
 						<tr>
