@@ -6,7 +6,7 @@
 	- on a change, it should update its $scope variable accordingly
 */
 angular.module('pie')
-.factory('discussionService', function($resource, documentService) {
+.factory('discussionService', function($resource, documentService, permissionService) {
 	return {
 		currentState: 'none',
 		currentDiscussion: undefined,
@@ -46,7 +46,13 @@ angular.module('pie')
 				date: new Date(),
 				score: 0
 			};
-			this.currentDiscussion.resolved = resolve;
+
+			// Don't change the resolve state of the discussion
+			// if you don't have the right to do so
+			if (permissionService.iCanCloseCurrentDiscussion()) {
+				this.currentDiscussion.resolved = resolve;
+			}
+			
 			this.currentDiscussion.posts.push(newPost);
 			this.save();
 		},
