@@ -1,4 +1,4 @@
-var couchWrapper = require("./couch-wrapper")
+/*var couchWrapper = require("./couch-wrapper")
 
 var http = require("http");
 var crypto = require("crypto");
@@ -77,7 +77,7 @@ server.on("request", function(request, response) {
                 response.setHeader("Access-Control-Allow-Credentials", "true");
             }
 
-			/* USER */
+			/* USER 
 
 			// Sign in
 			if (parsedUrl.pathname == "/users/signin" && request.method == "POST") {
@@ -228,7 +228,7 @@ server.on("request", function(request, response) {
 				}
 			}
 
-			/* Document */
+			/* Document 
 
 			// Create a single document
 			else if (parsedUrl.pathname == "/documents" && request.method == "POST") {
@@ -399,5 +399,159 @@ server.on("request", function(request, response) {
 				badRequest("The request does not match with an API function.");
 			}
 		}
+	});
+});*/
+var couchWrapper = require("./couch-wrapper")
+
+var http = require("http");
+var crypto = require("crypto");
+
+var users = [];
+users["token"] = "kikoo";
+
+function parseParams(request, body) {				
+	var params = {};
+	if ((request.method === "POST" || request.method === "PUT" || request.method === "DELETE") && body)
+		params = JSON.parse(body);
+	else if (request.method === "GET")
+		params = require("url").parse(request.url, true).query;
+	return params;
+}
+
+function getToken(headers) {
+	// parse cookies in order to get the access token - thanks to Corey Hart & ianj : http://stackoverflow.com/questions/3393854/get-and-set-a-single-cookie-with-node-js-http-server
+	var cookies = {};
+	headers.cookie && headers.cookie.split(";").forEach(function(cookie) {
+		var parts = cookie.split("=");
+		cookies[parts[0].trim()] = (parts[1] || "").trim();
+	});
+	return cookies["token"];
+}
+
+var calls = [];
+function register (options, func) {
+	options.func = func;
+	calls.push(options);
+}
+
+function parsePathParams(pattern, path) {
+	var param = "";
+	var i = pattern.indexOf("{");
+	var j = pattern.indexOf("}");
+	param = path.substring(i, path.length - (pattern.length - j) + 1);
+	return param;
+}
+
+function pathMatch(pattern, path) {
+	var i = pattern.indexOf("{");
+	var j = pattern.indexOf("}");
+	console.log(i, j);
+	console.log(pattern.substring(0, i), path.substring(0, i));
+	console.log(pattern.substring(j + 1), path.substring(path.length - (pattern.length - j) + 1));
+	if (pattern.substring(0, i) === path.substring(0, i) && pattern.substring(j + 1) == path.substring(path.length - (pattern.length - j) + 1)) {
+		return true;
+	}
+	return false;
+}
+
+
+
+register({
+	method: "POST",
+	path: "/users/signin",
+	needAuth: false
+	}, 
+	function(params, response) {
+		console.log(params);
+		var shasum = crypto.createHash("sha512").update(params.passwd, "utf8").digest("hex");
+		couchWrapper.userLogin(params.login, function(user_data) {
+			if (user_data && user_data.shasum && shasum == user_data.shasum) {
+				users[user_data.uuid] = params.login;
+				response.setHeader("Set-Cookie", "token="+user_data.uuid+"; path=/; expires=Wed, 14-Jan-2032 16:16:49 GMT");
+				response.writeHead(204, "No Content");
+			}
+			else {
+				response.writeHead(403, "Forbidden");
+			}
+			response.end();
+		});
+	}
+);
+
+register({
+	method: "POST",
+	path: "/user/signout",
+	needAuth: true
+	},
+	function(params, response) {
+		delete users[params.token];
+		response.setHeader("Set-Cookie", "token=deleted; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT");
+		response.writeHead(204, "No Content");
+		response.end();
+	}
+);
+register({
+	method: "POST",
+	path: "/users/signup",
+	needAuth: false
+	},
+	function(params, response) {
+		var shasum = crypto.createHash("sha512").update(params.passwd, "utf8").digest("hex");
+		params.shasum = shasum;
+		// ... then delete the password
+		delete params.passwd;
+		couchWrapper.userCreate(params, function(uuid) {
+			if (uuid) {
+				users[uuid] = params.login;
+				response.setHeader("Set-Cookie", "token="+uuid+"; path=/; expires=Wed, 14-Jan-2032 16:16:49 GMT");
+				response.writeHead(201, "Created");
+			}
+			else {
+				response.writeHead(403, "Forbidden");
+			}
+			response.end();
+		});
+	}
+);
+
+var server = http.createServer().listen(8080);
+server.on("request", function(request, response) {
+	var body = "";
+	request.on("data", function(chunk) {
+		body += chunk;
+	});
+
+	request.on("end", function() {
+		// bad request helper
+		function badRequest(body) {
+			response.writeHead(400, "Bad Request");
+			if (body)
+				response.write(body);
+			response.end();
+		}
+
+		function unauthorized(body) {
+			response.writeHead(401, "Unauthorized");
+			if (body)
+				response.write(body);
+			response.end();
+		}
+
+		var path = require("url").parse(request.url, true).pathname;
+		for (var i = 0; i < calls.length; ++i) {
+			var call = calls[i];
+			if (call.method === request.method && pathMatch(call.path, path)) {
+				var params = parseParams(request, body);
+				var token = getToken(request.headers);
+				if (call.needAuth && !users[token])
+					unauthorized();
+				else {
+					params.token = token;
+					call.func(params, response);
+				}				
+				return;
+			}
+		}
+		badRequest();
 	});
 });
