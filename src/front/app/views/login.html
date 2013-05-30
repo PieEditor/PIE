@@ -1,18 +1,14 @@
 
 <div ng-controller="LoginController">
-	
-	<link href="/styles/style.css" rel="stylesheet" type="text/css" />
-
 	<div class="row-fluid">
-		<h1>Sign In</h1>
+		<h1>Please login</h1>
 		<hr />
 	</div>
-	
 	
 	<!-- Menu -->
 	<div class="row-fluid">
 		<!-- Side Menu -->
-		<div class="well span3 side-menu">
+		<div class="well span2 side-menu">
 			<ul class="nav nav-list">
 				<li class="nav-header">PIE</li>
 				<li class={{menuTabLogin}}><a ng-click="menuClickOnLogin()" data-toggle="tab"><i class="icon-chevron-right"></i> Login</a></li>
@@ -23,7 +19,7 @@
 		<!-- End side menu -->
 		
 		<!-- Menu  Content -->
-		<div class="tab-content span9">
+		<div class="tab-content span10">
 			<!-- Login Form -->  
 			<div class="tab-pane {{menuTabPaneLogin}}">
 				<div class="span9 row-fluid formhorizontal well">
@@ -46,7 +42,7 @@
 										<h3 id="forgotPasswordModalLabel">Forgot Password</h3>
 									</div>
 									<div class="modal-body">
-										<p> In order to reset your password please enter your email address</p>
+										<p> In order to reset your password please enter your email adress</p>
 										<div class="container-fluid">
 											<div class="row-fluid">
 												<div class="control-group" id="resetEmailGrp">
@@ -58,7 +54,7 @@
 														<div class="span8">
 															<span class="help-inline alert alert-error span8 " style="display: {{invalidForgotEmailAlert}};">Sorry we haven't found your email in our system</span>
 															<span class="help-inline alert alert-error span8 " style="display: {{emptyForgotPasswordEmail}};"> Enter your email please...</span>
-															<span class="help-inline alert alert-success span8 " style="display: {{successForgotPasswordEmail}};"> A new random password have been send to your email address.</span>
+															<span class="help-inline alert alert-success span8 " style="display: {{successForgotPasswordEmail}};"> A new random password have been send to your email adress.</span>
 														</div>
 													</div>
 												</div>
@@ -66,7 +62,7 @@
 										</div>
 									</div>
 									<div class="modal-footer">
-										<button class="btn btn-primary" id="resetPasswordButton" ng-click="resetPassword()">Confirm</button>
+										<button class="btn btn-primary" id="resetPasswordButton" ng-click="resetPassword()">Validate</button>
 										<button class="btn" data-dismiss="modal" aria-hidden="true" ng-click="close()">Close</button>
 									</div>
 								</div>
@@ -152,14 +148,5 @@
 		</div>
 	</div>
 	<!-- End of alerts -->
-
-	<div class="row-fluid">
-	<div class="span2 offset5">
-		<center>
-			<img src="/resources/pie.svg" height="150" width="150"/>
-		</center>
-	</div>
-	</div>
-
 </div>
 

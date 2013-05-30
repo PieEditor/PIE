@@ -1,0 +1,9 @@
+{
+	"_id" : "_design/application",
+	"views" : {
+		"images": {
+			"map": "function(doc){if(doc.login && doc.imgUrl) emit(doc.login,doc.imgUrl);}"
+		}
+	}
+}
+

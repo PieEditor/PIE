@@ -1,45 +1,34 @@
 'use strict';
 
 angular.module('pie')
-.controller('DiscussController', function ($scope, $resource, $routeParams, discussionService) {
-	if ($routeParams.discussionId !== undefined) {
-		// Initialize the discussion with the ID coming from the URL
-		discussionService.get($routeParams.discussionId);
-	}
+.controller('DiscussController', function ($scope, authService, discussionService, permissionService) {
+	authService
+	.ensureLogin()
+	.then(function() {
+		$scope.user = {
+			login: authService.user.login,
+			imgUrl: authService.user.imgUrl
+		};
+	});
 
-	// Watch for a change on the discussion shared via the discussionService
+	// Watch for a change on some discussionService properties
 	$scope.$watch(
 		function() { return discussionService.currentDiscussion; },
-		function() {
-			// If the discussion shared via the service has changed
-			// update our scope accordingly
-			$scope.discussion = discussionService.currentDiscussion;
-		}
+		function() { $scope.discussion = discussionService.currentDiscussion; },
+		true
 	);
-
-	var User = $resource('/mockAPI/user/:id', {id: '@id'});
-	$scope.user = User.get({id: 1});
+	$scope.$watch(
+		function() { return discussionService.currentState; },
+		function() { $scope.currentState = discussionService.currentState; }
+	);
 
 	$scope.now = new Date();
 
-	$scope.close = function() {
-		discussionService.currentDiscussion = undefined;
-	};
-
-	$scope.addPost = function() {
+	$scope.addPost = function(resolve) {
 		// Form validation
-		if ($scope.newContent === '' || $scope.newContent === undefined) {
-			return;
-		}
+		if (! $scope.newContent) return;
 
-		var newPost = {
-			owner: $scope.user,
-			content: $scope.newContent,
-			date: new Date(),
-			score: 0
-		};
-		$scope.discussion.posts.push(newPost); // Update model
-		$scope.discussion.$save($scope.discussion.id); // POST data to server 
+		discussionService.addPost($scope.user, $scope.newContent, resolve);
 
 		// Clear inputs
 		$scope.newContent = '';
@@ -47,13 +36,31 @@ angular.module('pie')
 	};
 
 	$scope.downvote = function(post) {
-		post.score--;
-		$scope.discussion.$save($scope.discussion.id);
+		discussionService.downvote(post);
 	};
 
 	$scope.upvote = function(post) {
-		post.score++;
-		$scope.discussion.$save($scope.discussion.id);
+		discussionService.upvote(post);
 	};
 
+	$scope.close = function() {
+		discussionService.currentDiscussion = undefined;
+		discussionService.currentState = 'none';
+	};
+
+	$scope.addDiscussion = function() {
+		if (! $scope.newTitle || ! $scope.newContent) return;
+
+		$scope.discussion.title = $scope.newTitle;
+		$scope.discussion.posts[0].content = $scope.newContent;
+		discussionService.save();
+
+		discussionService.currentState = 'show';
+
+		// Clear inputs
+		$scope.newTitle = '';
+		$scope.newContent = '';
+	};
+
+	$scope.iCanCloseCurrentDiscussion = permissionService.iCanCloseCurrentDiscussion;
 });

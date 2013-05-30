@@ -110,17 +110,33 @@ exports.userDelete = function(login, callback) {
 
 // DOCUMENT
 
-exports.docAdd = function(document, callback) {
+exports.docAdd = docAdd;
+
+function docAdd(document, callback) {
 	getUUID(function(uuid) {
 		if (uuid == null) {
 			callback(null);
 			return;
 		}
-		doPutRequest("/document/" + uuid, document, function(res) {
-			if (res == false)
-				callback(null);
-			else callback(uuid);
-		});
+		if (document.docId === undefined) {
+			document.docId = uuid;
+			document.version = 0;
+			doPutRequest("/document/" + uuid, document, function(res) {
+				if (res == false)
+					callback(null);
+				else callback(uuid);
+			});
+		}
+		else {
+			getLastVersion(document.docId, function(version) {
+				document.version = version + 1;
+				doPutRequest("/document/" + uuid, document, function(res) {
+					if (res == false)
+						callback(null);
+					else callback(uuid);
+				});
+			});
+		}
 	});
 }
 
@@ -139,21 +155,98 @@ exports.docDelete = function(id, callback) {
 	doDelete("/document/" + id, callback);
 }
 
-exports.docGet = function(id, callback) {
+
+function docById(id, callback) {
 	doGetRequest("/document/" + id, callback);
 }
 
+// FUCKING SQL !
+
+exports.getLastVersion = getLastVersion;
+
+function getLastVersion(docId, callback) {
+	doGetRequest("/document/_design/application/_view/last?key=\"" + docId + "\"", function(res) {
+		if (res == null) {
+			callback(0);
+			return;
+		}
+		version = 0;
+		res.rows.forEach(function(elem) {
+			if (elem.value > version)
+				version = elem.value;
+		});
+		callback(version);
+	});
+}
+
+exports.docGet = docGet;
+
+function docGet(docId, version, callback) {
+	if (version == -1) {
+		getLastVersion(docId, function(ver) {
+			docGet(docId, ver, callback);
+		});
+		return;
+	}
+	doGetRequest("/document/_design/application/_view/last?key=\"" + docId + "\"", function(res) {
+		if (res == null) {
+			callback(null);
+			return;
+		}
+		for (var i = 0 ; i < res.rows.length ; i++) {
+			if (res.rows[i].value == version) {
+				docById(res.rows[i].id, callback);
+				return;
+			}
+		}
+		callback(null);
+	});
+}
+
 exports.docByUser = function(login, callback) {
+	out = {"owner": [], "collaborator": []};
+	var helper = function(res, list) {
+		if (res == null) {
+			callback(null);
+			return;
+		}
+		res.rows.forEach(function(elem) {
+			var wasInList = false;
+			for (var i = 0 ; i < list.length ; i++) {
+				if ((list[i].docId == elem.value.docId) && (elem.value.version > list[i].version)) {
+					list[i] = {id: elem.id, docId: elem.value.docId, version: elem.value.version, title: elem.value.title};
+					wasInList = true;
+					break;
+				}
+			}
+			if (!wasInList)
+				list.push({id: elem.id, docId: elem.value.docId, version: elem.value.version, title: elem.value.title});
+		});
+	}
 	doGetRequest("/document/_design/application/_view/get?key=\"" + login + "\"", function(res) {
+		helper(res, out.owner);
+		doGetRequest("/document/_design/application/_view/collab?key=\"" + login + "\"", function(res) {
+			helper(res, out.collaborator);
+			callback(out);
+		});
+	});
+}
+
+exports.userByPrefix = function(prefix, callback) {
+	// Error: null
+	// No value: []
+	// Success: [{login, imgUrl}]
+	doGetRequest("/user/_design/application/_view/images", function(res) {
 		if (res == null) {
 			callback(null);
 			return;
 		}
 		list = [];
 		res.rows.forEach(function(elem) {
-			list.push({id: elem.id, title: elem.value});
+			if (elem.key.toLowerCase().indexOf(prefix.toLowerCase()) === 0)
+				list.push({login: elem.key, imgUrl: elem.value});
 		});
 		callback(list);
 	});
-}
+};
 

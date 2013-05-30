@@ -1,8 +1,38 @@
 <div fixedheight ng-controller="DiscussController">
-	<div ng-show="discussion != undefined">
+	<div ng-show="currentState == 'none'">
+		<p>Please open a discussion using the left pane to display something here.</p>
+	</div>
+
+	<div ng-show="currentState == 'new'">
+		<h1>Create a new discussion</h1>
+		<form class="form-horizontal" ng-submit="addDiscussion()">
+			  <div class="control-group">
+				<label class="control-label" for="discussionTitle">Discussion title:</label>
+				<div class="controls">
+					<input type="text" id="discussionTitle" placeholder="…" class="input-xlarge" ng-model="newTitle" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="discussionContent">Content:</label>
+				<div class="controls">
+					<textarea id="discussionContent" placeholder="…" class="input-xlarge" rows="10" ng-model="newContent"></textarea>
+				</div>
+			</div>
+
+			<div class="control-group">
+				<div class="controls">
+					<button type="submit" class="btn input-xlarge">Create a new discussion!</button>
+				</div>
+			</div>
+		</form>
+
+	</div>
+
+	<div ng-show="currentState == 'show'">
 		<div class="row-fluid" >
 			<h1>
 				{{ discussion.title }}
+				<button class="btn btn-success" ng-show="discussion.resolved"><i class="icon-ok-circle icon-white"></i> This discussion is resolved</button>
 				<button class="pull-right btn" ng-click="close()">&times;</button>
 			</h1>
 		</div>
@@ -12,11 +42,11 @@
 		<div ng-repeat="post in discussion.posts" class="row-fluid">
 			<div class="row-fluid span3">
 				<div class="span3">
-					<img src="{{ post.owner.img }}" class="profile_image" />
+					<img src="{{ post.owner.imgUrl }}" class="profile_image" />
 				</div>
 
 				<div class="span9 row-fluid">
-					<p>{{ post.owner.name }}</p>
+					<p>{{ post.owner.login }}</p>
 					
 					<span class="badge">{{ post.date | date }}</span>
 					<span class="badge score-positive-{{post.score >= 0}}">{{ post.score | number }}</span>
@@ -30,7 +60,7 @@
 			</div>
 		</div>
 
-		<div class="row-fluid">
+		<div class="row-fluid" ng-hide="discussion.resolved">
 			<div class="row-fluid">
 				<legend>Add your voice to this discussion!</legend>
 			</div>
@@ -38,30 +68,27 @@
 			<div class="row-fluid faded">
 				<div class="span3">
 					<div class="span3">
-						<img src="{{ user.img }}" class="profile_image" />
+						<img src="{{ user.imgUrl }}" class="profile_image" />
 					</div>
 
 					<div class="span9">
-						<p>{{ user.name }}</p>
+						<p>{{ user.login }}</p>
 						<span class="badge">{{ now | date }}</span>
 					</div>
 				</div>
 			
 				<div class="span9 row-fluid">
-					<form ng-submit="addPost()">
+					<form>
 						<fieldset>
 							<label>
 								<textarea id="inputContent" placeholder="Content here…" ng-model="newContent" required rows="5" class="span12"></textarea>
 							</label>
-							<button type="submit" class="btn input-large">Answer</button>
+							<button class="btn input-large btn-primary" ng-click="addPost(false)">Answer</button>
+							<button class="btn input-large btn-success" ng-click="addPost(true)" ng-show="iCanCloseCurrentDiscussion()">Answer &amp; Resolve</button>
 						</fieldset>
 					</form>
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<div ng-show="discussion == undefined">
-		<p>Please open a discussion using the left pane to display something here.</p>
 	</div>
 </div>

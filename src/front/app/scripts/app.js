@@ -18,8 +18,8 @@ angular.module('pie', ['ngResource', 'ui.bootstrap'])
 			.when('/editAndDiscuss/:documentId', {
 				templateUrl: 'views/editAndDiscuss.html'
 			})
-			.when('/createNewDoc', {
-				templateUrl: 'views/createNewDoc.html'
+			.when('/architecture/:documentId', {
+				templateUrl: 'views/architecture.html'
 			})
 			.when('/profile', {
 				templateUrl: 'views/profile.html'

@@ -6,68 +6,98 @@
 <link href='http://fonts.googleapis.com/css?family=Merriweather+Sans' rel='stylesheet' type='text/css'>
 <style>
 body {
-	background-color: #777777;
+	background-color: white;
 	font-family: "Merriweather Sans", sans-serif;
-	font-size: 16px;
+	font-size: 12pt;
 }
 p {
 	text-align: justify;
 }
+video {
+	width: 95%;
+	max-width: 720px;
+}
+h2 {
+	color: #777;
+}
+h3 {
+	font-weight: normal;
+	color: #999;
+}
 #container {
-	color: white;
-	width: 600px;
+	color: black;
+	width: 75%;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: #999999;
 }
 #text-container {
 	margin-left: auto;
 	margin-right: auto;
-	width: 560px;
+}
+#header {
+	width: 100%;
+	max-width: 600px;
 }
 .content {
 	display: none;
 }
 .menu {
+	background-color: white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	cursor: pointer;
+}
+.menu:hover {
+	background-color: #DDD;
 }
 </style>
 </head>
 
 <body>
 <div id="container">
-	<img src="header.png" alt="PIE Intelligent Editor"><br>
-	<table cellspacing=0 cellpadding=10 border=0><tr>
-		<td id="home" class="menu">Accueil</td>
-		<td id="about" class="menu">Qui sommes-nous ?</td>
-		<td id="pie" class="menu">Notre produit</td>
-		<td id="offer" class="menu">Nos offres</td>
-	</tr></table><br>
+	<div id="header-container">
+		<img src="header.png" alt="PIE Intelligent Editor" id="header"><br>
+		<table><tr>
+			<td id="home" class="menu">Accueil</td>
+			<td id="about" class="menu">Qui sommes-nous ?</td>
+			<td id="pie" class="menu">Notre produit</td>
+			<td id="offer" class="menu">Nos offres</td>
+		</tr></table><hr>
+	</div>
 	
 	<div id="text-container" cellspacing=0 cellpadding=0 border=0>
-	
 		<div id="home_" class="content" style="display: inline">
 			<h2>Accueil</h2>
-			<p>TODO : Placer ici affiche, vidéo de présentation, ...</p>
+			<p>On le constate tous les <nobr>jours :</nobr> dans nombre de contextes, en particulier professionnels, il est nécessaire de rédiger des masses importantes de <nobr>documents :</nobr> comptes-rendus de réunions, cahiers des charges, documentation interne... Les équipes s'acquittant de cette tâche peuvent être plus ou moins nombreuses - et plus ou moins formées aux outils à leur disposition. Or les outils <nobr>foisonnent !</nobr> Logiciels libres ou commerciaux, classiques ou services Web, offrant tous un panel impressionnant de fonctionnalités, dont certaines cruciales et d'autres inutiles, et d'autres enfin si obscures que leur existence même est inconnue du grand public. Qui irait inclure un fichier son dans un document <nobr>textuel ?</nobr> Pourquoi un éditeur devrait-il se mêler de la manière dont l'utilisateur organise son texte en <nobr>paragraphes ?</nobr> Est-il vraiment <em>nécessaire</em> d'ajouter un outil de dessin dans un traitement de <nobr>texte ?</nobr></p>
+			<p>Dans ces conditions, l'édition <em>collaborative</em> de documents au sein d'une équipe peut tenir du cauchemar. Formats incompatibles, polices manquantes, incohérences de mise en page, avalanches d'e-mails contenant des versions partiellement à jour, désaccords jamais résolus et incompréhension entre les différents rédacteurs... Pourquoi, à l'heure des technologies de l'information et du développement agile, doit-on encore souffrir tous ces <nobr>maux ?</nobr></p>
+			<p>C'est cette question qui a réuni notre équipe autour d'un projet dynamique, innovant, visant à éliminer définitivement cette douleur du processus de création de documents. Édition, discussion et exportation réunies en un seul outil permettant une collaboration en temps réel sans précédent <em>via</em> une interface Web moderne et <nobr>épurée :</nobr> les rédacteurs pourront enfin se concentrer sur la <em>rédaction</em> plutôt que sur les défauts de leurs logiciels, et ce quelle que soit la plate-forme utilisée - Windows, Mac, Linux et même jusqu'aux smartphones.</p>
+			<p>Notre application propose en effet une convergence totale entre édition et discussion, à la fois instantanée et asynchrone, avec un vaste support des environnements logiciels existants et la possibilité de générer instantanément des rendus de qualité professionnelle à partir de texte structuré, facile et rapide à produire. L'intégration de ressources externes, la gestion des versions, les échanges d'information entre collaborateurs, aussi bien que la définition de l'aspect des documents, sont inclus dans notre solution et accessibles de manière efficace et intuitive. En entreprise ou entre étudiants, dans la même pièce ou partout dans le monde, les rédacteurs n'auront jamais eu la vie aussi <nobr>facile !</nobr></p>
+			<p style="text-align:center"><video controls>
+				<source src="PIE.mp4" type="video/mp4">
+				<source src="PIE.webm" type="video/webm">
+				Notre vidéo de présentation devrait se trouver ici. Si elle n'apparaît pas, cela signifie que votre navigateur ne supporte pas HTML5.
+			</video></p>
 		</div>
 	
 		<div id="about_" class="content">
 			<h2>Qui sommes-nous ?</h2>
 			<p>L'équipe PIE est constituée de cinq étudiants du département <em>Télécommunications, Services &amp; Usages</em> de l'INSA de Lyon, fédérés autour d'un projet commun visant à apporter une solution aux problématiques de l'édition collaborative de documents. Les rôles sont ainsi répartis au sein de l'équipe :</p>
 			<ul>
-			<li>Paul Mougel : chef de projet</li>
-			<li>Guillaume Burel : responsable serveur</li>
-			<li>Baptiste Metge : responsable <em>front-end</em></li>
-			<li>Fabio Guigou : responsable base de données</li>
+			<li>Paul Mougel (chef de projet)</li>
+			<li>Guillaume Burel</li>
+			<li>Baptiste Metge</li>
+			<li>Fabio Guigou</li>
 			<li>Xiao-Yu Feng</li>
 			</ul>
-			<p>TODO : Ajouter photo de groupe, ça fera mieux.</p>
 		</div>
 	
 		<div id="pie_" class="content">
 			<h2>Notre produit</h2>
 			<p>PIE est un éditeur collaboratif en ligne visant à simplifier le processus de rédaction de documents suivant trois axes :</p>
 			<h3>Discussion</h3>
-			<p>PIE donne à la discussion entre rédacteurs autant d'importance qu'à la rédaction elle-même. Implémentant à la fois un espace de chat instantané et un client de messagerie, il vise à rendre inutile le recours à l'e-mail pour la communication entre collaborateurs.</p>
+			<p>PIE donne à la discussion entre rédacteurs autant d'importance qu'à la rédaction elle-même. Implémentant à la fois un espace de chat instantané et un client de messagerie, il vise à rendre inutile le recours à l'e-mail pour la communication entre collaborateurs. Le forum temps réel constitue un outil d'<em>amélioration incrémentale</em> en permettant aux désaccords ou aux incertitudes d'être résolus à l'instant même où ils surviennent, tout en favorisant les discussions constructives.</p>
 			<h3>Intuitivité</h3>
 			<p>Contrairement à la plupart de ses concurrents, PIE ne cherche pas à propser une interface de mise en forme avancée. Il suit au contraire la ligne des éditeurs <em>zen</em>, offrant des fonctionnalités minimales et un minimum de dérangement pour l'utilisateur. Toutes les commandes sont à un clic de distance, si bien que le logiciel ne nécessite aucun temps de prise en main.</p>
 			<h3>Workflow</h3>
@@ -100,21 +130,13 @@ p {
 <script>
 var tds = document.getElementsByClassName("menu");
 for (var i = 0 ; i < tds.length ; i++) {
-	tds[i].onmouseover = function(e) {
-		this.style["background-color"] = "#555555";
-	};
-	tds[i].onmouseout = function(e) {
-		this.style["background-color"] = "#999999";
-	};
 	tds[i].onclick = function(e) {
 		var divs = document.getElementsByClassName("content");
 		for (var i = 0 ; i < divs.length ; i++)
-			divs[i].style.display = "none";
-		document.getElementById(this.id + "_").style.display = "inline";
+			divs[i].style.setProperty("display", "none");
+		document.getElementById(this.id + "_").style.setProperty("display", "inline");
 	};
 }
-// For automatic scroll display
-document.getElementById("container").style["min-height"] = screen.height + "px";
 </script>
 
 </body>

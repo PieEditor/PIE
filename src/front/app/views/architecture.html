@@ -1,0 +1,87 @@
+<div ng-controller="architectureController">	
+	<!-- navigation bar -->
+	<div class="navbar navbar-fixed-top force-min-width">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<a class="brand span1" href="#">PIE</a>
+					<ul class="nav span8">
+						<li class="active" ><a href="/#/profilePage">My Profile</a></li>
+						<li ><a href="/#/">About Us</a></li>
+						<li ><a href="/#/">Contact Us</a></li>
+						<li ><a href="#" ng-click="logout()">Log out</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>            
+	</div>
+	<hr/>
+	<!-- end of navigation bar -->	
+	<div class="row-fluid">
+		<h1>Create the architecture that you need  ! </h1>
+		<p> The idea here is design the struture of the document before writing it. The philosophie of PIE is to follow presicely the real workflow of the creation of a document, which obviously start here... </p>
+	</div>
+	<hr />
+	<div class="row-fluid " >
+		<div class="span3 well"><h2>Document information </h2></div>
+		<div class="span7 ">			
+			<form class="form-horizontal">
+				<div class="control-group">
+					<label class="control-label" for="inputTitle">Document title:</label>
+					<div class="controls">
+						<input class="input-xxlarge" type="text" ng-model="document.title" placeholder="Document title" id="inputTitle">
+					</div>
+				</div>
+			
+				<div class="control-group">
+					<label class="control-label" for="inputCollaborators">Document collaborators:</label>
+					<div class="controls">
+						<input type="text" class="input-xlarge" id="inputCollaborators" ng-model="newCollaborator" placeholder="Enter new collaborators here..." typeahead="c as c.login for c in matchCollaborators($viewValue)" typeahead-editable="false">
+					</div>
+				</div>
+
+				<div class="control-group">
+					<div class="controls">
+						<span class="btn btn-success" >Owner : {{ user.login }} </span>
+						<span class="btn btn-success" ng-repeat="user in document.collaborators" ng-click="removeCollaborator(user)">
+							{{ user.login }}
+							<i class="icon-remove icon-white"></i>	
+						</span>
+					</div>
+				</div>
+
+			</form>
+		</div>
+		<div class=span2 > <button class="btn btn-large btn-success" ng-click="sendArchitecture()"><i class="icon-ok icon-white"></i> Save Architecture ! </button> </div>
+	</div>
+	<div class="row-fluid " >
+		<div class="span3 well"><h3>Architecture : </h3><br>
+			<p><li>Use <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-plus-sign"></i></button> to create new parts.<br></li>
+			<li>Use <button class="btn btn-mini" data-toggle="dropdown"><i class="icon-step-backward"></i> </button> <button class="btn btn-mini" data-toggle="dropdown"><i class="icon-step-forward"></i> </button> to move a section in the architecture. <br></li>
+			<li> Use <button class="btn btn-mini" data-toggle="dropdown"><i class="icon-remove"></i> </button> to delete a section and all the subparts it contains.</li></p>
+			<li> Use <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i></button> to assign someone to a part.</li></div>
+		<div class ="span9"> 
+			<li ng-repeat="part in document.content" class="offset{{part.level-1}}"> 
+				{{ getPartIndice(part, document.content) }}
+				<input type="text"  ng-model="part.title" placeholder="Section title">
+				<div class="btn-group dropdown">
+					<button class="btn btn-mini" ng-hide="removeButtonHide(part,document.content)" ng-click="removePart(part)"><i class="icon-remove"></i> </button>
+					<button class="btn btn-mini" ng-hide="upwardButtonHide(part,document.content)" ng-click="stepUpward(part)"><i class="icon-arrow-up"></i></button>
+					<button class="btn btn-mini" ng-hide="downwardButtonHide(part,document.content)" ng-click="stepDownward(part)"><i class="icon-arrow-down"></i></button>
+					<button class="btn btn-mini" ng-hide="backwardButtonHide(part)" ng-click="stepBackward(part)"><i class="icon-arrow-left"></i> </button>
+					<button class="btn btn-mini" ng-hide="forwardButtonHide(part, document.content)" ng-click="stepForward(part)"><i class="icon-arrow-right"></i></button>
+					<button class="btn btn-mini" ng-click="createNewPart(part)"><i class="icon-plus-sign"></i></button>
+					<button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i>{{ part.owner.login }}</button>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						<li> Section Owner</li>
+						<li class="divider"></li>
+						<li class="input-append">
+							<input type="text" class="input-large" ng-model="part.owner" placeholder="Assign someone to this part" typeahead="c as c.login for c in matchCollaborators($viewValue)" typeahead-editable="false" stop-propagation>
+							<button class="btn" ng-click="removeSectionOwner(part)"><i class="icon-remove"></i></button>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</div>
+	</div>
+</div>
