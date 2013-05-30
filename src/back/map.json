@@ -1,9 +1,0 @@
-{
-	"_id" : "_design/application",
-	"views" : {
-		"get": {
-			"map": "function(doc) {if (doc.owner) emit(doc.owner, doc.title);}"
-		}
-	}
-}
-

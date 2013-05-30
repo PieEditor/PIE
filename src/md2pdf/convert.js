@@ -3,7 +3,14 @@ var fs = require("fs");
 var exec = require("child_process").exec;
 
 http.createServer(function(req, res) {
-	if (req.method != "GET") {
+	var send500 = function(err) {
+		if (err) {
+			console.log("Error: " + err);
+			res.writeHead(500);
+			res.end();
+		}
+	};
+	if (req.method != "POST") {
 		res.writeHead(400);
 		res.end();
 		return;
@@ -23,24 +30,20 @@ http.createServer(function(req, res) {
 		var md = doc.content;
 		var settings = JSON.stringify(doc.settings);
 		var path = "/tmp/" + doc._id + "/";
-		try {
-			fs.mkdirSync(path);
-		} catch(e) {}
-		fs.writeFileSync(path + "d.md", md);
-		fs.writeFileSync(path + "s.json", settings);
+		fs.mkdir(path, function(err) {});
+		fs.writeFile(path + "d.md", md, function(err) {});
+		fs.writeFile(path + "s.json", settings, function(err) {});
 		exec("python convert.py " + path + " " + req.url.replace("/", ""),
 			function(error, stdout, stderr) {
 				console.log(stdout);
 				if (error !== null) {
-					res.writeHead(500);
-					res.end();
+					send500(error);
 					return;
 				}
 				if (fmt === "odt") {
 					fs.readFile(path + "d.odt", function(error, data) {
 						if (error !== null) {
-							res.writeHead(500);
-							res.end();
+							send500(error);
 							return;
 						}
 						res.setHeader("Content-Type", "application/vnd.oasis.opendocument.text");
@@ -54,8 +57,7 @@ http.createServer(function(req, res) {
 				else {
 					fs.readFile(path + "d.pdf", function(error, data) {
 						if (error !== null) {
-							res.writeHead(500);
-							res.end();
+							send500(error);
 							return;
 						}
 						res.setHeader("Content-Type", "application/pdf");
@@ -69,4 +71,3 @@ http.createServer(function(req, res) {
 			});
 	});
 }).listen(8081, "localhost");
-

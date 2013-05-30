@@ -127,9 +127,9 @@ server.on("request", function(request, response) {
 					delete params.passwd;
 					couchWrapper.userCreate(params, function(uuid) {
 						if (uuid) {
-							users[uuid] = params.login
+							users[uuid] = params.login;
+							response.setHeader("Set-Cookie", "token="+uuid+"; path=/; expires=Wed, 14-Jan-2032 16:16:49 GMT");
 							response.writeHead(201, "Created");
-							response.write(JSON.stringify(uuid));
 						}
 						else {
 							response.writeHead(403, "Forbidden");
@@ -148,6 +148,7 @@ server.on("request", function(request, response) {
 						if (user_object) {
 							couchWrapper.docByUser(login, function(docs_list) {
 								if (docs_list !== null) {
+									delete user_object.shasum;
 									user_object.documents = docs_list;
 									response.writeHead(200, "OK");
 									response.write(JSON.stringify(user_object));
@@ -200,6 +201,31 @@ server.on("request", function(request, response) {
 					response.writeHead(404, "Not Found");
 				}
 				response.end();
+			}
+
+			// Get the users for which the login begins with a prefix
+			else if(parsedUrl.pathname == "/users" && request.method == "GET") {
+				if (isAuthenticated) {
+					couchWrapper.userByPrefix(params.prefix, function(users) {
+						if (users !== null) {
+							if (users.length == 0) {
+								response.writeHead(204, "No Content");
+							}
+							else {
+								response.writeHead(200, "OK");
+								response.write(JSON.stringify(users));
+							}
+						}
+						else {
+							response.writeHead(403, "Forbidden");
+						}
+						response.end();
+					});
+				}
+				else {
+					response.writeHead(401, "Unauthorized");
+					response.end();
+				}
 			}
 
 			/* Document */
@@ -290,16 +316,74 @@ server.on("request", function(request, response) {
 			}
 
 			// Get a single document
-			else if (parsedUrl.pathname.indexOf("/documents/") == 0 && request.method == "GET") {
+			else if (parsedUrl.pathname.indexOf("/documents/") == 0 && (parsedUrl.pathname.split("/").length == 3 || parsedUrl.pathname.split("/").length == 5) && request.method == "GET") {
 				if (isAuthenticated) {
-					couchWrapper.docGet(parsedUrl.pathname.substr("/documents/".length), function(doc) {
-						if (doc) {
-							response.writeHead(200, "OK");
-							response.write(JSON.stringify(doc));
+					var version = -1;
+					if (parsedUrl.pathname.indexOf("/versions/") >= 0) {
+						var version = parsedUrl.pathname.substring(parsedUrl.pathname.indexOf("/versions/") + "/versions/".length, parsedUrl.pathname.lastIndexOf(".") >= 0 ? parsedUrl.pathname.lastIndexOf(".") : parsedUrl.pathname.length);
+					}
+
+					if (version == -1) {
+						var doc_id = parsedUrl.pathname.substring("/documents/".length, parsedUrl.pathname.lastIndexOf(".") >= 0 ? parsedUrl.pathname.lastIndexOf(".") : parsedUrl.pathname.length);
+					}
+					else {
+						var doc_id = parsedUrl.pathname.substring("/documents/".length, parsedUrl.pathname.indexOf("/versions/"));
+					}
+
+					couchWrapper.docGet(doc_id, version, function(doc) {
+						if (doc !== null) {
+							if (parsedUrl.pathname.indexOf(".pdf") === parsedUrl.pathname.length - ".pdf".length || parsedUrl.pathname.indexOf(".odt") === parsedUrl.pathname.length - ".odt".length) {
+								var convert_path = "/" + parsedUrl.pathname.substr(parsedUrl.pathname.lastIndexOf(".") + 1);
+								console.log(convert_path);
+								doc_md = {};
+								doc_md._id = doc._id;
+								doc_md.settings = require("../md2pdf/default.json");
+								var md = "";
+								md += "#"+doc.title+"\n";
+								for (var i = 0; i < doc.content.length; ++i) {
+									md += (new Array(doc.content[i].level + 2)).join("#") + " " + doc.content[i].title;
+									md += "\n";
+									md += doc.content[i].content;
+									md += "\n";
+								}
+								doc_md.content = md;
+								var req = http.request({hostname: "localhost", port: 8081, path: convert_path, method: "POST"}, function(res) {
+									response.writeHead(200, "OK");
+									res.on("data", function(buffer) {
+										response.write(buffer);
+									});
+									res.on("end", function() {
+										response.end();
+									});
+								});
+								req.write(JSON.stringify(doc_md));
+								req.end();
+
+							}
+							else {
+								response.writeHead(200, "OK");
+								response.write(JSON.stringify(doc));
+								response.end();
+							}							
 						}
 						else {
 							response.writeHead(403, "Forbidden");
+							response.end();
 						}
+					});
+				}
+				else {
+					response.writeHead(401, "Unauthorized");
+					response.end();
+				}
+			}
+
+			else if (parsedUrl.pathname.indexOf("/documents/") == 0 && parsedUrl.pathname.split("/").length == 4 && request.method == "GET") {
+				if (isAuthenticated) {
+					var doc_id = parsedUrl.pathname.substring("/documents/".length, parsedUrl.pathname.indexOf("/versions"));
+					couchWrapper.getLastVersion(doc_id, function(lastVersion) {
+						response.writeHead(200, "OK");
+						response.write(JSON.stringify({lastVersion: lastVersion}));
 						response.end();
 					});
 				}
@@ -307,6 +391,7 @@ server.on("request", function(request, response) {
 					response.writeHead(401, "Unauthorized");
 					response.end();
 				}
+
 			}
 
 			// Default

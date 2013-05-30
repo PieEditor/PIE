@@ -1,21 +1,33 @@
 <div fixedheight ng-controller="EditController">
 	<div class="row-fluid">
 		<h1>{{ document.title }}</h1>
-		<button class="btn btn-large btn-success" ng-click="modifiedArchitecture()"><i class="icon-plus"></i> Modified Architecture ! </button>
+
+		<div class="btn-group">
+			<a href="/#/architecture/{{ document._id }}" class="btn btn-primary"><i class="icon-wrench icon-white"></i> Modify Architecture</a>
+			<button class="btn btn-primary" ng-click="saveAndRefresh()"><i class="icon-refresh icon-white"></i> New iteration</button>
+		</div>
+
+		<div class="btn-group">
+			<a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#">
+				Export
+				<span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu">
+				<li><a href="{{ downloadUrl }}.pdf"><i class="icon-download"></i> PDF</a></li>
+				<li><a href="{{ downloadUrl }}.odt"><i class="icon-download"></i> ODT</a></li>
+			</ul>
+		</div>	
 	</div>
 
 	<hr />
-	
+
 	<div ng-repeat="section in document.content" class="row-fluid">
 		<div class="level{{ section.level }}">
+			{{ getPartIndice( section, document.content ) }}
 			{{ section.title }}
-
 			<div class="faded pull-right">
 				<div class="btn-group">
-					<button class="btn btn-mini" ng-click="edit(section)">
-						<i class="{{ editButtonImage(section) }}"></i>
-					</button>
-
+					<button class="btn btn-mini"><i class="icon-user"></i>{{ section.owner.login }}</button>
 					<button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-question-sign"></i> <span class="caret"></span></button>
 
 					<ul class="dropdown-menu pull-right">
@@ -26,14 +38,12 @@
 						<li><a href="" ng-click="createDiscussion(section)">Create a new discussion!</a></li>
 					</ul>
 				</div>
-				
-				
 			</div>
 		</div>
 
-		<div ng-hide="section.isMyContentEditable == true">
+		<div ng-dblclick="edit(section)" ng-hide="section.isMyContentEditable == true">
 			<piemarkdown content="section.content"></piemarkdown>
 		</div>
-		<textarea ng-show="section.isMyContentEditable == true" ng-model="section.content" class="span12" rows="10"></textarea>
+		<textarea ng-show="section.isMyContentEditable == true" ng-model="section.content" class="span12" rows="10" placeholder="Edit me" ngc-blur="edit(section)"></textarea>
 	</div>
 </div>

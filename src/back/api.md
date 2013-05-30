@@ -34,7 +34,7 @@ Responses are sended back encoded in JSON.
 		* passwd **string**
 		* email **string**
 		* imgUrl **string**
-		* documents **[]{id, title}**
+		* documents **{owner **[]{id **string**, title **string**}**, collaborator **[]{id, title}**}**
 	}
 
 ## User
@@ -52,9 +52,9 @@ Sign in a user.
 
 #### Response
 
-200 "OK" if user and pass match.
+200 "OK" if user and pass match and store the access token in a cookie.
 
- * **string** : token - this token should be stored by the client for future use as it has to be passed in for requests needing a properly authenticated user
+
 
 ### Sign out
 
@@ -78,9 +78,7 @@ Sign up a new user. Perform the login in the same time in providing the access t
 
 #### Response
 
-201 "Created" if user doesn't exist.
-
- * **string** : token - this token should be stored by the client for future use as it has to be passed in for requests needing a properly authenticated user
+201 "Created" if user doesn't exist and store the access token in a cookie.
 
 ### Get a single user
 
@@ -124,6 +122,20 @@ Should help you to check if a given token is valid.
  * **string** : login
 
 404 "Not Found" otherwise.
+
+### Filter users by name
+
+Get the users for which the login begins with the specified prefix.
+
+#### Input
+ * prefix **string**
+
+#### Response
+
+200 "OK" if there is at least one match.
+204 "No Content" otherwise.
+
+ * **[]{login **string**, imgUrl **string**}**
 
 ## Document
 
@@ -177,7 +189,7 @@ List documents for the authenticated users.
 
 200 "OK"
 
- * **[]{id: **string**, title: **string}**
+ * **{owner **[]{id **string**, title **string**}**, collaborator **[]{id, title}**}**
 
 ### List user documents
 
@@ -188,14 +200,30 @@ List documents for the specified user.
 #### Response
 
 200 "OK"
- * **[]{id: **string**, title: **string}**
+
+ * **{owner **[]{id **string**, title **string**}**, collaborator **[]{id, title}**}**
 
 ### Get a single document
 
-	GET /documents/{id}
+Get a single document. If no version is provided, fetch the last version of the document.
+Suffixing the URL with ".pdf" or ".odt" allows you to get a PDF or ODT document. Otherwise, JSON is provided.
+
+	GET /documents/{id}[/versions/{version}][.pdf|.odt]
 
 ### Response
 
 200 "OK".
 
  * **{}Document** : document
+or
+ * binary
+
+### Get the last version of a document
+
+	GET /documents/{id}/versions
+
+### Response
+
+200 "OK".
+
+ * **{lastVersion **integer**}** 
