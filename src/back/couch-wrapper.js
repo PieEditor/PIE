@@ -203,8 +203,8 @@ function docGet(docId, version, callback) {
 	});
 }
 
-exports.docByUser = function(login, callback) {
-	doGetRequest("/document/_design/application/_view/get?key=\"" + login + "\"", function(res) {
+exports.docByUser = function(login, type, callback) {
+	var helper = function(res) {
 		if (res == null) {
 			callback(null);
 			return;
@@ -223,7 +223,11 @@ exports.docByUser = function(login, callback) {
 				list.push({id: elem.id, docId: elem.value.docId, version: elem.value.version, title: elem.value.title});
 		});
 		callback(list);
-	});
+	}
+	if (type == "owner")
+		doGetRequest("/document/_design/application/_view/get?key=\"" + login + "\"", helper);
+	else
+		doGetRequest("/document/_design/application/_view/collab?key=\"" + login + "\"", helper);
 }
 
 exports.userByPrefix = function(prefix, callback) {

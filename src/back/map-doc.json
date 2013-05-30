@@ -1,11 +1,15 @@
 {
 	"_id" : "_design/application",
 	"views" : {
+   {
    "get": {
        "map": "function(doc) {if (doc.owner) emit(doc.owner, {docId:doc.docId,version:doc.version,title:doc.title});}"
    },
    "last": {
        "map": "function(doc) {if((doc.version!==undefined) && (doc.docId!==undefined)) {emit(doc.docId,doc.version);}}"
+   },
+   "collab": {
+       "map": "function(d){if((d.collaborators)&&(d.docId)){for(var i=0;i<d.collaborators.length;i++)emit(d.collaborators[i].login,{docId:d.docId,version:d.version,title:d.title});}}"
    }
 }
 }
