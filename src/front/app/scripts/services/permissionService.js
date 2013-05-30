@@ -12,6 +12,7 @@ angular.module('pie')
 
 			_.map(documentService.currentDocument.content, function(section) {
 				_.map(section.discussions, function(discussion) {
+					if (! section.owner) return;
 					if (discussion == discussionService.currentDiscussion)
 						sectionOwner = section.owner.login;
 				});
