@@ -19,7 +19,18 @@ angular.module('pie')
 		}
 	);
 	
+	$scope.lastVersion=0;
 	documentService.get($routeParams.documentId);
+	documentService.get($routeParams.documentId+'/versions')
+	.success(function(data) {
+		$scope.lastVersion = data.lastVersion;
+		var range = [];
+		for(var i=0;i<$scope.lastVersion+1;i++) {
+		  range.push(i);
+		}
+		$scope.range = range;
+	});
+	
 	$scope.downloadUrl = documentService.downloadUrl($routeParams.documentId);
 
 	$scope.edit = function(section) {
@@ -65,6 +76,13 @@ angular.module('pie')
 	
 	$scope.getPartIndice = function( part , docContent ) {
 		return tocService.getPartIndice (part , docContent ) ;
+	};
+	
+	$scope.getDocumentVersion = function ( version ) {
+		documentService.get($routeParams.documentId+'/versions/'+version) 
+		.success(function(data) { 
+			documentService.currentDocument = data;
+		});
 	};
 });
 
