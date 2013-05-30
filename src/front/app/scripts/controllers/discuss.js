@@ -5,7 +5,10 @@ angular.module('pie')
 	authService
 	.ensureLogin()
 	.then(function() {
-		$scope.user = authService.user;
+		$scope.user = {
+			login: authService.user.login,
+			imgUrl: authService.user.imgUrl
+		};
 	});
 
 	// Watch for a change on some discussionService properties
