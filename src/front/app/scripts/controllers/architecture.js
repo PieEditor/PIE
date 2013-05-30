@@ -200,6 +200,12 @@ angular.module('pie')
 	$scope.removeCollaborator = function(collaborator) {
 		var index = _.indexOf($scope.document.collaborators, collaborator);
 		$scope.document.collaborators.splice(index, 1);
+		
+		_.map($scope.document.content, function(section) {
+			if (section.owner && section.owner.login == collaborator.login) {
+				section.owner.login = undefined;
+			}; 
+		});
 	};
 
 	$scope.assignementInputHide = function (part) {
