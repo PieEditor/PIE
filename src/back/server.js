@@ -332,7 +332,9 @@ server.on("request", function(request, response) {
 
 					couchWrapper.docGet(doc_id, version, function(doc) {
 						if (doc !== null) {
-							if (parsedUrl.pathname.indexOf(".pdf") === parsedUrl.pathname.length - ".pdf".length) {
+							if (parsedUrl.pathname.indexOf(".pdf") === parsedUrl.pathname.length - ".pdf".length || parsedUrl.pathname.indexOf(".odt") === parsedUrl.pathname.length - ".odt".length) {
+								var convert_path = "/" + parsedUrl.pathname.substr(parsedUrl.pathname.lastIndexOf(".") + 1);
+								console.log(convert_path);
 								doc_md = {};
 								doc_md._id = doc._id;
 								doc_md.settings = require("../md2pdf/default.json");
@@ -345,7 +347,7 @@ server.on("request", function(request, response) {
 									md += "\n";
 								}
 								doc_md.content = md;
-								var req = http.request({hostname: "localhost", port: 8081, path: "/pdf", method: "POST"}, function(res) {
+								var req = http.request({hostname: "localhost", port: 8081, path: convert_path, method: "POST"}, function(res) {
 									response.writeHead(200, "OK");
 									res.on("data", function(buffer) {
 										response.write(buffer);
