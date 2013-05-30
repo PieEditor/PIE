@@ -42,6 +42,7 @@
 
 				<div class="control-group">
 					<div class="controls">
+						<span class="btn btn-success" >Owner : {{ user.login }} </span>
 						<span class="btn btn-success" ng-repeat="user in document.collaborators" ng-click="removeCollaborator(user)">
 							{{ user.login }}
 							<i class="icon-remove icon-white"></i>	

@@ -34,7 +34,7 @@ Responses are sended back encoded in JSON.
 		* passwd **string**
 		* email **string**
 		* imgUrl **string**
-		* documents **[]{id, title}**
+		* documents **{owner **[]{id **string**, title **string**}**, collaborator **[]{id, title}**}**
 	}
 
 ## User
@@ -135,7 +135,7 @@ Get the users for which the login begins with the specified prefix.
 200 "OK" if there is at least one match.
 204 "No Content" otherwise.
 
- * **[]{login: **string**, imgUrl: **string**}**
+ * **[]{login **string**, imgUrl **string**}**
 
 ## Document
 
@@ -189,7 +189,7 @@ List documents for the authenticated users.
 
 200 "OK"
 
- * **[]{id: **string**, title: **string}**
+ * **{owner **[]{id **string**, title **string**}**, collaborator **[]{id, title}**}**
 
 ### List user documents
 
@@ -201,7 +201,7 @@ List documents for the specified user.
 
 200 "OK"
 
- * **[]{id: **string**, title: **string}**
+ * **{owner **[]{id **string**, title **string**}**, collaborator **[]{id, title}**}**
 
 ### Get a single document
 
@@ -226,4 +226,4 @@ or
 
 200 "OK".
 
- * **{lastVersion: **integer**}** 
+ * **{lastVersion **integer**}** 

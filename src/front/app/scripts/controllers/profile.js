@@ -2,9 +2,7 @@
 
 angular.module('pie')
 .controller('ProfileController', function ($scope, $location, $resource, authService, $http, apiBaseUrl) {
-	authService.ensureLogin();
-	
-	$http({method: "GET", url: apiBaseUrl + "/user", withCredentials: true})
+	authService.ensureLogin()
 	.success(function(data) {
 		$scope.user = data;
 	});
