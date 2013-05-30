@@ -65,9 +65,17 @@
 						<th>Actions</th>
 					</thead>
 					<tbody>
-						<tr ng-repeat="document in user.documents">
+						<tr>
+							<td colspan="2"><center><i>Documents you own</i></center></td>
+						</tr>
+
+						<tr ng-repeat="document in user.documents.owner">
 							<td><a href="/#/editAndDiscuss/{{document.id}}"> {{document.title}}</i></td>
 							<td><i class="icon-trash" ng-click="deleteDocument(document)"></i></td>
+						</tr>
+
+						<tr>
+							<td colspan="2"><center><i>Documents you collaborate on</i></center></td>
 						</tr>
 
 						<tr>
@@ -75,7 +83,6 @@
 								<a href="#/architecture/"><button class="btn btn-success"><i class="icon-plus-sign icon-white"></i> Create a new document</button></a>
 							</td>
 							<td></td>
-
 						</tr>
 					</tbody>
 				</table>
