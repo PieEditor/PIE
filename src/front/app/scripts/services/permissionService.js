@@ -6,6 +6,9 @@ angular.module('pie')
 			var documentService = $injector.get('documentService');
 			var discussionService = $injector.get('discussionService');
 
+			if (! authService.user || ! documentService.currentDocument)
+				return;
+
 			var currentUser = authService.user.login;
 			var documentOwner = documentService.currentDocument.owner;
 			var sectionOwner;

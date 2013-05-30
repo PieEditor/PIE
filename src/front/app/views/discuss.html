@@ -84,7 +84,7 @@
 								<textarea id="inputContent" placeholder="Content here…" ng-model="newContent" required rows="5" class="span12"></textarea>
 							</label>
 							<button class="btn input-large btn-primary" ng-click="addPost(false)">Answer</button>
-							<button class="btn input-large btn-success" ng-click="addPost(true)">Answer &amp; Resolve</button>
+							<button class="btn input-large btn-success" ng-click="addPost(true)" ng-show="iCanCloseCurrentDiscussion()">Answer &amp; Resolve</button>
 						</fieldset>
 					</form>
 				</div>
