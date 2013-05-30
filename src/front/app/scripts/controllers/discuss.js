@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pie')
-.controller('DiscussController', function ($scope, authService, discussionService) {
+.controller('DiscussController', function ($scope, authService, discussionService, permissionService) {
 	authService
 	.ensureLogin()
 	.then(function() {
@@ -61,4 +61,6 @@ angular.module('pie')
 		$scope.newTitle = '';
 		$scope.newContent = '';
 	};
+
+	$scope.iCanCloseCurrentDiscussion = permissionService.iCanCloseCurrentDiscussion;
 });

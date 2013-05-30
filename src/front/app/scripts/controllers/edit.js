@@ -48,9 +48,9 @@ angular.module('pie')
 		documentService.update()
 		.success(function() {
 			documentService.newVersion();
-			documentService.post().success(function(docId) {
-				console.log(JSON.parse(docId));
-				$location.path('/editAndDiscuss/' + JSON.parse(docId));
+			documentService.post().success(function(_id) {
+				location.reload();
+	//			$location.path('/editAndDiscuss/' + documentService.currentDocument.docId);
 			})
 			.error(function(data) {
 				console.log(data);

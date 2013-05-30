@@ -47,7 +47,7 @@ angular.module('pie')
 			};
 		},
 		downloadUrl: function(id) {
-			return apiBaseUrl + '/documents/' + id + '.pdf';
+			return apiBaseUrl + '/documents/' + id;
 		},
 		newVersion: function() {
 			console.log(' new version ');
