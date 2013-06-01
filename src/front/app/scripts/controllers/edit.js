@@ -4,6 +4,7 @@ angular.module('pie')
 .controller('EditController', function ($scope, $routeParams,$location, authService, documentService, discussionService , tocService) {
 	authService.ensureLogin();
 
+	// Watch for current document changes
 	$scope.$watch(
 		function() { return documentService.currentDocument; },
 		function() {
@@ -18,19 +19,18 @@ angular.module('pie')
 			});
 		}
 	);
-	
-	$scope.lastVersion=0;
 	documentService.get($routeParams.documentId);
-	documentService.get($routeParams.documentId+'/versions')
-	.success(function(data) {
-		$scope.lastVersion = data.lastVersion;
-		var range = [];
-		for(var i=0;i<$scope.lastVersion+1;i++) {
-		  range.push(i);
+
+	// Watch for changes on document's last version 
+	$scope.$watch(
+		function() { return documentService.currentLastVersion; },
+		function() {
+			$scope.lastVersion = documentService.currentLastVersion;
+			if ($scope.lastVersion === undefined) return;
+			$scope.range = _.range($scope.lastVersion + 1);
 		}
-		$scope.range = range;
-	});
-	
+	);
+
 	$scope.downloadUrl = documentService.downloadUrl($routeParams.documentId);
 
 	$scope.edit = function(section) {
@@ -55,21 +55,8 @@ angular.module('pie')
 		discussionService.create(section, discussionOwner);
 	};
 	
-	$scope.saveAndRefresh = function ( ) {
-		documentService.update()
-		.success(function() {
-			documentService.newVersion();
-			documentService.post().success(function(_id) {
-				location.reload();
-	//			$location.path('/editAndDiscuss/' + documentService.currentDocument.docId);
-			})
-			.error(function(data) {
-				console.log(data);
-			});
-		})
-		.error(function(error) {
-			console.log(error);
-		});	
+	$scope.newIteration = function () {
+		documentService.newIteration();
 		discussionService.currentState = "none";
 		discussionService.currentDiscussion = undefined;
 	};
@@ -79,7 +66,7 @@ angular.module('pie')
 	};
 	
 	$scope.getDocumentVersion = function ( version ) {
-		documentService.get($routeParams.documentId+'/versions/'+version) 
+		documentService.get($routeParams.documentId, version) 
 		.success(function(data) { 
 			documentService.currentDocument = data;
 		});
