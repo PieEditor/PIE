@@ -31,6 +31,25 @@ angular.module('pie')
 		});
 	}
 
+	// --- File import ----
+
+	// HACK: File upload not implemented yet in angular.js
+	// https://groups.google.com/forum/?fromgroups#!topic/angular/-OpgmLjFR_U
+	$scope.upload = function(element) {
+		var file = element.files[0];
+		
+		var reader = new FileReader();
+		reader.onloadend = function(e) {
+			var architecture = tocService.getArchitectureFromString(e.target.result);
+			$scope.document.content = architecture.content;
+			$scope.document.title = architecture.title;
+			
+			$scope.$apply();
+		};
+
+		reader.readAsBinaryString(file);
+	};
+
 	/* remove a part and all the subparts in it */
 	$scope.removePart = function(part) {
 		part.deleted = true;
@@ -61,7 +80,7 @@ angular.module('pie')
 	$scope.createNewPart = function(part) {
 		var index = _.indexOf($scope.document.content, part) ;
 		var myNewLevel = $scope.document.content[index].level ;
-		$scope.document.content.splice(index+1, 0, {title : '' , level : myNewLevel , deleted : false});
+		$scope.document.content.splice(index+1, 0, {title : '' , level : myNewLevel});
 		
 		$scope.watchSectionOwner($scope.document.content[index+1]);
 	};
