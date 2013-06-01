@@ -10,7 +10,6 @@ api.register({
 	needAuth: false
 	}, 
 	function(params, response) {
-		console.log(params);
 		var shasum = crypto.createHash("sha512").update(params.passwd, "utf8").digest("hex");
 		couchWrapper.userLogin(params.login, function(user_data) {
 			if (user_data && user_data.shasum && shasum == user_data.shasum) {
