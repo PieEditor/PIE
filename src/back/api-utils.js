@@ -84,6 +84,29 @@ function unauthorized(response, body) {
 	response.end();
 }
 
+function send_cors_headers(request, response) {
+	if (request.method === "OPTIONS") {
+		if (request.headers.origin) {
+            response.setHeader("Access-Control-Allow-Origin", request.headers.origin);
+            response.setHeader("Access-Control-Allow-Credentials", "true");
+            response.setHeader("Access-Control-Allow-Methods", "PUT, DELETE");
+            response.setHeader("Access-Control-Allow-Headers", "accept, access-control-allow-credentials, x-requested-with, origin, content-type");
+			response.writeHead(200, "OK");
+		}
+		else {
+			response.writeHead(400, "Bad Request");
+		}
+
+	}
+	else {
+		// add CORS headers
+		if (request.headers.origin) {
+            response.setHeader("Access-Control-Allow-Origin", request.headers.origin);
+            response.setHeader("Access-Control-Allow-Credentials", "true");
+        }
+    }
+}
+
 exports.run =  function(port, hostname) {
 	var server = http.createServer().listen(port, hostname);
 	server.on("request", function(request, response) {
@@ -95,16 +118,22 @@ exports.run =  function(port, hostname) {
 			var path = require("url").parse(request.url, true).pathname;
 			for (var i = 0; i < calls.length; ++i) {
 				var call = calls[i];
-				if (call.method === request.method && pathMatch(call.path, path)) {
-					var token = getToken(request.headers);
-					if (call.needAuth && !users[token])
-						unauthorized(response);
+				if ((call.method === request.method || request.method === "OPTIONS") && pathMatch(call.path, path)) {
+					send_cors_headers(request, response);
+					if (request.method !== "OPTIONS") {
+						var token = getToken(request.headers);
+						if (call.needAuth && !users[token])
+							unauthorized(response);
+						else {
+							var params = parseParams(request, body);
+							params.path = parsePathParams(call.path, path);
+							params.token = token;
+							call.func(params, response);
+						}
+					}
 					else {
-						var params = parseParams(request, body);
-						params.path = parsePathParams(call.path, path);
-						params.token = token;
-						call.func(params, response);
-					}				
+						response.end();
+					}
 					return;
 				}
 			}
