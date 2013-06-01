@@ -1,0 +1,17 @@
+* text=auto
+
+*.c 		text
+*.css		text
+*.html		text
+*.js		text
+*.sh		text
+*.txt 		text
+*.xml		text
+*.md		text
+*.py		text
+*.json		text
+Makefile	text
+
+*.png		binary
+*.fodt		binary
+*.svg		binary
