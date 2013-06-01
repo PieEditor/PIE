@@ -1,6 +1,7 @@
 var api = require("./api-utils");
 var couchWrapper = require("./couch-wrapper");
 var crypto = require("crypto");
+var http = require("http");
 
 /* register API calls */
 
