@@ -216,69 +216,89 @@ api.register({
 	});
 });
 
-/* TODO
-// Get a single document
-else if (parsedUrl.pathname.indexOf("/documents/") == 0 && (parsedUrl.pathname.split("/").length == 3 || parsedUrl.pathname.split("/").length == 5) && request.method == "GET") {
-	if (isAuthenticated) {
-		var version = -1;
-		if (parsedUrl.pathname.indexOf("/versions/") >= 0) {
-			var version = parsedUrl.pathname.substring(parsedUrl.pathname.indexOf("/versions/") + "/versions/".length, parsedUrl.pathname.lastIndexOf(".") >= 0 ? parsedUrl.pathname.lastIndexOf(".") : parsedUrl.pathname.length);
-		}
+function format_doc(doc) {
+	doc_md = {};
+	doc_md._id = doc._id;
+	doc_md.settings = require("../md2pdf/default.json");
+	var md = "";
+	md += "#"+doc.title+"\n";
+	for (var i = 0; i < doc.content.length; ++i) {
+		md += (new Array(doc.content[i].level + 2)).join("#") + " " + doc.content[i].title;
+		md += "\n";
+		md += doc.content[i].content;
+		md += "\n";
+	}
+	doc_md.content = md;
+	return doc_md;
+}
 
-		if (version == -1) {
-			var doc_id = parsedUrl.pathname.substring("/documents/".length, parsedUrl.pathname.lastIndexOf(".") >= 0 ? parsedUrl.pathname.lastIndexOf(".") : parsedUrl.pathname.length);
-		}
-		else {
-			var doc_id = parsedUrl.pathname.substring("/documents/".length, parsedUrl.pathname.indexOf("/versions/"));
-		}
-
-		couchWrapper.docGet(doc_id, version, function(doc) {
-			if (doc !== null) {
-				if (parsedUrl.pathname.indexOf(".pdf") === parsedUrl.pathname.length - ".pdf".length || parsedUrl.pathname.indexOf(".odt") === parsedUrl.pathname.length - ".odt".length) {
-					var convert_path = "/" + parsedUrl.pathname.substr(parsedUrl.pathname.lastIndexOf(".") + 1);
-					console.log(convert_path);
-					doc_md = {};
-					doc_md._id = doc._id;
-					doc_md.settings = require("../md2pdf/default.json");
-					var md = "";
-					md += "#"+doc.title+"\n";
-					for (var i = 0; i < doc.content.length; ++i) {
-						md += (new Array(doc.content[i].level + 2)).join("#") + " " + doc.content[i].title;
-						md += "\n";
-						md += doc.content[i].content;
-						md += "\n";
-					}
-					doc_md.content = md;
-					var req = http.request({hostname: "localhost", port: 8081, path: convert_path, method: "POST"}, function(res) {
-						response.writeHead(200, "OK");
-						res.on("data", function(buffer) {
-							response.write(buffer);
-						});
-						res.on("end", function() {
-							response.end();
-						});
-					});
-					req.write(JSON.stringify(doc_md));
-					req.end();
-
-				}
-				else {
+api.register({
+	method: "GET",
+	path: "/documents/{id}",
+	needAuth: true
+}, function(params, response) {
+	couchWrapper.docGet(params.path.id, -1, function(doc) {
+		if (doc !== null) {
+			if (params.path.output) {
+				doc_md = format_doc(doc);
+				var req = http.request({hostname: "localhost", port: 8081, path: "/" + params.path.output, method: "POST"}, function(res) {
 					response.writeHead(200, "OK");
-					response.write(JSON.stringify(doc));
-					response.end();
-				}							
+					res.on("data", function(buffer) {
+						response.write(buffer);
+					});
+					res.on("end", function() {
+						response.end();
+					});
+				});
+				req.write(JSON.stringify(doc_md));
+				req.end();
 			}
 			else {
-				response.writeHead(403, "Forbidden");
+				response.writeHead(200, "OK");
+				response.write(JSON.stringify(doc));
 				response.end();
+			}				
+		}
+		else {
+			response.writeHead(403, "Forbidden");
+			response.end();
+		}
+	});
+});
+
+api.register({
+	method: "GET",
+	path: "/documents/{id}/versions/{version}",
+	needAuth: true
+}, function(params, response) {
+	couchWrapper.docGet(params.path.id, params.path.version, function(doc) {
+		if (doc !== null) {
+			if (params.path.output) {
+				doc_md = format_doc(doc);
+				var req = http.request({hostname: "localhost", port: 8081, path: "/" + params.path.output, method: "POST"}, function(res) {
+					response.writeHead(200, "OK");
+					res.on("data", function(buffer) {
+						response.write(buffer);
+					});
+					res.on("end", function() {
+						response.end();
+					});
+				});
+				req.write(JSON.stringify(doc_md));
+				req.end();
 			}
-		});
-	}
-	else {
-		response.writeHead(401, "Unauthorized");
-		response.end();
-	}
-}*/
+			else {
+				response.writeHead(200, "OK");
+				response.write(JSON.stringify(doc));
+				response.end();
+			}				
+		}
+		else {
+			response.writeHead(403, "Forbidden");
+			response.end();
+		}
+	});
+});
 
 /* start the server */
 

@@ -41,25 +41,33 @@ exports.register = function(options, func) {
 }
 
 function parsePathParams(pattern, path) {
-	var params = {};
-	var i = pattern.indexOf("{");
-	var j = pattern.indexOf("}");
-	var property = pattern.substring(i+1, j);
-	var param = path.substring(i, path.length - (pattern.length - j) + 1);
-	params[property] = param;
+	var a1 = pattern.split("/"), a2 = path.split("/");
+	var params = {}
+	if (a1.length != a2.length)
+		return {};
+	if (a2[a2.length - 1].indexOf(".") !== -1) {
+		params.output = a2[a2.length - 1].substring(a2[a2.length - 1].indexOf(".") + 1);
+		a2[a2.length - 1] = a2[a2.length - 1].substring(0, a2[a2.length - 1].indexOf("."));
+	}
+	for (var i = 0; i < a1.length; ++i) {
+
+		if (a1[i].charAt(0) == "{" && a1[i].charAt(a1[i].length - 1) == "}") {
+			params[a1[i].substring(1, a1[i].length - 1)] = a2[i];
+		}
+	}
 	return params;
 }
 
 function pathMatch(pattern, path) {
-	var i = pattern.indexOf("{");
-	var j = pattern.indexOf("}");
-	console.log(i, j);
-	console.log(pattern.substring(0, i), path.substring(0, i));
-	console.log(pattern.substring(j + 1), path.substring(path.length - (pattern.length - j) + 1));
-	if (pattern.substring(0, i) === path.substring(0, i) && pattern.substring(j + 1) == path.substring(path.length - (pattern.length - j) + 1)) {
-		return true;
+	var a1 = pattern.split("/"), a2 = path.split("/");
+	if (a1.length != a2.length)
+		return false;
+	for (var i = 0; i < a1.length; ++i) {
+		if (a1[i].charAt(0) != "{" && a1[i].charAt(a1[i].length - 1) != "}" && a1[i] != a2[i]) {
+			return false;			
+		}
 	}
-	return false;
+	return true;
 }
 
 function badRequest(response, body) {
