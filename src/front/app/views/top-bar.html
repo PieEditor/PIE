@@ -1,0 +1,20 @@
+<div class="navbar navbar-fixed-top" ng-controller="TopBarController" >
+	<div class="navbar-inner">
+		<a class="brand" href="#"><img src="/resources/pie.svg" /> PIE</a>
+
+		<ul class="nav">
+			<li class="divider-vertical"></li>
+			<li ng-class="isSectionActive('profile')">
+				<a href="/#/profile">
+					<i class="icon-user"></i> 
+					{{ login }}
+				</a>
+			</li>
+		</ul>
+
+		<ul class="nav pull-right">
+			<li class="divider-vertical"></li>
+			<li><a href="#" ng-click="logout()"><i class="icon-off"></i>  Log me out</a></li>
+		</ul>
+	</div>
+</div>
