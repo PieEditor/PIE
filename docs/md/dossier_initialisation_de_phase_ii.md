@@ -1,4 +1,5 @@
 # Dossier d'initialisation de phase II
+## OUTDATED: see fodt file
 
 ## Analyse fonctionnelle
 
