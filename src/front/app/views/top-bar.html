@@ -12,14 +12,14 @@
 			</li>
 			<li class="divider-vertical"></li>			
 			<li class="dropdown">
-			  <a class="dropdown-toggle"  role="button" data-toggle="dropdown" >
-				<p class="span5"><span class="badge badge-important"> {{numberOfNotification}}</span> Notifications
-					<b class="caret"></b>
-				</p>
+			  <a class="dropdown-toggle "  role="button" data-toggle="dropdown"> 
+				<span class="badge badge-important"> {{numberOfNotification}}</span> Notifications
+						<b class="caret"></b>
+					  
+				 <ul class="dropdown-menu span5" role="menu" aria-labelledby="dLabel">
+					<div ng-click="deleteNotification(notification)" ng-repeat="notification in notifications" > <li class="divider"></li> <a href="{{notification.path}}"><p class="text-center">{{notification.text}}</p></a> </div>
+				  </ul>  
 			  </a>
-			  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-				<div ng-repeat="notification in notifications" > <li class="divider"></li> {{notification.text}} </div>
-			  </ul>
 			</li>
 		</ul>
 
