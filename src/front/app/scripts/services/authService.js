@@ -21,7 +21,15 @@ angular.module('pie')
 			return $http({
 				method: "POST",
 				url: apiBaseUrl + "/users/signup",
-				data: { login:login, passwd:passwd, email:email, imgUrl:imgUrl },
+				data: { login:login, passwd:passwd, email:email, imgUrl:imgUrl, notifications : [] },
+				withCredentials: true
+			});
+		},
+		update: function() {
+			return $http({
+				method: "PUT",
+				url: apiBaseUrl + "/user",
+				data : this.user,
 				withCredentials: true
 			});
 		},
