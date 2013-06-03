@@ -1,6 +1,21 @@
 <div fixedheight ng-controller="DiscussController">
 	<div ng-show="currentState == 'none'">
-		<p>Please open a discussion using the left pane to display something here.</p>
+		<h1>Document dashboard</h1>
+		<table class="table table-striped">
+			<thead>
+				<th>Discussion title</th>
+				<th># answers</th>
+				<th>Resolved</th>
+			</thead>
+
+			<tbody>
+				<tr ng-repeat="discussion in allDiscussions">
+					<td>{{ discussion.title }}</td>
+					<td><span class="badge badge-info">{{ discussion.posts.length }}</span></td>
+					<td><i ng-class="discussionIcon(discussion)"></i></td>
+				</tr>
+			</tbody
+		</table>
 	</div>
 
 	<div ng-show="currentState == 'new'">
