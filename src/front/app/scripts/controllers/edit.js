@@ -17,6 +17,8 @@ angular.module('pie')
 				// If we don't, show the editing field (isMyContentEditable = true)
 				c.isMyContentEditable = ! c.content;
 			});
+
+			$scope.downloadUrl = documentService.downloadUrl();
 		}
 	);
 	documentService.get($routeParams.documentId);
@@ -30,8 +32,6 @@ angular.module('pie')
 			$scope.range = _.range($scope.lastVersion + 1);
 		}
 	);
-
-	$scope.downloadUrl = documentService.downloadUrl($routeParams.documentId);
 
 	$scope.edit = function(section) {
 		if (! section.isMyContentEditable) {

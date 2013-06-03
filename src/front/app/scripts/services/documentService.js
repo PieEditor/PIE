@@ -64,8 +64,15 @@ angular.module('pie')
 				version: undefined
 			};
 		},
-		downloadUrl: function(id) {
-			return apiBaseUrl + '/documents/' + id;
+		downloadUrl: function() {
+			if (! this.currentDocument) return;
+			if (! this.currentLastVersion) return;
+
+			var url = apiBaseUrl + '/documents/' + this.currentDocument.docId;
+			if (this.currentDocument.version != this.currentLastVersion)
+				url += '/versions/' + this.currentDocument.version;
+
+			return url;
 		},
 		newIteration: function() {
 			var t = this;
