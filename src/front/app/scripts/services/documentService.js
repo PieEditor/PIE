@@ -65,8 +65,8 @@ angular.module('pie')
 			};
 		},
 		downloadUrl: function() {
-			if (! this.currentDocument) return;
-			if (! this.currentLastVersion) return;
+			if (this.currentDocument === undefined) return;
+			if (this.currentLastVersion === undefined) return;
 
 			var url = apiBaseUrl + '/documents/' + this.currentDocument.docId;
 			if (this.currentDocument.version != this.currentLastVersion)
