@@ -1,25 +1,19 @@
-<div ng-controller="architectureController">	
-	<!-- navigation bar -->
-	<div class="navbar navbar-fixed-top force-min-width">
-		<div class="navbar-inner">
-			<div class="container-fluid">
-				<div class="row-fluid">
-					<a class="brand span1" href="#">PIE</a>
-					<ul class="nav span8">
-						<li class="active" ><a href="/#/profilePage">My Profile</a></li>
-						<li ><a href="/#/">About Us</a></li>
-						<li ><a href="/#/">Contact Us</a></li>
-						<li ><a href="#" ng-click="logout()">Log out</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>            
-	</div>
-	<hr/>
-	<!-- end of navigation bar -->	
+<div ng-include src="'/views/top-bar.html'" onLoad="currentPage = 'architecture'"></div>
+
+<div ng-controller="architectureController">
 	<div class="row-fluid">
 		<h1>Create the architecture that you need  ! </h1>
-		<p> The idea here is design the struture of the document before writing it. The philosophie of PIE is to follow presicely the real workflow of the creation of a document, which obviously start here... </p>
+		<p> The idea here is design the structure of the document before writing it. The philosophy of PIE is to follow precisely the real workflow of the creation of a document, which obviously start here... </p>
+		<p>
+			You can:
+			<ul>
+				<li>write using the architecture form below, or</li>
+				<li>
+					import the architecture from a file:
+					<!-- HACK: See architecture.js -->
+					<input type="file" onchange="angular.element(this).scope().upload(this)">
+				</li>
+		</p>
 	</div>
 	<hr />
 	<div class="row-fluid " >

@@ -4,6 +4,22 @@
 char c2s[2] = {0, 0};
 char buffer[65536];
 char * text_buffer = buffer;
+struct {
+	int italic;
+	int bold;
+	int mono;
+	int sub;
+	int sup;
+	int title_level;
+	int double_quote;
+	int single_quote;
+	int paragraph;
+	int code;
+	int list;
+	int ignore_next;
+	int hypertext;
+	int buffering;
+} state = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 inline int is_special(char c) {
 	if ((c == '!') || (c == '?') || (c == ':') || (c == ';'))
@@ -27,23 +43,16 @@ inline char * xmlify(char c) {
 	}
 }
 
+inline void open_paragraph(FILE * output) {
+	if (state.italic)
+		fputs(ITALIC_START_TAG, output);
+	if (state.bold)
+		fputs(BOLD_START_TAG, output);
+	if (state.mono)
+		fputs(MONO_START_TAG, output);
+}
+
 void process(FILE * input, FILE * output) {
-	struct {
-		int italic;
-		int bold;
-		int mono;
-		int smallcaps;
-		int sub;
-		int sup;
-		int title_level;
-		int double_quote;
-		int single_quote;
-		int paragraph;
-		int code;
-		int ignore_next;
-		int hypertext;
-		int buffering;
-	} state = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	char current, next, last;
 	int i;
 	// Copy XML header
@@ -62,8 +71,10 @@ void process(FILE * input, FILE * output) {
 		// Copy code blocks verbatim instead of interpreting Markdown
 		if (state.code) {
 			fputs(xmlify(current), output);
-			if (next == '\n')
+			if (next == '\n') {
+				fputs(PARAGRAPH_END_TAG, output);
 				state.code = 0;
+			}
 			last = current;
 			current = next;
 			continue;
@@ -84,23 +95,35 @@ void process(FILE * input, FILE * output) {
 		}
 		// Markdown processor
 		switch (current) {
-		case '*' :	// Italic & bold
-			if (next == '*') {
-				fputs(state.bold ? SPAN_END_TAG : BOLD_START_TAG, output);
-				state.bold = state.bold ? 0 : 1;
-				state.ignore_next = 1;
+		case '*' :	// Italic, bold, lists
+			if (last == '\n') {
+				if (next == ' ') {	// List
+					if (!state.list) {
+						state.list = 1;
+						fputs(LIST_START_TAG, output);
+						open_paragraph(output);
+						state.ignore_next = 1;
+					}
+					fputs(ITEM_START_TAG, output);
+				} else {
+					state.paragraph = 1;
+					fputs(PARAGRAPH_START_TAG, output);
+					open_paragraph(output);
+				}
 			} else {
-				fputs(state.italic ? SPAN_END_TAG : ITALIC_START_TAG, output);
-				state.italic = state.italic ? 0 : 1;
+				if (next == '*') {	// Bold
+					fputs(state.bold ? SPAN_END_TAG : BOLD_START_TAG, output);
+					state.bold = state.bold ? 0 : 1;
+					state.ignore_next = 1;
+				} else {	// Italic
+					fputs(state.italic ? SPAN_END_TAG : ITALIC_START_TAG, output);
+					state.italic = state.italic ? 0 : 1;
+				}
 			}
 			break;
 		case '`' :	// Monotype
 			fputs(state.mono ? SPAN_END_TAG : MONO_START_TAG, output);
 			state.mono = state.mono ? 0 : 1;
-			break;
-		case '+' :	// Small caps
-			fputs(state.smallcaps ? SPAN_END_TAG : SCAPS_START_TAG, output);
-			state.smallcaps = state.smallcaps ? 0 : 1;
 			break;
 		case '<' :	// Start of superscript or end of subscript
 			fputs(state.sub ? SPAN_END_TAG : SUP_START_TAG, output);
@@ -119,35 +142,29 @@ void process(FILE * input, FILE * output) {
 				state.title_level += 1;
 			if (next != '#') {
 				fputs(TITLE_START_TAG[state.title_level - 1], output);
-				state.paragraph = 1;
-			}
-			break;
-		case '~' :	// Code block
-			if (!state.paragraph) {
-				fputs(CODE_START_TAG, output);
-				state.paragraph = 1;
-				state.code = 1;
+				//state.paragraph = 1;
 			}
 			break;
 		case '\n' :	// Line break : new paragraph
-			for (i = 0 ; i < state.mono + state.bold + state.italic + state.smallcaps ; i++)
+			for (i = 0 ; i < state.mono + state.bold + state.italic ; i++)
 				fputs(SPAN_END_TAG, output);
-			if (state.title_level == 0)
+			if (state.title_level != 0) {
+				state.title_level = 0;
+				fputs(TITLE_END_TAG, output);
+			} else if (state.paragraph) {
+				state.paragraph = 0;
 				fputs(PARAGRAPH_END_TAG, output);
-			else fputs(TITLE_END_TAG, output);
-			state.paragraph = 0;
-			state.title_level = 0;
-			if ((next != '#') && (next != '\t')) {
+			} else if (state.list) {
+				fputs(ITEM_END_TAG, output);
+				if (next != '*') {	// End of list
+					fputs(LIST_END_TAG, output);
+					state.list = 0;
+				}
+			}
+			if ((next != '#') && (next != '\t') && (next != '*')) {
 				state.paragraph = 1;
 				fputs(PARAGRAPH_START_TAG, output);
-				if (state.italic)
-					fputs(ITALIC_START_TAG, output);
-				if (state.bold)
-					fputs(BOLD_START_TAG, output);
-				if (state.mono)
-					fputs(MONO_START_TAG, output);
-				if (state.smallcaps)
-					fputs(SCAPS_START_TAG, output);
+				open_paragraph(output);
 			}
 			break;
 		case ' ' :	// Space
@@ -198,6 +215,8 @@ void process(FILE * input, FILE * output) {
 			if ((!state.paragraph) && (!state.code)) {
 				fputs(CODE_START_TAG, output);
 				state.code = 1;
+			} else {
+				fputs("<text:tab/>", output);
 			}
 			break;
 		default:
@@ -210,8 +229,17 @@ void process(FILE * input, FILE * output) {
 		current = next;
 	}
 	fputc(current, output);
-	if (state.paragraph)
+	// TODO : Refactor
+	for (i = 0 ; i < state.mono + state.bold + state.italic ; i++)
+		fputs(SPAN_END_TAG, output);
+	if (state.title_level != 0)
+		fputs(TITLE_END_TAG, output);
+	else if (state.paragraph)
 		fputs(PARAGRAPH_END_TAG, output);
+	else if (state.list) {
+		fputs(ITEM_END_TAG, output);
+		fputs(LIST_END_TAG, output);
+	}
 	fputs(FOOTER, output);
 }
 

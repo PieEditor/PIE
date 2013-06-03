@@ -2,22 +2,40 @@ angular.module('pie')
 .factory('documentService', function($http, apiBaseUrl) {
 	return {
 		currentDocument: undefined,
-		get: function(id) {
+		currentLastVersion: undefined,
+		get: function(docId, version) { // version number is optionnal
 			var t = this;
+
+			var url = '/documents/' + docId;
+			if (version !== undefined)
+				url += '/versions/' + version;
+
+			// Get the document
 			var p = $http({
-				method: "GET",
-				url: apiBaseUrl + "/documents/" + id,
+				method: 'GET',
+				url: apiBaseUrl + url,
 				withCredentials: true
 			});
 			p.success(function(data) {
 				t.currentDocument = data;
 			});
+
+			// Get the number of versions of the document
+			$http({
+				method: 'GET',
+				url: apiBaseUrl + '/documents/' + docId + '/versions',
+				withCredentials: true
+			})
+			.success(function(data) {
+				t.currentLastVersion = data.lastVersion;
+			});
+
 			return p;
 		},
 		post: function() {
 			var p = $http({
-				method: "POST",
-				url: apiBaseUrl + "/documents",
+				method: 'POST',
+				url: apiBaseUrl + '/documents',
 				data : this.currentDocument,
 				withCredentials: true
 			});
@@ -25,8 +43,8 @@ angular.module('pie')
 		},
 		update: function() {
 			var p = $http({
-				method: "PUT",
-				url: apiBaseUrl + "/documents/" + this.currentDocument._id,
+				method: 'PUT',
+				url: apiBaseUrl + '/documents/' + this.currentDocument._id,
 				data : this.currentDocument,
 				withCredentials: true
 			});
@@ -46,17 +64,32 @@ angular.module('pie')
 				version: undefined
 			};
 		},
-		downloadUrl: function(id) {
-			return apiBaseUrl + '/documents/' + id;
+		downloadUrl: function() {
+			if (this.currentDocument === undefined) return;
+			if (this.currentLastVersion === undefined) return;
+
+			var url = apiBaseUrl + '/documents/' + this.currentDocument.docId;
+			if (this.currentDocument.version != this.currentLastVersion)
+				url += '/versions/' + this.currentDocument.version;
+
+			return url;
 		},
-		newVersion: function() {
-			console.log(' new version ');
-			delete this.currentDocument._id;
-			delete this.currentDocument._rev;
-			_.each(this.currentDocument.content, function(elem) {
+		newIteration: function() {
+			var t = this;
+
+			// Prepare the new iteration of the document
+			delete t.currentDocument._id;
+			delete t.currentDocument._rev;
+			_.each(t.currentDocument.content, function(elem) {
 				for (var i = 0 ; i < elem.discussions.length ; i++)
 					if (elem.discussions[i].resolved)
 						elem.discussions.splice(i, 1);
+			});
+			// Save the new iteration
+			t.post()
+			// Reload the document once the new version is saved
+			.success(function() {
+				t.get(t.currentDocument.docId);
 			});
 		}
 	};

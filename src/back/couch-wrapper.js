@@ -108,6 +108,17 @@ exports.userDelete = function(login, callback) {
 	doDelete("/user/" + login, callback);
 }
 
+exports.userUpdate = function(user, callback) {
+	getRev("/user/" + user.login, function(rev) {
+		if (rev == null) {
+			callback(false);
+			return;
+		}
+		user._rev = rev;
+		doPutRequest("/user/" + user.login, user, callback);
+	});
+}
+
 // DOCUMENT
 
 exports.docAdd = docAdd;

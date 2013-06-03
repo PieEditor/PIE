@@ -4,6 +4,11 @@ textarea {
 	padding: $fontSizeSmall;
 }
 
+.level1 a {
+	text-decoration: none;
+	cursor: pointer;
+}
+
 div.level1 {
 	@extend h1;
 }

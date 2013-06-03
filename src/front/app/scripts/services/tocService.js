@@ -20,6 +20,29 @@ angular.module('pie')
 				indice += count + '.';
 			}
 			return indice; 
+		},
+		getArchitectureFromString: function(content) {
+			var lines = content.split('\n');
+	
+			var architecture = [];
+			var title = _.head(lines);
+
+			_.map(_.tail(lines), function(line) {
+				if (!line) return; // ignore empty lines
+
+				// Number of commas in front of titles indicate depth level
+				var firstComma = line.search(/[^,]/);
+
+				architecture.push({
+					level: firstComma,
+					title: line.substring(firstComma).trim()
+				});
+			});
+
+			return {
+				content: architecture,
+				title: title
+			};
 		}
 	};
 });
