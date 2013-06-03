@@ -11,13 +11,14 @@ function rank(Rating, No_Response, Score){//Original Version
  *  Expectation of Rating
  *  Resolves the problem of useless posts
  */
-function rank(Rating, Cnt, Score){
+function rank(Rating, Cnt, Score, Weight){
 	
-	Total = Rating * Cnt + Math.pow( 10 , Score/10 );
+	Total = Rating * Cnt + Math.pow( 10 * Weight , Score/10 );
 	new_Rating = Total / (Cnt + 1);
 	return new_Rating;
 	}
 
+//Precondition: inArray = True
 function getIndex(value, array){
 	for (var i=0;i<array.length;i++){
 		if (array[i] == value) return i;
@@ -38,8 +39,12 @@ var Collection = new Array();
 var Rating = new Array();
 var Count = new Array();
 
+var weight = 0;
+
 for (var i=0;i<input.content.length;i++){
 	for (var j=0;j<input.content[i].discussions.length;j++){
+		weight = input.content[i].discussions[j].posts.length;
+		//console.log("weight is " + weight);
 		for (var k=0;k<input.content[i].discussions[j].posts.length;k++){
 			if (!inArray(input.content[i].discussions[j].posts[k].owner.login, Collection)){
 				Collection.push(input.content[i].discussions[j].posts[k].owner.login);
@@ -47,7 +52,7 @@ for (var i=0;i<input.content.length;i++){
 				Count.push(0);
 			}
 			var index = getIndex(input.content[i].discussions[j].posts[k].owner.login, Collection);
-			Rating[index] = rank(Rating[index], Count[index], input.content[i].discussions[j].posts[k].score);
+			Rating[index] = rank(Rating[index], Count[index], input.content[i].discussions[j].posts[k].score, weight);
 			Count[index] = Count[index] + 1;
 			//console.log(Rating[index]);
 		}
