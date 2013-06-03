@@ -1,6 +1,6 @@
 <div fixedheight ng-controller="EditController">
 	<div class="row-fluid">
-		<h1>{{ document.title }} (version {{document.version}} of {{lastVersion}})</h1>
+		<h1>{{ document.title }} (Version {{document.version}} of {{lastVersion}})</h1>
 
 		<div class="btn-group" ng-hide="user.login != document.owner">
 			<a href="/#/architecture/{{ document.docId }}" class="btn btn-primary"><i class="icon-wrench icon-white"></i> Modify Architecture</a>
@@ -23,7 +23,7 @@
 			</a>
 			<ul class="dropdown-menu">	
 				<div data-ng-repeat="i in range">
-					<li><a ng-click="getDocumentVersion(i)" >versions {{i}}</a></li>
+					<li><a ng-click="getDocumentVersion(i)" > Version {{i}}</a></li>
 				</div>
 			</ul>
 		</div>	
@@ -33,7 +33,7 @@
 	<div ng-repeat="section in document.content" class="row-fluid">
 		<div class="level{{ section.level }}">
 			<a ng-click="edit(section)">{{ getPartIndice( section, document.content ) }}
-			{{ section.title }}</a>
+			{{ section.title }} </a>
 			<div class="faded pull-right">
 				<div class="btn-group">
 					<button class="btn btn-mini"><i class="icon-user"></i>{{ section.owner.login }}</button>
@@ -49,7 +49,6 @@
 				</div>
 			</div>
 		</div>
-
 		<div ng-dblclick="edit(section)" ng-hide="section.isMyContentEditable == true">
 			<piemarkdown content="section.content"></piemarkdown>
 		</div>
