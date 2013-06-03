@@ -9,3 +9,9 @@
 .profile_image {
 	border-radius: 50%;
 }
+
+/* Executive summary = last post of a resolved discussion */
+.discussion-resolved > :last-child .post-content {
+	@extend .alert;
+	@extend .alert-success;
+}
