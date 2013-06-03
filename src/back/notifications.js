@@ -11,6 +11,8 @@ exports.initIO = function(server) {
 	io.sockets.on('connection', function (socket) {
 		socket.on('login', function (data) {
 			users[data.login] = socket;
+			for (var user in users)
+				console.log(user);
 		});
 		socket.on('disconnect', function () {
 			for (var login in users)
@@ -21,10 +23,12 @@ exports.initIO = function(server) {
 };
 
 exports.sendNotification = function(login, notification) {
+	console.log("Sending to " + login);
 	if (users[login] !== undefined) {
 		users[login].emit('notification', notification);
 		return true;
 	}
+	console.log("Notification failed");
 	return false;
 }
 

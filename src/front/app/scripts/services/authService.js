@@ -48,17 +48,19 @@ angular.module('pie')
 			});
 			p.success(function(data) {
 				t.user = data;
+				if (socketIOConnection === null) {
+				console.log("Creating connection");
+				socketIOConnection = io.connect(apiBaseUrl);
+				socketIOConnection.on('notification', function(data) {
+					t.user.notifications.push(data);
+					console.log(data);
+				});
+				socketIOConnection.emit('login', {'login':t.user.login});
+			}
 			});
 			p.error(function() {
 				$location.path('/login');
 			});
-			if (socketIOConnection === null) {
-				console.log("Creating connection");
-				socketIOConnection = io.connect(apiBaseUrl);
-				socketIOConnection.on('notification', function(data) {
-					this.user.notifications.push(JSON.parse(data));
-				});
-			}
 			return p;
 		}
 	};
