@@ -64,12 +64,11 @@ exports.notificationsOfChanges = function(old_doc, new_doc, login) {
 				for (j = 0; j < old_doc.content[i].discussions.length; j += 1) {
 					if (new_doc.content[i].discussions[j].resolved && !old_doc.content[i].discussions[j].resolved) {
 						notifications.push(login + " resolved the discussion \"" + old_doc.content[i].discussions[j].title + "\" which was about \"" + old_doc.content[i].title + "\" of \"" + old_doc.title + "\".");
-					}				
+					}
 				}
 			}
-			
 		}
-	}	
+	}
 	return notifications;
 };
 
