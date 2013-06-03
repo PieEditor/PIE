@@ -159,7 +159,7 @@ api.register({
 	});
 });
 
-function notify(login, type, text, path) {
+function notify(login, type, text, id) {
 	console.log("getting user " + login);
 	couchWrapper.userGet(login, function (user_object) {
 		if (user_object) {
@@ -167,7 +167,7 @@ function notify(login, type, text, path) {
 			if (!user_object.notifications) {
 				user_object.notifications = [];
 			}
-			user_object.notifications.push({text: text, type: type, path: path});
+			user_object.notifications.push({text: text, type: type, id: id});
 			couchWrapper.userUpdate(user_object);
 		}
 	});
@@ -185,7 +185,7 @@ api.register({
 			var i;
 			for (i = 0; i < params.collaborators.length; i += 1) {
 				console.log("notifying " + params.collaborators[i].login);
-				notify(params.collaborators[i].login, "document", params.owner + " added you to the collaborators list of " + params.title, "/documents/" + id);
+				notify(params.collaborators[i].login, "document", params.owner + " added you to the collaborators list of " + params.title, id);
 			}
 		} else {
 			response.writeHead(403, "Forbidden");
