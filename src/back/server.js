@@ -67,7 +67,6 @@ api.register({
 		if (user_object) {
 			couchWrapper.docByUser(api.getLogin(params.token), function (docs_list) {
 				if (docs_list !== null) {
-					delete user_object.shasum;
 					user_object.documents = docs_list;
 					response.writeHead(200, "OK");
 					response.write(JSON.stringify(user_object));
