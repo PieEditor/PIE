@@ -108,6 +108,21 @@ api.register({
 });
 
 api.register({
+	method: "PUT",
+	path: "/users/{login}",
+	needAuth: true
+}, function (params, response) {
+	couchWrapper.userUpdate(params, function (success) {
+		if (success) {
+			response.writeHead(200, "OK");
+		} else {
+			response.writeHead(403, "Forbidden");
+		}
+		response.end();
+	});
+});
+
+api.register({
 	method: "DELETE",
 	path: "/user",
 	needAuth: true
@@ -144,6 +159,20 @@ api.register({
 	});
 });
 
+function notify(login, type, text, path) {
+	console.log("getting user " + login);
+	couchWrapper.userGet(login, function (user_object) {
+		if (user_object) {
+			console.log("updating user " + login);
+			if (!user_object.notifications) {
+				user_object.notifications = [];
+			}
+			user_object.notifications.push({text: text, type: type, path: path});
+			couchWrapper.userUpdate(user_object);
+		}
+	});
+}
+
 api.register({
 	method: "POST",
 	path: "/documents",
@@ -153,6 +182,11 @@ api.register({
 		if (id) {
 			response.writeHead(201, "Created");
 			response.write(JSON.stringify(id));
+			var i;
+			for (i = 0; i < params.collaborators.length; i += 1) {
+				console.log("notifying " + params.collaborators[i].login);
+				notify(params.collaborators[i].login, "document", params.owner + " added you to the collaborators list of " + params.title, "/documents/" + id);
+			}
 		} else {
 			response.writeHead(403, "Forbidden");
 		}
