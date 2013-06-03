@@ -55,6 +55,9 @@ angular.module('pie')
 			if (socketIOConnection === null) {
 				console.log("Creating connection");
 				socketIOConnection = io.connect(apiBaseUrl);
+				socketIOConnection.on('notification', function(data) {
+					this.user.notifications.push(JSON.parse(data));
+				});
 			}
 			return p;
 		}
