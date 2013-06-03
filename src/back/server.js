@@ -2,6 +2,7 @@
 
 var api = require("./api-utils");
 var couchWrapper = require("./couch-wrapper");
+var notifio = require("./notifications");
 var crypto = require("crypto");
 var http = require("http");
 
@@ -171,6 +172,7 @@ function notify(login, type, text, id) {
 			couchWrapper.userUpdate(user_object);
 		}
 	});
+	notifyio.sendNotification(login, {text: text, type: type, id: id});
 }
 
 api.register({
@@ -350,4 +352,4 @@ api.register({
 });
 
 /* start the server */
-api.run(8080);
+notifio.initIO(api.run(8080));
