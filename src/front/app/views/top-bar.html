@@ -7,13 +7,13 @@
 			<li ng-class="isSectionActive('profile')">
 				<a href="/#/profile">
 					<i class="icon-user"></i> 
-					{{ login }}
+					{{ user.login }}
 				</a>
 			</li>
 			<li class="divider-vertical"></li>			
 			<li class="dropdown">
 			  <a class="dropdown-toggle "  role="button" data-toggle="dropdown"> 
-				<span class="badge badge-important"> {{numberOfNotification}}</span> Notifications
+				<span class="badge badge-important"> {{user.notifications.length}}</span> Notifications
 						<b class="caret"></b>
 					  
 				 <ul class="dropdown-menu span5" role="menu" aria-labelledby="dLabel">
