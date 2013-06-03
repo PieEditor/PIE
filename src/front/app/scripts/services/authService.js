@@ -3,7 +3,7 @@ angular.module('pie')
 	var socketIOConnection = null;
 	return {
 		user: undefined,
-		login: function(login, passwd, successCallback, errorCallback) {
+		login: function(login, passwd) {
 			return $http({
 				method: "POST",
 				url: apiBaseUrl + "/users/signin",
