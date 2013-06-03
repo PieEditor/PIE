@@ -109,6 +109,8 @@ exports.userDelete = function(login, callback) {
 }
 
 exports.userUpdate = function(user, callback) {
+	if (!callback)
+		callback = function(a) {};
 	getRev("/user/" + user.login, function(rev) {
 		if (rev == null) {
 			callback(false);

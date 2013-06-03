@@ -79,6 +79,9 @@ angular.module('pie')
 		.success(function(data) { 
 			documentService.currentDocument = data;
 		});
+
+		discussionService.currentDiscussion = undefined;
+		discussionService.currentState = 'none';
 	};
 });
 
