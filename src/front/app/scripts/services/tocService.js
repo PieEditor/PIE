@@ -35,7 +35,9 @@ angular.module('pie')
 
 				architecture.push({
 					level: firstComma,
-					title: line.substring(firstComma).trim()
+					title: line.substring(firstComma).trim(),
+					discussions: [],
+					owner: undefined
 				});
 			});
 
