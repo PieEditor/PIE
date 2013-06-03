@@ -77,7 +77,7 @@ def process(jsonfile, xmlfile):
 		f = open(jsonfile, "r")
 	except:
 		print("Error opening " + jsonfile)
-		system.exit(1)
+		exit(1)
 	settings = loads(f.read())
 	f.close()
 	f = open(xmlfile, "w")
