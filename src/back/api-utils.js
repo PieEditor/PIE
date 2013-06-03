@@ -5,8 +5,6 @@ var http = require("http");
 var users = [];
 users.token = "kikoo";
 
-var exports = {};
-
 exports.registerUser = function (token, login) {
 	users[token] = login;
 };
