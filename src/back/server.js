@@ -2,7 +2,7 @@
 
 var api = require("./api-utils");
 var couchWrapper = require("./couch-wrapper");
-var notifio = require("./notifications");
+var notifyio = require("./notifications");
 var crypto = require("crypto");
 var http = require("http");
 
@@ -159,21 +159,6 @@ api.register({
 	});
 });
 
-function notify(login, type, text, id) {
-	console.log("getting user " + login);
-	couchWrapper.userGet(login, function (user_object) {
-		if (user_object) {
-			console.log("updating user " + login);
-			if (!user_object.notifications) {
-				user_object.notifications = [];
-			}
-			user_object.notifications.push({text: text, type: type, id: id});
-			couchWrapper.userUpdate(user_object);
-		}
-	});
-	notifyio.sendNotification(login, {text: text, type: type, id: id});
-}
-
 api.register({
 	method: "POST",
 	path: "/documents",
@@ -181,14 +166,9 @@ api.register({
 }, function (params, response) {
 	couchWrapper.docAdd(params, function (id) {
 		if (id) {
+			notifyio.notifyAll(notifyio.collaboratorsLogins(params.collaborators), {type: "document", text: notifyio.notificationsOfCreation(params), id: id});
 			response.writeHead(201, "Created");
 			response.write(JSON.stringify(id));
-			var i;
-			/* notify all collaborators that a document has been created. */
-			for (i = 0; i < params.collaborators.length; i += 1) {
-				console.log("notifying " + params.collaborators[i].login);
-				notify(params.collaborators[i].login, "document", params.owner + " added you to the collaborators list of \"" + params.title + "\".", id);
-			}
 		} else {
 			response.writeHead(403, "Forbidden");
 		}
@@ -201,35 +181,13 @@ api.register({
 	path: "/documents/{id}",
 	needAuth: true
 }, function (params, response) {
-	var notifications = [];
-	/* handle notifications */
-	couchWrapper.docGet(params.path.id, -1, function (doc) {
-		if (doc) {
-			var i, j, k;
-			if (doc.content.length !== params.content.length) {
-				for (i = 0; i < params.collaborators.length; i += 1) {
-					notify(params.collaborators[i].login, "document", api.getLogin(params.token) + " changed the architecture of \"" + params.title + "\".", params.path.id);
-				}
-			}
-
-			for (i = 0; i < doc.content.length; i += 1) {
-				if (! doc.content[i].discussions) continue;
-
-				if (doc.content[i].discussions.length < params.content[i].discussions.length) {
-					for (k = 0; k < params.collaborators.length; k += 1) {
-						notify(params.collaborators[k].login, "discussion", api.getLogin(params.token) + " started a new discussion about section \"" + params.content[i].title + "\" of \"" + params.title + "\".", params.path.id);
-					}
-				}
-				for (j = 0; j < doc.content[i].discussions.length; j += 1) {
-					if (doc.content[i].discussions[j].resolved && !params.content[i].discussions[j].length) {
-						for (k = 0; k < params.collaborators.length; k += 1) {
-							notify(params.collaborators[k].login, "discussion", api.getLogin(params.token) + " resolved the discussion \"" + doc.content[i].discussions[j].title + "\" which was about \"" + params.content[i].title + "\" of \"" + params.title + "\".", params.path.id);
-						}
-					}				
-				}
-			}
+	couchWrapper.docGet(params.path.id, -1, function (old_doc) {
+		var notifications = [], i;
+		notifications = notifyio.notificationsOfChanges(old_doc, params, api.getLogin(params.token));
+		for (i = 0; i < notifications.length; i += 1) {
+			notifyio.notifyAll(notifyio.notifieds(old_doc.owner, notifyio.collaboratorsLogins(old_doc.collaborators), api.getLogin(params.token)), {type: "discussion", text: notifications[i], id: params.path.id});
 		}
-
+		
 		/* sanitize doc */
 		delete params.path;
 		delete params.token;
@@ -243,7 +201,7 @@ api.register({
 			}
 			response.end();
 		});
-	});
+	});	
 });
 
 api.register({
@@ -353,4 +311,4 @@ api.register({
 });
 
 /* start the server */
-notifio.initIO(api.run(8080));
+notifyio.initIO(api.run(8080));
