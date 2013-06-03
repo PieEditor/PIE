@@ -214,6 +214,8 @@ api.register({
 			}
 
 			for (i = 0; i < doc.content.length; i += 1) {
+				if (! doc.content[i].discussions) continue;
+
 				if (doc.content[i].discussions.length < params.content[i].discussions.length) {
 					for (k = 0; k < params.collaborators.length; k += 1) {
 						notify(params.collaborators[k].login, "discussion", api.getLogin(params.token) + " started a new discussion about section \"" + params.content[i].title + "\" of \"" + params.title + "\".", params.path.id);
