@@ -39,24 +39,26 @@
 
 		<hr />
 
-		<div ng-repeat="post in discussion.posts" class="row-fluid">
-			<div class="row-fluid span3">
-				<div class="span3">
-					<img src="{{ post.owner.imgUrl }}" class="profile_image" />
+		<div ng-class="{ 'discussion-resolved': (discussion.resolved == true) }">
+			<div ng-repeat="post in discussion.posts" class="row-fluid">
+				<div class="row-fluid span3">
+					<div class="span3">
+						<img src="{{ post.owner.imgUrl }}" class="profile_image" />
+					</div>
+
+					<div class="span9 row-fluid">
+						<p>{{ post.owner.login }}</p>
+						
+						<span class="badge">{{ post.date | date }}</span>
+						<span class="badge score-positive-{{post.score >= 0}}">{{ post.score | number }}</span>
+						<i class="icon-thumbs-up" ng-click="upvote(post)"></i>
+						<i class="icon-thumbs-down" ng-click="downvote(post)"></i>
+					</div>
 				</div>
 
-				<div class="span9 row-fluid">
-					<p>{{ post.owner.login }}</p>
-					
-					<span class="badge">{{ post.date | date }}</span>
-					<span class="badge score-positive-{{post.score >= 0}}">{{ post.score | number }}</span>
-					<i class="icon-thumbs-up" ng-click="upvote(post)"></i>
-					<i class="icon-thumbs-down" ng-click="downvote(post)"></i>
+				<div class="span9 well post-content">
+					<p>{{ post.content }}</p>
 				</div>
-			</div>
-
-			<div class="span9 well">
-				<p>{{ post.content }}</p>
 			</div>
 		</div>
 
