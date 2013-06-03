@@ -109,7 +109,7 @@ api.register({
 
 api.register({
 	method: "PUT",
-	path: "/users/{login}",
+	path: "/user",
 	needAuth: true
 }, function (params, response) {
 	couchWrapper.userUpdate(params, function (success) {
@@ -183,9 +183,10 @@ api.register({
 			response.writeHead(201, "Created");
 			response.write(JSON.stringify(id));
 			var i;
+			/* notify all collaborators that a document has been created. */
 			for (i = 0; i < params.collaborators.length; i += 1) {
 				console.log("notifying " + params.collaborators[i].login);
-				notify(params.collaborators[i].login, "document", params.owner + " added you to the collaborators list of " + params.title, id);
+				notify(params.collaborators[i].login, "document", params.owner + " added you to the collaborators list of \"" + params.title + "\".", id);
 			}
 		} else {
 			response.writeHead(403, "Forbidden");
@@ -199,13 +200,46 @@ api.register({
 	path: "/documents/{id}",
 	needAuth: true
 }, function (params, response) {
-	couchWrapper.docUpdate(params, function (success) {
-		if (success) {
-			response.writeHead(204, "No Content");
-		} else {
-			response.writeHead(403, "Forbidden");
+	var notifications = [];
+	/* handle notifications */
+	couchWrapper.docGet(params.path.id, -1, function (doc) {
+		if (doc) {
+			var i, j, k;
+			if (doc.content.length !== params.content.length) {
+				for (i = 0; i < params.collaborators.length; i += 1) {
+					notify(params.collaborators[i].login, "document", api.getLogin(params.token) + " changed the architecture of \"" + params.title + "\".", params.path.id);
+				}
+			}
+
+			for (i = 0; i < doc.content.length; i += 1) {
+				if (doc.content[i].discussions.length < params.content[i].discussions.length) {
+					for (k = 0; k < params.collaborators.length; k += 1) {
+						notify(params.collaborators[k].login, "discussion", api.getLogin(params.token) + " started a new discussion about section \"" + params.content[i].title + "\" of \"" + params.title + "\".", params.path.id);
+					}
+				}
+				for (j = 0; j < doc.content[i].discussions.length; j += 1) {
+					if (doc.content[i].discussions[j].resolved && !params.content[i].discussions[j].length) {
+						for (k = 0; k < params.collaborators.length; k += 1) {
+							notify(params.collaborators[k].login, "discussion", api.getLogin(params.token) + " resolved the discussion \"" + doc.content[i].discussions[j].title + "\" which was about \"" + params.content[i].title + "\" of \"" + params.title + "\".", params.path.id);
+						}
+					}				
+				}
+			}
 		}
-		response.end();
+
+		/* sanitize doc */
+		delete params.path;
+		delete params.token;
+
+		couchWrapper.docUpdate(params, function (success) {
+			if (success) {
+				response.writeHead(204, "No Content");
+				/* looking for new discussions */
+			} else {
+				response.writeHead(403, "Forbidden");
+			}
+			response.end();
+		});
 	});
 });
 
