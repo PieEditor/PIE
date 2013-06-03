@@ -2,7 +2,14 @@
 
 angular.module('pie')
 .controller('EditController', function ($scope, $routeParams,$location, authService, documentService, discussionService , tocService) {
-	authService.ensureLogin();
+	authService
+	.ensureLogin()
+	.then(function() {
+		$scope.user = {
+			login: authService.user.login,
+			imgUrl: authService.user.imgUrl
+		};
+	});
 
 	// Watch for current document changes
 	$scope.$watch(
