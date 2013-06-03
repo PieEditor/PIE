@@ -212,7 +212,6 @@ void process(FILE * input, FILE * output) {
 			else fputc(')', output);
 			break;
 		case '\t' :
-			printf("Code: %d, Paragraph: %d\n", state.code, state.paragraph);
 			if ((!state.paragraph) && (!state.code)) {
 				fputs(CODE_START_TAG, output);
 				state.code = 1;
