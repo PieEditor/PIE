@@ -27,15 +27,16 @@ angular.module('pie')
 		function() {
 			$scope.lastVersion = documentService.currentLastVersion;
 			if ($scope.lastVersion === undefined) return;
-			$scope.range = _.range($scope.lastVersion , -1 , -1);
-			console.log ( $scope.range );
+			$scope.range = _.range( $scope.lastVersion , -1 , -1 ) ;
 		}
 	);
 
 	$scope.downloadUrl = documentService.downloadUrl($routeParams.documentId);
 
 	$scope.edit = function(section) {
-		if (! section.isMyContentEditable) {
+		if ( $scope.document.version !== $scope.lastVersion ) {
+			section.isMyContentEditable = false ;
+		} else if (! section.isMyContentEditable) {
 			section.isMyContentEditable = true;
 		}
 		else {
