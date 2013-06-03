@@ -11,7 +11,8 @@ angular.module('pie')
 		function(newVal) {
 			if (! authService.user) return;
 			$scope.login = authService.user.login;
-			
+			$scope.numberOfNotification = authService.user.notifications.length;
+			$scope.notifications = authService.user.notifications;
 		}
 	);
 	$scope.logout = authService.logout;
