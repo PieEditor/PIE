@@ -11,6 +11,7 @@ angular.module('pie')
 		function(newVal) {
 			if (! authService.user) return;
 			$scope.login = authService.user.login;
+			
 		}
 	);
 	$scope.logout = authService.logout;
