@@ -4,6 +4,7 @@ angular.module('pie')
 .controller('EditController', function ($scope, $routeParams,$location, authService, documentService, discussionService , tocService) {
 	authService.ensureLogin();
 
+	// Watch for current document changes
 	$scope.$watch(
 		function() { return documentService.currentDocument; },
 		function() {
@@ -16,11 +17,21 @@ angular.module('pie')
 				// If we don't, show the editing field (isMyContentEditable = true)
 				c.isMyContentEditable = ! c.content;
 			});
+
+			$scope.downloadUrl = documentService.downloadUrl();
 		}
 	);
-	
 	documentService.get($routeParams.documentId);
-	$scope.downloadUrl = documentService.downloadUrl($routeParams.documentId);
+
+	// Watch for changes on document's last version 
+	$scope.$watch(
+		function() { return documentService.currentLastVersion; },
+		function() {
+			$scope.lastVersion = documentService.currentLastVersion;
+			if ($scope.lastVersion === undefined) return;
+			$scope.range = _.range($scope.lastVersion + 1);
+		}
+	);
 
 	$scope.edit = function(section) {
 		if (! section.isMyContentEditable) {
@@ -44,27 +55,21 @@ angular.module('pie')
 		discussionService.create(section, discussionOwner);
 	};
 	
-	$scope.saveAndRefresh = function ( ) {
-		documentService.update()
-		.success(function() {
-			documentService.newVersion();
-			documentService.post().success(function(_id) {
-				location.reload();
-	//			$location.path('/editAndDiscuss/' + documentService.currentDocument.docId);
-			})
-			.error(function(data) {
-				console.log(data);
-			});
-		})
-		.error(function(error) {
-			console.log(error);
-		});	
+	$scope.newIteration = function () {
+		documentService.newIteration();
 		discussionService.currentState = "none";
 		discussionService.currentDiscussion = undefined;
 	};
 	
 	$scope.getPartIndice = function( part , docContent ) {
 		return tocService.getPartIndice (part , docContent ) ;
+	};
+	
+	$scope.getDocumentVersion = function ( version ) {
+		documentService.get($routeParams.documentId, version) 
+		.success(function(data) { 
+			documentService.currentDocument = data;
+		});
 	};
 });
 

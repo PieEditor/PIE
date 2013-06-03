@@ -1,27 +1,9 @@
-<div ng-controller="ProfileController">
+<div ng-include src="'/views/top-bar.html'" onLoad="currentPage = 'profile'"></div>
 
-	<!-- navigation bar -->
-	<div class="navbar navbar-fixed-top force-min-width">
-		<div class="navbar-inner">
-			<div class="container-fluid">
-				<div class="row-fluid">
-					<a class="brand span1" href="#">PIE</a>
-					<ul class="nav span8">
-						<li class="active" ><a href="/#/profilePage">My Profile</a></li>
-						<li ><a href="/#/">About Us</a></li>
-						<li ><a href="/#/">Contact Us</a></li>
-						<li ><a href="#" ng-click="logout()">Log out</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>            
-	</div>
-	<hr/>
-	<hr/>
-	<!-- Main container -->
+<div ng-controller="ProfileController">
 	<div class="container-fluid force-min-width">
 		<div class="row-fluid">
-			<h1>hello this is the profile page</h1>
+			<h1>Hi, {{ user.login }}</h1>
 			<hr/>
 		</div>
 		<!-- profile info -->
@@ -69,7 +51,7 @@
 							<td colspan="2"><center><i>Documents you own</i></center></td>
 						</tr>
 						<tr ng-repeat="document in user.documents.owner">
-							<td><a href="/#/editAndDiscuss/{{document.id}}"> {{document.title}}</i></td>
+							<td><a href="/#/editAndDiscuss/{{document.docId}}"> {{document.title}}</i></td>
 							<td><i class="icon-trash" ng-click="deleteDocument(document)"></i></td>
 						</tr>
 
@@ -77,8 +59,8 @@
 							<td colspan="2"><center><i>Documents you collaborate on</i></center></td>
 						</tr>
 						<tr ng-repeat="document in user.documents.collaborator">
-							<td><a href="/#/editAndDiscuss/{{document.id}}"> {{document.title}}</i></td>
-							<td><i class="icon-trash" ng-click="deleteDocument(document)"></i></td>
+							<td><a href="/#/editAndDiscuss/{{document.docId}}"> {{document.title}}</i></td>
+							<td></td>
 						</tr>
 
 						<tr>

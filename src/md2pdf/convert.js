@@ -30,9 +30,11 @@ http.createServer(function(req, res) {
 		var md = doc.content;
 		var settings = JSON.stringify(doc.settings);
 		var path = "/tmp/" + doc._id + "/";
-		fs.mkdir(path, function(err) {});
-		fs.writeFile(path + "d.md", md, function(err) {});
-		fs.writeFile(path + "s.json", settings, function(err) {});
+		try {
+			fs.mkdirSync(path);
+			fs.writeFileSync(path + "d.md", md);
+			fs.writeFileSync(path + "s.json", settings);
+		} catch(e) {}
 		exec("python convert.py " + path + " " + req.url.replace("/", ""),
 			function(error, stdout, stderr) {
 				console.log(stdout);
@@ -50,8 +52,10 @@ http.createServer(function(req, res) {
 						res.writeHead(200);
 						res.write(data);
 						res.end();
-						fs.unlink(path + "d.odt", function(err) {});
-						fs.rmdir(path, function(err) {});
+						try {
+							fs.unlinkSync(path + "d.odt");
+							fs.rmdirSync(path);
+						} catch(e) {}
 					});
 				}
 				else {
@@ -64,10 +68,13 @@ http.createServer(function(req, res) {
 						res.writeHead(200);
 						res.write(data);
 						res.end();
-						fs.unlink(path + "d.pdf", function(err) {});
-						fs.rmdir(path, function(err) {});
+						try {
+							fs.unlinkSync(path + "d.pdf");
+							fs.rmdirSync(path);
+						} catch(e) {}
 					});
 				}
 			});
 	});
 }).listen(8081, "localhost");
+
