@@ -2,7 +2,7 @@
 	<div class="row-fluid">
 		<h1>{{ document.title }} (Version {{document.version}} of {{lastVersion}})</h1>
 
-		<div class="btn-group" ng-hide="user.login != document.owner">
+		<div class="btn-group" ng-hide="user.login != document.owner || document.version != lastVersion">
 			<a href="/#/architecture/{{ document.docId }}" class="btn btn-primary"><i class="icon-wrench icon-white"></i> Modify Architecture</a>
 			<button class="btn btn-primary" ng-click="newIteration()"><i class="icon-refresh icon-white"></i> New iteration</button>
 		</div>
