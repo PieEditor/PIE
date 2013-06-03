@@ -143,4 +143,5 @@ exports.run =  function (port, hostname) {
 			badRequest(response);
 		});
 	});
+	return server;
 };
