@@ -27,7 +27,8 @@ angular.module('pie')
 		function() {
 			$scope.lastVersion = documentService.currentLastVersion;
 			if ($scope.lastVersion === undefined) return;
-			$scope.range = _.range($scope.lastVersion + 1);
+			$scope.range = _.range($scope.lastVersion , -1 , -1);
+			console.log ( $scope.range );
 		}
 	);
 
