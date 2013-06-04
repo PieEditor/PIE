@@ -16,10 +16,10 @@
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<span class="badge badge-important"> {{ user.notifications.length }}</span>
-					Notifications <b class="caret"></b>
+					Notifications <b class="caret" ng-hide="user.notifications.length == 0"></b>
 				</a>
 
-				<ul class="dropdown-menu">
+				<ul class="dropdown-menu" ng-hide="user.notifications.length == 0">					
 					<li ng-repeat="notification in user.notifications">
 				 		<a href="{{notification.path}}" ng-click="deleteNotification(notification)"><p class="text-center">{{ notification.text }}</p></a>
 				 	</li>
