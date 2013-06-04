@@ -15,7 +15,7 @@ angular.module('pie')
 	};
 
 	$scope.deleteDocument = function(document) {
-		$http({method: "DELETE", url: apiBaseUrl + "/documents/"  + document.id, withCredentials: true})
+		$http({method: "DELETE", url: apiBaseUrl + "/documents/"  + document.docId, withCredentials: true})
 		.success(function(data) {
 			// Refresh the user
 			$http({method: "GET", url: apiBaseUrl + "/user", withCredentials: true})
