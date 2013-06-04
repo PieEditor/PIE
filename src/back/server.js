@@ -65,7 +65,8 @@ api.register({
 }, function (params, response) {
 	couchWrapper.userGet(api.getLogin(params.token), function (user_object) {
 		if (user_object) {
-			couchWrapper.docByUser(api.getLogin(params.token), function (docs_list) {
+			couchWrapper.
+			docByUser(api.getLogin(params.token), function (docs_list) {
 				if (docs_list !== null) {
 					user_object.documents = docs_list;
 					response.writeHead(200, "OK");
@@ -112,6 +113,9 @@ api.register({
 	path: "/user",
 	needAuth: true
 }, function (params, response) {
+	/* sanitize object */
+	delete params.token;
+	delete params.path;
 	couchWrapper.userUpdate(params, function (success) {
 		if (success) {
 			response.writeHead(200, "OK");
@@ -164,6 +168,9 @@ api.register({
 	path: "/documents",
 	needAuth: true
 }, function (params, response) {
+	/* sanitize object */
+	delete params.path;
+	delete params.token;
 	couchWrapper.docAdd(params, function (id) {
 		if (id) {
 			notifyio.notifyAll(notifyio.collaboratorsLogins(params.collaborators), {type: "document", text: notifyio.notificationsOfCreation(params), id: id});
@@ -181,14 +188,16 @@ api.register({
 	path: "/documents/{id}",
 	needAuth: true
 }, function (params, response) {
-	couchWrapper.docGet(params.path.id, -1, function (old_doc) {
+	couchWrapper.docGet(params.docId, -1, function (old_doc) {
 		if (!old_doc) {
-			console.log("unable to get document with id " + params.path.id);
+			console.log("unable to get document with id " + params.docId);
 		}
-		var notifications, i;
-		notifications = notifyio.notificationsOfChanges(old_doc, params, api.getLogin(params.token));
-		for (i = 0; i < notifications.length; i += 1) {
-			notifyio.notifyAll(notifyio.notifieds(old_doc.owner, notifyio.collaboratorsLogins(old_doc.collaborators), api.getLogin(params.token)), {type: "discussion", text: notifications[i], id: params.path.id});
+		else {
+			var notifications, i;
+			notifications = notifyio.notificationsOfChanges(old_doc, params, api.getLogin(params.token));
+			for (i = 0; i < notifications.length; i += 1) {
+				notifyio.notifyAll(notifyio.notifieds(old_doc.owner, notifyio.collaboratorsLogins(old_doc.collaborators), api.getLogin(params.token)), {type: "discussion", text: notifications[i], id: params.docId});
+			}
 		}
 		
 		/* sanitize doc */
