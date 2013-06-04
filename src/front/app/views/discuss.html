@@ -11,7 +11,7 @@
 			<tbody>
 				<tr ng-repeat="discussion in allDiscussions">
 					<td>{{ discussion.title }}</td>
-					<td><span class="badge badge-info">{{ discussion.posts.length }}</span></td>
+					<td><span class="badge badge-info">{{ discussion.posts.length - 1 }}</span></td>
 					<td><i ng-class="discussionIcon(discussion)"></i></td>
 				</tr>
 			</tbody>
