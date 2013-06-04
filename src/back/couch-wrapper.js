@@ -164,8 +164,16 @@ exports.docUpdate = function(document, callback) {
 	});
 }
 
-exports.docDelete = function(id, callback) {
-	doDelete("/document/" + id, callback);
+exports.docDelete = function(docId, callback) {
+	doGetRequest("/document/_design/application/_view/last?key=\"" + docId + "\"", function(res) {
+		if ((!res) || (res.rows.length == 0)) {
+			callback(false);
+			return;
+		}
+		for (var i = 0 ; i < res.rows.length ; i++)
+			doDelete("/document/" + res.rows[i].id, function(ret) {});
+		callback(true);
+	});
 }
 
 
