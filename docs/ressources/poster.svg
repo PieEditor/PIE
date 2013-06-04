@@ -28,8 +28,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="179.24112"
-     inkscape:cy="273.11956"
+     inkscape:cx="64.955406"
+     inkscape:cy="558.83385"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -85,7 +85,7 @@
            y="252.3622"
            style="font-size:32px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
          id="flowPara3072"
-         style="font-size:24px">At-hand document merging</flowPara></flowRoot>    <flowRoot
+         style="font-size:24px">Painful document merging</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot3074"
        style="font-size:32px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -110,7 +110,7 @@
            height="68.571426"
            x="0"
            y="258.07648" /></flowRegion><flowPara
-         id="flowPara3094"></flowPara></flowRoot>    <flowRoot
+         id="flowPara3094" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot3096"
        style="font-size:32px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -123,7 +123,7 @@
            y="258.07648"
            style="font-size:32px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
          id="flowPara3102"
-         style="font-size:24px;text-align:center;text-anchor:middle">E-mail based collaboration</flowPara></flowRoot>    <flowRoot
+         style="font-size:24px;text-align:center;text-anchor:middle">Endless e-mail flood</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot3114"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><flowRegion
@@ -144,7 +144,7 @@
            x="3.0304577"
            y="324.04221"
            style="text-anchor:start;text-align:justify;font-size:16px" /></flowRegion><flowPara
-         id="flowPara3132"></flowPara></flowRoot>    <flowRoot
+         id="flowPara3132" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot3138"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -156,9 +156,9 @@
            x="31.183468"
            y="310.31848" /></flowRegion><flowPara
          id="flowPara3144"
-         style="font-size:14px;text-align:center;text-anchor:middle">Forward function in e-mail clients killed synchronisation of more than two people. </flowPara><flowPara
+         style="font-size:14px;text-align:center;text-anchor:middle">Forward function in e-mail clients killed synchronisation if more than two people. </flowPara><flowPara
          style="font-size:14px;text-align:center;text-anchor:middle"
-         id="flowPara3146">Dozens of new mails at the beggining of the day results in information loss.</flowPara></flowRoot>    <flowRoot
+         id="flowPara3146">Dozens of new mails at the beggining of the day results inexorably in information loss.</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot3148"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -172,7 +172,7 @@
          id="flowPara3154"
          style="font-size:14px;text-align:center;text-anchor:middle">Don't want to be the guy   who have to merge different versions of the same document ?</flowPara><flowPara
          style="font-size:14px;text-align:center;text-anchor:middle"
-         id="flowPara3849">Let's be clear : you shouldn't deal with these kind of issues. </flowPara></flowRoot>    <flowRoot
+         id="flowPara3849">Let's be clear : you shouldn't have to deal with these kind of issues. </flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot3156"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -184,7 +184,9 @@
            x="489.92398"
            y="307.87976" /></flowRegion><flowPara
          style="font-size:14px;text-align:center;text-anchor:middle"
-         id="flowPara3164">Receiving *.docx document. Editing it with LibreOffice. Breaking the styles. Blaming ISO standards.</flowPara><flowPara
+         id="flowPara3164">Receiving *.docx document. Editing it with LibreOffice. Breaking the styles. </flowPara><flowPara
+         style="font-size:14px;text-align:center;text-anchor:middle"
+         id="flowPara3193">Blaming ISO standards.</flowPara><flowPara
          style="font-size:14px;text-align:center;text-anchor:middle"
          id="flowPara3166">Is this your workflow ?</flowPara></flowRoot>    <g
        id="g3725"

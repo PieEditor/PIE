@@ -100,6 +100,14 @@ Sign up a new user. Perform the login in the same time in providing the access t
 
  * **{}User** : user data
 
+### Update the authenticated user
+
+	PUT /user
+
+#### Response
+
+200 "OK" if the user is authenticated.
+
 ### Delete your account
 
 Delete the authenticated user's account.

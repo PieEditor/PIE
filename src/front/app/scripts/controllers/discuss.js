@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pie')
-.controller('DiscussController', function ($scope, authService, discussionService, permissionService) {
+.controller('DiscussController', function ($scope, authService, documentService, discussionService, permissionService) {
 	authService
 	.ensureLogin()
 	.then(function() {
@@ -20,6 +20,22 @@ angular.module('pie')
 	$scope.$watch(
 		function() { return discussionService.currentState; },
 		function() { $scope.currentState = discussionService.currentState; }
+	);
+
+	$scope.$watch(
+		function() { return documentService.currentDocument; },
+		function() {
+			if (! documentService.currentDocument) return;
+			$scope.allDiscussions = [];
+			
+			_.map(_.pluck(documentService.currentDocument.content, 'discussions'), function(discussions) {
+				if (_.isEmpty(discussions)) return;
+				_.map(discussions, function(discussion) {
+					$scope.allDiscussions.push(discussion);
+				});
+			});
+		},
+		true
 	);
 
 	$scope.now = new Date();
@@ -63,4 +79,8 @@ angular.module('pie')
 	};
 
 	$scope.iCanCloseCurrentDiscussion = permissionService.iCanCloseCurrentDiscussion;
+
+	$scope.discussionIcon = function(discussion) {
+		return discussion.resolved ? 'icon-ok': '';
+	};
 });
