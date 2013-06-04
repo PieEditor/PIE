@@ -12,6 +12,8 @@ angular.module('pie')
 		function(newVal) {
 			if (! authService.user) return;			
 			$scope.user = newVal;
+			
+			if (! $scope.user.notifications) return;
 			for (var i =0 ; i< $scope.user.notifications.length ; i++ ) {
 				if ( $scope.user.notifications[i].type === "document" ) {
 					$scope.user.notifications[i].path = "/#/editAndDiscuss/"+$scope.user.notifications[i].id;
