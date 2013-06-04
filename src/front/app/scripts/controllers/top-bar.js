@@ -26,9 +26,9 @@ angular.module('pie')
 	);
 	$scope.logout = authService.logout;
 	
-	$scope.deleteNotification = function ( notification ) {
-		var index = _.indexOf($scope.user.notifications, notification);
-		$scope.user.notifications = $scope.user.notifications.splice(index, 1);
+	$scope.deleteNotification = function (notification) {
+		var index = _.indexOf(authService.user.notifications, notification);
+		authService.user.notifications.splice(index, 1);
 		authService.update();
 	};
 });

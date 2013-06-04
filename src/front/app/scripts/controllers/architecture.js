@@ -232,7 +232,7 @@ angular.module('pie')
 		_.map($scope.document.content, function(section) {
 			if (section.owner && section.owner.login == collaborator.login) {
 				section.owner = undefined;
-			}; 
+			}
 		});
 	};
 
