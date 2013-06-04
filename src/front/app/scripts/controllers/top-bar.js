@@ -14,11 +14,11 @@ angular.module('pie')
 			$scope.user = authService.user;
 
 			if (! $scope.user.notifications) return;
-			for (var i =0 ; i< $scope.user.notifications.length ; i++ ) {
-				if ( $scope.user.notifications[i].type === "document" ) {
-					$scope.user.notifications[i].path = "/#/editAndDiscuss/"+$scope.user.notifications[i].id;
-				} else if ($scope.user.notifications[i].type === "discussion" ){
-					$scope.user.notifications[i].path = "/#/editAndDiscuss/"+$scope.user.notifications[i].id+"";
+			for (var i =0 ; i< $scope.user.notifications.length ; i++) {
+				if ($scope.user.notifications[i].type === "document") {
+					$scope.user.notifications[i].path = "/#/editAndDiscuss/" + $scope.user.notifications[i].docId;
+				} else if ($scope.user.notifications[i].type === "discussion") {
+					$scope.user.notifications[i].path = "/#/editAndDiscuss/" + $scope.user.notifications[i].docId + "";
 				}
 			}
 		},
@@ -35,5 +35,5 @@ angular.module('pie')
 	$scope.clearNotifications = function() {
 		authService.user.notifications = [];
 		authService.update();
-	}
+	};
 });
