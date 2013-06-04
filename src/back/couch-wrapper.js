@@ -233,7 +233,7 @@ exports.docByUser = function(login, callback) {
 				}
 			}
 			if (!wasInList)
-				list.push({id: elem.id, docId: elem.value.docId, version: elem.value.version, title: elem.value.title});
+				list.push({_id: elem.id, docId: elem.value.docId, version: elem.value.version, title: elem.value.title});
 		});
 	}
 	doGetRequest("/document/_design/application/_view/get?key=\"" + login + "\"", function(res) {
