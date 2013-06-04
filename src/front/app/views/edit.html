@@ -1,11 +1,7 @@
 <div fixedheight ng-controller="EditController">
 	<div class="row-fluid">
-		<h1>{{ document.title }} (version {{document.version}} of {{lastVersion}})</h1>
+		<h1>{{ document.title }} (Version {{document.version}} of {{lastVersion}})</h1>
 
-		<div class="btn-group">
-			<a href="/#/architecture/{{ document.docId }}" class="btn btn-primary"><i class="icon-wrench icon-white"></i> Modify Architecture</a>
-			<button class="btn btn-primary" ng-click="newIteration()"><i class="icon-refresh icon-white"></i> New iteration</button>
-		</div>
 		<div class="btn-group">
 			<a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#">
 				Export
@@ -16,6 +12,7 @@
 				<li><a href="{{ downloadUrl }}.odt"><i class="icon-download"></i> ODT</a></li>
 			</ul>
 		</div>
+		
 		<div class="btn-group">
 			<a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#">
 				Versions
@@ -23,9 +20,14 @@
 			</a>
 			<ul class="dropdown-menu">	
 				<div data-ng-repeat="i in range">
-					<li><a ng-click="getDocumentVersion(i)" >versions {{i}}</a></li>
+					<li><a ng-click="getDocumentVersion(i)" > Version {{i}}</a></li>
 				</div>
 			</ul>
+		</div>
+
+		<div class="btn-group" ng-hide="user.login != document.owner || document.version != lastVersion">
+			<a href="/#/architecture/{{ document.docId }}" class="btn btn-primary"><i class="icon-wrench icon-white"></i> Modify Architecture</a>
+			<button class="btn btn-primary" ng-click="newIteration()"><i class="icon-refresh icon-white"></i> New iteration</button>
 		</div>	
 	</div>
 	<hr />
@@ -33,7 +35,7 @@
 	<div ng-repeat="section in document.content" class="row-fluid">
 		<div class="level{{ section.level }}">
 			<a ng-click="edit(section)">{{ getPartIndice( section, document.content ) }}
-			{{ section.title }}</a>
+			{{ section.title }} </a>
 			<div class="faded pull-right">
 				<div class="btn-group">
 					<button class="btn btn-mini"><i class="icon-user"></i>{{ section.owner.login }}</button>
@@ -41,7 +43,13 @@
 
 					<ul class="dropdown-menu pull-right">
 						<li ng-repeat="discussion in section.discussions">
-							<a href="" ng-click="showDiscussion(discussion)">{{ discussion.title }}<i class="icon-chevron-right pull-right"> </i></a>
+							<a href="" ng-click="showDiscussion(discussion)">
+								{{ discussion.title }}
+								<span class="pull-right">
+									<i class="icon-ok-circle" ng-show="discussion.resolved == true"></i>
+									<i class="icon-chevron-right right"></i>
+								</span>
+							</a>
 						</li>
 						<li class="divider"></li>
 						<li><a href="" ng-click="createDiscussion(section)">Create a new discussion!</a></li>
@@ -49,7 +57,6 @@
 				</div>
 			</div>
 		</div>
-
 		<div ng-dblclick="edit(section)" ng-hide="section.isMyContentEditable == true">
 			<piemarkdown content="section.content"></piemarkdown>
 		</div>

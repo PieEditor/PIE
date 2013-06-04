@@ -109,6 +109,8 @@ exports.userDelete = function(login, callback) {
 }
 
 exports.userUpdate = function(user, callback) {
+	if (!callback)
+		callback = function(a) {};
 	getRev("/user/" + user.login, function(rev) {
 		if (rev == null) {
 			callback(false);
@@ -231,7 +233,7 @@ exports.docByUser = function(login, callback) {
 				}
 			}
 			if (!wasInList)
-				list.push({id: elem.id, docId: elem.value.docId, version: elem.value.version, title: elem.value.title});
+				list.push({_id: elem.id, docId: elem.value.docId, version: elem.value.version, title: elem.value.title});
 		});
 	}
 	doGetRequest("/document/_design/application/_view/get?key=\"" + login + "\"", function(res) {

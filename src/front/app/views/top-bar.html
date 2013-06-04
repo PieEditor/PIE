@@ -1,14 +1,36 @@
 <div class="navbar navbar-fixed-top" ng-controller="TopBarController" >
 	<div class="navbar-inner">
-		<a class="brand" href="#"><img src="/resources/pie.svg" /> PIE</a>
+		<a class="brand" href="http://pie.insa-lyon.fr"><img src="/resources/pie.svg" /> PIE</a>
 
 		<ul class="nav">
 			<li class="divider-vertical"></li>
 			<li ng-class="isSectionActive('profile')">
 				<a href="/#/profile">
 					<i class="icon-user"></i> 
-					{{ login }}
+					{{ user.login }}
 				</a>
+			</li>
+			<li class="divider-vertical"></li>	
+
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<span class="badge badge-important"> {{ user.notifications.length }}</span>
+					Notifications <b class="caret" ng-hide="user.notifications.length == 0"></b>
+				</a>
+
+				<ul class="dropdown-menu notification-list" ng-hide="user.notifications.length == 0">					
+					<li class="nav-header">Actions</li>
+					<li><a ng-click="clearNotifications()"><i class="icon-trash"></i> Clear notifications</a></li>
+
+					<li class="divider"></li>
+					<li ng-repeat="notification in user.notifications">
+						<a href="{{notification.path}}" ng-click="deleteNotification(notification)">
+							<i class="icon-file" ng-show="notification.type == 'document'"></i> 
+							<i class="icon-comment" ng-show="notification.type == 'discussion'"></i> 
+							{{ notification.text }}
+						</a>
+					</li>
+				</ul>
 			</li>
 		</ul>
 

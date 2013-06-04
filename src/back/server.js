@@ -2,6 +2,7 @@
 
 var api = require("./api-utils");
 var couchWrapper = require("./couch-wrapper");
+var notifyio = require("./notifications");
 var crypto = require("crypto");
 var http = require("http");
 
@@ -64,9 +65,9 @@ api.register({
 }, function (params, response) {
 	couchWrapper.userGet(api.getLogin(params.token), function (user_object) {
 		if (user_object) {
-			couchWrapper.docByUser(api.getLogin(params.token), function (docs_list) {
+			couchWrapper.
+			docByUser(api.getLogin(params.token), function (docs_list) {
 				if (docs_list !== null) {
-					delete user_object.shasum;
 					user_object.documents = docs_list;
 					response.writeHead(200, "OK");
 					response.write(JSON.stringify(user_object));
@@ -108,6 +109,24 @@ api.register({
 });
 
 api.register({
+	method: "PUT",
+	path: "/user",
+	needAuth: true
+}, function (params, response) {
+	/* sanitize object */
+	delete params.token;
+	delete params.path;
+	couchWrapper.userUpdate(params, function (success) {
+		if (success) {
+			response.writeHead(200, "OK");
+		} else {
+			response.writeHead(403, "Forbidden");
+		}
+		response.end();
+	});
+});
+
+api.register({
 	method: "DELETE",
 	path: "/user",
 	needAuth: true
@@ -144,13 +163,51 @@ api.register({
 	});
 });
 
+function notificationsOfChangedDocument(old_doc, new_doc, login) {	
+	var notifications = null;
+	if (old_doc) {
+		var i, texts;
+		notifications = [];			
+		texts = notifyio.notificationsOfChanges(old_doc, new_doc, login);
+		console.log(texts);
+		for (i = 0; i < texts.length; i += 1) {
+			notifications.push({type: "discussion", text: texts[i], docId: new_doc.docId});
+		}
+	}
+	return notifications;
+}
+
+function notificationsOfNewDocument(new_doc) {
+	var notifications = [];
+	notifications.push({type: "document", text: notifyio.notificationsOfCreation(new_doc), docId: new_doc.docId});
+	return notifications;
+}
+
 api.register({
 	method: "POST",
 	path: "/documents",
 	needAuth: true
 }, function (params, response) {
+	/* sanitize object */
+	delete params.path;
+	delete params.token;
 	couchWrapper.docAdd(params, function (id) {
 		if (id) {
+			if (params.version === 0) {
+				var notifications, i;
+				notifications = notificationsOfNewDocument(params);
+				for (i = 0; i < notifications.length; i += 1) {
+					notifyio.notifyAll(notifyio.notifieds(params.owner, notifyio.collaboratorsLogins(params.collaborators), api.getLogin(params.token)), notifications[i]);	
+				}
+			} else {
+				couchWrapper.docGet(params.docId, -1, function(old_doc) {
+					var notifications, i;
+					notifications = notificationsOfChangedDocument(old_doc, params, api.getLogin(params.token));	
+					for (i = 0; i < notifications.length; i += 1) {
+						notifyio.notifyAll(notifyio.notifieds(old_doc.owner, notifyio.collaboratorsLogins(old_doc.collaborators), api.getLogin(params.token)), notifications[i]);	
+					}
+				});					
+			}			
 			response.writeHead(201, "Created");
 			response.write(JSON.stringify(id));
 		} else {
@@ -165,14 +222,27 @@ api.register({
 	path: "/documents/{id}",
 	needAuth: true
 }, function (params, response) {
-	couchWrapper.docUpdate(params, function (success) {
-		if (success) {
-			response.writeHead(204, "No Content");
-		} else {
-			response.writeHead(403, "Forbidden");
+	couchWrapper.docGet(params.docId, -1, function (old_doc) {
+		var notifications, i;
+		var notifications;
+		notifications = notificationsOfChangedDocument(old_doc, params, api.getLogin(params.token));	
+		for (i = 0; i < notifications.length; i += 1) {
+			notifyio.notifyAll(notifyio.notifieds(old_doc.owner, notifyio.collaboratorsLogins(old_doc.collaborators), api.getLogin(params.token)), notifications[i]);	
 		}
-		response.end();
-	});
+		
+		/* sanitize doc */
+		delete params.path;
+		delete params.token;
+		couchWrapper.docUpdate(params, function (success) {
+			if (success) {
+				response.writeHead(204, "No Content");
+				/* looking for new discussions */
+			} else {
+				response.writeHead(403, "Forbidden");
+			}
+			response.end();
+		});
+	});	
 });
 
 api.register({
@@ -180,6 +250,7 @@ api.register({
 	path: "/documents/{id}",
 	needAuth: true
 }, function (params, response) {
+	/* this is a docId */
 	couchWrapper.docDelete(params.path.id, function (success) {
 		if (success) {
 			response.writeHead(204, "No Content");
@@ -282,4 +353,4 @@ api.register({
 });
 
 /* start the server */
-api.run(8080);
+notifyio.initIO(api.run(8080));
