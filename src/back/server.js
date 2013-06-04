@@ -163,7 +163,7 @@ api.register({
 	});
 });
 
-function notificationsOfChangedDocument(old_doc, new_doc, login) {	
+/*function notificationsOfChangedDocument(old_doc, new_doc, login) {	
 	var notifications = null;
 	if (old_doc) {
 		var i, texts;
@@ -181,7 +181,7 @@ function notificationsOfNewDocument(new_doc) {
 	var notifications = [];
 	notifications.push({type: "document", text: notifyio.notificationsOfCreation(new_doc), docId: new_doc.docId});
 	return notifications;
-}
+}*/
 
 api.register({
 	method: "POST",
@@ -191,15 +191,19 @@ api.register({
 	couchWrapper.docAdd(params, function (id) {
 		if (id) {
 			if (!params.version) {
+				params.version = 0;
+				params.docId = id;
 				var notifications, i;
-				notifications = notificationsOfNewDocument(params);
+				notifications = notifyio.notificationsOfCreation(params);
+				console.log(JSON.stringify(notifications));
+				console.log(notifications.length);
 				for (i = 0; i < notifications.length; i += 1) {
 					notifyio.notifyAll(notifyio.notifieds(params.owner, notifyio.collaboratorsLogins(params.collaborators), api.getLogin(params.token)), notifications[i]);	
 				}
 			} else {
 				couchWrapper.docGet(params.docId, -1, function(old_doc) {
 					var notifications, i;
-					notifications = notificationsOfChangedDocument(old_doc, params, api.getLogin(params.token));	
+					notifications = notifyio.notificationsOfChange(old_doc, params, api.getLogin(params.token));	
 					for (i = 0; i < notifications.length; i += 1) {
 						notifyio.notifyAll(notifyio.notifieds(old_doc.owner, notifyio.collaboratorsLogins(old_doc.collaborators), api.getLogin(params.token)), notifications[i]);	
 					}
@@ -222,7 +226,7 @@ api.register({
 	couchWrapper.docGet(params.docId, -1, function (old_doc) {
 		var notifications, i;
 		var notifications;
-		notifications = notificationsOfChangedDocument(old_doc, params, api.getLogin(params.token));	
+		notifications = notifyio.notificationsOfChange(old_doc, params, api.getLogin(params.token));	
 		for (i = 0; i < notifications.length; i += 1) {
 			notifyio.notifyAll(notifyio.notifieds(old_doc.owner, notifyio.collaboratorsLogins(old_doc.collaborators), api.getLogin(params.token)), notifications[i]);	
 		}

@@ -48,16 +48,19 @@ exports.notify = function(login, notification) {
 };
 
 exports.notificationsOfCreation = function(doc) {
-	return doc.owner + " added you to the collaborators list of \"" + doc.title + "\".";
+	var notifications = [];
+	notifications.push({type: "document", text: doc.owner + " added you to the collaborators list of \"" + doc.title + "\".", docId: doc._id});
+	console.log(JSON.stringify(notifications));
+	return notifications;
 };
 
-exports.notificationsOfChanges = function(old_doc, new_doc, login) {
+exports.notificationsOfChange = function(old_doc, new_doc, login) {
 	var notifications = [], i, j;
 	if (!old_doc || !new_doc || !login) {
 		return [];
 	}
 	if (new_doc.content.length !== old_doc.content.length) {
-		notifications.push(login + " changed the architecture of \"" + old_doc.title + "\".");
+		notifications.push({type: "document", text: login + " changed the architecture of \"" + old_doc.title + "\".", docId: new_doc.docId});
 	}
 	else {
 		for (i = 0; i < old_doc.content.length; i += 1) {
@@ -65,12 +68,15 @@ exports.notificationsOfChanges = function(old_doc, new_doc, login) {
 				continue;
 			}
 			if ((!old_doc.content[i].discussions && new_doc.content[i].discussions) || (old_doc.content[i].discussions.length < new_doc.content[i].discussions.length)) {
-				notifications.push(login + " started a new discussion about section \"" + new_doc.content[i].title + "\" of \"" + old_doc.title + "\".");
+				notifications.push({type: "discussion", text: login + " started a new discussion about section \"" + new_doc.content[i].title + "\" of \"" + old_doc.title + "\".", docId: new_doc.docId, sectionIndex: i, discussionIndex: new_doc.content[i].discussions.length});
 			}
 			else if (old_doc.content[i].discussions.length === new_doc.content[i].discussions.length) {
 				for (j = 0; j < old_doc.content[i].discussions.length; j += 1) {
 					if (new_doc.content[i].discussions[j].resolved && !old_doc.content[i].discussions[j].resolved) {
-						notifications.push(login + " resolved the discussion \"" + old_doc.content[i].discussions[j].title + "\" which was about \"" + old_doc.content[i].title + "\" of \"" + old_doc.title + "\".");
+						notifications.push({type: "discussion", text: login + " resolved the discussion \"" + old_doc.content[i].discussions[j].title + "\" which was about \"" + old_doc.content[i].title + "\" of \"" + old_doc.title + "\".", docId: new_doc.docId, sectionIndex: i, discussionIndex: j});
+					}
+					if (new_doc.content[i].discussions[j].posts.length !== old_doc.content[i].discussions[j].posts.length) {
+						notifications.push({type: "discussion", text: login + " answered the discussion \"" + old_doc.content[i].discussions[j].title + "\" which was about \"" + old_doc.content[i].title + "\" of \"" + old_doc.title + "\".", docId: new_doc.docId, sectionIndex: i, discussionIndex: j, post: new_doc.content[i].discussions[j].posts[new_doc.content[i].discussions[j].posts.length - 1]});
 					}
 				}
 			}
