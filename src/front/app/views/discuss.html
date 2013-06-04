@@ -2,32 +2,33 @@
 	<div ng-show="currentState == 'none'">
 		<h1>Document dashboard</h1>
 		<hr>
-	<div class="well">
-		<h2> Table of Contents</h2>
-		<div ng-repeat="section in document.content" class="row-fluid">
-			<div class="offset{{section.level-1}}">
-				<a ng-click="goto(section)">{{ getPartIndice( section, document.content ) }}
-				{{ section.title }} </a>
+		<div class="well">
+			<h2> Table of Contents</h2>
+			<div ng-repeat="section in document.content" class="row-fluid">
+				<div class="offset{{section.level-1}}">
+					<a ng-click="goto(section)">{{ getPartIndice( section, document.content ) }}
+					{{ section.title }} </a>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="well">
-		<h2> Discussions</h2>
-		<table class="table table-striped">
-			<thead>
-				<th>Discussion title</th>
-				<th># answers</th>
-				<th>Resolved</th>
-			</thead>
+		<div class="well">
+			<h2> Discussions</h2>
+			<table class="table table-striped">
+				<thead>
+					<th>Discussion title</th>
+					<th># answers</th>
+					<th>Resolved</th>
+				</thead>
 
-			<tbody>
-				<tr ng-repeat="discussion in allDiscussions">
-					<td>{{ discussion.title }}</td>
-					<td><span class="badge badge-info">{{ discussion.posts.length - 1 }}</span></td>
-					<td><i ng-class="discussionIcon(discussion)"></i></td>
-				</tr>
-			</tbody>
-		</table>
+				<tbody>
+					<tr ng-repeat="discussion in allDiscussions">
+						<td>{{ discussion.title }}</td>
+						<td><span class="badge badge-info">{{ discussion.posts.length - 1 }}</span></td>
+						<td><i ng-class="discussionIcon(discussion)"></i></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 		
 	<div ng-show="currentState == 'new'">
