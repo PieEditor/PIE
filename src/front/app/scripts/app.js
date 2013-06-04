@@ -12,7 +12,7 @@ angular.module('pie', ['ngResource', 'ui.bootstrap'])
 			.when('/edit/:documentId', {
 				templateUrl: 'views/edit.html'
 			})
-			.when('/editAndDiscuss/:documentId/:discussionIndex', {
+			.when('/editAndDiscuss/:documentId/:sectionIndex/:discussionIndex', {
 				templateUrl: 'views/editAndDiscuss.html'
 			})
 			.when('/editAndDiscuss/:documentId', {

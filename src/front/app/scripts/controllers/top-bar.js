@@ -18,7 +18,7 @@ angular.module('pie')
 				if ($scope.user.notifications[i].type === "document") {
 					$scope.user.notifications[i].path = "/#/editAndDiscuss/" + $scope.user.notifications[i].docId;
 				} else if ($scope.user.notifications[i].type === "discussion") {
-					$scope.user.notifications[i].path = "/#/editAndDiscuss/" + $scope.user.notifications[i].docId + "";
+					$scope.user.notifications[i].path = "/#/editAndDiscuss/" + $scope.user.notifications[i].sectionIndex + '/' + $scope.user.notifications[i].discussionIndex;
 				}
 			}
 		},
