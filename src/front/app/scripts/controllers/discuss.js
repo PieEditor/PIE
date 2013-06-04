@@ -34,7 +34,8 @@ angular.module('pie')
 					$scope.allDiscussions.push(discussion);
 				});
 			});
-		}
+		},
+		true
 	);
 
 	$scope.now = new Date();
