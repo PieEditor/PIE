@@ -28,7 +28,7 @@ angular.module('pie')
 			$scope.downloadUrl = documentService.downloadUrl();
 
 			if ($routeParams.sectionIndex !== undefined && $routeParams.discussionIndex !== undefined) {
-				var discussion = documentService.currentDocument.content[$routeParams.sectionIndex][$routeParams.discussionIndex];
+				var discussion = documentService.currentDocument.content[$routeParams.sectionIndex].discussions[$routeParams.discussionIndex];
 				
 				if (discussion !== undefined) {
 					discussionService.currentState = 'show';

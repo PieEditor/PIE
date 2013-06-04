@@ -1,5 +1,5 @@
 angular.module('pie')
-.factory('authService', function($rootScope, $http, $location, apiBaseUrl) {
+.factory('authService', function($rootScope, $http, $location, apiBaseUrl, documentService) {
 	var socketIOConnection = null;
 	return {
 		user: undefined,
@@ -52,6 +52,19 @@ angular.module('pie')
 					socketIOConnection = io.connect(apiBaseUrl);
 					socketIOConnection.on('notification', function(data) {
 						t.user.notifications.push(data);
+
+						if (documentService.currentDocument && documentService.currentDocument.docId == data.docId) {
+							if (data.type == 'discussion') {
+								if (data.post) {
+									
+									var sectionIndex = data.sectionIndex;
+									var discussionIndex = data.discussionIndex;
+									var post = data.post;
+									documentService.currentDocument.content[sectionIndex].discussions[discussionIndex].posts.push(post);
+								}
+							}
+						}
+
 						$rootScope.$apply();
 					});
 					socketIOConnection.emit('login', {'login':t.user.login});
