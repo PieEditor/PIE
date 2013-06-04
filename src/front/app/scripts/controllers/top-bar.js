@@ -3,7 +3,6 @@
 angular.module('pie')
 .controller('TopBarController', function ($scope, authService) {
 	authService.ensureLogin();
-	
 	$scope.isSectionActive = function(section) {
 		return ($scope.currentPage == section) ? 'active' : '';
 	};
