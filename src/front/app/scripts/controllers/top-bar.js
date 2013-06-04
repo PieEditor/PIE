@@ -9,10 +9,10 @@ angular.module('pie')
 
 	$scope.$watch(
 		function() { return authService.user; },
-		function(newVal) {
+		function() {
 			if (! authService.user) return;			
-			$scope.user = newVal;
-			
+			$scope.user = authService.user;
+
 			if (! $scope.user.notifications) return;
 			for (var i =0 ; i< $scope.user.notifications.length ; i++ ) {
 				if ( $scope.user.notifications[i].type === "document" ) {
@@ -21,7 +21,8 @@ angular.module('pie')
 					$scope.user.notifications[i].path = "/#/editAndDiscuss/"+$scope.user.notifications[i].id+"";
 				}
 			}
-		}
+		},
+		true
 	);
 	$scope.logout = authService.logout;
 	
