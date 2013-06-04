@@ -185,7 +185,7 @@ api.register({
 		if (!old_doc) {
 			console.log("unable to get document with id " + params.path.id);
 		}
-		var notifications = [], i;
+		var notifications, i;
 		notifications = notifyio.notificationsOfChanges(old_doc, params, api.getLogin(params.token));
 		for (i = 0; i < notifications.length; i += 1) {
 			notifyio.notifyAll(notifyio.notifieds(old_doc.owner, notifyio.collaboratorsLogins(old_doc.collaborators), api.getLogin(params.token)), {type: "discussion", text: notifications[i], id: params.path.id});
