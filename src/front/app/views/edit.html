@@ -33,8 +33,8 @@
 	<hr />
 
 	<div ng-repeat="section in document.content" class="row-fluid">
-		<div class="level{{ section.level }}">
-			<a ng-click="edit(section)">{{ getPartIndice( section, document.content ) }}
+		<div id="{{section.title}}" class="level{{ section.level }}">
+			<a  ng-click="edit(section)">{{ getPartIndice( section, document.content ) }}
 			{{ section.title }} </a>
 			<div class="faded pull-right">
 				<div class="btn-group">
