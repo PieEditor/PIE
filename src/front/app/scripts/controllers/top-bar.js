@@ -31,4 +31,9 @@ angular.module('pie')
 		authService.user.notifications.splice(index, 1);
 		authService.update();
 	};
+
+	$scope.clearNotifications = function() {
+		authService.user.notifications = [];
+		authService.update();
+	}
 });
