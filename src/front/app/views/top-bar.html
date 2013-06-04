@@ -10,16 +10,20 @@
 					{{ user.login }}
 				</a>
 			</li>
-			<li class="divider-vertical"></li>			
+			<li class="divider-vertical"></li>	
+
+
 			<li class="dropdown">
-			  <a class="dropdown-toggle "  role="button" data-toggle="dropdown"> 
-				<span class="badge badge-important"> {{ user.notifications.length }}</span> Notifications
-						<b class="caret"></b>
-					  
-				 <ul class="dropdown-menu span5" role="menu" aria-labelledby="dLabel">
-					<div ng-click="deleteNotification(notification)" ng-repeat="notification in user.notifications" > <li class="divider"></li> <a href="{{notification.path}}"><p class="text-center">{{ notification.text }}</p></a> </div>
-				  </ul>  
-			  </a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<span class="badge badge-important"> {{ user.notifications.length }}</span>
+					Notifications <b class="caret"></b>
+				</a>
+
+				<ul class="dropdown-menu">
+					<li ng-repeat="notification in user.notifications">
+				 		<a href="{{notification.path}}" ng-click="deleteNotification(notification)"><p class="text-center">{{ notification.text }}</p></a>
+				 	</li>
+				</ul>
 			</li>
 		</ul>
 
