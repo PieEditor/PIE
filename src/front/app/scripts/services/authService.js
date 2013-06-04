@@ -1,8 +1,9 @@
 angular.module('pie')
 .factory('authService', function($http, $location, apiBaseUrl) {
+	var socketIOConnection = null;
 	return {
 		user: undefined,
-		login: function(login, passwd, successCallback, errorCallback) {
+		login: function(login, passwd) {
 			return $http({
 				method: "POST",
 				url: apiBaseUrl + "/users/signin",
@@ -34,6 +35,7 @@ angular.module('pie')
 			});
 		},
 		ensureLogin: function() {
+			console.log("Entering method");
 			// Optimistic function : immediately returns by assuming the
 			// user is correctly logged in. If not, after server-side check,
 			// redirects the user to the login page
@@ -46,6 +48,15 @@ angular.module('pie')
 			});
 			p.success(function(data) {
 				t.user = data;
+				if (socketIOConnection === null) {
+				console.log("Creating connection");
+				socketIOConnection = io.connect(apiBaseUrl);
+				socketIOConnection.on('notification', function(data) {
+					t.user.notifications.push(data);
+					console.log(data);
+				});
+				socketIOConnection.emit('login', {'login':t.user.login});
+			}
 			});
 			p.error(function() {
 				$location.path('/login');
