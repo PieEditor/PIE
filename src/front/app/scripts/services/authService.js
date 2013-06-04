@@ -1,5 +1,5 @@
 angular.module('pie')
-.factory('authService', function($http, $location, apiBaseUrl) {
+.factory('authService', function($rootScope, $http, $location, apiBaseUrl) {
 	var socketIOConnection = null;
 	return {
 		user: undefined,
@@ -49,14 +49,13 @@ angular.module('pie')
 			p.success(function(data) {
 				t.user = data;
 				if (socketIOConnection === null) {
-				console.log("Creating connection");
-				socketIOConnection = io.connect(apiBaseUrl);
-				socketIOConnection.on('notification', function(data) {
-					t.user.notifications.push(data);
-					console.log(data);
-				});
-				socketIOConnection.emit('login', {'login':t.user.login});
-			}
+					socketIOConnection = io.connect(apiBaseUrl);
+					socketIOConnection.on('notification', function(data) {
+						t.user.notifications.push(data);
+						$rootScope.$apply();
+					});
+					socketIOConnection.emit('login', {'login':t.user.login});
+				}
 			});
 			p.error(function() {
 				$location.path('/login');
