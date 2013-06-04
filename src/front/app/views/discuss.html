@@ -1,6 +1,18 @@
 <div fixedheight ng-controller="DiscussController">
 	<div ng-show="currentState == 'none'">
 		<h1>Document dashboard</h1>
+		<hr>
+	<div class="well">
+		<h2> Table of Contents</h2>
+		<div ng-repeat="section in document.content" class="row-fluid">
+			<div class="offset{{section.level-1}}">
+				<a ng-click="goto(section)">{{ getPartIndice( section, document.content ) }}
+				{{ section.title }} </a>
+			</div>
+		</div>
+	</div>
+	<div class="well">
+		<h2> Discussions</h2>
 		<table class="table table-striped">
 			<thead>
 				<th>Discussion title</th>
@@ -17,7 +29,7 @@
 			</tbody>
 		</table>
 	</div>
-
+		
 	<div ng-show="currentState == 'new'">
 		<h1>Create a new discussion</h1>
 		<form class="form-horizontal" ng-submit="addDiscussion()">

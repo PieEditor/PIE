@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pie')
-.controller('DiscussController', function ($scope, authService, documentService, discussionService, permissionService) {
+.controller('DiscussController', function ($scope, $location, $anchorScroll, authService, documentService, discussionService, permissionService, tocService) {
 	authService
 	.ensureLogin()
 	.then(function() {
@@ -27,7 +27,7 @@ angular.module('pie')
 		function() {
 			if (! documentService.currentDocument) return;
 			$scope.allDiscussions = [];
-			
+			$scope.document = documentService.currentDocument;
 			_.map(_.pluck(documentService.currentDocument.content, 'discussions'), function(discussions) {
 				if (_.isEmpty(discussions)) return;
 				_.map(discussions, function(discussion) {
@@ -82,5 +82,18 @@ angular.module('pie')
 
 	$scope.discussionIcon = function(discussion) {
 		return discussion.resolved ? 'icon-ok': '';
+	};
+	
+	$scope.getPartIndice = function( part , docContent ) {
+		return tocService.getPartIndice (part , docContent ) ;
+	};
+	
+	$scope.goto = function(section) {
+		// HACK
+		// See: http://stackoverflow.com/questions/14712223/how-to-handle-anchor-hash-linking-in-angularjs
+		var a = $location.hash();
+		$location.hash(section.title);
+		$anchorScroll();
+		$location.hash(a);
 	};
 });
