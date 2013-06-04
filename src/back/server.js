@@ -182,6 +182,9 @@ api.register({
 	needAuth: true
 }, function (params, response) {
 	couchWrapper.docGet(params.path.id, -1, function (old_doc) {
+		if (!old_doc) {
+			console.log("unable to get document with id " + params.path.id);
+		}
 		var notifications = [], i;
 		notifications = notifyio.notificationsOfChanges(old_doc, params, api.getLogin(params.token));
 		for (i = 0; i < notifications.length; i += 1) {

@@ -53,6 +53,9 @@ exports.notificationsOfCreation = function(doc) {
 
 exports.notificationsOfChanges = function(old_doc, new_doc, login) {
 	var notifications = [], i, j;
+	if (!old_doc || !new_doc || !login) {
+		return;
+	}
 	if (new_doc.content.length !== old_doc.content.length) {
 		notifications.push(login + " changed the architecture of \"" + old_doc.title + "\".");
 	}
