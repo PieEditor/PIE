@@ -163,6 +163,26 @@ api.register({
 	});
 });
 
+function notificationsOfChangedDocument(old_doc, new_doc, login) {	
+	var notifications = null;
+	if (old_doc) {
+		var i, texts;
+		notifications = [];			
+		texts = notifyio.notificationsOfChanges(old_doc, new_doc, login);
+		console.log(texts);
+		for (i = 0; i < texts.length; i += 1) {
+			notifications.push({type: "discussion", text: texts[i], docId: new_doc.docId});
+		}
+	}
+	return notifications;
+}
+
+function notificationsOfNewDocument(new_doc) {
+	var notifications = [];
+	notifications.push({type: "document", text: notifyio.notificationsOfCreation(new_doc), docId: new_doc.docId});
+	return notifications;
+}
+
 api.register({
 	method: "POST",
 	path: "/documents",
@@ -173,7 +193,21 @@ api.register({
 	delete params.token;
 	couchWrapper.docAdd(params, function (id) {
 		if (id) {
-			notifyio.notifyAll(notifyio.collaboratorsLogins(params.collaborators), {type: "document", text: notifyio.notificationsOfCreation(params), id: id});
+			if (params.version === 0) {
+				var notifications, i;
+				notifications = notificationsOfNewDocument(params);
+				for (i = 0; i < notifications.length; i += 1) {
+					notifyio.notifyAll(notifyio.notifieds(params.owner, notifyio.collaboratorsLogins(params.collaborators), api.getLogin(params.token)), notifications[i]);	
+				}
+			} else {
+				couchWrapper.docGet(params.docId, -1, function(old_doc) {
+					var notifications, i;
+					notifications = notificationsOfChangedDocument(old_doc, params, api.getLogin(params.token));	
+					for (i = 0; i < notifications.length; i += 1) {
+						notifyio.notifyAll(notifyio.notifieds(old_doc.owner, notifyio.collaboratorsLogins(old_doc.collaborators), api.getLogin(params.token)), notifications[i]);	
+					}
+				});					
+			}			
 			response.writeHead(201, "Created");
 			response.write(JSON.stringify(id));
 		} else {
@@ -189,21 +223,16 @@ api.register({
 	needAuth: true
 }, function (params, response) {
 	couchWrapper.docGet(params.docId, -1, function (old_doc) {
-		if (!old_doc) {
-			console.log("unable to get document with id " + params.docId);
-		}
-		else {
-			var notifications, i;
-			notifications = notifyio.notificationsOfChanges(old_doc, params, api.getLogin(params.token));
-			for (i = 0; i < notifications.length; i += 1) {
-				notifyio.notifyAll(notifyio.notifieds(old_doc.owner, notifyio.collaboratorsLogins(old_doc.collaborators), api.getLogin(params.token)), {type: "discussion", text: notifications[i], id: params.docId});
-			}
+		var notifications, i;
+		var notifications;
+		notifications = notificationsOfChangedDocument(old_doc, params, api.getLogin(params.token));	
+		for (i = 0; i < notifications.length; i += 1) {
+			notifyio.notifyAll(notifyio.notifieds(old_doc.owner, notifyio.collaboratorsLogins(old_doc.collaborators), api.getLogin(params.token)), notifications[i]);	
 		}
 		
 		/* sanitize doc */
 		delete params.path;
 		delete params.token;
-
 		couchWrapper.docUpdate(params, function (success) {
 			if (success) {
 				response.writeHead(204, "No Content");
@@ -221,6 +250,7 @@ api.register({
 	path: "/documents/{id}",
 	needAuth: true
 }, function (params, response) {
+	/* this is a docId */
 	couchWrapper.docDelete(params.path.id, function (success) {
 		if (success) {
 			response.writeHead(204, "No Content");
