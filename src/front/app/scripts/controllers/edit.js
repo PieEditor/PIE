@@ -40,8 +40,10 @@ angular.module('pie')
 					}
 				}
 
-				discussionService.currentState = 'show';
-				discussionService.show(discussion);
+				if (discussion !== undefined) {
+					discussionService.currentState = 'show';
+					discussionService.show(discussion);
+				}
 			}
 		}
 	);
