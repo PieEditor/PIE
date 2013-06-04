@@ -188,12 +188,9 @@ api.register({
 	path: "/documents",
 	needAuth: true
 }, function (params, response) {
-	/* sanitize object */
-	delete params.path;
-	delete params.token;
 	couchWrapper.docAdd(params, function (id) {
 		if (id) {
-			if (params.version === 0) {
+			if (!params.version) {
 				var notifications, i;
 				notifications = notificationsOfNewDocument(params);
 				for (i = 0; i < notifications.length; i += 1) {

@@ -34,7 +34,7 @@ exports.sendNotification = function(login, notification) {
 
 exports.notify = function(login, notification) {
 	console.log("notifying " + login);
-	console.log("> " + notification);
+	console.log("> " + JSON.stringify(notification));
 	couchWrapper.userGet(login, function (user_object) {
 		if (user_object) {
 			if (!user_object.notifications) {
@@ -81,8 +81,6 @@ exports.notificationsOfChanges = function(old_doc, new_doc, login) {
 
 exports.notifyAll = function(users, notification) {
 	var i, j;
-	console.log(users);
-	console.log(JSON.stringify(notification));
 	for (i = 0; i < users.length; i += 1) {
 		exports.notify(users[i], notification);	
 	}
