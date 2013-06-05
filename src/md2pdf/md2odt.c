@@ -61,7 +61,7 @@ void process(FILE * input, FILE * output) {
 	while ((current = (char)fgetc(input)) != '#');
 	// Processing loop
 	while ((next = (char)fgetc(input)) != EOF) {
-	// Ignore next character after some commands
+		// Ignore next character after some commands
 		if (state.ignore_next) {
 			state.ignore_next = 0;
 			last = current;
@@ -146,7 +146,7 @@ void process(FILE * input, FILE * output) {
 			}
 			break;
 		case '\n' :	// Line break : new paragraph
-			for (i = 0 ; i < state.mono + state.bold + state.italic ; i++)
+			for (i = 0 ; i < state.mono + state.bold + state.italic + state.sub + state.sup ; i++)
 				fputs(SPAN_END_TAG, output);
 			if (state.title_level != 0) {
 				state.title_level = 0;
@@ -229,14 +229,14 @@ void process(FILE * input, FILE * output) {
 		current = next;
 	}
 	fputc(current, output);
-	// TODO : Refactor
-	for (i = 0 ; i < state.mono + state.bold + state.italic ; i++)
+	// Close everything
+	for (i = 0 ; i < state.mono + state.bold + state.italic + state.sub + state.sup ; i++)
 		fputs(SPAN_END_TAG, output);
-	if (state.title_level != 0)
-		fputs(TITLE_END_TAG, output);
-	else if (state.paragraph)
+	if (state.code || state.paragraph)
 		fputs(PARAGRAPH_END_TAG, output);
-	else if (state.list) {
+	if (state.title_level > 0)
+		fputs(TITLE_END_TAG, output);
+	if (state.list) {
 		fputs(ITEM_END_TAG, output);
 		fputs(LIST_END_TAG, output);
 	}
