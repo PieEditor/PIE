@@ -49,7 +49,7 @@ exports.notify = function(login, notification) {
 
 exports.notificationsOfCreation = function(doc) {
 	var notifications = [];
-	notifications.push({type: "document", text: doc.owner + " added you to the collaborators list of \"" + doc.title + "\".", docId: doc._id});
+	notifications.push({type: "document", text: doc.owner + " added you to the collaborators list of \"" + doc.title + "\".", docId: doc.docId});
 	console.log(JSON.stringify(notifications));
 	return notifications;
 };
