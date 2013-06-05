@@ -98,4 +98,8 @@ angular.module('pie')
 		$anchorScroll();
 		$location.hash(a);
 	};
+
+	$scope.showDiscussion = function(discussion) {
+		discussionService.show(discussion);
+	};
 });
