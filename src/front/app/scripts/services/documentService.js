@@ -83,9 +83,12 @@ angular.module('pie')
 			_.each(t.currentDocument.content, function(elem) {
 				if (! elem.discussions)
 					elem.discussions = [];
-				for (var i = 0 ; i < elem.discussions.length ; i++)
-					if (elem.discussions[i].resolved)
-						elem.discussions.splice(i, 1);
+				for (var i = 0 ; i < elem.discussions.length ; i++) {
+					if (elem.discussions[i].resolved) {
+						var len = elem.discussions[i].posts.length;
+						elem.discussions[i].posts.splice(0, len - 1);
+					}
+				}
 			});
 			// Save the new iteration
 			t.post()
