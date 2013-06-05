@@ -81,6 +81,8 @@ angular.module('pie')
 			delete t.currentDocument._id;
 			delete t.currentDocument._rev;
 			_.each(t.currentDocument.content, function(elem) {
+				if (! elem.discussions)
+					elem.discussions = [];
 				for (var i = 0 ; i < elem.discussions.length ; i++)
 					if (elem.discussions[i].resolved)
 						elem.discussions.splice(i, 1);

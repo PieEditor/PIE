@@ -1,4 +1,3 @@
-
 <div ng-controller="LoginController">
 	<div class="navbar navbar-fixed-top" >
 		<div class="navbar-inner">
@@ -22,138 +21,89 @@
 				<li class={{menuTabRegister}}><a ng-click="menuClickOnRegister()" data-toggle="tab"><i class="icon-chevron-right"></i> Registration</a></li>
 			</ul>
 
-		</div>
-		<!-- End side menu -->
-		
-		<!-- Menu  Content -->
-		<div class="tab-content span10">
-			<!-- Login Form -->  
-			<div class="tab-pane {{menuTabPaneLogin}}">
-				<div class="span9 row-fluid formhorizontal well">
-					<form ng-submit="getLog()">
-						<fieldset>
-							<label ng-model="test">
-								<input type="text" placeholder="Username" ng-model="userName" required class="input-large" />
-							</label>
-							<label>
-								<input placeholder="Password" ng-model="password" required type="password" class="input-large" />
-							</label>
+		<form ng-submit="getLog()" class="pull-right">
+			<fieldset>
+				<label ng-model="test">
+					<input type="text" placeholder="Username" ng-model="userName" required class="input-large" />
+				</label>
+				<label>
+					<input placeholder="Password" ng-model="password" required type="password" class="input-large" />
+				</label>
 
-							<button type="submit" class="btn btn-primary input-large">Login</button>
-							<div ng-controller="forgotPasswordModalCtrl">
-								<label><a ng-click="open()">Forgot Password ?</a></label>
-								<!-- Forgot Password modal -->
-								<div modal="forgotpasswordModal" close="close()" options="opts">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">×</button>
-										<h3 id="forgotPasswordModalLabel">Forgot Password</h3>
-									</div>
-									<div class="modal-body">
-										<p> In order to reset your password please enter your email adress</p>
-										<div class="container-fluid">
-											<div class="row-fluid">
-												<div class="control-group" id="resetEmailGrp">
-													<label class="control-label" for="resetEmailInput">Email Address</label>
-													<div class="controls" >
-														<div class="span6">
-															<input maxlength="254" placeholder="Email" type="email" class="span12" ng-model="emailForResetPassword" />
-														</div>
-														<div class="span8">
-															<span class="help-inline alert alert-error span8 " style="display: {{invalidForgotEmailAlert}};">Sorry we haven't found your email in our system</span>
-															<span class="help-inline alert alert-error span8 " style="display: {{emptyForgotPasswordEmail}};"> Enter your email please...</span>
-															<span class="help-inline alert alert-success span8 " style="display: {{successForgotPasswordEmail}};"> A new random password have been send to your email adress.</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="modal-footer">
-										<button class="btn btn-primary" id="resetPasswordButton" ng-click="resetPassword()">Validate</button>
-										<button class="btn" data-dismiss="modal" aria-hidden="true" ng-click="close()">Close</button>
-									</div>
-								</div>
-							<!-- End of forgot password modal -->
-						</fieldset>
-					</form>
-				</div>
-			</div>
-			<!-- End of login form -->
-			<!-- Register Form -->  
-			<div class="tab-pane {{menuTabPaneRegister}}">
-				<div class="span9 row-fluid formhorizontal well">
-					<form ng-submit="getRegistration()">
-						<fieldset>
-							<label ng-model="test">
-								<input placeholder="Username" ng-model="newUserName" required type="text" class="input-large" />
-							</label>
-							<label>
-								<input placeholder="Password" ng-model="newPassword" required type="password" class="input-large" />
-							</label>
-							<label>
-								<input placeholder="Confirm password" ng-model="newReTypePassword" required type="password" class="input-large" />
-							</label>
-							<label>
-								<input id="inputNewEmail" placeholder="Email address" ng-model="newEmail" required type="email" class="input-large" />
-							</label>
-							<label>
-								<input id="inputNewImage" placeholder="Profile image URL" ng-model="newImage" required type="text" class="input-large" />
-							</label>
-							<div class="form-label raw-fluid">
-								<!-- Terms and conditions modal -->
-								<div ng-controller="termsAndConditionsModalCtrl">
-									<input type="checkbox" ng-model="terms.checked">
-									<label for="termsCheckbox" class="help-inline checkbox">I Accept the <a role="button" data-toggle="modal" ng-click="open()">{{terms.text}}</a> of the PIE system.</label>
-										<div modal="termsAndConditionsModal" close="close()" options="opts">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">×</button>
-												<h3 id="termsModalLabel">Terms and conditions</h3>
-											</div>
-											<div class="modal-body">
-												<p>Please read these terms and conditions carefully before using this service (the “Service”, “Communities” “we”, “our” or “us”). By using the service, you, the User, signify your agreement to these terms of use. </p>
-												
-												<p> 
-												We reserve the right to change or modify any of the terms and conditions contained in the Terms or any policy or guideline of the Service, at any time and in our sole discretion. Any changes or modifications will be effective immediately upon the posting of such revisions on our website located at http://www.communities.com (the “Site”), and you waive any right you may have to receive specific notice of such changes or modifications. Your continued use of the Service (or any portion thereof) following the posting of changes or modifications will confirm your acceptance of such changes or modifications on the Site. Therefore, you should frequently review the Terms and applicable policies from time-to-time to understand the terms and conditions that apply to your use of the Service. If you do not agree with all of the terms and conditions of the amended Terms, you must stop using the Service.  
+				<button type="submit" class="btn btn-primary input-large">Login</button>
+			</fieldset>
+		</form>
+	</div>
 
-												If you have any questions regarding the use of the Service, please email us at support@communities.com.  </p>
-											</div>
-											<div class="modal-footer">
-												<button class="btn" data-dismiss="modal" aria-hidden="true" ng-click="close()">Close</button>
-											</div>
-										</div>
+	<div class="row-fluid">
+		<form ng-submit="getRegistration()" class="span4">
+		<h4> Registration </h4>
+			<fieldset>
+				<label ng-model="test">
+					<input placeholder="Username" ng-model="newUserName" required type="text" class="input-large" />
+				</label>
+				<label>
+					<input placeholder="Password" ng-model="newPassword" required type="password" class="input-large" />
+				</label>
+				<label>
+					<input placeholder="Confirm password" ng-model="newReTypePassword" required type="password" class="input-large" />
+				</label>
+				<label>
+					<input id="inputNewEmail" placeholder="Email address" ng-model="newEmail" required type="email" class="input-large" />
+				</label>
+				<label>
+					<input id="inputNewImage" placeholder="Profile image URL" ng-model="newImage" required type="text" class="input-large" />
+				</label>
+				<div class="form-label raw-fluid">
+					<!-- Terms and conditions modal -->
+					<div ng-controller="termsAndConditionsModalCtrl">
+						<input type="checkbox" ng-model="terms.checked">
+						<label for="termsCheckbox" class="help-inline checkbox">I Accept the <a role="button" data-toggle="modal" ng-click="open()">{{terms.text}}</a> <br />of the PIE system.</label>
+							<div modal="termsAndConditionsModal" close="close()" options="opts">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">×</button>
+									<h3 id="termsModalLabel">Terms and conditions</h3>
 								</div>
-								<!-- End of Terms and conditions modal -->
+								<div class="modal-body">
+									<p>Please read these terms and conditions carefully before using this service (the “Service”, “Communities” “we”, “our” or “us”). By using the service, you, the User, signify your agreement to these terms of use. </p>
+									
+									<p> 
+									We reserve the right to change or modify any of the terms and conditions contained in the Terms or any policy or guideline of the Service, at any time and in our sole discretion. Any changes or modifications will be effective immediately upon the posting of such revisions on our website located at http://www.communities.com (the “Site”), and you waive any right you may have to receive specific notice of such changes or modifications. Your continued use of the Service (or any portion thereof) following the posting of changes or modifications will confirm your acceptance of such changes or modifications on the Site. Therefore, you should frequently review the Terms and applicable policies from time-to-time to understand the terms and conditions that apply to your use of the Service. If you do not agree with all of the terms and conditions of the amended Terms, you must stop using the Service.  
+
+									If you have any questions regarding the use of the Service, please email us at support@communities.com.  </p>
+								</div>
+								<div class="modal-footer">
+									<button class="btn" data-dismiss="modal" aria-hidden="true" ng-click="close()">Close</button>
+								</div>
 							</div>
-						<button type="submit" class="btn input-large btn-primary"> Register </button>
-						</fieldset>
-					</form>
+					</div>
+					<!-- End of Terms and conditions modal -->
 				</div>
-			</div>
-			<!-- End of Register form -->
-		</div>
-		<!-- Enf of Menu content -->
-	</div>
-	<!-- End of Menu -->
-	
-	<!-- Alerts -->
-	<div class="span9 row-fluid">
-		<div class="alert alert-error span5"  style="display: {{loginFailureAlert}};">
-				<h5 class="alert-heading">Login failure!</h5>
-				The username or the password are incorrect, please try again. 
-		</div>
-		<div class="alert alert-error span5"  style="display: {{registrationPasswordDontMatchAlert}};">
-				<h5 class="alert-heading">Registration failure!</h5>
-				Password doesn't match, please try again. 
-		</div>
-		<div class="alert alert-error span5"  style="display: {{registrationUserNameAlreadyUseAlert}};">
-				<h5 class="alert-heading">Registration failure!</h5>
-				This username is already used, please try again. 
-		</div>
-		<div class="alert alert-error span5"  style="display: {{termsAndConditionsUncheckedAlert}};">
-				<h5 class="alert-heading">Registration failure!</h5>
-				You forgot to agree to the Terms and Conditions, please try again. 
-		</div>
-	</div>
-	<!-- End of alerts -->
-</div>
+				<button type="submit" class="btn input-large btn-primary"> Register </button>
+			</fieldset>
 
+			<!-- Alerts -->
+			<div class="alert alert-error"  style="display: {{registrationPasswordDontMatchAlert}};">
+					<h5 class="alert-heading">Registration failure!</h5>
+					Password doesn't match, please try again. 
+			</div>
+			<div class="alert alert-error"  style="display: {{registrationUserNameAlreadyUseAlert}};">
+					<h5 class="alert-heading">Registration failure!</h5>
+					This username is already used, please try again. 
+			</div>
+			<div class="alert alert-error"  style="display: {{termsAndConditionsUncheckedAlert}};">
+					<h5 class="alert-heading">Registration failure!</h5>
+					You forgot to agree to the Terms and Conditions, please try again. 
+			</div>
+			<!-- End of alerts -->
+		</form>
+
+		<div class="span8">
+			<video controls autoplay muted>
+				<source src="/resources/PIE.mp4" type="video/mp4">
+				<source src="/resources/PIE.webm" type="video/webm">
+				Notre vidéo de présentation devrait se trouver ici. Si elle n'apparaît pas, cela signifie que votre navigateur ne supporte pas HTML5.
+			</video>
+		</div>
+	</div>
+</div>
