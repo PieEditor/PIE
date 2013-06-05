@@ -4,7 +4,7 @@ angular.module('pie', ['ngResource', 'ui.bootstrap'])
 	.config(function ($routeProvider) {
 		$routeProvider
 			.when('/', {
-				templateUrl: 'views/index.html'
+				redirectTo: '/login'
 			})
 			.when('/discuss/:discussionId', {
 				templateUrl: 'views/discuss.html'

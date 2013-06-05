@@ -274,16 +274,29 @@ api.register({
 	});
 });
 
+function make_sharps(n) {
+	var sharps = "", i;
+	for (i = 0; i < n; i += 1) {
+		sharps += "#"
+	}
+	return sharps;
+}
+
 function format_doc(doc) {
-	var doc_md = {}, md = "", i;
+	var doc_md = {}, md = "", i, title;
 	doc_md._id = doc._id;
 	doc_md.settings = require("../md2pdf/default.json");
-	md += "#" + doc.title + "\n";
-	for (i = 0; i < doc.content.length; i += 16) {
-		md += [doc.content[i].level + 2].join("#") + " " + doc.content[i].title;
+	md += "# " + doc.title + "\n";
+	for (i = 0; i < doc.content.length; i += 1) {
+		md += make_sharps(doc.content[i].level + 1);
+		if (doc.content[i].title) {
+			md += " " + doc.content[i].title;
+		}
 		md += "\n";
-		md += doc.content[i].content;
-		md += "\n";
+		if (doc.content[i].content) {
+			md += doc.content[i].content;
+			md += "\n";
+		}
 	}
 	doc_md.content = md;
 	return doc_md;
