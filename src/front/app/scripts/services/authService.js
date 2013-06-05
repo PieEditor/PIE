@@ -55,12 +55,11 @@ angular.module('pie')
 
 						if (documentService.currentDocument && documentService.currentDocument.docId == data.docId) {
 							if (data.type == 'discussion') {
-								if (data.post) {
-									
+								if (data.discussion) {
 									var sectionIndex = data.sectionIndex;
 									var discussionIndex = data.discussionIndex;
-									var post = data.post;
-									documentService.currentDocument.content[sectionIndex].discussions[discussionIndex].posts.push(post);
+									var discussion = data.discussion;
+									documentService.currentDocument.content[sectionIndex].discussions[discussionIndex] = discussion;
 								}
 							}
 						}
