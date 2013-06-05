@@ -59,7 +59,9 @@ angular.module('pie')
 									var sectionIndex = data.sectionIndex;
 									var discussionIndex = data.discussionIndex;
 									var discussion = data.discussion;
-									documentService.currentDocument.content[sectionIndex].discussions[discussionIndex] = discussion;
+
+									documentService.currentDocument.content[sectionIndex].discussions[discussionIndex].posts.push(_.last(discussion.posts));
+									documentService.currentDocument.content[sectionIndex].discussions[discussionIndex].resolved = discussion.resolved;
 								}
 							}
 						}
