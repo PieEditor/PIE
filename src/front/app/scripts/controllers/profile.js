@@ -15,6 +15,7 @@ angular.module('pie')
 	};
 
 	$scope.deleteDocument = function(document) {
+		if ( ! confirm(' Are you sure you want to delete '+ document.title))return;
 		$http({method: "DELETE", url: apiBaseUrl + "/documents/"  + document.docId, withCredentials: true})
 		.success(function() {
 			var index = _.indexOf($scope.user.documents.owner, document);
