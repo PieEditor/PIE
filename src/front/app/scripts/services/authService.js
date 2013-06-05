@@ -60,8 +60,12 @@ angular.module('pie')
 									var discussionIndex = data.discussionIndex;
 									var discussion = data.discussion;
 
-									documentService.currentDocument.content[sectionIndex].discussions[discussionIndex].posts.push(_.last(discussion.posts));
-									documentService.currentDocument.content[sectionIndex].discussions[discussionIndex].resolved = discussion.resolved;
+									if (documentService.currentDocument.content[sectionIndex].discussions[discussionIndex] !== undefined) {
+										documentService.currentDocument.content[sectionIndex].discussions[discussionIndex].posts.push(_.last(discussion.posts));
+										documentService.currentDocument.content[sectionIndex].discussions[discussionIndex].resolved = discussion.resolved;
+									} else {
+										documentService.currentDocument.content[sectionIndex].discussions[discussionIndex] = discussion;
+									}
 								}
 							}
 						}

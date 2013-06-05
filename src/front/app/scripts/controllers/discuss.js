@@ -11,6 +11,8 @@ angular.module('pie')
 		};
 	});
 
+	discussionService.currentState = 'none';
+	
 	// Watch for a change on some discussionService properties
 	$scope.$watch(
 		function() { return discussionService.currentDiscussion; },
