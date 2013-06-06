@@ -182,9 +182,11 @@ api.register({
 			} else {
 				couchWrapper.docGet(params.docId, -1, function(old_doc) {
 					var notifications, i;
+					params.version += 1;
 					notifications = notifyio.notificationsOfChange(old_doc, params, api.getLogin(params.token));	
 					for (i = 0; i < notifications.length; i += 1) {
 						notifyio.notifyAll(notifications[i].notifieds, notifications[i].notification);					}
+					console.log("kikoo");
 					console.log(JSON.stringify(notifications));
 				});					
 			}			

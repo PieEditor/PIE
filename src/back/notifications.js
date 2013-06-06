@@ -91,6 +91,14 @@ exports.notificationsOfChange = function(old_doc, new_doc, login) {
 			}
 		);
 	}
+	if (old_doc.version < new_doc.version) {
+		notifications.push(
+			{
+				notifieds: exports.notifieds(new_doc.owner, exports.collaboratorsLogins(new_doc.collaborators), login),
+				notification: {type: "document", text: login + " initiated a new iteration of \"" + old_doc.title + "\".", docId: new_doc.docId}
+			}
+		);
+	}
 	if (collaboratorsChanged(exports.collaboratorsLogins(old_doc.collaborators), exports.collaboratorsLogins(new_doc.collaborators)).length > 0) {
 		notifications.push(
 			{
