@@ -44,6 +44,8 @@ angular.module('pie')
 			$scope.document.content = architecture.content;
 			$scope.document.title = architecture.title;
 			
+			_.map($scope.document.content, $scope.watchSectionOwner);
+
 			$scope.$apply();
 		};
 
