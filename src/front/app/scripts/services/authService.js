@@ -1,5 +1,5 @@
 angular.module('pie')
-.factory('authService', function($rootScope, $http, $location, apiBaseUrl, documentService) {
+.factory('authService', function($rootScope, $http, $location, $route, apiBaseUrl, documentService) {
 	var socketIOConnection = null;
 	return {
 		user: undefined,
@@ -54,6 +54,11 @@ angular.module('pie')
 						t.user.notifications.push(data);
 
 						if (documentService.currentDocument && documentService.currentDocument.docId == data.docId) {
+							if (data.type == 'document') {
+								if (documentService.currentDocument.docId == data.docId) {
+									$route.reload();
+								}
+							}
 							if (data.type == 'discussion') {
 								if (data.discussion) {
 									var sectionIndex = data.sectionIndex;
