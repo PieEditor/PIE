@@ -6,7 +6,7 @@ var socketIO = require('socket.io');
 var io;
 var users = {};
 
-exports.initIO = function(server) {
+exports.initIO = function (server) {
 	io = socketIO.listen(server);
 	io.sockets.on('connection', function (socket) {
 		socket.on('login', function (data) {
@@ -22,7 +22,7 @@ exports.initIO = function(server) {
 	});
 };
 
-exports.sendNotification = function(login, notification) {
+exports.sendNotification = function (login, notification) {
 	console.log("Sending to " + login);
 	if (users[login] !== undefined) {
 		users[login].emit('notification', notification);
@@ -32,7 +32,7 @@ exports.sendNotification = function(login, notification) {
 	return false;
 }
 
-exports.notify = function(login, notification) {
+exports.notify = function (login, notification) {
 	console.log("notifying " + login);
 	console.log("> " + JSON.stringify(notification));
 	couchWrapper.userGet(login, function (user_object) {
@@ -47,7 +47,7 @@ exports.notify = function(login, notification) {
 	exports.sendNotification(login, notification);
 };
 
-exports.notificationsOfCreation = function(doc) {
+exports.notificationsOfCreation = function (doc) {
 	var notifications = [];
 	notifications.push(
 		{
@@ -59,26 +59,26 @@ exports.notificationsOfCreation = function(doc) {
 };
 
 function collaboratorsChanged(a, b) {
-	var new_coll = [];
-    if (!a || !b) {
-    	if (!a && !b) {
-    		return [];
-    	} else if (!a & b) {
-    		return b;
-    	} else {
-    		return [];
-    	}
-    }
+	var new_coll = [], i;
+	if (!a || !b) {
+		if (!a && !b) {
+			return [];
+		}
+		if (!a && b) {
+			return b;
+		}
+		return [];
+	}
 
-    for (var i = 0; i < b.length; i += 1) {
-    	if (a.indexOf(b[i]) === -1) {
-    		new_coll.push(b[i]);
-    	}
-    }
-    return new_coll;
+	for (i = 0; i < b.length; i += 1) {
+		if (a.indexOf(b[i]) === -1) {
+			new_coll.push(b[i]);
+		}
+	}
+	return new_coll;
 }
 
-exports.notificationsOfChange = function(old_doc, new_doc, login) {
+exports.notificationsOfChange = function (old_doc, new_doc, login) {
 	var notifications = [], i, j;
 	if (!old_doc || !new_doc || !login) {
 		return [];
@@ -107,36 +107,34 @@ exports.notificationsOfChange = function(old_doc, new_doc, login) {
 			}
 		);
 	}
-	if (notifications.length == 0) {
+	if (notifications.length === 0) {
 		for (i = 0; i < old_doc.content.length; i += 1) {
-			if (!old_doc.content[i].discussions && !new_doc.content[i].discussions) {
-				continue;
-			}
-			if ((!old_doc.content[i].discussions && new_doc.content[i].discussions) || (old_doc.content[i].discussions.length < new_doc.content[i].discussions.length)) {
-				notifications.push(
-					{
-						notifieds: exports.notifieds(new_doc.owner, exports.collaboratorsLogins(new_doc.collaborators), login),
-						notification: {type: "discussion", text: login + " started a new discussion about section \"" + new_doc.content[i].title + "\" of \"" + old_doc.title + "\".", docId: new_doc.docId, sectionIndex: i, discussionIndex: new_doc.content[i].discussions.length - 1, discussion: new_doc.content[i].discussions[new_doc.content[i].discussions.length - 1]}
-					}
-				);
-			}
-			else if (old_doc.content[i].discussions.length === new_doc.content[i].discussions.length) {
-				for (j = 0; j < old_doc.content[i].discussions.length; j += 1) {
-					if (new_doc.content[i].discussions[j].resolved && !old_doc.content[i].discussions[j].resolved) {
-						notifications.push(
-							{
-								notifieds: exports.notifieds(new_doc.owner, exports.collaboratorsLogins(new_doc.collaborators), login),
-								notification: {type: "discussion", text: login + " resolved the discussion \"" + old_doc.content[i].discussions[j].title + "\" which was about \"" + old_doc.content[i].title + "\" of \"" + old_doc.title + "\".", docId: new_doc.docId, sectionIndex: i, discussionIndex: j}
-							}
-						);
-					}
-					if (new_doc.content[i].discussions[j].posts.length > old_doc.content[i].discussions[j].posts.length) {
-						notifications.push(
-							{
-								notifieds: exports.notifieds(new_doc.owner, exports.collaboratorsLogins(new_doc.collaborators), login),
-								notification: {type: "discussion", text: login + " answered the discussion \"" + old_doc.content[i].discussions[j].title + "\" which was about \"" + old_doc.content[i].title + "\" of \"" + old_doc.title + "\".", docId: new_doc.docId, sectionIndex: i, discussionIndex: j, discussion: new_doc.content[i].discussions[j]}
-							}
-						);
+			if (old_doc.content[i].discussions || new_doc.content[i].discussions) {
+				if ((!old_doc.content[i].discussions && new_doc.content[i].discussions) || (old_doc.content[i].discussions.length < new_doc.content[i].discussions.length)) {
+					notifications.push(
+						{
+							notifieds: exports.notifieds(new_doc.owner, exports.collaboratorsLogins(new_doc.collaborators), login),
+							notification: {type: "discussion", text: login + " started a new discussion about section \"" + new_doc.content[i].title + "\" of \"" + old_doc.title + "\".", docId: new_doc.docId, sectionIndex: i, discussionIndex: new_doc.content[i].discussions.length - 1, discussion: new_doc.content[i].discussions[new_doc.content[i].discussions.length - 1]}
+						}
+					);
+				} else if (old_doc.content[i].discussions.length === new_doc.content[i].discussions.length) {
+					for (j = 0; j < old_doc.content[i].discussions.length; j += 1) {
+						if (new_doc.content[i].discussions[j].resolved && !old_doc.content[i].discussions[j].resolved) {
+							notifications.push(
+								{
+									notifieds: exports.notifieds(new_doc.owner, exports.collaboratorsLogins(new_doc.collaborators), login),
+									notification: {type: "discussion", text: login + " resolved the discussion \"" + old_doc.content[i].discussions[j].title + "\" which was about \"" + old_doc.content[i].title + "\" of \"" + old_doc.title + "\".", docId: new_doc.docId, sectionIndex: i, discussionIndex: j}
+								}
+							);
+						}
+						if (new_doc.content[i].discussions[j].posts.length > old_doc.content[i].discussions[j].posts.length) {
+							notifications.push(
+								{
+									notifieds: exports.notifieds(new_doc.owner, exports.collaboratorsLogins(new_doc.collaborators), login),
+									notification: {type: "discussion", text: login + " answered the discussion \"" + old_doc.content[i].discussions[j].title + "\" which was about \"" + old_doc.content[i].title + "\" of \"" + old_doc.title + "\".", docId: new_doc.docId, sectionIndex: i, discussionIndex: j, discussion: new_doc.content[i].discussions[j]}
+								}
+							);
+						}
 					}
 				}
 			}
@@ -145,29 +143,29 @@ exports.notificationsOfChange = function(old_doc, new_doc, login) {
 	return notifications;
 };
 
-exports.notifyAll = function(users, notification) {
+exports.notifyAll = function (users, notification) {
 	var i, j;
 	for (i = 0; i < users.length; i += 1) {
-		exports.notify(users[i], notification);	
+		exports.notify(users[i], notification);
 	}
 };
 
-exports.notifieds = function(owner, collaborators, login) {
+exports.notifieds = function (owner, collaborators, login) {
 	var notifieds = [];
 	if (collaborators.indexOf(owner) === -1) {
-		collaborators.push(owner)
+		collaborators.push(owner);
 	}
 
 	notifieds = collaborators.filter(function (element, index, array) {
-		return element != login;
+		return element !== login;
 	});
 	return notifieds;
 };
 
-exports.collaboratorsLogins = function(collaborators) {
+exports.collaboratorsLogins = function (collaborators) {
 	var logins = [], i;
 	for (i = 0; i < collaborators.length; i += 1) {
 		logins.push(collaborators[i].login);
 	}
-	return logins
+	return logins;
 };
