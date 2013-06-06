@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rpt="http://openoffice.org/2005/report" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" office:version="1.2" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><dc:title/><meta:generator>LibreOffice/4.0.2.2$Linux_x86 LibreOffice_project/4c82dcdd6efcd48b1d8bba66bfe1989deee49c3</meta:generator><dc:date>2013-06-06T10:59:46</dc:date><meta:editing-duration>PT1H50M50S</meta:editing-duration><meta:editing-cycles>36</meta:editing-cycles><meta:document-statistic meta:table-count="1" meta:image-count="2" meta:object-count="0" meta:page-count="9" meta:paragraph-count="137" meta:word-count="2029" meta:character-count="12394" meta:non-whitespace-character-count="10502"/></office:meta>
+ <office:meta><dc:title/><meta:generator>LibreOffice/4.0.2.2$Linux_x86 LibreOffice_project/4c82dcdd6efcd48b1d8bba66bfe1989deee49c3</meta:generator><dc:date>2013-06-06T11:13:27</dc:date><meta:editing-duration>PT2H4M31S</meta:editing-duration><meta:editing-cycles>37</meta:editing-cycles><meta:document-statistic meta:table-count="0" meta:image-count="2" meta:object-count="0" meta:page-count="4" meta:paragraph-count="27" meta:word-count="887" meta:character-count="5687" meta:non-whitespace-character-count="4831"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="int">245533</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="int">110966</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="int">0</config:config-item>
    <config:config-item config:name="ViewAreaWidth" config:type="int">25931</config:config-item>
    <config:config-item config:name="ViewAreaHeight" config:type="int">10347</config:config-item>
@@ -13,12 +13,12 @@
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="int">9465</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="int">244524</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="int">13381</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="int">114009</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="int">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="int">245533</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="int">110966</config:config-item>
      <config:config-item config:name="VisibleRight" config:type="int">25929</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="int">255879</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="int">121311</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
@@ -687,33 +687,6 @@
   <text:linenumbering-configuration text:number-lines="false" text:offset="0.1965in" style:num-format="1" text:number-position="left" text:increment="5"/>
  </office:styles>
  <office:automatic-styles>
-  <style:style style:name="Table1" style:family="table">
-   <style:table-properties style:width="6.7653in" table:align="left"/>
-  </style:style>
-  <style:style style:name="Table1.A" style:family="table-column">
-   <style:table-column-properties style:column-width="1.2063in"/>
-  </style:style>
-  <style:style style:name="Table1.B" style:family="table-column">
-   <style:table-column-properties style:column-width="5.559in"/>
-  </style:style>
-  <style:style style:name="Table1.A1" style:family="table-cell">
-   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="none" fo:border-top="0.05pt solid #000000" fo:border-bottom="0.05pt solid #000000"/>
-  </style:style>
-  <style:style style:name="Table1.B1" style:family="table-cell">
-   <style:table-cell-properties fo:padding="0.0382in" fo:border="0.05pt solid #000000"/>
-  </style:style>
-  <style:style style:name="Table1.A2" style:family="table-cell">
-   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.05pt solid #000000"/>
-  </style:style>
-  <style:style style:name="Table1.B2" style:family="table-cell">
-   <style:table-cell-properties fo:padding="0.0382in" fo:border-left="0.05pt solid #000000" fo:border-right="0.05pt solid #000000" fo:border-top="none" fo:border-bottom="0.05pt solid #000000"/>
-  </style:style>
-  <style:style style:name="Table1.4" style:family="table-row">
-   <style:table-row-properties style:min-row-height="0.6042in"/>
-  </style:style>
-  <style:style style:name="Table1.7" style:family="table-row">
-   <style:table-row-properties style:min-row-height="3.6646in"/>
-  </style:style>
   <style:style style:name="P1" style:family="paragraph" style:parent-style-name="Footer">
    <style:paragraph-properties fo:text-align="center" style:justify-single-word="false"/>
    <style:text-properties fo:language="fr" fo:country="FR"/>
@@ -995,39 +968,42 @@
    <style:text-properties fo:language="fr" fo:country="FR" fo:font-weight="bold" officeooo:rsid="00175dee" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
   </style:style>
   <style:style style:name="T9" style:family="text">
-   <style:text-properties style:text-position="super 58%"/>
+   <style:text-properties fo:language="fr" fo:country="FR" officeooo:rsid="0014ccac"/>
   </style:style>
   <style:style style:name="T10" style:family="text">
-   <style:text-properties officeooo:rsid="0014ccac"/>
+   <style:text-properties style:text-position="super 58%"/>
   </style:style>
   <style:style style:name="T11" style:family="text">
-   <style:text-properties officeooo:rsid="00175dee"/>
+   <style:text-properties officeooo:rsid="0014ccac"/>
   </style:style>
   <style:style style:name="T12" style:family="text">
-   <style:text-properties fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+   <style:text-properties officeooo:rsid="00175dee"/>
   </style:style>
   <style:style style:name="T13" style:family="text">
-   <style:text-properties fo:font-weight="bold" officeooo:rsid="00175dee" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+   <style:text-properties fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
   </style:style>
   <style:style style:name="T14" style:family="text">
-   <style:text-properties officeooo:rsid="00188a20"/>
+   <style:text-properties fo:font-weight="bold" officeooo:rsid="00175dee" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
   </style:style>
   <style:style style:name="T15" style:family="text">
-   <style:text-properties officeooo:rsid="0018ca37"/>
+   <style:text-properties officeooo:rsid="00188a20"/>
   </style:style>
   <style:style style:name="T16" style:family="text">
-   <style:text-properties officeooo:rsid="001a498a"/>
+   <style:text-properties officeooo:rsid="0018ca37"/>
   </style:style>
   <style:style style:name="T17" style:family="text">
-   <style:text-properties fo:font-style="normal" officeooo:rsid="001a498a" style:font-style-asian="normal" style:font-style-complex="normal"/>
+   <style:text-properties officeooo:rsid="001a498a"/>
   </style:style>
   <style:style style:name="T18" style:family="text">
-   <style:text-properties officeooo:rsid="001a5f76"/>
+   <style:text-properties fo:font-style="normal" officeooo:rsid="001a498a" style:font-style-asian="normal" style:font-style-complex="normal"/>
   </style:style>
   <style:style style:name="T19" style:family="text">
-   <style:text-properties style:font-name="LM Sans 12" fo:language="fr" fo:country="FR" officeooo:rsid="001a5f76"/>
+   <style:text-properties officeooo:rsid="001a5f76"/>
   </style:style>
   <style:style style:name="T20" style:family="text">
+   <style:text-properties style:font-name="LM Sans 12" fo:language="fr" fo:country="FR" officeooo:rsid="001a5f76"/>
+  </style:style>
+  <style:style style:name="T21" style:family="text">
    <style:text-properties style:font-name="LM Sans 122" fo:language="fr" fo:country="FR" officeooo:rsid="001a5f76" style:font-name-asian="LM Sans 122" style:font-name-complex="LM Sans 122"/>
   </style:style>
   <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Graphics">
@@ -1153,7 +1129,7 @@
  <office:master-styles>
   <style:master-page style:name="Standard" style:page-layout-name="pm1">
    <style:footer>
-    <text:p text:style-name="P1"><text:page-number text:select-page="current">9</text:page-number> </text:p>
+    <text:p text:style-name="P1"><text:page-number text:select-page="current">4</text:page-number> </text:p>
    </style:footer>
   </style:master-page>
  </office:master-styles>
@@ -27772,7 +27748,7 @@
    <text:h text:style-name="P68" text:outline-level="3"/>
    <text:h text:style-name="P14" text:outline-level="3">Feuille budgétaire</text:h>
    <text:p text:style-name="P49">Dans cette section, nous listons l&apos;ensemble des ressources nécessaires afin de réaliser notre prototype.</text:p>
-   <text:p text:style-name="P3">Nous réalisons une application web destinée à être accessible sur internet à nos clients <text:span text:style-name="T1">via</text:span> une offre <text:span text:style-name="T1">SaaS</text:span>. Il nous faut en conséquence un serveur permettant d&apos;héberger notre application ainsi que ses données. Pour le prototype, nous nous orientons vers un serveur KS R-8G proposé par la société OVH.com, 3<text:span text:style-name="T9">ème</text:span> hébergeur mondial. Ce serveur sera largement suffisant pour mettre en place notre prototype, et son coût est de 29,99€ HT par mois. Nous prévoyons d&apos;utiliser ce serveur pendant trois mois, pour un coût total de 89,97€.</text:p>
+   <text:p text:style-name="P3">Nous réalisons une application web destinée à être accessible sur internet à nos clients <text:span text:style-name="T1">via</text:span> une offre <text:span text:style-name="T1">SaaS</text:span>. Il nous faut en conséquence un serveur permettant d&apos;héberger notre application ainsi que ses données. Pour le prototype, nous nous orientons vers un serveur KS R-8G proposé par la société OVH.com, 3<text:span text:style-name="T10">ème</text:span> hébergeur mondial. Ce serveur sera largement suffisant pour mettre en place notre prototype, et son coût est de 29,99€ HT par mois. Nous prévoyons d&apos;utiliser ce serveur pendant trois mois, pour un coût total de 89,97€.</text:p>
    <text:p text:style-name="P3">D&apos;autre part, notre produit est de manière inhérente une application temps réel, ce qui est un domaine complexe et difficile à appréhender. Afin de monter en compétences sur ce domaine, nous trouvons judicieux de participer à la <text:span text:style-name="T1">Realtime Conference 2013</text:span> qui se tiendra à Lyon les 22 et 23 avril 2013. Cet événement auquel participent des conférenciers d&apos;entreprises prestigieuses et reconnues telles que Google, øMQ, Mozilla, Vodafone, etc. De plus, de nombreux représentants de logiciels libres sont présents, ce qui nous aidera dans nos choix techniques. Pour des raisons financières, nous prévoyons de n&apos;envoyer que deux personnes à cette conférence, pour un coût total de 800€.</text:p>
    <text:p text:style-name="P3">Au total, le coût de notre prototype revient à 889,97€.</text:p>
    <text:h text:style-name="P13" text:outline-level="3">Analyse des risques</text:h>
@@ -27801,237 +27777,7 @@
    <text:p text:style-name="P49">Entamer la phase II de notre projet du bon pied nécessite quelques ressources clés.</text:p>
    <text:p text:style-name="P3">Tout d&apos;abord, nous jugeons nécessaire de s&apos;accorder sur l&apos;interface que proposera notre produit. En effet, une interface claire et réfléchie est essentielle à une bonne expérience utilisateur. De plus, celle-ci doit être pensée au préalable afin d&apos;éviter toute surprise ou désaccord au sein de l&apos;équipe lors du développement du logiciel. Pour cela, nous prévoyons de réaliser un ensemble de <text:span text:style-name="T1">mockups</text:span> ou prototypes d&apos;interface utilisateur, qui constitueront un livrable interne.</text:p>
    <text:p text:style-name="P3">D&apos;autre part, notre produit étant un logiciel utilisant de nombreux composants externes tels qu&apos;une base de données et des bibliothèques, il est primordial d&apos;effectuer les choix techniques en amont afin de constituer des fondations solides. Nous éviterons ainsi de perdre du temps. Pour nous assister dans ce choix, nous prévoyons d&apos;envoyer deux membres de l&apos;équipe à la <text:span text:style-name="T1">Realtime Conference</text:span> mentionnée plus haut. Une fois ces choix techniques effectués, les différents membres présenterons leur décision à l&apos;équipe. Une fois ces choix approuvés un livrable interne sera rédigé.</text:p>
-   <text:p text:style-name="P3">Enfin, il est crucial de mettre rapidement en place l&apos;ensemble des outils sélectionnés précédemment et <text:span text:style-name="T10">le</text:span> serveur d&apos;hébergement afin de garantir leur bon fonctionnement et une prise en main rapide par l&apos;ensemble de l&apos;équipe. Une phase d&apos;initialisation est alors nécessaire, comme détaillé dans la section d&apos;organisation de la phase II.</text:p>
-   <text:h text:style-name="P10" text:outline-level="3"><text:soft-page-break/>Fiche de recette</text:h>
-   <text:p text:style-name="P7">Afin de vérifier le bon fonctionnement de notre prototype à la fin de la phase II, il est primordial de s&apos;accorder sur des tests de recette. Ils garantissent la capacité de notre prototype à remplir un certain nombre de fonctions. Cette fiche de recette est détaillée ci-dessous.</text:p>
-   <text:h text:style-name="P56" text:outline-level="4">Informations sur la procédure</text:h>
-   <text:p text:style-name="Text_20_body"><text:span text:style-name="T13">Objet de la procédure de recette </text:span><text:span text:style-name="T11">Cette procédure a pour objectif la validation de la conformité de notre produit selon des critères objectifs et connus à l&apos;avance. Elle concerne l&apos;ensemble logiciel formé par le logiciel client, le logiciel serveur et la base de données. Nous nous inscrivons ainsi dans une démarche qualité forte.</text:span></text:p>
-   <text:p text:style-name="P6"><text:span text:style-name="T13">Étapes de recette</text:span><text:span text:style-name="T11"> Nous distinguons deux catégories de tests à effectuer. Les </text:span><text:span text:style-name="T3">tests techniques</text:span><text:span text:style-name="T11"> valident l&apos;ensemble des considérations techniques associées à l&apos;application, telles que son architecture ou ses performances. À l&apos;inverse, les </text:span><text:span text:style-name="T3">tests fonctionnels</text:span><text:span text:style-name="T11"> contrôlent la capacité de l&apos;application du point de vue de l&apos;utilisateur final à effectuer l&apos;ensemble des tâches qui lui sont confiées. Ces tests fonctionnels doivent permettre de valider l&apos;ensemble des fonctions qualifiées de principales dans l&apos;analyse fonctionnelle détaillée plus haut dans ce document.</text:span></text:p>
-   <text:p text:style-name="P6"><text:span text:style-name="T8">Conditions de la recette </text:span><text:span text:style-name="T6">Cette procédure sera effectuée en fin de phase II - conformément au planning détaillé précédemment - et ne concerne ainsi que la version finale du </text:span><text:span text:style-name="T7">prototype</text:span><text:span text:style-name="T6"> développé pendant cette durée. Dans un souci d&apos;économie de temps, l&apos;ensemble des tests techniques sera effectué en amont par l&apos;équipe projet. En revanche, les tests fonctionnels pourront être effectués indifféremment par l&apos;équipe tutorale ou par l&apos;équipe projet. Un procès-verbal de recette listant les tests effectués et leurs résultats sera dressé au cours de la séance.</text:span></text:p>
-   <text:h text:style-name="P57" text:outline-level="4">Procès-verbal de recette</text:h>
-   <table:table table:name="Table1" table:style-name="Table1">
-    <table:table-column table:style-name="Table1.A"/>
-    <table:table-column table:style-name="Table1.B"/>
-    <table:table-row>
-     <table:table-cell table:style-name="Table1.A1" office:value-type="string">
-      <text:p text:style-name="P17">Fonction</text:p>
-     </table:table-cell>
-     <table:table-cell table:style-name="Table1.B1" office:value-type="string">
-      <text:p text:style-name="P17">Tests à réaliser</text:p>
-     </table:table-cell>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:style-name="Table1.A2" office:value-type="string">
-      <text:p text:style-name="P26"><text:span text:style-name="T12">Gestion des utilisateurs</text:span> </text:p>
-     </table:table-cell>
-     <table:table-cell table:style-name="Table1.B2" office:value-type="string">
-      <text:p text:style-name="P32"><text:span text:style-name="T16">1.1 -</text:span> Le visiteur peut créer un nouveau compte</text:p>
-      <text:p text:style-name="P31">[ Oui/Non ]</text:p>
-      <text:p text:style-name="P21"/>
-      <text:p text:style-name="P21"><text:span text:style-name="T16">1.2 - </text:span>Le visiteur peut se connecter avec son compte</text:p>
-      <text:p text:style-name="P39">[ Oui/Non ]</text:p>
-      <text:p text:style-name="P21"/>
-      <text:p text:style-name="P24"><text:span text:style-name="T16">1.3 -</text:span> Une fois connecté, le visiteur a accès à des informations personnalisées</text:p>
-      <text:p text:style-name="P40">[ Oui : un panneau indiquant des notifications personnalisées /</text:p>
-      <text:p text:style-name="P40">Oui : ses informations de profil uniquement/Non ]</text:p>
-      <text:p text:style-name="P36"/>
-      <text:p text:style-name="P61"/>
-      <text:p text:style-name="P21"><text:soft-page-break/><text:span text:style-name="T16">1.4 -</text:span> Le visiteur peut se déconnecter</text:p>
-      <text:p text:style-name="P39">[ Oui/Non ]</text:p>
-     </table:table-cell>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:style-name="Table1.A2" office:value-type="string">
-      <text:p text:style-name="P19">Gestion des permissions</text:p>
-     </table:table-cell>
-     <table:table-cell table:style-name="Table1.B2" office:value-type="string">
-      <text:p text:style-name="P27"><text:span text:style-name="T16">2.1 -</text:span> <text:span text:style-name="T14">Les documents d&apos;un utilisateur lui sont privés</text:span></text:p>
-      <text:p text:style-name="P41">[ Oui/Non : <text:span text:style-name="T14">visibles par tous</text:span> ]</text:p>
-      <text:p text:style-name="P34"/>
-      <text:p text:style-name="P27"><text:span text:style-name="T16">2.2 -</text:span> <text:span text:style-name="T14">Un utilisateur peut donner des droits en lecture et écriture à d&apos;autres utilisateurs sur des documents</text:span></text:p>
-      <text:p text:style-name="P41">[ Oui : <text:span text:style-name="T14">granularité du document</text:span>/<text:span text:style-name="T14">Oui : sur tous ses documents à la fois /Non </text:span>]</text:p>
-      <text:p text:style-name="P46">[ Oui : granularité en lecture et écriture/Oui : lecture-écriture liées/Non ]</text:p>
-      <text:p text:style-name="P44"/>
-      <text:p text:style-name="P27"><text:span text:style-name="T16">2.3 -</text:span> <text:span text:style-name="T15">Un utilisateur peut nommer un autre utilisateur responsable de section</text:span></text:p>
-      <text:p text:style-name="P42"><text:span text:style-name="T14">[ Oui/Non </text:span><text:span text:style-name="T15">]</text:span></text:p>
-      <text:p text:style-name="P45"/>
-      <text:p text:style-name="P28"><text:span text:style-name="T16">2.4 -</text:span> <text:span text:style-name="T15">Seul le responsable de section peut fermer une discussion y appartenant</text:span></text:p>
-      <text:p text:style-name="P47">[ Oui/Non ]</text:p>
-     </table:table-cell>
-    </table:table-row>
-    <table:table-row table:style-name="Table1.4">
-     <table:table-cell table:style-name="Table1.A2" office:value-type="string">
-      <text:p text:style-name="P21"><text:span text:style-name="T12">Rédaction d&apos;un document</text:span> </text:p>
-     </table:table-cell>
-     <table:table-cell table:style-name="Table1.B2" office:value-type="string">
-      <text:p text:style-name="P24"><text:span text:style-name="T16">3.1 -</text:span> <text:span text:style-name="T11">L&apos;utilisateur connecté peut créer un nouveau document vierge</text:span></text:p>
-      <text:p text:style-name="P39">[ Oui/Non ]</text:p>
-      <text:p text:style-name="P33"/>
-      <text:p text:style-name="P37"><text:span text:style-name="T16">3.2 -</text:span> L&apos;utilisateur connecté peut rédiger son document</text:p>
-      <text:p text:style-name="P39">[ Oui/Non ]</text:p>
-      <text:p text:style-name="P33"/>
-      <text:p text:style-name="P37"><text:span text:style-name="T16">3.3 -</text:span> L&apos;utilisateur connecté peut sauvegarder son document</text:p>
-      <text:p text:style-name="P39">[ Oui : sauvegarde automatique/Oui : sauvegarde manuelle/Non ]</text:p>
-      <text:p text:style-name="P33"/>
-      <text:p text:style-name="P37"><text:span text:style-name="T16">3.4 -</text:span> La rédaction d&apos;un document sauvegardé peut être reprise plus tard</text:p>
-      <text:p text:style-name="P39">[ Oui/Non ]</text:p>
-      <text:p text:style-name="P33"/>
-      <text:p text:style-name="P24"><text:span text:style-name="T16">3.5 -</text:span><text:span text:style-name="T11"> Un document peut être catégorisé </text:span><text:span text:style-name="T3">via</text:span><text:span text:style-name="T11"> des mots-clés</text:span></text:p>
-      <text:p text:style-name="P39">[ Oui : autant de mots-clés que souhaités/Oui : 1 mot clé uniquement/Non ]</text:p>
-      <text:p text:style-name="P33"/>
-      <text:p text:style-name="P37"><text:span text:style-name="T16">3.6 -</text:span> L&apos;utilisateur peut rechercher les documents</text:p>
-      <text:p text:style-name="P40">[ Oui : recherche par mots-clés et titre/</text:p>
-      <text:p text:style-name="P40">Oui : recherche par titre uniquement/Non ]</text:p>
-      <text:p text:style-name="P33"/>
-      <text:p text:style-name="P37"><text:span text:style-name="T16">3.7 -</text:span> <text:span text:style-name="T16">L’utilisateur peut créer l’architecture d’un document à partir d’un outil de </text:span><text:span text:style-name="T4">mind mapping</text:span></text:p>
-      <text:p text:style-name="P39">[ Oui/Non ]</text:p>
-      <text:p text:style-name="P62"/>
-      <text:p text:style-name="P62"/>
-      <text:p text:style-name="P62"><text:soft-page-break/>3.8 - L’utilisateur peut modifier l’architecture d’un document</text:p>
-      <text:p text:style-name="P63">[ Oui : sans perte de données/Oui : possible perte de paragraphes/Non ]</text:p>
-      <text:p text:style-name="P63"/>
-      <text:p text:style-name="P62">3.<text:span text:style-name="T18">9</text:span> - L’utilisateur peut <text:span text:style-name="T18">inviter un collaborateur à participer à la rédaction</text:span></text:p>
-      <text:p text:style-name="P63">[ Ou<text:span text:style-name="T18">i</text:span>/Non ]</text:p>
-     </table:table-cell>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:style-name="Table1.A2" office:value-type="string">
-      <text:p text:style-name="P21"><text:span text:style-name="T12">Relecture d&apos;un document</text:span> </text:p>
-     </table:table-cell>
-     <table:table-cell table:style-name="Table1.B2" office:value-type="string">
-      <text:p text:style-name="P24"><text:span text:style-name="T16">4.1 -</text:span> <text:span text:style-name="T11">L&apos;utilisateur connecté peut visualiser un document sauvegardé</text:span></text:p>
-      <text:p text:style-name="P40">[ Oui : en même temps que d&apos;autres /</text:p>
-      <text:p text:style-name="P40">Oui : 1 personne par document maximum/Non ]</text:p>
-      <text:p text:style-name="P33"/>
-      <text:p text:style-name="P37"><text:span text:style-name="T16">4.2 -</text:span> L&apos;utilisateur connecté peut exporter un document sauvegardé dans un fichier brut, proposé au téléchargement</text:p>
-      <text:p text:style-name="P39">[ Oui/Non ]</text:p>
-      <text:p text:style-name="P33"/>
-      <text:p text:style-name="P37"><text:span text:style-name="T16">4.3 -</text:span> L&apos;utilisateur connecté peut exporter un document sauvegardé dans un fichier avec mise en page, proposé au téléchargement</text:p>
-      <text:p text:style-name="P39">[ Oui/Non ]</text:p>
-      <text:p text:style-name="P33"/>
-     </table:table-cell>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:style-name="Table1.A2" office:value-type="string">
-      <text:p text:style-name="P50"><text:span text:style-name="T12">Discussions</text:span> </text:p>
-     </table:table-cell>
-     <table:table-cell table:style-name="Table1.B2" office:value-type="string">
-      <text:p text:style-name="P37"><text:span text:style-name="T16">5.1 -</text:span> L&apos;utilisateur connecté peut lancer une discussion à propos d&apos;un document</text:p>
-      <text:p text:style-name="P39">[ Oui/Non ]</text:p>
-      <text:p text:style-name="P33"/>
-      <text:p text:style-name="P37"><text:span text:style-name="T16">5.2 -</text:span> L&apos;utilisateur connecté peut participer à une discussion</text:p>
-      <text:p text:style-name="P39">[ Oui/Non ]</text:p>
-      <text:p text:style-name="P33"/>
-      <text:p text:style-name="P37"><text:span text:style-name="T16">5.3 -</text:span> L&apos;utilisateur connecté peut commenter une partie précise d&apos;un document</text:p>
-      <text:p text:style-name="P40">[ Oui : granularité de la lettre/Oui : granularité de la ligne /</text:p>
-      <text:p text:style-name="P40">Oui : granularité du paragraphe/Non ]</text:p>
-      <text:p text:style-name="P33"/>
-      <text:p text:style-name="P37"><text:span text:style-name="T16">5.4 -</text:span> Le système met en valeur les posts pertinents dans une discussion</text:p>
-      <text:p text:style-name="P40">[ Oui : selon un algorithme complexe /</text:p>
-      <text:p text:style-name="P40">Oui : selon le nombre de commentaires associés/Non ]</text:p>
-      <text:p text:style-name="P33"/>
-      <text:p text:style-name="P38"><text:span text:style-name="T16">5.5 -</text:span> <text:span text:style-name="T14">Il est possible de rédiger un résumé exécutif d&apos;une discussion</text:span></text:p>
-      <text:p text:style-name="P41">[ Oui/Non ]</text:p>
-     </table:table-cell>
-    </table:table-row>
-    <text:soft-page-break/>
-    <table:table-row table:style-name="Table1.7">
-     <table:table-cell table:style-name="Table1.A2" office:value-type="string">
-      <text:p text:style-name="P55">Gestion des versions</text:p>
-     </table:table-cell>
-     <table:table-cell table:style-name="Table1.B2" office:value-type="string">
-      <text:p text:style-name="P37"><text:span text:style-name="T16">6.1 -</text:span> <text:span text:style-name="T14">Un document peut être versionné</text:span></text:p>
-      <text:p text:style-name="P46">[ Oui : autant de versions que voulu/Oui : deux versions seulement/Non ]</text:p>
-      <text:p text:style-name="P44"/>
-      <text:p text:style-name="P38">6.<text:span text:style-name="T16">2 -</text:span> <text:span text:style-name="T14">Si oui, il est possible de visualiser les anciennes versions d&apos;un document</text:span></text:p>
-      <text:p text:style-name="P46">[ Oui/Non ]</text:p>
-      <text:p text:style-name="P44"/>
-      <text:p text:style-name="P38"><text:span text:style-name="T16">6.3 -</text:span> <text:span text:style-name="T14">Si oui, il est possible d&apos;exporter les anciennes versions dans un fichier</text:span></text:p>
-      <text:p text:style-name="P46">[ Oui/Non ]</text:p>
-      <text:p text:style-name="P44"/>
-      <text:p text:style-name="P38"><text:span text:style-name="T16">6.4 -</text:span> <text:span text:style-name="T14">Créer une nouvelle version archive les discussions fermées</text:span></text:p>
-      <text:p text:style-name="P48">[ Oui : il est possible de relire les conclusions /</text:p>
-      <text:p text:style-name="P48">Oui : impossible de relire les conclusions /</text:p>
-      <text:p text:style-name="P48">Non : les discussions fermées restent toujours visibles ]</text:p>
-     </table:table-cell>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:style-name="Table1.A2" office:value-type="string">
-      <text:p text:style-name="P53">Architecture <text:span text:style-name="T14">technique</text:span> </text:p>
-     </table:table-cell>
-     <table:table-cell table:style-name="Table1.B2" office:value-type="string">
-      <text:p text:style-name="P37"><text:span text:style-name="T16">7.1 -</text:span> La base de données peut communiquer avec le serveur</text:p>
-      <text:p text:style-name="P39">[ Oui : ajout et récupération de données stockées/Non ]</text:p>
-      <text:p text:style-name="P33"/>
-      <text:p text:style-name="P37"><text:span text:style-name="T16">7.2 -</text:span> L&apos;application client peut communiquer avec le serveur</text:p>
-      <text:p text:style-name="P39">[ Oui : envoi de requêtes du client vers le serveur/Non ]</text:p>
-     </table:table-cell>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:style-name="Table1.A2" office:value-type="string">
-      <text:p text:style-name="P53">Performances</text:p>
-     </table:table-cell>
-     <table:table-cell table:style-name="Table1.B2" office:value-type="string">
-      <text:p text:style-name="P24"><text:span text:style-name="T16">8.1 -</text:span> <text:span text:style-name="T11">Le temps moyen d&apos;une requête d&apos;ouverture d&apos;un document est inférieur à 3 secondes</text:span></text:p>
-      <text:p text:style-name="P39">[ Oui/Non ]</text:p>
-      <text:p text:style-name="P33"/>
-      <text:p text:style-name="P37"><text:span text:style-name="T16">8.2 -</text:span> Le temps moyen du chargement d&apos;une page est inférieur à 3 secondes</text:p>
-      <text:p text:style-name="P39">[ Oui/Non ]</text:p>
-      <text:p text:style-name="P33"/>
-      <text:p text:style-name="P37"><text:span text:style-name="T16">8.3 -</text:span> Un utilisateur peut créer au moins 10 documents à partir de son compte</text:p>
-      <text:p text:style-name="P39">[ Oui/Non ]</text:p>
-     </table:table-cell>
-    </table:table-row>
-    <table:table-row>
-     <table:table-cell table:style-name="Table1.A2" office:value-type="string">
-      <text:p text:style-name="P53">Divers</text:p>
-     </table:table-cell>
-     <table:table-cell table:style-name="Table1.B2" office:value-type="string">
-      <text:p text:style-name="P37"><text:span text:style-name="T16">9.1 -</text:span> Les bibliothèques utilisées sont utilisables dans un cadre commercial</text:p>
-      <text:p text:style-name="P39">[ Oui/Non ]</text:p>
-      <text:p text:style-name="P33"/>
-      <text:p text:style-name="P37"><text:span text:style-name="T16">9.2 -</text:span> Présence d&apos;une documentation technique concernant l&apos;API</text:p>
-      <text:p text:style-name="P39">[ Oui : détaillée/Oui : faible/Non ]</text:p>
-     </table:table-cell>
-    </table:table-row>
-   </table:table>
-   <text:p text:style-name="Text_20_body"><text:span text:style-name="Teletype"><text:span text:style-name="T5"/></text:span></text:p>
-   <text:h text:style-name="P66" text:outline-level="2"><text:span text:style-name="Teletype"><text:span text:style-name="T19">Scénario d’usage :</text:span></text:span></text:h>
-   <text:list xml:id="list4090759701429828461" text:style-name="L2">
-    <text:list-item>
-     <text:p text:style-name="P60"><text:span text:style-name="Teletype"><text:span text:style-name="T19">Alice ouvre l&apos;outil et crée un nouveau compte. → Valide 1.1&#x0d;</text:span></text:span></text:p>
-    </text:list-item>
-    <text:list-item>
-     <text:p text:style-name="P59"><text:span text:style-name="Teletype"><text:span text:style-name="T19">Alice crée un nouveau document en important un fichier de mind mapping. → Valide 3.1, 3.7&#x0d;</text:span></text:span></text:p>
-    </text:list-item>
-    <text:list-item>
-     <text:p text:style-name="P59"><text:span text:style-name="Teletype"><text:span text:style-name="T19">Alice commence à rédiger, puis se déconnecte. → Valide 3.2, 3.3, 1.4, 3.3&#x0d;</text:span></text:span></text:p>
-    </text:list-item>
-    <text:list-item>
-     <text:p text:style-name="P59"><text:span text:style-name="Teletype"><text:span text:style-name="T19">Bob crée un compte.&#x0d;</text:span></text:span></text:p>
-    </text:list-item>
-    <text:list-item>
-     <text:p text:style-name="P59"><text:span text:style-name="Teletype"><text:span text:style-name="T19">Alice se connecte, ouvre son document, invite Bob et crée une nouvelle discussion. → Valide 1.2, 3.9, 5.1, 5.3&#x0d;</text:span></text:span></text:p>
-    </text:list-item>
-    <text:list-item>
-     <text:p text:style-name="P59"><text:span text:style-name="Teletype"><text:span text:style-name="T19">Bob répond à Alice. → Valide 5.2&#x0d;</text:span></text:span></text:p>
-    </text:list-item>
-    <text:list-item>
-     <text:p text:style-name="P59"><text:span text:style-name="Teletype"><text:span text:style-name="T19">Alice modifie l&apos;architecture du document et assigne une partie à Bob. → Valide 3.8, 2.3, 2.2, 3.4&#x0d;</text:span></text:span></text:p>
-    </text:list-item>
-    <text:list-item>
-     <text:p text:style-name="P59"><text:span text:style-name="Teletype"><text:span text:style-name="T19">Bob répond à Alice et clôt la discussion. → Valide 4.1, 5.5&#x0d;</text:span></text:span></text:p>
-    </text:list-item>
-    <text:list-item>
-     <text:p text:style-name="P59"><text:span text:style-name="Teletype"><text:span text:style-name="T19">Alice crée une nouvelle version. → Valide 6.1, 6.4&#x0d;</text:span></text:span></text:p>
-    </text:list-item>
-    <text:list-item>
-     <text:p text:style-name="P59"><text:span text:style-name="Teletype"><text:span text:style-name="T19">Bob télécharge un PDF de la version 1. → Valide 4.3, 6.2, 6.3&#x0d;</text:span></text:span></text:p>
-    </text:list-item>
-    <text:list-item>
-     <text:p text:style-name="P59"><text:span text:style-name="Teletype"><text:span text:style-name="T19">Alice télécharge un ODT de la version 2. → Valide 4.2</text:span></text:span></text:p>
-    </text:list-item>
-   </text:list>
+   <text:p text:style-name="Text_20_body"><text:span text:style-name="T5">Enfin, il est crucial de mettre rapidement en place l&apos;ensemble des outils sélectionnés précédemment et </text:span><text:span text:style-name="T9">le</text:span><text:span text:style-name="T5"> serveur d&apos;hébergement afin de garantir leur bon fonctionnement et une prise en main rapide par l&apos;ensemble de l&apos;équipe. Une phase d&apos;initialisation est alors nécessaire, comme détaillé dans la section d&apos;organisation de la phase II.</text:span></text:p>
   </office:text>
  </office:body>
 </office:document>
