@@ -44,6 +44,8 @@ angular.module('pie')
 			$scope.document.content = architecture.content;
 			$scope.document.title = architecture.title;
 			
+			_.map($scope.document.content, $scope.watchSectionOwner);
+
 			$scope.$apply();
 		};
 
@@ -80,7 +82,7 @@ angular.module('pie')
 	$scope.createNewPart = function(part) {
 		var index = _.indexOf($scope.document.content, part) ;
 		var myNewLevel = $scope.document.content[index].level ;
-		$scope.document.content.splice(index+1, 0, {title : '' , level : myNewLevel});
+		$scope.document.content.splice(index+1, 0, {title : '' , level : myNewLevel, discussions:[]});
 		
 		$scope.watchSectionOwner($scope.document.content[index+1]);
 	};
