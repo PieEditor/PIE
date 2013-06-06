@@ -38,8 +38,8 @@
 			{{ section.title }} </a>
 			<div class="faded pull-right">
 				<div class="btn-group">
-					<button class="btn btn-mini"><i class="icon-user"></i>{{ section.owner.login }}</button>
-					<button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-comment"></i> <span class="caret"></span></button>
+					<button data-toggle="tooltip" title="Person in charge" class="btn btn-mini"><i class="icon-user"></i>{{ section.owner.login }}</button>
+					<button data-toggle="tooltip" title="Discussions" class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-comment"></i> <span class="caret"></span></button>
 
 					<ul class="dropdown-menu pull-right">
 						<li ng-repeat="discussion in section.discussions">

@@ -61,13 +61,13 @@
 				{{ getPartIndice(part, document.content) }}
 				<input type="text"  ng-model="part.title" placeholder="Section title">
 				<div class="btn-group dropdown">
-					<button class="btn btn-mini" ng-hide="removeButtonHide(part,document.content)" ng-click="removePart(part)"><i class="icon-remove"></i> </button>
-					<button class="btn btn-mini" ng-hide="upwardButtonHide(part,document.content)" ng-click="stepUpward(part)"><i class="icon-arrow-up"></i></button>
-					<button class="btn btn-mini" ng-hide="downwardButtonHide(part,document.content)" ng-click="stepDownward(part)"><i class="icon-arrow-down"></i></button>
-					<button class="btn btn-mini" ng-hide="backwardButtonHide(part)" ng-click="stepBackward(part)"><i class="icon-arrow-left"></i> </button>
-					<button class="btn btn-mini" ng-hide="forwardButtonHide(part, document.content)" ng-click="stepForward(part)"><i class="icon-arrow-right"></i></button>
-					<button class="btn btn-mini" ng-click="createNewPart(part)"><i class="icon-plus-sign"></i></button>
-					<button class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i>{{ part.owner.login }}</button>
+					<button data-toggle="tooltip" title="Remove part" class="btn btn-mini" ng-hide="removeButtonHide(part,document.content)" ng-click="removePart(part)"><i class="icon-remove"></i> </button>
+					<button data-toggle="tooltip" title="Move title up"class="btn btn-mini" ng-hide="upwardButtonHide(part,document.content)" ng-click="stepUpward(part)"><i class="icon-arrow-up"></i></button>
+					<button data-toggle="tooltip" title="Move title down"class="btn btn-mini" ng-hide="downwardButtonHide(part,document.content)" ng-click="stepDownward(part)"><i class="icon-arrow-down"></i></button>
+					<button data-toggle="tooltip" title="Move title left"class="btn btn-mini" ng-hide="backwardButtonHide(part)" ng-click="stepBackward(part)"><i class="icon-arrow-left"></i> </button>
+					<button data-toggle="tooltip" title="Move title right"class="btn btn-mini" ng-hide="forwardButtonHide(part, document.content)" ng-click="stepForward(part)"><i class="icon-arrow-right"></i></button>
+					<button data-toggle="tooltip" title="Create new part"class="btn btn-mini" ng-click="createNewPart(part)"><i class="icon-plus-sign"></i></button>
+					<button data-toggle="tooltip" title="Assign someone to this part"class="btn btn-mini dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i>{{ part.owner.login }}</button>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 						<li> Section Owner</li>
 						<li class="divider"></li>
