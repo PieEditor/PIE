@@ -2,6 +2,7 @@ const char HEADER[] = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\
 <office:document-content xmlns:office=\"urn:oasis:names:tc:opendocument:xmlns:office:1.0\" \
 xmlns:xlink=\"http://www.w3.org/1999/xlink\" \
 xmlns:text=\"urn:oasis:names:tc:opendocument:xmlns:text:1.0\" \
+xmlns:draw=\"urn:oasis:names:tc:opendocument:xmlns:drawing:1.0\" \
 office:version=\"1.2\" \
 office:mimetype=\"application/vnd.oasis.opendocument.text\">\n\
 <office:automated-styles>\
@@ -39,6 +40,8 @@ const char PARAGRAPH_END_TAG[] = "</text:p>\n";
 const char LINK_START_TAG_BEGIN[] = "<text:a xlink:type=\"simple\" xlink:href=\"";
 const char LINK_START_TAG_END[] = "\">";
 const char LINK_END_TAG[] = "</text:a>";
+const char IMAGE_START_TAG[] = "<draw:frame><draw:image xlink:href=\"";
+const char IMAGE_END_TAG[] = "\"/></draw:frame>";
 const char LIST_START_TAG[] = "<text:list text:style-name=\"list\">";
 const char LIST_END_TAG[] = "</text:list>";
 const char ITEM_START_TAG[] = "<text:list-item><text:p text:style-name=\"text\">";
