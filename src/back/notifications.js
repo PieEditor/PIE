@@ -107,35 +107,37 @@ exports.notificationsOfChange = function(old_doc, new_doc, login) {
 			}
 		);
 	}
-	for (i = 0; i < old_doc.content.length; i += 1) {
-		if (!old_doc.content[i].discussions && !new_doc.content[i].discussions) {
-			continue;
-		}
-		if ((!old_doc.content[i].discussions && new_doc.content[i].discussions) || (old_doc.content[i].discussions.length < new_doc.content[i].discussions.length)) {
-			notifications.push(
-				{
-					notifieds: exports.notifieds(new_doc.owner, exports.collaboratorsLogins(new_doc.collaborators), login),
-					notification: {type: "discussion", text: login + " started a new discussion about section \"" + new_doc.content[i].title + "\" of \"" + old_doc.title + "\".", docId: new_doc.docId, sectionIndex: i, discussionIndex: new_doc.content[i].discussions.length - 1, discussion: new_doc.content[i].discussions[new_doc.content[i].discussions.length - 1]}
-				}
-			);
-		}
-		else if (old_doc.content[i].discussions.length === new_doc.content[i].discussions.length) {
-			for (j = 0; j < old_doc.content[i].discussions.length; j += 1) {
-				if (new_doc.content[i].discussions[j].resolved && !old_doc.content[i].discussions[j].resolved) {
-					notifications.push(
-						{
-							notifieds: exports.notifieds(new_doc.owner, exports.collaboratorsLogins(new_doc.collaborators), login),
-							notification: {type: "discussion", text: login + " resolved the discussion \"" + old_doc.content[i].discussions[j].title + "\" which was about \"" + old_doc.content[i].title + "\" of \"" + old_doc.title + "\".", docId: new_doc.docId, sectionIndex: i, discussionIndex: j}
-						}
-					);
-				}
-				if (new_doc.content[i].discussions[j].posts.length > old_doc.content[i].discussions[j].posts.length) {
-					notifications.push(
-						{
-							notifieds: exports.notifieds(new_doc.owner, exports.collaboratorsLogins(new_doc.collaborators), login),
-							notification: {type: "discussion", text: login + " answered the discussion \"" + old_doc.content[i].discussions[j].title + "\" which was about \"" + old_doc.content[i].title + "\" of \"" + old_doc.title + "\".", docId: new_doc.docId, sectionIndex: i, discussionIndex: j, discussion: new_doc.content[i].discussions[j]}
-						}
-					);
+	if (notifications.length == 0) {
+		for (i = 0; i < old_doc.content.length; i += 1) {
+			if (!old_doc.content[i].discussions && !new_doc.content[i].discussions) {
+				continue;
+			}
+			if ((!old_doc.content[i].discussions && new_doc.content[i].discussions) || (old_doc.content[i].discussions.length < new_doc.content[i].discussions.length)) {
+				notifications.push(
+					{
+						notifieds: exports.notifieds(new_doc.owner, exports.collaboratorsLogins(new_doc.collaborators), login),
+						notification: {type: "discussion", text: login + " started a new discussion about section \"" + new_doc.content[i].title + "\" of \"" + old_doc.title + "\".", docId: new_doc.docId, sectionIndex: i, discussionIndex: new_doc.content[i].discussions.length - 1, discussion: new_doc.content[i].discussions[new_doc.content[i].discussions.length - 1]}
+					}
+				);
+			}
+			else if (old_doc.content[i].discussions.length === new_doc.content[i].discussions.length) {
+				for (j = 0; j < old_doc.content[i].discussions.length; j += 1) {
+					if (new_doc.content[i].discussions[j].resolved && !old_doc.content[i].discussions[j].resolved) {
+						notifications.push(
+							{
+								notifieds: exports.notifieds(new_doc.owner, exports.collaboratorsLogins(new_doc.collaborators), login),
+								notification: {type: "discussion", text: login + " resolved the discussion \"" + old_doc.content[i].discussions[j].title + "\" which was about \"" + old_doc.content[i].title + "\" of \"" + old_doc.title + "\".", docId: new_doc.docId, sectionIndex: i, discussionIndex: j}
+							}
+						);
+					}
+					if (new_doc.content[i].discussions[j].posts.length > old_doc.content[i].discussions[j].posts.length) {
+						notifications.push(
+							{
+								notifieds: exports.notifieds(new_doc.owner, exports.collaboratorsLogins(new_doc.collaborators), login),
+								notification: {type: "discussion", text: login + " answered the discussion \"" + old_doc.content[i].discussions[j].title + "\" which was about \"" + old_doc.content[i].title + "\" of \"" + old_doc.title + "\".", docId: new_doc.docId, sectionIndex: i, discussionIndex: j, discussion: new_doc.content[i].discussions[j]}
+							}
+						);
+					}
 				}
 			}
 		}
