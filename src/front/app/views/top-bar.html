@@ -10,11 +10,11 @@
 					{{ user.login }}
 				</a>
 			</li>
-			<li class="divider-vertical"></li>	
+			<li class="divider-vertical" ng-hide="user.notifications.length == 0"></li>	
 
-			<li class="dropdown">
+			<li class="dropdown" ng-hide="user.notifications.length == 0">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					<span class="badge badge-important"> {{ user.notifications.length }}</span>
+					<span class="badge badge-important" > {{ user.notifications.length }}</span>
 					Notifications <b class="caret" ng-hide="user.notifications.length == 0"></b>
 				</a>
 
