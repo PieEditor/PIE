@@ -62,7 +62,6 @@ void process(FILE * input, FILE * output) {
 	while ((current = (char)fgetc(input)) != '#');
 	// Processing loop
 	while ((next = (char)fgetc(input)) != EOF) {
-		printf("%c\n", next);
 		// Ignore next character after some commands
 		if (state.ignore_next) {
 			state.ignore_next = 0;
@@ -100,7 +99,6 @@ void process(FILE * input, FILE * output) {
 		case '*' :	// Italic, bold, lists
 			if (last == '\n') {
 				if (next == ' ') {	// List
-					puts("New List");
 					if (!state.list) {
 						state.list = 1;
 						fputs(LIST_START_TAG, output);
@@ -108,7 +106,6 @@ void process(FILE * input, FILE * output) {
 					}
 					fputs(ITEM_START_TAG, output);
 				} else {
-					puts("New Paragraph");
 					state.paragraph = 1;
 					fputs(PARAGRAPH_START_TAG, output);
 				}
@@ -116,12 +113,10 @@ void process(FILE * input, FILE * output) {
 			}
 			if (!state.list) {
 				if (next == '*') {	// Bold
-					puts("BOLD");
 					fputs(state.bold ? SPAN_END_TAG : BOLD_START_TAG, output);
 					state.bold = state.bold ? 0 : 1;
 					state.ignore_next = 1;
 				} else {	// Italic
-					puts("Italic");
 					fputs(state.italic ? SPAN_END_TAG : ITALIC_START_TAG, output);
 					state.italic = state.italic ? 0 : 1;
 				}
