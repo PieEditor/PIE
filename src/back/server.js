@@ -65,8 +65,7 @@ api.register({
 }, function (params, response) {
 	couchWrapper.userGet(api.getLogin(params.token), function (user_object) {
 		if (user_object) {
-			couchWrapper.
-			docByUser(api.getLogin(params.token), function (docs_list) {
+			couchWrapper.docByUser(api.getLogin(params.token), function (docs_list) {
 				if (docs_list !== null) {
 					user_object.documents = docs_list;
 					response.writeHead(200, "OK");
@@ -180,16 +179,16 @@ api.register({
 					notifyio.notifyAll(notifications[i].notifieds, notifications[i].notification);
 				}
 			} else {
-				couchWrapper.docGet(params.docId, -1, function(old_doc) {
+				couchWrapper.docGet(params.docId, -1, function (old_doc) {
 					var notifications, i;
 					params.version += 1;
-					notifications = notifyio.notificationsOfChange(old_doc, params, api.getLogin(params.token));	
+					notifications = notifyio.notificationsOfChange(old_doc, params, api.getLogin(params.token));
 					for (i = 0; i < notifications.length; i += 1) {
-						notifyio.notifyAll(notifications[i].notifieds, notifications[i].notification);					}
-					console.log("kikoo");
+						notifyio.notifyAll(notifications[i].notifieds, notifications[i].notification);
+					}
 					console.log(JSON.stringify(notifications));
-				});					
-			}			
+				});
+			}
 			response.writeHead(201, "Created");
 			response.write(JSON.stringify(id));
 		} else {
@@ -206,13 +205,12 @@ api.register({
 }, function (params, response) {
 	couchWrapper.docGet(params.docId, -1, function (old_doc) {
 		var notifications, i;
-		var notifications;
-		notifications = notifyio.notificationsOfChange(old_doc, params, api.getLogin(params.token));	
+		notifications = notifyio.notificationsOfChange(old_doc, params, api.getLogin(params.token));
 		for (i = 0; i < notifications.length; i += 1) {
 			notifyio.notifyAll(notifications[i].notifieds, notifications[i].notification);
 		}
 		console.log(JSON.stringify(notifications));
-		
+
 		/* sanitize doc */
 		delete params.path;
 		delete params.token;
@@ -225,7 +223,7 @@ api.register({
 			}
 			response.end();
 		});
-	});	
+	});
 });
 
 api.register({
@@ -259,7 +257,7 @@ api.register({
 function make_sharps(n) {
 	var sharps = "", i;
 	for (i = 0; i < n; i += 1) {
-		sharps += "#"
+		sharps += "#";
 	}
 	return sharps;
 }

@@ -18,8 +18,9 @@ struct {
 	int list;
 	int ignore_next;
 	int hypertext;
+	int image;
 	int buffering;
-} state = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+} state = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 inline int is_special(char c) {
 	if ((c == '!') || (c == '?') || (c == ':') || (c == ';'))
@@ -101,16 +102,16 @@ void process(FILE * input, FILE * output) {
 					if (!state.list) {
 						state.list = 1;
 						fputs(LIST_START_TAG, output);
-						open_paragraph(output);
 						state.ignore_next = 1;
 					}
 					fputs(ITEM_START_TAG, output);
 				} else {
 					state.paragraph = 1;
 					fputs(PARAGRAPH_START_TAG, output);
-					open_paragraph(output);
 				}
-			} else {
+				open_paragraph(output);
+			}
+			if (!state.list) {
 				if (next == '*') {	// Bold
 					fputs(state.bold ? SPAN_END_TAG : BOLD_START_TAG, output);
 					state.bold = state.bold ? 0 : 1;
@@ -192,14 +193,21 @@ void process(FILE * input, FILE * output) {
 			fputs(xmlify(next), output);
 			state.ignore_next = 1;
 			break;
+		case '!' :
+			if (next == '[')
+				state.image = 1;
+			else fputc('!', output);
+			break;
 		case '[' :	// Hypertext
 			state.buffering = 1;
-			state.hypertext = 1;
+			if (!state.image)
+				state.hypertext = 1;
 			break;
 		case '(' :	// End of hypertext, start of URL
-			if (state.hypertext) {
+			if (state.hypertext)
 				fputs(LINK_START_TAG_BEGIN, output);
-			}
+			else if (state.image)
+				fputs(IMAGE_START_TAG, output);
 			else fputc('(', output);
 			break;
 		case ')' :	// End of URL
@@ -208,6 +216,10 @@ void process(FILE * input, FILE * output) {
 				fputs(text_buffer, output);
 				fputs(LINK_END_TAG, output);
 				state.hypertext = 0;
+			}
+			else if (state.image) {
+				fputs(IMAGE_END_TAG, output);
+				state.image = 0;
 			}
 			else fputc(')', output);
 			break;
