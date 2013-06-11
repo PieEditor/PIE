@@ -66,13 +66,7 @@ angular.module('pie')
 		},
 		downloadUrl: function() {
 			if (this.currentDocument === undefined) return;
-			if (this.currentLastVersion === undefined) return;
-
-			var url = apiBaseUrl + '/documents/' + this.currentDocument.docId;
-			if (this.currentDocument.version != this.currentLastVersion)
-				url += '/versions/' + this.currentDocument.version;
-
-			return url;
+			return apiBaseUrl + '/documents/' + this.currentDocument.docId + '/versions/' + this.currentDocument.version;
 		},
 		newIteration: function() {
 			var t = this;
