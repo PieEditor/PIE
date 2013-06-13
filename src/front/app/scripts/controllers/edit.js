@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('pie')
-.controller('EditController', function ($scope, $routeParams, $timeout, $location, $anchorScroll, authService, documentService, discussionService , tocService) {
+.controller('EditController', function ($scope, $routeParams, $location, $anchorScroll, authService, documentService, discussionService , tocService) {
 	authService
 	.ensureLogin()
 	.then(function() {
@@ -37,12 +37,12 @@ angular.module('pie')
 
 				// HACK
 				// scroll to section
-				$timeout(function() {
+				$scope.$evalAsync(function() {
 					var a = $location.hash();
 					$location.hash(documentService.currentDocument.content[$routeParams.sectionIndex].title);
 					$anchorScroll();
 					$location.hash(a);
-				}, 1000);
+				});
 			}
 		}
 	);
