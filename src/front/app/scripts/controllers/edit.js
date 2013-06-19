@@ -66,7 +66,8 @@ angular.module('pie')
 		}
 		else {
 			section.isMyContentEditable = ! section.content;
-			documentService.update();
+			//documentService.update();
+			documentService.patch(section);
 		}
 	};
 
