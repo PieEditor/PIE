@@ -217,12 +217,44 @@ api.register({
 		couchWrapper.docUpdate(params, function (success) {
 			if (success) {
 				response.writeHead(204, "No Content");
-				/* looking for new discussions */
 			} else {
 				response.writeHead(403, "Forbidden");
 			}
 			response.end();
 		});
+	});
+});
+
+api.register({
+	method: "PATCH",
+	path: "/documents/{id}",
+	needAuth: true
+}, function (params, response) {
+	couchWrapper.docGet(params.path.id, -1, function (old_doc) {
+		if (old_doc) {
+			var fields = params.replace.split("/");
+			if (fields[1] == "content" && fields[3] == "content" && old_doc[fields[1]][fields[2]]) {
+				console.log("replacing " + old_doc[fields[1]][fields[2]][fields[3]] + " by " + params.value);
+				old_doc[fields[1]][fields[2]][fields[3]] = params.value;
+				/* sanitize doc */
+				delete params.path;
+				delete params.token;
+				couchWrapper.docUpdate(old_doc, function (success) {
+					if (success) {
+						response.writeHead(204);
+					} else {
+						response.writeHead(403);
+					}
+					response.end();
+				});
+			} else {
+				response.writeHead(404);
+				response.end();
+			}			
+		} else {
+			response.writeHead(404);
+			response.end();
+		}
 	});
 });
 

@@ -167,8 +167,6 @@ Create a new document of which the owner is the authenticated user.
 
 Update the document of which the id is given.
 
-Note : Patching a document is not supported yet. Please replace the entire document.
-
 	PUT /documents/{id}
 
 #### Input
@@ -178,6 +176,20 @@ Note : Patching a document is not supported yet. Please replace the entire docum
 #### Response
 
 200 OK.
+
+### Patch a document
+
+Update a section of the document.
+
+	PATCH /documents/{id}
+
+#### Input
+	# replace the content of section 0 by string "Hoho"
+	{"replace":"/content/0/content", "value":"Hoho"}
+
+#### Response
+
+204 No content.
 
 ### Delete a document
 
