@@ -234,7 +234,6 @@ api.register({
 		if (old_doc) {
 			var fields = params.replace.split("/");
 			if (fields[1] == "content" && fields[3] == "content" && old_doc[fields[1]][fields[2]]) {
-				console.log("replacing " + old_doc[fields[1]][fields[2]][fields[3]] + " by " + params.value);
 				old_doc[fields[1]][fields[2]][fields[3]] = params.value;
 				/* sanitize doc */
 				delete params.path;
