@@ -52,6 +52,9 @@
 
 	curl -v -X PUT -b 'token=token' -d '{"_id":"id","_rev":"rev","owner":"foo","content":"kikooooooooooooooooooooooooooooooooo"}' 'http://127.0.0.1:8080/documents/id'
 
+### Update a section of the document
+	curl -X PATCH 'http://localhost:8080/documents/{doc_id}' -d'{"replace":"/content/0/content", "value":"Hoho"}' -b'token=token' -D-
+
 ### Delete a document
 
 	curl -v -X DELETE -b 'token=token' 'http://127.0.0.1:8080/documents/id'

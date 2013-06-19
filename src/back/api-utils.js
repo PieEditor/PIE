@@ -19,7 +19,7 @@ exports.getLogin = function (token) {
 
 function parseParams(request, body) {
 	var params = {};
-	if ((request.method === "POST" || request.method === "PUT" || request.method === "DELETE") && body) {
+	if ((request.method === "POST" || request.method === "PUT" || request.method == "PATCH" || request.method === "DELETE") && body) {
 		params = JSON.parse(body);
 	} else if (request.method === "GET") {
 		params = require("url").parse(request.url, true).query;
