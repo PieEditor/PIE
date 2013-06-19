@@ -50,6 +50,18 @@ angular.module('pie')
 			});
 			return p;
 		},
+		patch: function(section) {
+			var p = $http({
+				method: 'PATCH',
+				url: apiBaseUrl + '/documents/' + this.currentDocument._id,
+				data : {
+					replace: "/content/"+this.currentDocument.content.indexOf(section)+"/content",
+					value: section.content
+				},
+				withCredentials: true
+			});
+			return p;
+		},
 		create: function() {
 			this.currentDocument = {
 				title: '',
