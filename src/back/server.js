@@ -235,6 +235,13 @@ api.register({
 			var fields = params.replace.split("/");
 			if (fields[1] == "content" && fields[3] == "content" && old_doc[fields[1]][fields[2]]) {
 				old_doc[fields[1]][fields[2]][fields[3]] = params.value;
+
+				var notifications, i;
+				notifications = notifyio.notificationsOfPatch(old_doc, fields[2], api.getLogin(params.token));
+				for (i = 0; i < notifications.length; i += 1) {
+					notifyio.notifyAll(notifications[i].notifieds, notifications[i].notification);
+				}
+				console.log(JSON.stringify(notifications));
 				/* sanitize doc */
 				delete params.path;
 				delete params.token;

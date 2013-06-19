@@ -58,6 +58,17 @@ exports.notificationsOfCreation = function (doc) {
 	return notifications;
 };
 
+exports.notificationsOfPatch = function (doc, section, login) {
+	var notifications = [];
+	notifications.push(
+		{
+			notifieds: exports.notifieds(doc.owner, exports.collaboratorsLogins(doc.collaborators), login),
+			notification: {type: "section", text: login + " modified section \"" + doc.content[section].title + "\" of \"" + doc.title + "\".", docId: doc.docId, sectionIndex: section, content: doc.content[section].content}
+		}
+	);
+	return notifications;
+}
+
 function collaboratorsChanged(a, b) {
 	var new_coll = [], i;
 	if (!a || !b) {
