@@ -73,6 +73,15 @@ angular.module('pie')
 									}
 								}
 							}
+							if (data.type == 'section') {
+								// Partial update of a document
+								if (data.docId == documentService.currentDocument.docId) {
+									var sectionIndex = data.sectionIndex;
+									var content = data.content;
+									
+									documentService.currentDocument.content[sectionIndex].content = content;
+								}
+							}
 						}
 
 						$rootScope.$apply();
