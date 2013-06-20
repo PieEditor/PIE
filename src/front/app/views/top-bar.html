@@ -27,6 +27,7 @@
 						<a href="{{notification.path}}" ng-click="deleteNotification(notification)">
 							<i class="icon-file" ng-show="notification.type == 'document'"></i> 
 							<i class="icon-comment" ng-show="notification.type == 'discussion'"></i> 
+							<i class="icon-pencil" ng-show="notification.type == 'section'"></i> 
 							{{ notification.text }}
 						</a>
 					</li>
