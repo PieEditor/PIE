@@ -53,7 +53,7 @@ angular.module('pie')
 		patch: function(section) {
 			var p = $http({
 				method: 'PATCH',
-				url: apiBaseUrl + '/documents/' + this.currentDocument._id,
+				url: apiBaseUrl + '/documents/' + this.currentDocument.docId,
 				data : {
 					replace: "/content/"+this.currentDocument.content.indexOf(section)+"/content",
 					value: section.content
