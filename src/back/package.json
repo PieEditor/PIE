@@ -1,0 +1,14 @@
+{
+  "name": "pie-backend",
+  "version": "0.0.0",
+  "scripts": {
+  	"start": "node ./server.js"
+  },
+  "dependencies": {
+  	"socket.io": "*"
+  },
+  "license": "BSD",
+  "engines": {
+    "node": ">=0.10"
+  }
+}

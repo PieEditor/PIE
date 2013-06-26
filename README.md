@@ -29,7 +29,7 @@ $ bower install
 ### Back-end
 ```
 $ cd back
-$ npm install socket.io
+$ npm install
 ```
 
 Launch CouchDb and initialize the database:
@@ -60,7 +60,7 @@ To compile the web application, use `$ grunt build`. The website will be compile
 ### Back-end
 ```
 $ cd back
-$ node server.js
+$ npm start
 ```
 
 ### md2pdf
