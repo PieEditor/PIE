@@ -21,14 +21,14 @@ You'll need:
 
 ```
 # npm install -g grunt-cli bower
-$ cd front
+$ cd src/front
 $ npm install
 $ bower install
 ```
 
 ### Back-end
 ```
-$ cd back
+$ cd src/back
 $ npm install
 ```
 
@@ -41,7 +41,7 @@ $ node update-db.js
 
 ### md2pdf converter
 ```
-$ cd md2pdf
+$ cd src/md2pdf
 $ make
 ```
 
@@ -50,7 +50,7 @@ $ make
 ### Front-end
 
 ```
-$ cd front
+$ cd src/front
 ```
 
 To run the test server: `$ grunt server`.
@@ -59,13 +59,13 @@ To compile the web application, use `$ grunt build`. The website will be compile
 
 ### Back-end
 ```
-$ cd back
+$ cd src/back
 $ npm start
 ```
 
 ### md2pdf
 ```
-$ cd md2pdf
+$ cd src/md2pdf
 $ node convert.js
 ```
 
