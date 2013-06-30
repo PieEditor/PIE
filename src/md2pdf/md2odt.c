@@ -8,11 +8,8 @@ struct {
 	int italic;
 	int bold;
 	int mono;
-	int sub;
-	int sup;
 	int title_level;
 	int double_quote;
-	int single_quote;
 	int paragraph;
 	int code;
 	int list;
@@ -20,7 +17,7 @@ struct {
 	int hypertext;
 	int image;
 	int buffering;
-} state = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+} state = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 inline int is_special(char c) {
 	if ((c == '!') || (c == '?') || (c == ':') || (c == ';'))
@@ -126,18 +123,6 @@ void process(FILE * input, FILE * output) {
 			fputs(state.mono ? SPAN_END_TAG : MONO_START_TAG, output);
 			state.mono = state.mono ? 0 : 1;
 			break;
-		case '<' :	// Start of superscript or end of subscript
-			fputs(state.sub ? SPAN_END_TAG : SUP_START_TAG, output);
-			if (state.sub)
-				state.sub = 0;
-			else state.sup = 1;
-			break;
-		case '>' :	// Start of subscript or end of superscript
-			fputs(state.sup ? SPAN_END_TAG : SUB_START_TAG, output);
-			if (state.sup)
-				state.sup = 0;
-			else state.sub = 1;
-			break;
 		case '#' :	// Title
 			if (state.title_level < MAX_TITLE_LEVEL)
 				state.title_level += 1;
@@ -147,7 +132,7 @@ void process(FILE * input, FILE * output) {
 			}
 			break;
 		case '\n' :	// Line break : new paragraph
-			for (i = 0 ; i < state.mono + state.bold + state.italic + state.sub + state.sup ; i++)
+			for (i = 0 ; i < state.mono + state.bold + state.italic ; i++)
 				fputs(SPAN_END_TAG, output);
 			if (state.title_level != 0) {
 				state.title_level = 0;
@@ -174,8 +159,7 @@ void process(FILE * input, FILE * output) {
 			else fputc(' ', output);
 			break;
 		case '\'' :	// Single quote
-			fputs(state.single_quote ? SINGLE_QUOTE_END : SINGLE_QUOTE_START, output);
-			state.single_quote = state.single_quote ? 0 : 1;
+			fputs(((last == ' ') || (last == '\n')) ? SINGLE_QUOTE_START : SINGLE_QUOTE_END, output);
 			break;
 		case '\"' :	// Double quote
 			fputs(state.double_quote ? DOUBLE_QUOTE_END : DOUBLE_QUOTE_START, output);
@@ -235,14 +219,12 @@ void process(FILE * input, FILE * output) {
 			fputc(current, output);
 			break;
 		}
-		if ((next == '\'') && (!((last == '\n') || (last == ' '))))
-			state.single_quote = 1;
 		last = current;
 		current = next;
 	}
 	fputc(current, output);
 	// Close everything
-	for (i = 0 ; i < state.mono + state.bold + state.italic + state.sub + state.sup ; i++)
+	for (i = 0 ; i < state.mono + state.bold + state.italic ; i++)
 		fputs(SPAN_END_TAG, output);
 	if (state.code || state.paragraph)
 		fputs(PARAGRAPH_END_TAG, output);
