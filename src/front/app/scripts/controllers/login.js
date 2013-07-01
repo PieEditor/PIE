@@ -2,7 +2,12 @@
 
 angular.module('pie')
 .controller('LoginController', function ($scope, $resource, $routeParams, $location, authService) {
-	
+
+	// Auto redirect to profile page if the user is already connected.
+	authService.ensureLogin().success(function() {
+		$location.path('/profile');
+	});
+
 	/******************************************/
 	/** Initialisation and general functions **/
 	/******************************************/
