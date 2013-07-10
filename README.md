@@ -17,6 +17,8 @@ You'll need:
 * CouchDb
 * Python
 
+... and PIE's sources: `$ git clone https://github.com/PieEditor/PIE.git`
+
 ### Front-end
 
 ```
@@ -70,7 +72,19 @@ $ node convert.js
 ```
 
 ## Deploy
-We built the `deploy.sh` script to help you deploy easily PIE to any server. SSH into your server, create a new user named `pie` and git clone the repository into its folder `~/devel/Communities/`.
+We built the `deploy.sh` script to help you deploy easily PIE to any server. SSH into your server, create a new user named `pie` and git clone the repository into its folder `~/PIE/` :
 
+```
+$ cd
+$ git clone https://github.com/PieEditor/PIE.git
+```
 
 Everytime you want to deploy the application, run from your computer  `$ ./deploy.sh my.server.com` to automagically get the latest sources from GitHub and deploy the application on your server.
+
+Here is a sample Apache configuration, which will serve PIE's compiled sources:
+```
+<VirtualHost pie.example.org>
+        ServerName pie.example.org
+        DocumentRoot /home/pie/PIE/src/front/dist/
+</VirtualHost>
+```
