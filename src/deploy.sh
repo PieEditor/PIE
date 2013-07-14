@@ -8,4 +8,4 @@
 # $ ./deploy.sh another.server.com
 
 host=${1:-yimgo.fr}
-ssh pie@$host "cd PIE; git pull; make -C src/md2pdf; cd src/front; killall node; npm install ; bower install ; grunt build ; cd ../back ; node init-db.js ; node update-db.js ; npm install ; (nohup npm start > server.js.out 2> server.js.err &) ; cd ../md2pdf ; (nohup node convert.js > convert.js.out 2> convert.js.out &)"
+ssh pie@$host "if [ ! -d \"PIE\" ]; then git clone \"https://github.com/PieEditor/PIE.git\"; fi; cd PIE; git pull; make -C src/md2pdf; cd src/front; killall node; npm install ; bower install ; grunt build ; cd ../back ; node init-db.js ; node update-db.js ; npm install ; (nohup npm start > server.js.out 2> server.js.err &) ; cd ../md2pdf ; (nohup node convert.js > convert.js.out 2> convert.js.out &)"
