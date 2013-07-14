@@ -81,10 +81,23 @@ $ git clone https://github.com/PieEditor/PIE.git
 
 Everytime you want to deploy the application, run from your computer  `$ ./deploy.sh my.server.com` to automagically get the latest sources from GitHub and deploy the application on your server.
 
-Here is a sample Apache configuration, which will serve PIE's compiled sources:
+### Serve PIE
+
+Here are sample configurations, which will serve PIE's compiled sources.
+
+#### Apache
+
 ```
 <VirtualHost pie.example.org>
         ServerName pie.example.org
         DocumentRoot /home/pie/PIE/src/front/dist/
 </VirtualHost>
+```
+
+#### lighttpd
+
+```
+$HTTP["host"] == "pie.example.com" {
+	server.document-root = "/home/pie/PIE/src/front/dist"
+}
 ```
