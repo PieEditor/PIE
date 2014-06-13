@@ -1,7 +1,7 @@
 # PIE
 
 ## Goal
-PIE is a collaborative workshop for document edition. You can create a document, edit it using Markdown, assign a section to a collaborator (she will be responsible for it) and export to ODT and PDF. You can discuss each section independently to help improve the document.
+PIE is a collaborative workshop for document edition. You can create a document, edit it using Markdown, assign a section to a collaborator (she will be responsible for it) and export to ODT and PDF. You can discuss each section independently to help improve the document. The goal of the project was to follow the natural team behavior of document writing. So our tool provide a strong task assignement process where each person is responsible for the avancement of his task ( close discussion, validate work step by step, get real time notifications...)
 
 ## Installation
 
